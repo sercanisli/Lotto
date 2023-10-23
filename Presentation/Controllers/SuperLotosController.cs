@@ -18,84 +18,49 @@ namespace Presentation.Controllers
         [HttpGet]
         public IActionResult GetAllNumbersArray()
         {
-            try
-            {
-                var numbers = _manager.SuperLotoService.GetAllNumbersArrays(false);
-                return Ok(numbers);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            var numbers = _manager.SuperLotoService.GetAllNumbersArrays(false);
+            return Ok(numbers);
         }
 
         [HttpGet("{id:int}")]
         public IActionResult GetOneNumbersArrayById([FromRoute(Name = "id")] int id)
         {
-            try
+            throw new Exception("!!");
+            var array = _manager.SuperLotoService.GetOneNumbersArrayById(id, false);
+            if (array == null)
             {
-                var array = _manager.SuperLotoService.GetOneNumbersArrayById(id, false);
-                if (array == null)
-                {
-                    return NotFound();
-                }
-                return Ok(array);
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            return Ok(array);
         }
 
         [HttpPost]
         public IActionResult CreateOneNumbersArray([FromBody] SuperLoto superLoto)
         {
-            try
+            if (superLoto == null)
             {
-                if (superLoto == null)
-                {
-                    return BadRequest();
-                }
-                _manager.SuperLotoService.CreateOneNumbersArray(superLoto);
-                return StatusCode(201, superLoto);
+                return BadRequest();
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            _manager.SuperLotoService.CreateOneNumbersArray(superLoto);
+            return StatusCode(201, superLoto);
         }
 
         [HttpPut("{id:int}")]
         public IActionResult UpdateOneNumbersArray([FromRoute(Name = "id")] int id, [FromBody] SuperLoto superLoto)
         {
-            try
+            if (superLoto == null)
             {
-                if (superLoto == null)
-                {
-                    return BadRequest();
-                }
-                _manager.SuperLotoService.UpdateOneNumbersArray(id, superLoto, true);
-                return NoContent();
+                return BadRequest();
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            _manager.SuperLotoService.UpdateOneNumbersArray(id, superLoto, true);
+            return NoContent();
         }
 
         [HttpDelete("{id:int}")]
         public IActionResult DeleteOneNumbersArray([FromRoute(Name = "id")] int id)
         {
-            try
-            {
-
-                _manager.SuperLotoService.DeleteOneNumbersArray(id, false);
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            _manager.SuperLotoService.DeleteOneNumbersArray(id, false);
+            return NoContent();
         }
     }
 }
