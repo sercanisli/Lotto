@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Repositories.Cantracts;
 
 namespace Repositories.EntityFrameworkCore
 {
-    internal class RepositoryManager
+    public class RepositoryManager : IRepositoryManager
     {
+        private readonly RepositoryContext _context;
+        private readonly Lazy<ISuperLotoRepository> _superLotoRepository;
+
+        public RepositoryManager(RepositoryContext context)
+        {
+            _context = context;
+            _superLotoRepository = new Lazy<ISuperLotoRepository>(() => new SuperLotoRepository(_context));
+        }
+
+        public ISuperLotoRepository SuperLoto => _superLotoRepository.Value;
+
+        public void Save() => _context.SaveChanges();
     }
 }
