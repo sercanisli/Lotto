@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.DataTransferObjects;
+using Entities.Models;
 
 namespace Services.Contracts
 {
@@ -7,7 +8,7 @@ namespace Services.Contracts
         IEnumerable<SuperLoto> GetAllNumbersArrays(bool trackChanges);
         SuperLoto GetOneNumbersArrayById(int id, bool trackChanges);
         SuperLoto CreateOneNumbersArray(SuperLoto superLoto);
-        void UpdateOneNumbersArray(int id, SuperLoto superLoto, bool trackChanges);
+        void UpdateOneNumbersArray(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges);
         void DeleteOneNumbersArray(int id, bool trackChanges);
 
     }

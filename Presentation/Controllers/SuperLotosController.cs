@@ -1,4 +1,5 @@
-﻿using Entities.Exceptions;
+﻿using Entities.DataTransferObjects;
+using Entities.Exceptions;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
@@ -42,13 +43,13 @@ namespace Presentation.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneNumbersArray([FromRoute(Name = "id")] int id, [FromBody] SuperLoto superLoto)
+        public IActionResult UpdateOneNumbersArray([FromRoute(Name = "id")] int id, [FromBody] SuperLotoDtoForUpdate superLotoDto)
         {
-            if (superLoto == null)
+            if (superLotoDto == null)
             {
                 return BadRequest();
             }
-            _manager.SuperLotoService.UpdateOneNumbersArray(id, superLoto, true);
+            _manager.SuperLotoService.UpdateOneNumbersArray(id, superLotoDto, true);
             return NoContent();
         }
 

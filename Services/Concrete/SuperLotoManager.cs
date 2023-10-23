@@ -1,4 +1,6 @@
-﻿using Entities.Exceptions;
+﻿using AutoMapper;
+using Entities.DataTransferObjects;
+using Entities.Exceptions;
 using Entities.Models;
 using Repositories.Cantracts;
 using Services.Contracts;
@@ -9,11 +11,13 @@ namespace Services.Concrete
     {
         private readonly IRepositoryManager _manager;
         private readonly ILoggerService _logger;
+        private readonly IMapper _mapper;
 
-        public SuperLotoManager(IRepositoryManager manager, ILoggerService logger)
+        public SuperLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper)
         {
             _manager = manager;
             _logger = logger;
+            _mapper = mapper;
         }
 
         public SuperLoto CreateOneNumbersArray(SuperLoto superLoto)
@@ -49,15 +53,15 @@ namespace Services.Concrete
             return entity;
         }
 
-        public void UpdateOneNumbersArray(int id, SuperLoto superLoto, bool trackChanges)
+        public void UpdateOneNumbersArray(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges)
         {
             var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, false);
             if (entity == null)
             {
                 throw new SuperLotoNotFoundException(id);
             }
-           
-            entity.Numbers = superLoto.Numbers;
+
+            entity = _mapper.Map<SuperLoto>(superLotoDto);
 
             _manager.SuperLoto.UpdateOneNubersArray(entity);
             _manager.Save();
