@@ -1,6 +1,6 @@
 ﻿using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
-using Repositories.EntityFrameworkCore;
+using Repositories.Cantracts;
 
 namespace WebApi.Controllers
 {
@@ -8,11 +8,11 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class SuperLotoController : ControllerBase
     {
-        private readonly RepositoryContext _context;
+        private readonly IRepositoryManager _manager;
 
-        public SuperLotoController(RepositoryContext context)
+        public SuperLotoController(IRepositoryManager manager)
         {
-            _context = context;
+            _manager = manager;
         }
 
         [HttpGet]
@@ -20,7 +20,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var numbers = _context.SuperLotos.ToList();
+                var numbers = _manager.SuperLoto.GetAllNumbersArray(false);
                 return Ok(numbers);
             }
             catch (Exception ex)
@@ -34,7 +34,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var array = _context.SuperLotos.Where(sl => sl.Id == id).SingleOrDefault();
+                var array = _manager.SuperLoto.GetOneNumbersArrayById(id, false);
                 if (array == null)
                 {
                     return NotFound();
@@ -56,8 +56,8 @@ namespace WebApi.Controllers
                 {
                     return BadRequest();
                 }
-                _context.SuperLotos.Add(superLoto);
-                _context.SaveChanges();
+                _manager.SuperLoto.CreateOneNumbersArray(superLoto);
+                _manager.Save();
                 return StatusCode(201, superLoto);
             }
             catch (Exception ex)
@@ -71,7 +71,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var entity = _context.SuperLotos.Where(sl => sl.Id == id).SingleOrDefault();
+                var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, true);
                 if (entity == null)
                 {
                     return NotFound();
@@ -81,7 +81,7 @@ namespace WebApi.Controllers
                     return BadRequest();
                 }
                 entity.Numbers = superLoto.Numbers;
-                _context.SaveChanges();
+                _manager.Save();
                 return Ok(entity);
             }
             catch (Exception ex)
@@ -95,7 +95,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var entity = _context.SuperLotos.Where(sl => sl.Id == id).SingleOrDefault();
+                var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, false);
                 if (entity == null)
                 {
                     return NotFound(new
@@ -104,8 +104,8 @@ namespace WebApi.Controllers
                         message = $"Array with id:{id} could not found."
                     });
                 }
-                _context.Remove(entity);
-                _context.SaveChanges();
+                _manager.SuperLoto.DeleteOneNumbersArray(entity);
+                _manager.Save();
                 return NoContent();
             }
             catch (Exception ex)

@@ -16,8 +16,8 @@ namespace Repositories.EntityFrameworkCore
         public IQueryable<SuperLoto> GetAllNumbersArray(bool trackChanges) =>
             FindAll(trackChanges);
 
-        public IQueryable<SuperLoto> GetOneNumbersArrayById(int id, bool trackChanges) =>
-            FindByCondition(sl => sl.Id == id, trackChanges);
+        public SuperLoto GetOneNumbersArrayById(int id, bool trackChanges) =>
+            FindByCondition(sl => sl.Id == id, trackChanges).SingleOrDefault();
 
         public void UpdateOneNubersArray(SuperLoto superLoto) => Update(superLoto);
     }
