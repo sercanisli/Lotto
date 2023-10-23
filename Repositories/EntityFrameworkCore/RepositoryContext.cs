@@ -1,8 +1,8 @@
 ﻿using Entities.Models;
 using Microsoft.EntityFrameworkCore;
-using WebApi.Repositories.Configuration;
+using Repositories.EntityFrameworkCore.Configuration;
 
-namespace WebApi.Repositories
+namespace Repositories.EntityFrameworkCore
 {
     public class RepositoryContext : DbContext
     {
@@ -10,7 +10,7 @@ namespace WebApi.Repositories
 
         public RepositoryContext(DbContextOptions options) : base(options)
         {
-            
+
         }
 
 
@@ -18,6 +18,5 @@ namespace WebApi.Repositories
         {
             modelBuilder.ApplyConfiguration(new SuperLotoConfiguration());
         }
-
     }
 }

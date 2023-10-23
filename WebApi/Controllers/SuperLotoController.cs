@@ -1,6 +1,6 @@
 ﻿using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Repositories;
+using Repositories.EntityFrameworkCore;
 
 namespace WebApi.Controllers
 {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace WebApi.Repositories.Configuration
+namespace Repositories.EntityFrameworkCore.Configuration
 {
     public class SuperLotoConfiguration : IEntityTypeConfiguration<SuperLoto>
     {
@@ -19,7 +19,7 @@ namespace WebApi.Repositories.Configuration
                 new SuperLoto
                 {
                     Id = 1,
-                    Numbers = new List<int> { 45,26,17,6,27,60}
+                    Numbers = new List<int> { 45, 26, 17, 6, 27, 60 }
                 },
                 new SuperLoto
                 {
