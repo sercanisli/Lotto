@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 
-namespace WebApi.Controllers
+namespace Presentation.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/superloto")]
     public class SuperLotoController : ControllerBase
     {
         private readonly IServiceManager _manager;
@@ -48,11 +48,11 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOneNumbersArray([FromBody]SuperLoto superLoto)
+        public IActionResult CreateOneNumbersArray([FromBody] SuperLoto superLoto)
         {
             try
             {
-                if(superLoto == null)
+                if (superLoto == null)
                 {
                     return BadRequest();
                 }
@@ -66,7 +66,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneNumbersArray([FromRoute(Name = "id")] int id, [FromBody]SuperLoto superLoto)
+        public IActionResult UpdateOneNumbersArray([FromRoute(Name = "id")] int id, [FromBody] SuperLoto superLoto)
         {
             try
             {
@@ -74,7 +74,7 @@ namespace WebApi.Controllers
                 {
                     return BadRequest();
                 }
-                _manager.SuperLotoService.UpdateOneNumbersArray(id, superLoto,true);
+                _manager.SuperLotoService.UpdateOneNumbersArray(id, superLoto, true);
                 return NoContent();
             }
             catch (Exception ex)
@@ -88,8 +88,8 @@ namespace WebApi.Controllers
         {
             try
             {
-                
-                _manager.SuperLotoService.DeleteOneNumbersArray(id,false);
+
+                _manager.SuperLotoService.DeleteOneNumbersArray(id, false);
                 return NoContent();
             }
             catch (Exception ex)
