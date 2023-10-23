@@ -1,4 +1,5 @@
 ﻿using Entities.ErrorModels;
+using Entities.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 using Services.Contracts;
 using System.Net;
@@ -13,18 +14,23 @@ namespace WebApi.Extensions
             {
                 appError.Run(async context =>
                 {
-                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     context.Response.ContentType = "application/json";
 
                     var contextFeatures = context.Features.Get<IExceptionHandlerFeature>();
                     if (contextFeatures != null)
                     {
+                        context.Response.StatusCode = contextFeatures.Error switch
+                        {
+                            NotFoundException => StatusCodes.Status404NotFound,
+                            _ => StatusCodes.Status500InternalServerError
+                        };
+
                         logger.LogError($"Something went wrong : {contextFeatures.Error}");
 
                         await context.Response.WriteAsync(new ErrorDetails()
                         {
                             StatusCode=context.Response.StatusCode,
-                            Message = "Internal Server Error"
+                            Message = contextFeatures.Error.Message
                         }.ToString());
                     }
                 });
