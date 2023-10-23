@@ -16,7 +16,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllNumbers()
+        public IActionResult GetAllNumbersArray()
         {
             try
             {
