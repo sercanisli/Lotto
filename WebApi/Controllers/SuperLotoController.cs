@@ -1,6 +1,6 @@
 ﻿using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
-using Repositories.Cantracts;
+using Services.Contracts;
 
 namespace WebApi.Controllers
 {
@@ -8,9 +8,9 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class SuperLotoController : ControllerBase
     {
-        private readonly IRepositoryManager _manager;
+        private readonly IServiceManager _manager;
 
-        public SuperLotoController(IRepositoryManager manager)
+        public SuperLotoController(IServiceManager manager)
         {
             _manager = manager;
         }
@@ -20,7 +20,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var numbers = _manager.SuperLoto.GetAllNumbersArray(false);
+                var numbers = _manager.SuperLotoService.GetAllNumbersArrays(false);
                 return Ok(numbers);
             }
             catch (Exception ex)
@@ -34,7 +34,7 @@ namespace WebApi.Controllers
         {
             try
             {
-                var array = _manager.SuperLoto.GetOneNumbersArrayById(id, false);
+                var array = _manager.SuperLotoService.GetOneNumbersArrayById(id, false);
                 if (array == null)
                 {
                     return NotFound();
@@ -56,8 +56,7 @@ namespace WebApi.Controllers
                 {
                     return BadRequest();
                 }
-                _manager.SuperLoto.CreateOneNumbersArray(superLoto);
-                _manager.Save();
+                _manager.SuperLotoService.CreateOneNumbersArray(superLoto);
                 return StatusCode(201, superLoto);
             }
             catch (Exception ex)
@@ -71,18 +70,12 @@ namespace WebApi.Controllers
         {
             try
             {
-                var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, true);
-                if (entity == null)
-                {
-                    return NotFound();
-                }
-                if(id!=superLoto.Id)
+                if (superLoto == null)
                 {
                     return BadRequest();
                 }
-                entity.Numbers = superLoto.Numbers;
-                _manager.Save();
-                return Ok(entity);
+                _manager.SuperLotoService.UpdateOneNumbersArray(id, superLoto,true);
+                return NoContent();
             }
             catch (Exception ex)
             {
@@ -95,17 +88,8 @@ namespace WebApi.Controllers
         {
             try
             {
-                var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, false);
-                if (entity == null)
-                {
-                    return NotFound(new
-                    {
-                        StatusCode = 404,
-                        message = $"Array with id:{id} could not found."
-                    });
-                }
-                _manager.SuperLoto.DeleteOneNumbersArray(entity);
-                _manager.Save();
+                
+                _manager.SuperLotoService.DeleteOneNumbersArray(id,false);
                 return NoContent();
             }
             catch (Exception ex)

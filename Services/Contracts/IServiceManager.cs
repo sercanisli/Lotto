@@ -2,6 +2,6 @@
 {
     public interface IServiceManager
     {
-        ISuperLotoService SuperLoto { get; }
+        ISuperLotoService SuperLotoService { get; }
     }
 }

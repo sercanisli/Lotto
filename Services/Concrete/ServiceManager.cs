@@ -10,6 +10,6 @@ namespace Services.Concrete
         {
             _superLotoService = new Lazy<ISuperLotoService>(() => new SuperLotoManager(repositoryManager));
         }
-        public ISuperLotoService SuperLoto => _superLotoService.Value;
+        public ISuperLotoService SuperLotoService => _superLotoService.Value;
     }
 }
