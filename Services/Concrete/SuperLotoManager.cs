@@ -7,18 +7,16 @@ namespace Services.Concrete
     public class SuperLotoManager : ISuperLotoService
     {
         private readonly IRepositoryManager _manager;
+        private readonly ILoggerService _logger;
 
-        public SuperLotoManager(IRepositoryManager manager)
+        public SuperLotoManager(IRepositoryManager manager, ILoggerService logger)
         {
             _manager = manager;
+            _logger = logger;
         }
 
         public SuperLoto CreateOneNumbersArray(SuperLoto superLoto)
         {
-            if(superLoto == null)
-            {
-                throw new ArgumentNullException(nameof(superLoto));
-            }
             _manager.SuperLoto.CreateOneNumbersArray(superLoto);
             _manager.Save();
             return superLoto;
@@ -29,7 +27,9 @@ namespace Services.Concrete
             var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, false);
             if(entity == null) 
             {
-                throw new Exception($"Super Loto wit id: {id} could not found.");
+                string message = $"Super Loto wit id: {id} could not found.";
+                _logger.LogInfo(message);
+                throw new Exception(message);
             }
             _manager.SuperLoto.DeleteOneNumbersArray(entity);
             _manager.Save();
@@ -50,7 +50,9 @@ namespace Services.Concrete
             var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, false);
             if (entity == null)
             {
-                throw new Exception($"Super Loto wit id: {id} could not found.");
+                string message = $"Super Loto wit id: {id} could not found.";
+                _logger.LogInfo(message);
+                throw new Exception(message);
             }
             if (superLoto == null)
             {
