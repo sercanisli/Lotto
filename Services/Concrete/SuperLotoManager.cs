@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Exceptions;
+using Entities.Models;
 using Repositories.Cantracts;
 using Services.Contracts;
 
@@ -25,11 +26,9 @@ namespace Services.Concrete
         public void DeleteOneNumbersArray(int id, bool trackChanges)
         {
             var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, false);
-            if(entity == null) 
+            if (entity == null)
             {
-                string message = $"Super Loto wit id: {id} could not found.";
-                _logger.LogInfo(message);
-                throw new Exception(message);
+                throw new SuperLotoNotFoundException(id);
             }
             _manager.SuperLoto.DeleteOneNumbersArray(entity);
             _manager.Save();
@@ -37,12 +36,17 @@ namespace Services.Concrete
 
         public IEnumerable<SuperLoto> GetAllNumbersArrays(bool trackChanges)
         {
-            return _manager.SuperLoto.GetAllNumbersArray(trackChanges); 
+            return _manager.SuperLoto.GetAllNumbersArray(trackChanges);
         }
 
         public SuperLoto GetOneNumbersArrayById(int id, bool trackChanges)
         {
-            return _manager.SuperLoto.GetOneNumbersArrayById(id, trackChanges);
+            var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, trackChanges);
+            if (entity == null)
+            {
+                throw new SuperLotoNotFoundException(id);
+            }
+            return entity;
         }
 
         public void UpdateOneNumbersArray(int id, SuperLoto superLoto, bool trackChanges)
@@ -50,15 +54,10 @@ namespace Services.Concrete
             var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, false);
             if (entity == null)
             {
-                string message = $"Super Loto wit id: {id} could not found.";
-                _logger.LogInfo(message);
-                throw new Exception(message);
+                throw new SuperLotoNotFoundException(id);
             }
-            if (superLoto == null)
-            {
-                throw new ArgumentNullException(nameof(superLoto));
-            }
-            entity.Numbers=superLoto.Numbers;
+           
+            entity.Numbers = superLoto.Numbers;
 
             _manager.SuperLoto.UpdateOneNubersArray(entity);
             _manager.Save();

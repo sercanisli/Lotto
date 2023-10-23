@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Exceptions;
+using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 
@@ -25,12 +26,7 @@ namespace Presentation.Controllers
         [HttpGet("{id:int}")]
         public IActionResult GetOneNumbersArrayById([FromRoute(Name = "id")] int id)
         {
-            throw new Exception("!!");
             var array = _manager.SuperLotoService.GetOneNumbersArrayById(id, false);
-            if (array == null)
-            {
-                return NotFound();
-            }
             return Ok(array);
         }
 
