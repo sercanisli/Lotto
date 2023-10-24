@@ -20,11 +20,12 @@ namespace Services.Concrete
             _mapper = mapper;
         }
 
-        public SuperLoto CreateOneNumbersArray(SuperLoto superLoto)
+        public SuperLotoDto CreateOneNumbersArray(SuperLotoDtoForInsertion superLotoDto)
         {
-            _manager.SuperLoto.CreateOneNumbersArray(superLoto);
+            var entity = _mapper.Map<SuperLoto>(superLotoDto);
+            _manager.SuperLoto.CreateOneNumbersArray(entity);
             _manager.Save();
-            return superLoto;
+            return _mapper.Map<SuperLotoDto>(entity);
         }
 
         public void DeleteOneNumbersArray(int id, bool trackChanges)
@@ -44,14 +45,15 @@ namespace Services.Concrete
             return _mapper.Map<IEnumerable<SuperLotoDto>>(entities);
         }
 
-        public SuperLoto GetOneNumbersArrayById(int id, bool trackChanges)
+        public SuperLotoDto GetOneNumbersArrayById(int id, bool trackChanges)
         {
             var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, trackChanges);
             if (entity == null)
             {
                 throw new SuperLotoNotFoundException(id);
             }
-            return entity;
+
+            return _mapper.Map<SuperLotoDto>(entity);
         }
 
         public void UpdateOneNumbersArray(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges)

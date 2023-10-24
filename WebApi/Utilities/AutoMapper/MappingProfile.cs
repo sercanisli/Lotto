@@ -10,6 +10,7 @@ namespace WebApi.Utilities.AutoMapper
         {
             CreateMap<SuperLoto, SuperLotoDto>().ReverseMap();
             CreateMap<SuperLotoDtoForUpdate, SuperLoto>().ReverseMap();
+            CreateMap<SuperLotoDtoForInsertion, SuperLoto>().ReverseMap();
         }
     }
 }
