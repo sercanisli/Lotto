@@ -38,9 +38,10 @@ namespace Services.Concrete
             _manager.Save();
         }
 
-        public IEnumerable<SuperLoto> GetAllNumbersArrays(bool trackChanges)
+        public IEnumerable<SuperLotoDto> GetAllNumbersArrays(bool trackChanges)
         {
-            return _manager.SuperLoto.GetAllNumbersArray(trackChanges);
+            var entities = _manager.SuperLoto.GetAllNumbersArray(trackChanges);
+            return _mapper.Map<IEnumerable<SuperLotoDto>>(entities);
         }
 
         public SuperLoto GetOneNumbersArrayById(int id, bool trackChanges)

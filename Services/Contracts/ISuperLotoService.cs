@@ -5,7 +5,7 @@ namespace Services.Contracts
 {
     public interface ISuperLotoService
     {
-        IEnumerable<SuperLoto> GetAllNumbersArrays(bool trackChanges);
+        IEnumerable<SuperLotoDto> GetAllNumbersArrays(bool trackChanges);
         SuperLoto GetOneNumbersArrayById(int id, bool trackChanges);
         SuperLoto CreateOneNumbersArray(SuperLoto superLoto);
         void UpdateOneNumbersArray(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges);
