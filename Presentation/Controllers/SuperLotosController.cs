@@ -1,5 +1,4 @@
 ﻿using Entities.DataTransferObjects;
-using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 
@@ -37,6 +36,10 @@ namespace Presentation.Controllers
             {
                 return BadRequest();
             }
+            if(!ModelState.IsValid)
+            {
+                return UnprocessableEntity(ModelState);
+            }
             var entity = _manager.SuperLotoService.CreateOneNumbersArray(superLotoDto);
             return StatusCode(201, entity);
         }
@@ -48,7 +51,11 @@ namespace Presentation.Controllers
             {
                 return BadRequest();
             }
-            _manager.SuperLotoService.UpdateOneNumbersArray(id, superLotoDto, true);
+            if (!ModelState.IsValid)
+            {
+                return UnprocessableEntity(ModelState);
+            }
+            _manager.SuperLotoService.UpdateOneNumbersArray(id, superLotoDto, false);
             return NoContent();
         }
 
