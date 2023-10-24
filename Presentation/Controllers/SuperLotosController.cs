@@ -1,5 +1,4 @@
 ﻿using Entities.DataTransferObjects;
-using Entities.Exceptions;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
@@ -32,14 +31,14 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOneNumbersArray([FromBody] SuperLoto superLoto)
+        public IActionResult CreateOneNumbersArray([FromBody] SuperLotoDtoForInsertion superLotoDto)
         {
-            if (superLoto == null)
+            if (superLotoDto == null)
             {
                 return BadRequest();
             }
-            _manager.SuperLotoService.CreateOneNumbersArray(superLoto);
-            return StatusCode(201, superLoto);
+            var entity = _manager.SuperLotoService.CreateOneNumbersArray(superLotoDto);
+            return StatusCode(201, entity);
         }
 
         [HttpPut("{id:int}")]
