@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace Entities.DataTransferObjects
+﻿namespace Entities.DataTransferObjects
 {
     [Serializable]
     public record SuperLotoDto

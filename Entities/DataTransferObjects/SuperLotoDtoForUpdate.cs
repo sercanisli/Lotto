@@ -1,13 +1,11 @@
-﻿namespace Entities.DataTransferObjects
-{
-    public record SuperLotoDtoForUpdate
-    {
-        public int Id { get; init; }
-        public List<int> Numbers { get; init; }
+﻿using Entities.Validations;
+using System.ComponentModel.DataAnnotations;
 
-        public SuperLotoDtoForUpdate()
-        {
-            Numbers = new List<int>();
-        }
+namespace Entities.DataTransferObjects
+{
+    public record SuperLotoDtoForUpdate : SuperLotoDtoForManipulation
+    {
+        [Required]
+        public int Id { get; init; }
     }
 }
