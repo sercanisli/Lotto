@@ -15,6 +15,6 @@ namespace Repositories.EntityFrameworkCore
 
         public ISuperLotoRepository SuperLoto => _superLotoRepository.Value;
 
-        public void Save() => _context.SaveChanges();
+        public async Task SaveAsync() => await _context.SaveChangesAsync();
     }
 }

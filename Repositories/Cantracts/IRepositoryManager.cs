@@ -4,6 +4,6 @@
     {
         ISuperLotoRepository SuperLoto { get; }
 
-        void Save();
+        Task SaveAsync();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Cantracts;
 
 namespace Repositories.EntityFrameworkCore
@@ -13,11 +14,11 @@ namespace Repositories.EntityFrameworkCore
 
         public void DeleteOneNumbersArray(SuperLoto superLoto) => Delete(superLoto);
 
-        public IQueryable<SuperLoto> GetAllNumbersArray(bool trackChanges) =>
-            FindAll(trackChanges);
+        public async Task<IEnumerable<SuperLoto>> GetAllNumbersArrayAsync(bool trackChanges) =>
+            await FindAll(trackChanges).ToListAsync();
 
-        public SuperLoto GetOneNumbersArrayById(int id, bool trackChanges) =>
-            FindByCondition(sl => sl.Id == id, trackChanges).SingleOrDefault();
+        public async Task<SuperLoto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
+            await FindByCondition(sl => sl.Id == id, trackChanges).SingleOrDefaultAsync();
 
         public void UpdateOneNubersArray(SuperLoto superLoto) => Update(superLoto);
     }
