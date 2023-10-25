@@ -76,6 +76,8 @@ namespace Services.Concrete
 
             var numbers = entities.SelectMany(e => e.Numbers).ToList();
 
+            numbers = Sort(numbers);
+
             return numbers;
         }
 
@@ -92,11 +94,14 @@ namespace Services.Concrete
                     randomNumbers=numbers;
                 }
             } while (i == 0);
+            randomNumbers=Sort(randomNumbers);
             return randomNumbers;
         }
 
         private List<int> GenerateRandomNumbers()
         {
+            int index;
+            int selectedNumber;
             int sleepTimeInSeconds = 1;
             var numbers = GetOnlyNumbers(false);
             int totalCount = numbers.Count();
@@ -107,7 +112,9 @@ namespace Services.Concrete
             for (int i = 0; i < 6; i++)
             {
                 Thread.Sleep(sleepTimeInSeconds);
-                randomNumbers.Add(random.Next(1, totalCount));
+                index = random.Next(0, totalCount-1);
+                selectedNumber = numbers.ElementAt(index);
+                randomNumbers.Add(selectedNumber);
             }
             return randomNumbers.ToList();
         }
@@ -131,5 +138,13 @@ namespace Services.Concrete
             }
             return true;
         }
+
+        private List<int> Sort(List<int> numbers)
+        {
+            List<int> sortedNumbers = numbers.ToList();
+            sortedNumbers.Sort();
+            return sortedNumbers;
+        }
+        
     }
 }
