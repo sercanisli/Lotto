@@ -30,11 +30,7 @@ namespace Services.Concrete
 
         public async Task DeleteOneNumbersArrayAsync(int id, bool trackChanges)
         {
-            var entity = await _manager.SuperLoto.GetOneNumbersArrayByIdAsync(id, false);
-            if (entity == null)
-            {
-                throw new SuperLotoNotFoundException(id);
-            }
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             _manager.SuperLoto.DeleteOneNumbersArray(entity);
             await _manager.SaveAsync();
         }
@@ -47,24 +43,15 @@ namespace Services.Concrete
 
         public async Task<SuperLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
-            var entity = await _manager.SuperLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
-            if (entity == null)
-            {
-                throw new SuperLotoNotFoundException(id);
-            }
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             return _mapper.Map<SuperLotoDto>(entity);
         }
 
         public async Task UpdateOneNumbersArrayAsync(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges)
         {
-            var entity = await _manager.SuperLoto.GetOneNumbersArrayByIdAsync(id, false);
-            if (entity == null)
-            {
-                throw new SuperLotoNotFoundException(id);
-            }
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
 
             entity = _mapper.Map<SuperLoto>(superLotoDto);
-
             _manager.SuperLoto.UpdateOneNubersArray(entity);
             await _manager.SaveAsync();
         }
@@ -143,5 +130,14 @@ namespace Services.Concrete
             return sortedNumbers;
         }
         
+        private async Task<SuperLoto> GetOneNumbersArrayByIdAndCheckExists(int id, bool trackChanges)
+        {
+            var entity = await _manager.SuperLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
+            if(entity == null)
+            {
+                throw new SuperLotoNotFoundException(id);
+            }
+            return entity;
+        }
     }
 }
