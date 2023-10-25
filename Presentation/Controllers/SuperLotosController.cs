@@ -1,9 +1,11 @@
 ﻿using Entities.DataTransferObjects;
 using Microsoft.AspNetCore.Mvc;
+using Presentation.ActionFilters;
 using Services.Contracts;
 
 namespace Presentation.Controllers
 {
+    [ServiceFilter(typeof(LogFilterAttribute))]
     [ApiController]
     [Route("api/superloto")]
     public class SuperLotoController : ControllerBase
@@ -43,6 +45,7 @@ namespace Presentation.Controllers
             return Ok(array);
         }
 
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPost]
         public async Task<IActionResult> CreateOneNumbersArrayAsync([FromBody] SuperLotoDtoForInsertion superLotoDto)
         {
@@ -58,6 +61,7 @@ namespace Presentation.Controllers
             return StatusCode(201, entity);
         }
 
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateOneNumbersArrayAsync([FromRoute(Name = "id")] int id, [FromBody] SuperLotoDtoForUpdate superLotoDto)
         {
