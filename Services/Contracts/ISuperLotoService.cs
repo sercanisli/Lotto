@@ -5,12 +5,12 @@ namespace Services.Contracts
 {
     public interface ISuperLotoService
     {
-        IEnumerable<SuperLotoDto> GetAllNumbersArrays(bool trackChanges);
-        SuperLotoDto GetOneNumbersArrayById(int id, bool trackChanges);
-        SuperLotoDto CreateOneNumbersArray(SuperLotoDtoForInsertion superLotoDto);
-        void UpdateOneNumbersArray(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges);
-        void DeleteOneNumbersArray(int id, bool trackChanges);
-        public IEnumerable<int> GetOnlyNumbers(bool trackChanges);
-        public List<int> GetRondomNumbers();
+        Task<IEnumerable<SuperLotoDto>> GetAllNumbersArraysAsync(bool trackChanges);
+        Task<SuperLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
+        Task<SuperLotoDto> CreateOneNumbersArrayAsync(SuperLotoDtoForInsertion superLotoDto);
+        Task UpdateOneNumbersArrayAsync(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges);
+        Task DeleteOneNumbersArrayAsync(int id, bool trackChanges);
+        Task<IEnumerable<int>> GetOnlyNumbersAsync(bool trackChanges);
+        Task<List<int>> GetRondomNumbersAsync();
     }
 }

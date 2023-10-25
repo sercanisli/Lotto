@@ -20,45 +20,44 @@ namespace Services.Concrete
             _mapper = mapper;
         }
 
-        public SuperLotoDto CreateOneNumbersArray(SuperLotoDtoForInsertion superLotoDto)
+        public async Task<SuperLotoDto> CreateOneNumbersArrayAsync(SuperLotoDtoForInsertion superLotoDto)
         {
             var entity = _mapper.Map<SuperLoto>(superLotoDto);
             _manager.SuperLoto.CreateOneNumbersArray(entity);
-            _manager.Save();
+            await _manager.SaveAsync();
             return _mapper.Map<SuperLotoDto>(entity);
         }
 
-        public void DeleteOneNumbersArray(int id, bool trackChanges)
+        public async Task DeleteOneNumbersArrayAsync(int id, bool trackChanges)
         {
-            var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, false);
+            var entity = await _manager.SuperLoto.GetOneNumbersArrayByIdAsync(id, false);
             if (entity == null)
             {
                 throw new SuperLotoNotFoundException(id);
             }
             _manager.SuperLoto.DeleteOneNumbersArray(entity);
-            _manager.Save();
+            await _manager.SaveAsync();
         }
 
-        public IEnumerable<SuperLotoDto> GetAllNumbersArrays(bool trackChanges)
+        public async Task<IEnumerable<SuperLotoDto>> GetAllNumbersArraysAsync(bool trackChanges)
         {
-            var entities = _manager.SuperLoto.GetAllNumbersArray(trackChanges);
+            var entities = await _manager.SuperLoto.GetAllNumbersArrayAsync(trackChanges);
             return _mapper.Map<IEnumerable<SuperLotoDto>>(entities);
         }
 
-        public SuperLotoDto GetOneNumbersArrayById(int id, bool trackChanges)
+        public async Task<SuperLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
-            var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, trackChanges);
+            var entity = await _manager.SuperLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
                 throw new SuperLotoNotFoundException(id);
             }
-
             return _mapper.Map<SuperLotoDto>(entity);
         }
 
-        public void UpdateOneNumbersArray(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges)
+        public async Task UpdateOneNumbersArrayAsync(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges)
         {
-            var entity = _manager.SuperLoto.GetOneNumbersArrayById(id, false);
+            var entity = await _manager.SuperLoto.GetOneNumbersArrayByIdAsync(id, false);
             if (entity == null)
             {
                 throw new SuperLotoNotFoundException(id);
@@ -67,12 +66,12 @@ namespace Services.Concrete
             entity = _mapper.Map<SuperLoto>(superLotoDto);
 
             _manager.SuperLoto.UpdateOneNubersArray(entity);
-            _manager.Save();
+            await _manager.SaveAsync();
         }
 
-        public IEnumerable<int> GetOnlyNumbers(bool trackChanges)
+        public async Task<IEnumerable<int>> GetOnlyNumbersAsync(bool trackChanges)
         {
-            var entities = _manager.SuperLoto.GetAllNumbersArray(trackChanges).ToList();
+            var entities = await _manager.SuperLoto.GetAllNumbersArrayAsync(trackChanges);
 
             var numbers = entities.SelectMany(e => e.Numbers).ToList();
 
@@ -81,13 +80,13 @@ namespace Services.Concrete
             return numbers;
         }
 
-        public List<int> GetRondomNumbers()
+        public async Task<List<int>> GetRondomNumbersAsync()
         {
             List<int> randomNumbers = new List<int>();
             int i = 0;
             do
             {
-                var numbers = GenerateRandomNumbers();
+                var numbers = await GenerateRandomNumbersAsync();
                 if (AreTheNumbersTheSame(numbers)==true)
                 {
                     i++;
@@ -98,12 +97,12 @@ namespace Services.Concrete
             return randomNumbers;
         }
 
-        private List<int> GenerateRandomNumbers()
+        private async Task<List<int>> GenerateRandomNumbersAsync()
         {
             int index;
             int selectedNumber;
             int sleepTimeInSeconds = 1;
-            var numbers = GetOnlyNumbers(false);
+            var numbers = await GetOnlyNumbersAsync(false);
             int totalCount = numbers.Count();
             long ticks = DateTime.Now.Ticks;
             Random random = new Random((int)ticks);
