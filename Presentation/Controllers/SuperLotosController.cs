@@ -22,6 +22,20 @@ namespace Presentation.Controllers
             return Ok(numbers);
         }
 
+        [HttpGet("GetOnlyNumbers")]
+        public IActionResult GetOnlyNumbers()
+        {
+            var numbers = _manager.SuperLotoService.GetOnlyNumbers(false);
+            return Ok(numbers);
+        }
+
+        [HttpGet("GetRandomNumbers")]
+        public IActionResult GetRandomNumbers()
+        {
+            var numbers = _manager.SuperLotoService.GetRondomNumbers();
+            return Ok(numbers);
+        }
+
         [HttpGet("{id:int}")]
         public IActionResult GetOneNumbersArrayById([FromRoute(Name = "id")] int id)
         {

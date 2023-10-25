@@ -69,5 +69,67 @@ namespace Services.Concrete
             _manager.SuperLoto.UpdateOneNubersArray(entity);
             _manager.Save();
         }
+
+        public IEnumerable<int> GetOnlyNumbers(bool trackChanges)
+        {
+            var entities = _manager.SuperLoto.GetAllNumbersArray(trackChanges).ToList();
+
+            var numbers = entities.SelectMany(e => e.Numbers).ToList();
+
+            return numbers;
+        }
+
+        public List<int> GetRondomNumbers()
+        {
+            List<int> randomNumbers = new List<int>();
+            int i = 0;
+            do
+            {
+                var numbers = GenerateRandomNumbers();
+                if (AreTheNumbersTheSame(numbers)==true)
+                {
+                    i++;
+                    randomNumbers=numbers;
+                }
+            } while (i == 0);
+            return randomNumbers;
+        }
+
+        private List<int> GenerateRandomNumbers()
+        {
+            int sleepTimeInSeconds = 1;
+            var numbers = GetOnlyNumbers(false);
+            int totalCount = numbers.Count();
+            long ticks = DateTime.Now.Ticks;
+            Random random = new Random((int)ticks);
+            var randomNumbers = new List<int>();
+
+            for (int i = 0; i < 6; i++)
+            {
+                Thread.Sleep(sleepTimeInSeconds);
+                randomNumbers.Add(random.Next(1, totalCount));
+            }
+            return randomNumbers.ToList();
+        }
+
+        private bool AreTheNumbersTheSame(List<int> numbers)
+        {
+            if (numbers.Count != 6)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < numbers.Count - 1; i++)
+            {
+                for (int j = i + 1; j < numbers.Count; j++)
+                {
+                    if (numbers[i] == numbers[j])
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
     }
 }

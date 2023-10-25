@@ -10,6 +10,7 @@ namespace Services.Contracts
         SuperLotoDto CreateOneNumbersArray(SuperLotoDtoForInsertion superLotoDto);
         void UpdateOneNumbersArray(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges);
         void DeleteOneNumbersArray(int id, bool trackChanges);
-
+        public IEnumerable<int> GetOnlyNumbers(bool trackChanges);
+        public List<int> GetRondomNumbers();
     }
 }
