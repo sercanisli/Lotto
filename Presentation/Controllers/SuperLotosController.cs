@@ -16,35 +16,35 @@ namespace Presentation.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllNumbersArray()
+        public async Task<IActionResult> GetAllNumbersArrayAsync()
         {
-            var numbers = _manager.SuperLotoService.GetAllNumbersArrays(false);
+            var numbers = await _manager.SuperLotoService.GetAllNumbersArraysAsync(false);
             return Ok(numbers);
         }
 
-        [HttpGet("GetOnlyNumbers")]
-        public IActionResult GetOnlyNumbers()
+        [HttpGet("GetOnlyNumbersAsync")]
+        public async Task<IActionResult> GetOnlyNumbersAsync()
         {
-            var numbers = _manager.SuperLotoService.GetOnlyNumbers(false);
+            var numbers = await _manager.SuperLotoService.GetOnlyNumbersAsync(false);
             return Ok(numbers);
         }
 
-        [HttpGet("GetRandomNumbers")]
-        public IActionResult GetRandomNumbers()
+        [HttpGet("GetRandomNumbersAsync")]
+        public async Task<IActionResult> GetRandomNumbersAsync()
         {
-            var numbers = _manager.SuperLotoService.GetRondomNumbers();
+            var numbers = await _manager.SuperLotoService.GetRondomNumbersAsync();
             return Ok(numbers);
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetOneNumbersArrayById([FromRoute(Name = "id")] int id)
+        public async Task<IActionResult> GetOneNumbersArrayByIdAsync([FromRoute(Name = "id")] int id)
         {
-            var array = _manager.SuperLotoService.GetOneNumbersArrayById(id, false);
+            var array = await _manager.SuperLotoService.GetOneNumbersArrayByIdAsync(id, false);
             return Ok(array);
         }
 
         [HttpPost]
-        public IActionResult CreateOneNumbersArray([FromBody] SuperLotoDtoForInsertion superLotoDto)
+        public async Task<IActionResult> CreateOneNumbersArrayAsync([FromBody] SuperLotoDtoForInsertion superLotoDto)
         {
             if (superLotoDto == null)
             {
@@ -54,12 +54,12 @@ namespace Presentation.Controllers
             {
                 return UnprocessableEntity(ModelState);
             }
-            var entity = _manager.SuperLotoService.CreateOneNumbersArray(superLotoDto);
+            var entity = await _manager.SuperLotoService.CreateOneNumbersArrayAsync(superLotoDto);
             return StatusCode(201, entity);
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneNumbersArray([FromRoute(Name = "id")] int id, [FromBody] SuperLotoDtoForUpdate superLotoDto)
+        public async Task<IActionResult> UpdateOneNumbersArrayAsync([FromRoute(Name = "id")] int id, [FromBody] SuperLotoDtoForUpdate superLotoDto)
         {
             if (superLotoDto == null)
             {
@@ -69,14 +69,14 @@ namespace Presentation.Controllers
             {
                 return UnprocessableEntity(ModelState);
             }
-            _manager.SuperLotoService.UpdateOneNumbersArray(id, superLotoDto, false);
+            await _manager.SuperLotoService.UpdateOneNumbersArrayAsync(id, superLotoDto, false);
             return NoContent();
         }
 
         [HttpDelete("{id:int}")]
-        public IActionResult DeleteOneNumbersArray([FromRoute(Name = "id")] int id)
+        public async Task<IActionResult> DeleteOneNumbersArrayAsync([FromRoute(Name = "id")] int id)
         {
-            _manager.SuperLotoService.DeleteOneNumbersArray(id, false);
+            await _manager.SuperLotoService.DeleteOneNumbersArrayAsync(id, false);
             return NoContent();
         }
     }

@@ -75,8 +75,6 @@ namespace Services.Concrete
 
             var numbers = entities.SelectMany(e => e.Numbers).ToList();
 
-            numbers = Sort(numbers);
-
             return numbers;
         }
 
