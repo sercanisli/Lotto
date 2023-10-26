@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Entities.RequestFeatures;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Cantracts;
 
@@ -14,7 +15,7 @@ namespace Repositories.EntityFrameworkCore
 
         public void DeleteOneNumbersArray(SuperLoto superLoto) => Delete(superLoto);
 
-        public async Task<IEnumerable<SuperLoto>> GetAllNumbersArrayAsync(bool trackChanges) =>
+        public async Task<IEnumerable<SuperLoto>> GetAllNumbersArrayAsync(SuperLotoParameters superLotoParameters, bool trackChanges) =>
             await FindAll(trackChanges).ToListAsync();
 
         public async Task<SuperLoto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
