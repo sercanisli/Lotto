@@ -21,6 +21,9 @@ namespace Repositories.EntityFrameworkCore
             .Take(superLotoParameters.PageSize)
             .ToListAsync();
 
+        public async Task<IEnumerable<SuperLoto>> GetAllNumbersArrayAsyncWithoutPaginationAsync(bool trackChanges) =>
+            await FindAll(trackChanges).ToListAsync();
+
         public async Task<SuperLoto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
             await FindByCondition(sl => sl.Id == id, trackChanges).SingleOrDefaultAsync();
 

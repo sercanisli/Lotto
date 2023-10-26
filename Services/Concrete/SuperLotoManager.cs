@@ -57,15 +57,6 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<IEnumerable<int>> GetOnlyNumbersAsync(bool trackChanges)
-        {
-            var entities = await _manager.SuperLoto.GetAllNumbersArrayAsync(trackChanges);
-
-            var numbers = entities.SelectMany(e => e.Numbers).ToList();
-
-            return numbers;
-        }
-
         public async Task<List<int>> GetRondomNumbersAsync()
         {
             List<int> randomNumbers = new List<int>();
@@ -139,6 +130,19 @@ namespace Services.Concrete
                 throw new SuperLotoNotFoundException(id);
             }
             return entity;
+        }
+
+        private async Task<IEnumerable<int>> GetOnlyNumbersAsync(bool trackChanges)
+        {
+            var entities = await GetAllNumbersArrayAsyncWithoutPaginationAsync(trackChanges);
+            var numbers = entities.SelectMany(e => e.Numbers).ToList();
+            return numbers;
+        }
+
+        private async Task<IEnumerable<SuperLotoDto>> GetAllNumbersArrayAsyncWithoutPaginationAsync(bool trackChanges)
+        {
+            var entities = await _manager.SuperLoto.GetAllNumbersArrayAsyncWithoutPaginationAsync(trackChanges);
+            return _mapper.Map<IEnumerable<SuperLotoDto>>(entities);
         }
     }
 }

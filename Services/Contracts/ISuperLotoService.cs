@@ -10,7 +10,6 @@ namespace Services.Contracts
         Task<SuperLotoDto> CreateOneNumbersArrayAsync(SuperLotoDtoForInsertion superLotoDto);
         Task UpdateOneNumbersArrayAsync(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges);
         Task DeleteOneNumbersArrayAsync(int id, bool trackChanges);
-        Task<IEnumerable<int>> GetOnlyNumbersAsync(bool trackChanges);
         Task<List<int>> GetRondomNumbersAsync();
     }
 }

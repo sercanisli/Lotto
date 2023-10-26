@@ -25,13 +25,6 @@ namespace Presentation.Controllers
             return Ok(numbers);
         }
 
-        [HttpGet("GetOnlyNumbersAsync")]
-        public async Task<IActionResult> GetOnlyNumbersAsync()
-        {
-            var numbers = await _manager.SuperLotoService.GetOnlyNumbersAsync(false);
-            return Ok(numbers);
-        }
-
         [HttpGet("GetRandomNumbersAsync")]
         public async Task<IActionResult> GetRandomNumbersAsync()
         {
