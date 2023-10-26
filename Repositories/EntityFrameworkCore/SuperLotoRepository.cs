@@ -15,11 +15,11 @@ namespace Repositories.EntityFrameworkCore
 
         public void DeleteOneNumbersArray(SuperLoto superLoto) => Delete(superLoto);
 
-        public async Task<IEnumerable<SuperLoto>> GetAllNumbersArrayAsync(SuperLotoParameters superLotoParameters, bool trackChanges) =>
-            await FindAll(trackChanges)
-            .Skip((superLotoParameters.PageNumber-1)*superLotoParameters.PageSize)
-            .Take(superLotoParameters.PageSize)
-            .ToListAsync();
+        public async Task<PagedList<SuperLoto>> GetAllNumbersArrayAsync(SuperLotoParameters superLotoParameters, bool trackChanges)
+        {
+            var entities = await FindAll(trackChanges).ToListAsync();
+            return PagedList<SuperLoto>.ToPagedList(entities, superLotoParameters.PageNumber, superLotoParameters.PageSize);
+        }
 
         public async Task<IEnumerable<SuperLoto>> GetAllNumbersArrayAsyncWithoutPaginationAsync(bool trackChanges) =>
             await FindAll(trackChanges).ToListAsync();

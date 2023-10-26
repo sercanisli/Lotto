@@ -5,7 +5,7 @@ namespace Repositories.Cantracts
 {
     public interface ISuperLotoRepository : IRepositoryBase<SuperLoto>
     {
-        Task<IEnumerable<SuperLoto>> GetAllNumbersArrayAsync(SuperLotoParameters superLotoParameters, bool trackChanges);
+        Task<PagedList<SuperLoto>> GetAllNumbersArrayAsync(SuperLotoParameters superLotoParameters, bool trackChanges);
         Task<IEnumerable<SuperLoto>> GetAllNumbersArrayAsyncWithoutPaginationAsync(bool trackChanges);
         Task<SuperLoto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
         void CreateOneNumbersArray(SuperLoto superLoto);
