@@ -16,7 +16,10 @@ namespace Repositories.EntityFrameworkCore
         public void DeleteOneNumbersArray(SuperLoto superLoto) => Delete(superLoto);
 
         public async Task<IEnumerable<SuperLoto>> GetAllNumbersArrayAsync(SuperLotoParameters superLotoParameters, bool trackChanges) =>
-            await FindAll(trackChanges).ToListAsync();
+            await FindAll(trackChanges)
+            .Skip((superLotoParameters.PageNumber-1)*superLotoParameters.PageSize)
+            .Take(superLotoParameters.PageSize)
+            .ToListAsync();
 
         public async Task<SuperLoto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
             await FindByCondition(sl => sl.Id == id, trackChanges).SingleOrDefaultAsync();
