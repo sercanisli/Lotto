@@ -36,10 +36,11 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<IEnumerable<SuperLotoDto>> GetAllNumbersArraysAsync(SuperLotoParameters superLotoParameters, bool trackChanges)
+        public async Task<(IEnumerable<SuperLotoDto> superLotoDto, MetaData metaData)> GetAllNumbersArraysAsync(SuperLotoParameters superLotoParameters, bool trackChanges)
         {
-            var entities = await _manager.SuperLoto.GetAllNumbersArrayAsync(superLotoParameters ,trackChanges);
-            return _mapper.Map<IEnumerable<SuperLotoDto>>(entities);
+            var entitiesWithMetaData = await _manager.SuperLoto.GetAllNumbersArrayAsync(superLotoParameters ,trackChanges);
+            var sLDto = _mapper.Map<IEnumerable<SuperLotoDto>>(entitiesWithMetaData);
+            return (sLDto, entitiesWithMetaData.MetaData);
         }
 
         public async Task<SuperLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
