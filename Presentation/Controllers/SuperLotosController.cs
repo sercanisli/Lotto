@@ -1,4 +1,5 @@
 ﻿using Entities.DataTransferObjects;
+using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
 using Services.Contracts;
@@ -18,9 +19,9 @@ namespace Presentation.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllNumbersArrayAsync()
+        public async Task<IActionResult> GetAllNumbersArrayAsync([FromQuery]SuperLotoParameters superLotoParameters)
         {
-            var numbers = await _manager.SuperLotoService.GetAllNumbersArraysAsync(false);
+            var numbers = await _manager.SuperLotoService.GetAllNumbersArraysAsync(superLotoParameters ,false);
             return Ok(numbers);
         }
 
