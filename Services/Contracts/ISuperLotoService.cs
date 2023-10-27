@@ -1,11 +1,12 @@
 ﻿using Entities.DataTransferObjects;
 using Entities.RequestFeatures;
+using System.Dynamic;
 
 namespace Services.Contracts
 {
     public interface ISuperLotoService
     {
-        Task<(IEnumerable<SuperLotoDto> superLotoDto, MetaData metaData)> GetAllNumbersArraysAsync(SuperLotoParameters superLotoParameters, bool trackChanges);
+        Task<(IEnumerable<ExpandoObject> superLotoDto, MetaData metaData)> GetAllNumbersArraysAsync(SuperLotoParameters superLotoParameters, bool trackChanges);
         Task<SuperLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
         Task<SuperLotoDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges);
         Task<SuperLotoDto> CreateOneNumbersArrayAsync(SuperLotoDtoForInsertion superLotoDto);

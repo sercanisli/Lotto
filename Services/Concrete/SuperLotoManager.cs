@@ -5,6 +5,7 @@ using Entities.Models;
 using Entities.RequestFeatures;
 using Repositories.Cantracts;
 using Services.Contracts;
+using System.Dynamic;
 
 namespace Services.Concrete
 {
@@ -13,12 +14,14 @@ namespace Services.Concrete
         private readonly IRepositoryManager _manager;
         private readonly ILoggerService _logger;
         private readonly IMapper _mapper;
+        private readonly IDataShaper<SuperLotoDto> _shaper;
 
-        public SuperLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper)
+        public SuperLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, IDataShaper<SuperLotoDto> shaper)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
+            _shaper = shaper;
         }
 
         public async Task<SuperLotoDto> CreateOneNumbersArrayAsync(SuperLotoDtoForInsertion superLotoDto)
@@ -36,11 +39,12 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<(IEnumerable<SuperLotoDto> superLotoDto, MetaData metaData)> GetAllNumbersArraysAsync(SuperLotoParameters superLotoParameters, bool trackChanges)
+        public async Task<(IEnumerable<ExpandoObject> superLotoDto, MetaData metaData)> GetAllNumbersArraysAsync(SuperLotoParameters superLotoParameters, bool trackChanges)
         {
             var entitiesWithMetaData = await _manager.SuperLoto.GetAllNumbersArrayAsync(superLotoParameters ,trackChanges);
             var sLDto = _mapper.Map<IEnumerable<SuperLotoDto>>(entitiesWithMetaData);
-            return (sLDto, entitiesWithMetaData.MetaData);
+            var shapedData = _shaper.ShapeData(sLDto, superLotoParameters.Fields);
+            return (superLotoDto: shapedData, metaData: entitiesWithMetaData.MetaData);
         }
 
         public async Task<SuperLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)

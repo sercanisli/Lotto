@@ -13,12 +13,14 @@ namespace Services.Concrete
         }
         public IEnumerable<ExpandoObject> ShapeData(IEnumerable<T> entities, string fieldsString)
         {
-            throw new NotImplementedException();
+            var requiredFields = GetRequiredProperties(fieldsString);
+            return FetchData(entities, requiredFields);
         }
 
         public ExpandoObject ShapeData(T entity, string fieldsString)
         {
-            throw new NotImplementedException();
+            var requiredProperties = GetRequiredProperties(fieldsString);
+            return FetchDataForEntity(entity,requiredProperties);
         }
 
         private IEnumerable<PropertyInfo> GetRequiredProperties(string fieldString)
