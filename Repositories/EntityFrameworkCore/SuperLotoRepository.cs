@@ -2,6 +2,7 @@
 using Entities.RequestFeatures;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Cantracts;
+using Repositories.EntityFrameworkCore.Extensions;
 
 namespace Repositories.EntityFrameworkCore
 {
@@ -17,7 +18,7 @@ namespace Repositories.EntityFrameworkCore
 
         public async Task<PagedList<SuperLoto>> GetAllNumbersArrayAsync(SuperLotoParameters superLotoParameters, bool trackChanges)
         {
-            var entities = await FindAll(trackChanges).ToListAsync();
+            var entities = await FindAll(trackChanges).Sort(superLotoParameters.OrderBy).ToListAsync();
             return PagedList<SuperLoto>.ToPagedList(entities, superLotoParameters.PageNumber, superLotoParameters.PageSize);
         }
 

@@ -2,14 +2,16 @@
 {
     public class RequestParameters
     {
-		const int maxPageSize = 10;
+        const int maxPageSize = 10;
         public int PageNumber { get; set; }
-		private int _pageSize;
+        private int _pageSize;
 
 		public int PageSize
 		{
 			get { return _pageSize; }
 			set { _pageSize = value > maxPageSize ? maxPageSize : value; }
 		}
-	}
+
+        public String? OrderBy { get; set; }
+    }
 }
