@@ -52,8 +52,12 @@ namespace Services.Concrete
         public async Task<SuperLotoDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
         {
             var entities = await GetAllNumbersArrayAsyncWithoutPaginationAsync(trackChanges);
-            var entity = entities.Where(e => e.Date ==date).FirstOrDefault();
-            return entity;
+            var entityDate = entities.Where(e => e.Date == date).FirstOrDefault();
+            if (entityDate == null)
+            {
+                throw new SuperLotoDateNotFoundException(Convert.ToDateTime(date));
+            }
+            return entityDate;
         }
 
         public async Task UpdateOneNumbersArrayAsync(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges)
