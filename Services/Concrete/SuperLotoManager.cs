@@ -49,6 +49,13 @@ namespace Services.Concrete
             return _mapper.Map<SuperLotoDto>(entity);
         }
 
+        public async Task<SuperLotoDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
+        {
+            var entities = await GetAllNumbersArrayAsyncWithoutPaginationAsync(trackChanges);
+            var entity = entities.Where(e => e.Date ==date).FirstOrDefault();
+            return entity;
+        }
+
         public async Task UpdateOneNumbersArrayAsync(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges)
         {
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);

@@ -43,6 +43,13 @@ namespace Presentation.Controllers
             return Ok(array);
         }
 
+        [HttpGet("GetOneNumbersArrayByDateAsync")]
+        public async Task<IActionResult> GetOneNumbersArrayByDateAsync([FromQuery]DateTime date)
+        {
+            var array = await _manager.SuperLotoService.GetOneNumbersArrayByDateAsync(date, false);
+            return Ok(array);
+        }
+
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPost]
         public async Task<IActionResult> CreateOneNumbersArrayAsync([FromBody] SuperLotoDtoForInsertion superLotoDto)

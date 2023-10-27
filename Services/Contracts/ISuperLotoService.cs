@@ -7,6 +7,7 @@ namespace Services.Contracts
     {
         Task<(IEnumerable<SuperLotoDto> superLotoDto, MetaData metaData)> GetAllNumbersArraysAsync(SuperLotoParameters superLotoParameters, bool trackChanges);
         Task<SuperLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
+        Task<SuperLotoDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges);
         Task<SuperLotoDto> CreateOneNumbersArrayAsync(SuperLotoDtoForInsertion superLotoDto);
         Task UpdateOneNumbersArrayAsync(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges);
         Task DeleteOneNumbersArrayAsync(int id, bool trackChanges);
