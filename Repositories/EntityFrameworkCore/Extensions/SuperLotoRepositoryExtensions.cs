@@ -14,32 +14,8 @@ namespace Repositories.EntityFrameworkCore.Extensions
                 return entities.OrderBy(e => e.Date);
             }
 
-            var orderParams = orderByQueryString.Trim().Split(',');
+            var orderQuery = OrderQueryBuilder.CreateOrderQuery<SuperLoto>(orderByQueryString);
 
-            var propertyInfos = typeof(SuperLoto).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-
-            var orderQueryBuilder = new StringBuilder();
-
-            foreach ( var param in orderParams) 
-            {
-                if (string.IsNullOrWhiteSpace(param))
-                {
-                    continue;
-                }
-                var propertyFromQueryName = param.Split(' ')[0];
-
-                var objectProperty = propertyInfos
-                    .FirstOrDefault(pi => pi.Name.Equals(propertyFromQueryName, StringComparison.OrdinalIgnoreCase));
-
-                if(objectProperty == null)
-                {
-                    continue;
-                }
-                var direction = param.EndsWith(" desc") ? "descending" : "ascending";
-
-                orderQueryBuilder.Append($"{objectProperty.Name.ToString()} {direction},");
-            }
-            var orderQuery = orderQueryBuilder.ToString().TrimEnd(',',' ');
             if(orderQuery == null)
             {
                 return entities.OrderBy(e => e.Date);
