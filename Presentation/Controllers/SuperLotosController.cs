@@ -18,7 +18,7 @@ namespace Presentation.Controllers
         {
             _manager = manager;
         }
-
+        
         [HttpGet]
         public async Task<IActionResult> GetAllNumbersArrayAsync([FromQuery]SuperLotoParameters superLotoParameters)
         {
