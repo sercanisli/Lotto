@@ -9,6 +9,5 @@
         {
             Entity = new Entity();
         }
-
     }
 }
