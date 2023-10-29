@@ -20,6 +20,7 @@ namespace Presentation.Controllers
         }
         
         [HttpGet]
+        [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayAsync([FromQuery]SuperLotoParameters superLotoParameters)
         {
             var pagedResult = await _manager.SuperLotoService.GetAllNumbersArraysAsync(superLotoParameters ,false);
