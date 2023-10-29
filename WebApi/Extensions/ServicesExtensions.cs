@@ -1,4 +1,6 @@
 ﻿using Entities.DataTransferObjects;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Presentation.ActionFilters;
 using Repositories.Cantracts;
@@ -54,5 +56,32 @@ namespace WebApi.Extensions
         {
             services.AddScoped<IDataShaper<SuperLotoDto>, DataShaper<SuperLotoDto>>();
         }
+
+        public static void AddCustomMediaTypes(this IServiceCollection services)
+        {
+            services.Configure<MvcOptions>(configuration =>
+            {
+                var systemTextJsonOutputFormatter = configuration
+                .OutputFormatters
+                .OfType<SystemTextJsonInputFormatter>()?.FirstOrDefault();
+
+                if(systemTextJsonOutputFormatter != null)
+                {
+                    systemTextJsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.lotocum.hateoas+json");
+                }
+
+
+                var xmlOutputFormatter = configuration
+                .OutputFormatters
+                .OfType<XmlDataContractSerializerOutputFormatter>()?.FirstOrDefault();
+
+                if(xmlOutputFormatter != null)
+                {
+                    xmlOutputFormatter.SupportedMediaTypes.Add("application/vnd.lotocum.hateoas+xml");
+                }
+            });
+        }
+
+
     }
 }
