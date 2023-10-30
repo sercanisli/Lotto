@@ -83,6 +83,9 @@ namespace WebApi.Extensions
             });
         }
 
-
+        public static void ConfigureLinks(this IServiceCollection services)
+        {
+            services.AddScoped<ISuperLotoLinks, SuperLotoLinks>();
+        }
     }
 }

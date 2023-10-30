@@ -8,12 +8,12 @@ using Services.Contracts;
 
 namespace Services.Concrete
 {
-    public class BookLinks : IBookLinks
+    public class SuperLotoLinks : ISuperLotoLinks
     {
         private readonly LinkGenerator _linkGenerator;
         private readonly IDataShaper<SuperLotoDto> _dataShaper;
 
-        public BookLinks(LinkGenerator linkGenerator, IDataShaper<SuperLotoDto> dataShaper)
+        public SuperLotoLinks(LinkGenerator linkGenerator, IDataShaper<SuperLotoDto> dataShaper)
         {
             _linkGenerator = linkGenerator;
             _dataShaper = dataShaper;
