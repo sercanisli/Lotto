@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Entities.DataTransferObjects;
 using Entities.Exceptions;
+using Entities.LinkModels;
 using Entities.Models;
 using Entities.RequestFeatures;
 using Repositories.Cantracts;
@@ -14,14 +15,14 @@ namespace Services.Concrete
         private readonly IRepositoryManager _manager;
         private readonly ILoggerService _logger;
         private readonly IMapper _mapper;
-        private readonly IDataShaper<SuperLotoDto> _shaper;
+        private readonly ISuperLotoLinks _links;
 
-        public SuperLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, IDataShaper<SuperLotoDto> shaper)
+        public SuperLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, ISuperLotoLinks links)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
-            _shaper = shaper;
+            _links = links;
         }
 
         public async Task<SuperLotoDto> CreateOneNumbersArrayAsync(SuperLotoDtoForInsertion superLotoDto)
@@ -39,12 +40,12 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<(IEnumerable<ExpandoObject> superLotoDto, MetaData metaData)> GetAllNumbersArraysAsync(SuperLotoParameters superLotoParameters, bool trackChanges)
+        public async Task<(LinkResponse linkResponse, MetaData metaData)> GetAllNumbersArraysAsync(LinkParameters linkParameters, bool trackChanges)
         {
-            var entitiesWithMetaData = await _manager.SuperLoto.GetAllNumbersArrayAsync(superLotoParameters ,trackChanges);
+            var entitiesWithMetaData = await _manager.SuperLoto.GetAllNumbersArrayAsync(linkParameters.SuperLotoParameters, trackChanges);
             var sLDto = _mapper.Map<IEnumerable<SuperLotoDto>>(entitiesWithMetaData);
-            var shapedData = _shaper.ShapeData(sLDto, superLotoParameters.Fields);
-            return (superLotoDto: shapedData, metaData: entitiesWithMetaData.MetaData);
+            var links = _links.TryGenerateLinks(sLDto, linkParameters.SuperLotoParameters.Fields, linkParameters.HttpContext);
+            return (linkResponse:links, metaData: entitiesWithMetaData.MetaData);
         }
 
         public async Task<SuperLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
