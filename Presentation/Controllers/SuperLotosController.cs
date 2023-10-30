@@ -23,11 +23,18 @@ namespace Presentation.Controllers
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayAsync([FromQuery]SuperLotoParameters superLotoParameters)
         {
-            var pagedResult = await _manager.SuperLotoService.GetAllNumbersArraysAsync(superLotoParameters ,false);
+            var linkParameters = new LinkParameters()
+            {
+                SuperLotoParameters = superLotoParameters,
+                HttpContext = HttpContext
+            };
+            var result = await _manager.SuperLotoService.GetAllNumbersArraysAsync(linkParameters,false);
 
-            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(result.metaData));
 
-            return Ok(pagedResult.superLotoDto);
+            return result.linkResponse.HasLinks ?
+                Ok(result.linkResponse.LinkedEntities) :
+                Ok(result.linkResponse.ShapedEntity);
         }
 
         [HttpGet("GetRandomNumbersAsync")]
