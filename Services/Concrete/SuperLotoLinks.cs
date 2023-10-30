@@ -38,11 +38,24 @@ namespace Services.Concrete
                 shapedEntities[i].Add("Links", superLotoLinks);
             }
             var superLotoCollection = new LinkCollectionWrapper<Entity>(shapedEntities);
+
+            CreateForSuperLotos(context, superLotoCollection);
             return new LinkResponse
             {
                 HasLinks = true,
                 LinkedEntities = superLotoCollection
             };
+        }
+
+        private LinkCollectionWrapper<Entity> CreateForSuperLotos(HttpContext context, LinkCollectionWrapper<Entity> superLotoCollectionWrapper)
+        {
+            superLotoCollectionWrapper.Links.Add(new Link()
+            {
+                Href = $"/api/{context.GetRouteData().Values["controller"].ToString().ToLower()}",
+                Relation = "Self",
+                Method = "GET"
+            });
+            return superLotoCollectionWrapper;
         }
 
         private List<Link> CreateForSuperLoto(HttpContext context, SuperLotoDto superLotoDto, string fields)
