@@ -12,9 +12,10 @@ builder.Services.AddControllers(configuration =>
     configuration.RespectBrowserAcceptHeader = true;
     configuration.ReturnHttpNotAcceptable = true;
 })
+    .AddXmlDataContractSerializerFormatters()
     .AddCustomCsvFormatter()
-    .AddXmlSerializerFormatters()
     .AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly);
+
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {

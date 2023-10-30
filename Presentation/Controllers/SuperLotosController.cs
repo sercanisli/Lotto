@@ -34,7 +34,7 @@ namespace Presentation.Controllers
 
             return result.linkResponse.HasLinks ?
                 Ok(result.linkResponse.LinkedEntities) :
-                Ok(result.linkResponse.ShapedEntity);
+                Ok(result.linkResponse.ShapedEntities);
         }
 
         [HttpGet("GetRandomNumbersAsync")]

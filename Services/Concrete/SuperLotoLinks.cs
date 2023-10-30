@@ -49,15 +49,25 @@ namespace Services.Concrete
         {
             var links = new List<Link>()
             {
-                new Link("a1","b1","c1"),
-                new Link("a2","b2","c2")
+                new Link()
+                {
+                    Href = $"/api/{context.GetRouteData().Values["controller"].ToString().ToLower()}" + $"/{superLotoDto.Id}",
+                    Relation = "Self",
+                    Method = "GET"
+                },
+                new Link()
+                {
+                    Href = $"/api/{context.GetRouteData().Values["controller"].ToString().ToLower()}",
+                    Relation ="Create",
+                    Method = "POST"
+                }
             };
             return links;
         }
 
         private LinkResponse ReturnShapedEntities(List<Entity> shapedEntities)
         {
-            return new LinkResponse() { ShapedEntity = shapedEntities };
+            return new LinkResponse() { ShapedEntities = shapedEntities };
         }
 
         private bool ShouldGenerateLinks(HttpContext httpContext)

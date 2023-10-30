@@ -64,7 +64,7 @@ namespace WebApi.Extensions
             {
                 var systemTextJsonOutputFormatter = configuration
                 .OutputFormatters
-                .OfType<SystemTextJsonInputFormatter>()?.FirstOrDefault();
+                .OfType<SystemTextJsonOutputFormatter>()?.FirstOrDefault();
 
                 if(systemTextJsonOutputFormatter != null)
                 {
