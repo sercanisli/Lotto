@@ -69,6 +69,7 @@ namespace WebApi.Extensions
                 if(systemTextJsonOutputFormatter != null)
                 {
                     systemTextJsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.lotocum.hateoas+json");
+                    systemTextJsonOutputFormatter.SupportedMediaTypes.Add("application/vnd.lotocum.apiroot+json");
                 }
 
 
@@ -79,6 +80,7 @@ namespace WebApi.Extensions
                 if(xmlOutputFormatter != null)
                 {
                     xmlOutputFormatter.SupportedMediaTypes.Add("application/vnd.lotocum.hateoas+xml");
+                    xmlOutputFormatter.SupportedMediaTypes.Add("application/vnd.lotocum.apiroot+xml");
                 }
             });
         }

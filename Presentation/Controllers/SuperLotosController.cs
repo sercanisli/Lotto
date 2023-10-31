@@ -19,7 +19,7 @@ namespace Presentation.Controllers
             _manager = manager;
         }
         [HttpHead]
-        [HttpGet]
+        [HttpGet(Name = "GetAllNumbersArrayAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayAsync([FromQuery]SuperLotoParameters superLotoParameters)
         {
