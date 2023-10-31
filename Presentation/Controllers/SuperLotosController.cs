@@ -96,5 +96,12 @@ namespace Presentation.Controllers
             await _manager.SuperLotoService.DeleteOneNumbersArrayAsync(id, false);
             return NoContent();
         }
+
+        [HttpOptions]
+        public IActionResult GetSuperLotoOptions()
+        {
+            Response.Headers.Add("Allow", "GET, PUT, POST, DELETE, HEAD, OPTIONS");
+            return Ok();
+        }
     }
 }
