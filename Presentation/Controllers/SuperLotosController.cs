@@ -21,6 +21,7 @@ namespace Presentation.Controllers
         [HttpHead]
         [HttpGet(Name = "GetAllNumbersArrayAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
+        [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetAllNumbersArrayAsync([FromQuery]SuperLotoParameters superLotoParameters)
         {
             var linkParameters = new LinkParameters()
@@ -45,6 +46,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdAsync([FromRoute(Name = "id")] int id)
         {
             var array = await _manager.SuperLotoService.GetOneNumbersArrayByIdAsync(id, false);
@@ -52,6 +54,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("GetOneNumbersArrayByDateAsync")]
+        [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByDateAsync([FromQuery]DateTime date)
         {
             var array = await _manager.SuperLotoService.GetOneNumbersArrayByDateAsync(date, false);
@@ -59,7 +62,7 @@ namespace Presentation.Controllers
         }
 
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [HttpPost]
+        [HttpPost(Name = "CreateOneNumbersArrayAsync")]
         public async Task<IActionResult> CreateOneNumbersArrayAsync([FromBody] SuperLotoDtoForInsertion superLotoDto)
         {
             if (superLotoDto == null)
@@ -98,6 +101,7 @@ namespace Presentation.Controllers
         }
 
         [HttpOptions]
+        [ResponseCache(CacheProfileName = "5mins")]
         public IActionResult GetSuperLotoOptions()
         {
             Response.Headers.Add("Allow", "GET, PUT, POST, DELETE, HEAD, OPTIONS");

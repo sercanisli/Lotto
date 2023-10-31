@@ -89,5 +89,10 @@ namespace WebApi.Extensions
         {
             services.AddScoped<ISuperLotoLinks, SuperLotoLinks>();
         }
+
+        public static void ConfigureResponseCaching(this IServiceCollection services)
+        {
+            services.AddResponseCaching();
+        }
     }
 }
