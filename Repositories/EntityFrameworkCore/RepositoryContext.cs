@@ -19,6 +19,7 @@ namespace Repositories.EntityFrameworkCore
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new SuperLotoConfiguration());
+            modelBuilder.ApplyConfiguration(new RoleConfiguration());
         }
     }
 }
