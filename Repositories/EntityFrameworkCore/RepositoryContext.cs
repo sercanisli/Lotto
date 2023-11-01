@@ -1,10 +1,11 @@
 ﻿using Entities.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Repositories.EntityFrameworkCore.Configuration;
 
 namespace Repositories.EntityFrameworkCore
 {
-    public class RepositoryContext : DbContext
+    public class RepositoryContext : IdentityDbContext<User>
     {
         public DbSet<SuperLoto> SuperLotos { get; set; }
 
@@ -16,6 +17,7 @@ namespace Repositories.EntityFrameworkCore
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new SuperLotoConfiguration());
         }
     }
