@@ -3,5 +3,6 @@
     public interface IServiceManager
     {
         ISuperLotoService SuperLotoService { get; }
+        IAuthenticationService AuthenticationService { get; }
     }
 }
