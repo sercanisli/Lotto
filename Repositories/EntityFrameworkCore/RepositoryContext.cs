@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Repositories.EntityFrameworkCore.Configuration;
+using System.Reflection;
 
 namespace Repositories.EntityFrameworkCore
 {
@@ -18,8 +19,7 @@ namespace Repositories.EntityFrameworkCore
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfiguration(new SuperLotoConfiguration());
-            modelBuilder.ApplyConfiguration(new RoleConfiguration());
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }

@@ -8,6 +8,8 @@ namespace WebApi.Utilities.AutoMapper
     {
         public MappingProfile()
         {
+            CreateMap<UserDtoForRegistration, User>().ReverseMap();
+
             CreateMap<SuperLoto, SuperLotoDto>().ReverseMap();
             CreateMap<SuperLotoDtoForUpdate, SuperLoto>().ReverseMap();
             CreateMap<SuperLotoDtoForInsertion, SuperLoto>().ReverseMap();
