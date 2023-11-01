@@ -1,5 +1,6 @@
 ﻿using Entities.DataTransferObjects;
 using Entities.RequestFeatures;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
 using Services.Contracts;
@@ -18,6 +19,8 @@ namespace Presentation.Controllers
         {
             _manager = manager;
         }
+
+        [Authorize]
         [HttpHead]
         [HttpGet(Name = "GetAllNumbersArrayAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]

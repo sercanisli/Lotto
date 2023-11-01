@@ -42,9 +42,8 @@ builder.Services.AddMemoryCache();
 builder.Services.ConfigureRateLimitingOptions();
 builder.Services.AddHttpContextAccessor();
 
-
-builder.Services.ConfigureJwt(builder.Configuration);
 builder.Services.ConfigureIdentity();
+builder.Services.ConfigureJwt(builder.Configuration);
 
 var app = builder.Build();
 
