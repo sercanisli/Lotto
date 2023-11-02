@@ -716,3 +716,15 @@
 2023-11-02 01:29:29.3519 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
 2023-11-02 01:29:29.3936 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
 2023-11-02 01:29:29.4269 Info Configuration initialized.
+2023-11-02 12:52:23.7439 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-11-02 12:52:23.8048 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-11-02 12:52:23.8352 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-11-02 12:52:23.8724 Info Configuration initialized.
+2023-11-02 12:55:19.8263 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-11-02 12:55:19.8882 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-11-02 12:55:19.9303 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-11-02 12:55:19.9788 Info Configuration initialized.
+2023-11-02 12:56:20.7550 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-11-02 12:56:20.8330 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-11-02 12:56:20.8700 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-11-02 12:56:20.9411 Info Configuration initialized.
