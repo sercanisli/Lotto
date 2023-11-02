@@ -34,7 +34,7 @@ namespace Presentation.Controllers
         }
 
         [HttpPost("login")]
-        //[ServiceFilter(typeof(ValidationFilterAttribute))]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> Authenticate([FromBody]UserDtoForAuthentication userDtoForAuthentication)
         {
             if(!await _manager.AuthenticationService.ValidateUser(userDtoForAuthentication))

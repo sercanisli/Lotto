@@ -20,7 +20,7 @@ namespace Presentation.Controllers
             _manager = manager;
         }
 
-        [Authorize]
+        [Authorize(Roles = "Admin, Editor, User")]
         [HttpHead]
         [HttpGet(Name = "GetAllNumbersArrayAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
@@ -41,6 +41,7 @@ namespace Presentation.Controllers
                 Ok(result.linkResponse.ShapedEntities);
         }
 
+        [Authorize(Roles = "Admin, Editor, User")]
         [HttpGet("GetRandomNumbersAsync")]
         public async Task<IActionResult> GetRandomNumbersAsync()
         {
@@ -48,6 +49,7 @@ namespace Presentation.Controllers
             return Ok(numbers);
         }
 
+        [Authorize(Roles = "Admin, Editor, User")]
         [HttpGet("{id:int}")]
         [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdAsync([FromRoute(Name = "id")] int id)
@@ -56,6 +58,7 @@ namespace Presentation.Controllers
             return Ok(array);
         }
 
+        [Authorize(Roles = "Admin, Editor, User")]
         [HttpGet("GetOneNumbersArrayByDateAsync")]
         [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByDateAsync([FromQuery]DateTime date)
@@ -64,6 +67,7 @@ namespace Presentation.Controllers
             return Ok(array);
         }
 
+        [Authorize(Roles = "Admin, Editor")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPost(Name = "CreateOneNumbersArrayAsync")]
         public async Task<IActionResult> CreateOneNumbersArrayAsync([FromBody] SuperLotoDtoForInsertion superLotoDto)
@@ -80,6 +84,7 @@ namespace Presentation.Controllers
             return StatusCode(201, entity);
         }
 
+        [Authorize(Roles = "Admin, Editor")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateOneNumbersArrayAsync([FromRoute(Name = "id")] int id, [FromBody] SuperLotoDtoForUpdate superLotoDto)
@@ -95,7 +100,8 @@ namespace Presentation.Controllers
             await _manager.SuperLotoService.UpdateOneNumbersArrayAsync(id, superLotoDto, false);
             return NoContent();
         }
-
+        
+        [Authorize(Roles = "Admin, Editor")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteOneNumbersArrayAsync([FromRoute(Name = "id")] int id)
         {
