@@ -9,6 +9,7 @@ namespace Repositories.EntityFrameworkCore
     public class RepositoryContext : IdentityDbContext<User>
     {
         public DbSet<SuperLoto> SuperLotos { get; set; }
+        public DbSet<SayisalLoto> SayisalLotos { get; set; }
 
         public RepositoryContext(DbContextOptions options) : base(options)
         {
