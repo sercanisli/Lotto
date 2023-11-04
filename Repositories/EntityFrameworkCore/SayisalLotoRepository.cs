@@ -14,8 +14,8 @@ namespace Repositories.EntityFrameworkCore
         public void DeleteOneNumbersArray(SayisalLoto sayisalLoto) => Delete(sayisalLoto);
         public IQueryable<SayisalLoto> GetAllNumbersArrayAsync(bool trackChanges) =>
             FindAll(trackChanges).OrderBy(sl=>sl.Numbers);
-        public IQueryable<SayisalLoto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
-            FindByCondition(sl => sl.Id.Equals(id), trackChanges);
+        public SayisalLoto GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
+            FindByCondition(sl => sl.Id.Equals(id), trackChanges).SingleOrDefault();
 
         public void UpdateOneNumbersArray(SayisalLoto sayisalLoto) => Update(sayisalLoto);
     }
