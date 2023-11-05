@@ -15,8 +15,8 @@ namespace Presentation.Controllers
             _manager = manager;
         }
 
-        [HttpGet(Name = "GetAllNumbersArrayAsync")]
-        public IActionResult GetAllNumbersArrayAsync() 
+        [HttpGet(Name = "GetAllNumbersArrayForSayisalLotoAsync")]
+        public IActionResult GetAllNumbersArrayForSayisalLotoAsync() 
         {
             try
             {
@@ -30,7 +30,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetOneNumbersArrayByIdAsync([FromRoute(Name = "id")]int id)
+        public IActionResult GetOneNumbersArrayByIdForSayisalLotoAsync([FromRoute(Name = "id")]int id)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOneNumbersArrayAsync([FromBody] SayisalLoto sayisalLoto)
+        public IActionResult CreateOneNumbersArrayForSayisalLotoAsync([FromBody] SayisalLoto sayisalLoto)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace Presentation.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneNumbersArrayAsync([FromRoute(Name = "id")]int id, [FromBody]SayisalLoto sayisalLoto)
+        public IActionResult UpdateOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")]int id, [FromBody]SayisalLoto sayisalLoto)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace Presentation.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public IActionResult DeleteOneNumbersArrayAsync([FromRoute(Name = "id")]int id)
+        public IActionResult DeleteOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")]int id)
         {
             try
             {

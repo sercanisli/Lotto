@@ -22,10 +22,10 @@ namespace Presentation.Controllers
 
         [Authorize(Roles = "Admin, Editor, User")]
         [HttpHead]
-        [HttpGet(Name = "GetAllNumbersArrayAsync")]
+        [HttpGet(Name = "GetAllNumbersArrayForSuperLotoAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         [ResponseCache(CacheProfileName = "5mins")]
-        public async Task<IActionResult> GetAllNumbersArrayAsync([FromQuery]SuperLotoParameters superLotoParameters)
+        public async Task<IActionResult> GetAllNumbersArrayForSuperLotoAsync([FromQuery]SuperLotoParameters superLotoParameters)
         {
             var linkParameters = new LinkParameters()
             {
@@ -42,8 +42,8 @@ namespace Presentation.Controllers
         }
 
         [Authorize(Roles = "Admin, Editor, User")]
-        [HttpGet("GetRandomNumbersAsync")]
-        public async Task<IActionResult> GetRandomNumbersAsync()
+        [HttpGet("GetRandomNumbersForSuperLotoAsync")]
+        public async Task<IActionResult> GetRandomNumbersForSuperLotoAsync()
         {
             var numbers = await _manager.SuperLotoService.GetRondomNumbersAsync();
             return Ok(numbers);
@@ -52,16 +52,16 @@ namespace Presentation.Controllers
         [Authorize(Roles = "Admin, Editor, User")]
         [HttpGet("{id:int}")]
         [ResponseCache(CacheProfileName = "5mins")]
-        public async Task<IActionResult> GetOneNumbersArrayByIdAsync([FromRoute(Name = "id")] int id)
+        public async Task<IActionResult> GetOneNumbersArrayByIdForSuperLotoAsync([FromRoute(Name = "id")] int id)
         {
             var array = await _manager.SuperLotoService.GetOneNumbersArrayByIdAsync(id, false);
             return Ok(array);
         }
 
         [Authorize(Roles = "Admin, Editor, User")]
-        [HttpGet("GetOneNumbersArrayByDateAsync")]
+        [HttpGet("GetOneNumbersArrayByDateForSuperLotoAsync")]
         [ResponseCache(CacheProfileName = "5mins")]
-        public async Task<IActionResult> GetOneNumbersArrayByDateAsync([FromQuery]DateTime date)
+        public async Task<IActionResult> GetOneNumbersArrayByDateForSuperLotoAsync([FromQuery]DateTime date)
         {
             var array = await _manager.SuperLotoService.GetOneNumbersArrayByDateAsync(date, false);
             return Ok(array);
@@ -69,8 +69,8 @@ namespace Presentation.Controllers
 
         [Authorize(Roles = "Admin, Editor")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [HttpPost(Name = "CreateOneNumbersArrayAsync")]
-        public async Task<IActionResult> CreateOneNumbersArrayAsync([FromBody] SuperLotoDtoForInsertion superLotoDto)
+        [HttpPost(Name = "CreateOneNumbersArrayForSuperLotoAsync")]
+        public async Task<IActionResult> CreateOneNumbersArrayForSuperLotoAsync([FromBody] SuperLotoDtoForInsertion superLotoDto)
         {
             if (superLotoDto == null)
             {
@@ -87,7 +87,7 @@ namespace Presentation.Controllers
         [Authorize(Roles = "Admin, Editor")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> UpdateOneNumbersArrayAsync([FromRoute(Name = "id")] int id, [FromBody] SuperLotoDtoForUpdate superLotoDto)
+        public async Task<IActionResult> UpdateOneNumbersArrayForSuperLotoAsync([FromRoute(Name = "id")] int id, [FromBody] SuperLotoDtoForUpdate superLotoDto)
         {
             if (superLotoDto == null)
             {
@@ -103,7 +103,7 @@ namespace Presentation.Controllers
         
         [Authorize(Roles = "Admin, Editor")]
         [HttpDelete("{id:int}")]
-        public async Task<IActionResult> DeleteOneNumbersArrayAsync([FromRoute(Name = "id")] int id)
+        public async Task<IActionResult> DeleteOneNumbersArrayForSuperLotoAsync([FromRoute(Name = "id")] int id)
         {
             await _manager.SuperLotoService.DeleteOneNumbersArrayAsync(id, false);
             return NoContent();

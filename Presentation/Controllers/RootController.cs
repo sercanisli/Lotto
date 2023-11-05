@@ -30,13 +30,13 @@ namespace Presentation.Controllers
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetAllNumbersArrayAsync), new{}),
+                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetAllNumbersArrayForSuperLotoAsync), new{}),
                         Relation = "superloto",
                         Method = "GET"
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.CreateOneNumbersArrayAsync), new{}),
+                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.CreateOneNumbersArrayForSuperLotoAsync), new{}),
                         Relation = "superloto",
                         Method = "POST"
                     }

@@ -63,7 +63,6 @@ if (app.Environment.IsProduction())
 }
 
 app.UseHttpsRedirection();
-
 app.UseIpRateLimiting();
 app.UseCors("CorsPolicy");
 app.UseResponseCaching();

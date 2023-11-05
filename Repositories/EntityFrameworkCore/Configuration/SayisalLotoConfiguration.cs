@@ -16,23 +16,23 @@ namespace Repositories.EntityFrameworkCore.Configuration
             )
             .HasColumnName("Numbers");
             builder.HasData(
-                new SuperLoto
+                new SayisalLoto
                 {
                     Id = 1,
-                    Numbers = new List<int> { 45, 26, 17, 6, 27, 60 },
-                    Date = new DateTime(2023, 10, 27)
+                    Numbers = new List<int> { 6, 25, 17, 13, 27, 60 },
+                    Date = new DateTime(2022, 11, 27)
                 },
-                new SuperLoto
+                new SayisalLoto
                 {
                     Id = 2,
-                    Numbers = new List<int> { 25, 7, 9, 17, 27, 42 },
-                    Date = new DateTime(2023, 9, 6)
+                    Numbers = new List<int> { 19, 17, 9, 23, 27, 45 },
+                    Date = new DateTime(2023, 9, 16)
                 },
-                new SuperLoto
+                new SayisalLoto
                 {
                     Id = 3,
-                    Numbers = new List<int> { 12, 4, 17, 6, 27, 60 },
-                    Date = new DateTime(2023, 2, 27)
+                    Numbers = new List<int> { 13, 45, 53, 52, 27, 3 },
+                    Date = new DateTime(2023, 12, 27)
                 }
                 );
         }
