@@ -8,5 +8,6 @@ namespace Repositories.Cantracts
         ISayisalLotoRepository SayisalLoto { get; }
 
         Task SaveAsync();
+        void Save();
     }
 }
