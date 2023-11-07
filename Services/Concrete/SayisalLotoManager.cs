@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Exceptions;
+using Entities.Models;
 using Repositories.Cantracts;
 using Services.Contracts;
 
@@ -25,11 +26,9 @@ namespace Services.Concrete
         public void DeleteOneNumbersArrayAsync(int id, bool trackChanges)
         {
             var entity = _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
-            string message = $"The sayisal loto with id : {id} could not found.";
             if (entity == null)
             {
-                _logger.LogInfo(message);
-                throw new Exception(message);
+                throw new SayisalLotoNotFoundException(id);
             }
             _manager.SayisalLoto.DeleteOneNumbersArray(entity);
             _manager.Save();
@@ -42,17 +41,20 @@ namespace Services.Concrete
 
         public SayisalLoto GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
-            return _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
+            var entity = _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
+            if (entity == null)
+            {
+                throw new SayisalLotoNotFoundException(id);
+            }
+            return entity;
         }
 
         public void UpdateOneNumbersArrayAsync(int id, SayisalLoto sayisalLoto, bool trackChanges)
         {
             var entity = _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
-            string message = $"The sayisal loto with id : {id} could not found.";
             if (entity == null)
             {
-                _logger.LogInfo(message);
-                throw new Exception(message);
+                throw new SayisalLotoNotFoundException(id);
             }
             if(sayisalLoto  == null)
             {

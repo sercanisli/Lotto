@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Exceptions;
+using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 
@@ -26,10 +27,6 @@ namespace Presentation.Controllers
         public IActionResult GetOneNumbersArrayByIdForSayisalLotoAsync([FromRoute(Name = "id")] int id)
         {
             var entity = _manager.SayisalLotoService.GetOneNumbersArrayByIdAsync(id, false);
-            if (entity == null)
-            {
-                return NotFound();
-            }
             return Ok(entity);
         }
 
