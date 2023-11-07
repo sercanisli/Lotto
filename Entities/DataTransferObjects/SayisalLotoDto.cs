@@ -1,6 +1,6 @@
 ﻿namespace Entities.DataTransferObjects
 {
-    public record SuperLotoDto : LotoDto
+    public record SayisalLotoDto : LotoDto
     {
     }
 }
