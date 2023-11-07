@@ -16,87 +16,51 @@ namespace Presentation.Controllers
         }
 
         [HttpGet(Name = "GetAllNumbersArrayForSayisalLotoAsync")]
-        public IActionResult GetAllNumbersArrayForSayisalLotoAsync() 
+        public IActionResult GetAllNumbersArrayForSayisalLotoAsync()
         {
-            try
-            {
-                var entities = _manager.SayisalLotoService.GetAllNumbersArraysAsync(false);
-                return Ok(entities);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            var entities = _manager.SayisalLotoService.GetAllNumbersArraysAsync(false);
+            return Ok(entities);
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetOneNumbersArrayByIdForSayisalLotoAsync([FromRoute(Name = "id")]int id)
+        public IActionResult GetOneNumbersArrayByIdForSayisalLotoAsync([FromRoute(Name = "id")] int id)
         {
-            try
+            var entity = _manager.SayisalLotoService.GetOneNumbersArrayByIdAsync(id, false);
+            if (entity == null)
             {
-                var entity = _manager.SayisalLotoService.GetOneNumbersArrayByIdAsync(id, false);
-                if(entity == null)
-                {
-                    return NotFound();
-                }
-                return Ok(entity);
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            return Ok(entity);
         }
 
         [HttpPost]
         public IActionResult CreateOneNumbersArrayForSayisalLotoAsync([FromBody] SayisalLoto sayisalLoto)
         {
-            try
+            if (sayisalLoto == null)
             {
-                if (sayisalLoto == null)
-                {
-                    return BadRequest();
-                }
-                _manager.SayisalLotoService.CreateOneNumbersArrayAsync(sayisalLoto);
-                return StatusCode(201, sayisalLoto);
+                return BadRequest();
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            _manager.SayisalLotoService.CreateOneNumbersArrayAsync(sayisalLoto);
+            return StatusCode(201, sayisalLoto);
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")]int id, [FromBody]SayisalLoto sayisalLoto)
+        public IActionResult UpdateOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")] int id, [FromBody] SayisalLoto sayisalLoto)
         {
-            try
+            if (sayisalLoto == null)
             {
-                if (sayisalLoto == null)
-                {
-                    return BadRequest();
-                }
-
-                _manager.SayisalLotoService.UpdateOneNumbersArrayAsync(id, sayisalLoto, true);
-                return NoContent();
+                return BadRequest();
             }
-            catch (Exception ex)
-            {
 
-                throw new Exception(ex.Message);
-            }
+            _manager.SayisalLotoService.UpdateOneNumbersArrayAsync(id, sayisalLoto, true);
+            return NoContent();
         }
 
         [HttpDelete("{id:int}")]
-        public IActionResult DeleteOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")]int id)
+        public IActionResult DeleteOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")] int id)
         {
-            try
-            {
-                _manager.SayisalLotoService.DeleteOneNumbersArrayAsync(id, false);
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            _manager.SayisalLotoService.DeleteOneNumbersArrayAsync(id, false);
+            return NoContent();
         }
     }
 }

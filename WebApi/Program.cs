@@ -48,7 +48,6 @@ builder.Services.ConfigureJwt(builder.Configuration);
 var app = builder.Build();
 
 var logger = app.Services.GetRequiredService<ILoggerService>();
-
 app.ConfigureExceptionHandler(logger);
 
 if (app.Environment.IsDevelopment())
