@@ -1,4 +1,6 @@
-﻿using Entities.Exceptions;
+﻿using AutoMapper;
+using Entities.DataTransferObjects;
+using Entities.Exceptions;
 using Entities.Models;
 using Repositories.Cantracts;
 using Services.Contracts;
@@ -9,11 +11,13 @@ namespace Services.Concrete
     {
         private readonly IRepositoryManager _manager;
         private readonly ILoggerService _logger;
+        private readonly IMapper _mapper;
 
-        public SayisalLotoManager(IRepositoryManager manager, ILoggerService logger)
+        public SayisalLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper)
         {
             _manager = manager;
             _logger = logger;
+            _mapper = mapper;
         }
 
         public SayisalLoto CreateOneNumbersArrayAsync(SayisalLoto sayisalLoto)
@@ -49,19 +53,14 @@ namespace Services.Concrete
             return entity;
         }
 
-        public void UpdateOneNumbersArrayAsync(int id, SayisalLoto sayisalLoto, bool trackChanges)
+        public void UpdateOneNumbersArrayAsync(int id, SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate, bool trackChanges)
         {
             var entity = _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
                 throw new SayisalLotoNotFoundException(id);
             }
-            if(sayisalLoto  == null)
-            {
-                throw new ArgumentNullException(nameof(sayisalLoto));
-            }
-            entity.Numbers=sayisalLoto.Numbers;
-            entity.Date = sayisalLoto.Date;
+            entity = _mapper.Map<SayisalLoto>(sayisalLotoDtoForUpdate);
 
             _manager.SayisalLoto.UpdateOneNumbersArray(entity);
             _manager.Save();

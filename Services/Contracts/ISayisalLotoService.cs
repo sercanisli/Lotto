@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.DataTransferObjects;
+using Entities.Models;
 
 namespace Services.Contracts
 {
@@ -8,6 +9,6 @@ namespace Services.Contracts
         SayisalLoto GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
         SayisalLoto CreateOneNumbersArrayAsync(SayisalLoto sayisalLoto);
         void DeleteOneNumbersArrayAsync(int id, bool trackChanges);
-        void UpdateOneNumbersArrayAsync(int id, SayisalLoto sayisalLoto, bool trackChanges);
+        void UpdateOneNumbersArrayAsync(int id, SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate, bool trackChanges);
     }
 }
