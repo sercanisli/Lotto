@@ -16,21 +16,21 @@ namespace Presentation.Controllers
         }
 
         [HttpGet(Name = "GetAllNumbersArrayForSayisalLotoAsync")]
-        public IActionResult GetAllNumbersArrayForSayisalLotoAsync()
+        public async Task<IActionResult> GetAllNumbersArrayForSayisalLotoAsync()
         {
-            var entities = _manager.SayisalLotoService.GetAllNumbersArraysAsync(false);
+            var entities = await _manager.SayisalLotoService.GetAllNumbersArraysAsync(false);
             return Ok(entities);
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetOneNumbersArrayByIdForSayisalLotoAsync([FromRoute(Name = "id")] int id)
-        {
-            var entity = _manager.SayisalLotoService.GetOneNumbersArrayByIdAsync(id, false);
+        public async Task<IActionResult> GetOneNumbersArrayByIdForSayisalLotoAsync([FromRoute(Name = "id")] int id)
+        { 
+            var entity = await _manager.SayisalLotoService.GetOneNumbersArrayByIdAsync(id, false);
             return Ok(entity);
         }
 
         [HttpPost]
-        public IActionResult CreateOneNumbersArrayForSayisalLotoAsync([FromBody] SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion)
+        public async Task<IActionResult> CreateOneNumbersArrayForSayisalLotoAsync([FromBody] SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion)
         {
             if (sayisalLotoDtoForInsertion == null)
             {
@@ -40,12 +40,12 @@ namespace Presentation.Controllers
             {
                 return UnprocessableEntity(ModelState);
             }
-            var entity = _manager.SayisalLotoService.CreateOneNumbersArrayAsync(sayisalLotoDtoForInsertion);
+            var entity = await _manager.SayisalLotoService.CreateOneNumbersArrayAsync(sayisalLotoDtoForInsertion);
             return StatusCode(201, entity);
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")] int id, [FromBody] SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate)
+        public async Task<IActionResult> UpdateOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")] int id, [FromBody] SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate)
         {
             if (sayisalLotoDtoForUpdate == null)
             {
@@ -55,14 +55,14 @@ namespace Presentation.Controllers
             {
                 return UnprocessableEntity(ModelState);
             }
-            _manager.SayisalLotoService.UpdateOneNumbersArrayAsync(id, sayisalLotoDtoForUpdate, false);
+            await _manager.SayisalLotoService.UpdateOneNumbersArrayAsync(id, sayisalLotoDtoForUpdate, false);
             return NoContent();
         }
 
         [HttpDelete("{id:int}")]
-        public IActionResult DeleteOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")] int id)
+        public async Task<IActionResult> DeleteOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")] int id)
         {
-            _manager.SayisalLotoService.DeleteOneNumbersArrayAsync(id, false);
+            await _manager.SayisalLotoService.DeleteOneNumbersArrayAsync(id, false);
             return NoContent();
         }
     }
