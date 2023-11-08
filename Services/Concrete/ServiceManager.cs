@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Entities.DataTransferObjects;
 using Entities.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;

@@ -20,34 +20,34 @@ namespace Services.Concrete
             _mapper = mapper;
         }
 
-        public SayisalLotoDto CreateOneNumbersArrayAsync(SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion)
+        public async Task<SayisalLotoDto> CreateOneNumbersArrayAsync(SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion)
         {
             var entity = _mapper.Map<SayisalLoto>(sayisalLotoDtoForInsertion);
             _manager.SayisalLoto.CreateOneNumbersArray(entity);
-            _manager.Save();
+            await _manager.SaveAsync();
             return _mapper.Map<SayisalLotoDto>(entity);
         }
 
-        public void DeleteOneNumbersArrayAsync(int id, bool trackChanges)
+        public async Task DeleteOneNumbersArrayAsync(int id, bool trackChanges)
         {
-            var entity = _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
+            var entity = await _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
                 throw new SayisalLotoNotFoundException(id);
             }
             _manager.SayisalLoto.DeleteOneNumbersArray(entity);
-            _manager.Save();
+            await _manager.SaveAsync();
         }
 
-        public IEnumerable<SayisalLotoDto> GetAllNumbersArraysAsync(bool trackChanges)
+        public async Task<IEnumerable<SayisalLotoDto>> GetAllNumbersArraysAsync(bool trackChanges)
         {
-            var entities = _manager.SayisalLoto.GetAllNumbersArrayAsync(trackChanges);
+            var entities = await _manager.SayisalLoto.GetAllNumbersArrayAsync(trackChanges);
             return _mapper.Map<IEnumerable<SayisalLotoDto>>(entities);
         }
 
-        public SayisalLotoDto GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
+        public async Task<SayisalLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
-            var entity = _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
+            var entity = await _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
                 throw new SayisalLotoNotFoundException(id);
@@ -55,16 +55,16 @@ namespace Services.Concrete
             return _mapper.Map<SayisalLotoDto>(entity);
         }
 
-        public void UpdateOneNumbersArrayAsync(int id, SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate, bool trackChanges)
+        public async Task UpdateOneNumbersArrayAsync(int id, SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate, bool trackChanges)
         {
-            var entity = _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
+            var entity = await _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
                 throw new SayisalLotoNotFoundException(id);
             }
             entity = _mapper.Map<SayisalLoto>(sayisalLotoDtoForUpdate);
             _manager.SayisalLoto.UpdateOneNumbersArray(entity);
-            _manager.Save();
+            await _manager.SaveAsync();
         }
     }
 }

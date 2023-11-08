@@ -5,10 +5,10 @@ namespace Services.Contracts
 {
     public interface ISayisalLotoService
     {
-        IEnumerable<SayisalLotoDto> GetAllNumbersArraysAsync(bool trackChanges);
-        SayisalLotoDto GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
-        SayisalLotoDto CreateOneNumbersArrayAsync(SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion);
-        void DeleteOneNumbersArrayAsync(int id, bool trackChanges);
-        void UpdateOneNumbersArrayAsync(int id, SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate, bool trackChanges);
+        Task<IEnumerable<SayisalLotoDto>> GetAllNumbersArraysAsync(bool trackChanges);
+        Task<SayisalLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
+        Task<SayisalLotoDto> CreateOneNumbersArrayAsync(SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion);
+        Task DeleteOneNumbersArrayAsync(int id, bool trackChanges);
+        Task UpdateOneNumbersArrayAsync(int id, SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate, bool trackChanges);
     }
 }
