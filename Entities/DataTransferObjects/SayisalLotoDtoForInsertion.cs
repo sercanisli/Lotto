@@ -2,11 +2,12 @@
 
 namespace Entities.DataTransferObjects
 {
-    public record SuperLotoDtoForInsertion : SuperLotoDtoForManipulation
+    public record SayisalLotoDtoForInsertion : SayisalLotoDtoForManipulation
     {
         public string Date { get; init; }
-        public SuperLotoDtoForInsertion()
+        public SayisalLotoDtoForInsertion()
         {
+            
         }
     }
 }

@@ -1,14 +1,11 @@
-﻿namespace Entities.DataTransferObjects
-{
-    public record SayisalLotoDtoForUpdate
-    {
-        public int Id { get; init; }
-        public List<int> Numbers { get; init; }
-        public DateTime Date { get; init; }
+﻿using Entities.Validations;
+using System.ComponentModel.DataAnnotations;
 
-        public SayisalLotoDtoForUpdate()
-        {
-            Numbers = new List<int>();
-        }
+namespace Entities.DataTransferObjects
+{
+    public record SayisalLotoDtoForUpdate : SayisalLotoDtoForManipulation
+    {
+        [Required]
+        public int Id { get; init; }
     }
 }

@@ -25,7 +25,7 @@ namespace WebApi.Utilities.Formatters
 
         private static void FormatCsv(StringBuilder buffer, SuperLotoDto superLotoDto)
         {
-            buffer.AppendLine($"{superLotoDto.Id}, {ConvertListToString(superLotoDto.Numbers)}");
+            buffer.AppendLine($"{superLotoDto.Id}, {ConvertListToString(superLotoDto.Numbers)}, {superLotoDto.Date}");
         }
 
         private static string ConvertListToString(List<int> numbers)
@@ -49,6 +49,7 @@ namespace WebApi.Utilities.Formatters
             {
                 FormatCsv(buffer, (SuperLotoDto)context.Object);
             }
+           
             await response.WriteAsync(buffer.ToString());
         }
     }
