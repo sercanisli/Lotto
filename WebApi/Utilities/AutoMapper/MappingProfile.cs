@@ -16,6 +16,7 @@ namespace WebApi.Utilities.AutoMapper
 
             CreateMap<SayisalLoto, SayisalLotoDto>().ReverseMap();
             CreateMap<SayisalLotoDtoForUpdate, SayisalLoto>().ReverseMap();
+            CreateMap<SayisalLotoDtoForInsertion, SayisalLoto>().ReverseMap();
         }
     }
 }

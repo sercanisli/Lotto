@@ -20,11 +20,12 @@ namespace Services.Concrete
             _mapper = mapper;
         }
 
-        public SayisalLoto CreateOneNumbersArrayAsync(SayisalLoto sayisalLoto)
+        public SayisalLotoDto CreateOneNumbersArrayAsync(SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion)
         {
-            _manager.SayisalLoto.CreateOneNumbersArray(sayisalLoto);
+            var entity = _mapper.Map<SayisalLoto>(sayisalLotoDtoForInsertion);
+            _manager.SayisalLoto.CreateOneNumbersArray(entity);
             _manager.Save();
-            return sayisalLoto;
+            return _mapper.Map<SayisalLotoDto>(entity);
         }
 
         public void DeleteOneNumbersArrayAsync(int id, bool trackChanges)
@@ -44,14 +45,14 @@ namespace Services.Concrete
             return _mapper.Map<IEnumerable<SayisalLotoDto>>(entities);
         }
 
-        public SayisalLoto GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
+        public SayisalLotoDto GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
             var entity = _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
                 throw new SayisalLotoNotFoundException(id);
             }
-            return entity;
+            return _mapper.Map<SayisalLotoDto>(entity);
         }
 
         public void UpdateOneNumbersArrayAsync(int id, SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate, bool trackChanges)
