@@ -49,7 +49,7 @@ namespace Presentation.Controllers
                 return BadRequest();
             }
 
-            _manager.SayisalLotoService.UpdateOneNumbersArrayAsync(id, sayisalLotoDtoForUpdate, true);
+            _manager.SayisalLotoService.UpdateOneNumbersArrayAsync(id, sayisalLotoDtoForUpdate, false);
             return NoContent();
         }
 

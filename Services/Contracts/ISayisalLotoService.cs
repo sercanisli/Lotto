@@ -5,7 +5,7 @@ namespace Services.Contracts
 {
     public interface ISayisalLotoService
     {
-        IEnumerable<SayisalLoto> GetAllNumbersArraysAsync(bool trackChanges);
+        IEnumerable<SayisalLotoDto> GetAllNumbersArraysAsync(bool trackChanges);
         SayisalLoto GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
         SayisalLoto CreateOneNumbersArrayAsync(SayisalLoto sayisalLoto);
         void DeleteOneNumbersArrayAsync(int id, bool trackChanges);

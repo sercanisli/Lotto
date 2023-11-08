@@ -38,9 +38,10 @@ namespace Services.Concrete
             _manager.Save();
         }
 
-        public IEnumerable<SayisalLoto> GetAllNumbersArraysAsync(bool trackChanges)
+        public IEnumerable<SayisalLotoDto> GetAllNumbersArraysAsync(bool trackChanges)
         {
-            return _manager.SayisalLoto.GetAllNumbersArrayAsync(trackChanges);
+            var entities = _manager.SayisalLoto.GetAllNumbersArrayAsync(trackChanges);
+            return _mapper.Map<IEnumerable<SayisalLotoDto>>(entities);
         }
 
         public SayisalLoto GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
@@ -61,7 +62,6 @@ namespace Services.Concrete
                 throw new SayisalLotoNotFoundException(id);
             }
             entity = _mapper.Map<SayisalLoto>(sayisalLotoDtoForUpdate);
-
             _manager.SayisalLoto.UpdateOneNumbersArray(entity);
             _manager.Save();
         }
