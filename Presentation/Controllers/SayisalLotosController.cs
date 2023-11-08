@@ -51,7 +51,10 @@ namespace Presentation.Controllers
             {
                 return BadRequest();
             }
-
+            if(!ModelState.IsValid)
+            {
+                return UnprocessableEntity(ModelState);
+            }
             _manager.SayisalLotoService.UpdateOneNumbersArrayAsync(id, sayisalLotoDtoForUpdate, false);
             return NoContent();
         }
