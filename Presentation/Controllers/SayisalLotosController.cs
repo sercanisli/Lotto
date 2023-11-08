@@ -1,5 +1,4 @@
 ﻿using Entities.DataTransferObjects;
-using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 
@@ -31,14 +30,18 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOneNumbersArrayForSayisalLotoAsync([FromBody] SayisalLoto sayisalLoto)
+        public IActionResult CreateOneNumbersArrayForSayisalLotoAsync([FromBody] SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion)
         {
-            if (sayisalLoto == null)
+            if (sayisalLotoDtoForInsertion == null)
             {
                 return BadRequest();
             }
-            _manager.SayisalLotoService.CreateOneNumbersArrayAsync(sayisalLoto);
-            return StatusCode(201, sayisalLoto);
+            if (!ModelState.IsValid)
+            {
+                return UnprocessableEntity(ModelState);
+            }
+            var entity = _manager.SayisalLotoService.CreateOneNumbersArrayAsync(sayisalLotoDtoForInsertion);
+            return StatusCode(201, entity);
         }
 
         [HttpPut("{id:int}")]
