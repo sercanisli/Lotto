@@ -5,6 +5,7 @@ using Services.Contracts;
 
 namespace Presentation.Controllers
 {
+    [ServiceFilter(typeof(LogFilterAttribute))]
     [ApiController]
     [Route("api/sayisalloto")]
     public class SayisalLotosController : ControllerBase

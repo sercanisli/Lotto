@@ -4,11 +4,11 @@ namespace Entities.LogModels
 {
     public class LogDetails
     {
-        public object? ModelName { get; set; }
-        public object? Controller { get; set; }
-        public object? Action { get; set; }
-        public object? Id { get; set; }
-        public object? CreatedAt { get; set; }
+        public Object? ModelName { get; set; }
+        public Object? Controller { get; set; }
+        public Object? Action { get; set; }
+        public Object? Id { get; set; }
+        public Object? CreatedAt { get; set; }
 
         public LogDetails()
         {
