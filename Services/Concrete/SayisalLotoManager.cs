@@ -66,5 +66,13 @@ namespace Services.Concrete
             }
             return entity;
         }
+
+        private async Task<IEnumerable<SayisalLotoDto>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges)
+        {
+            var entities = await _manager.SayisalLoto.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
+            return _mapper.Map<IEnumerable<SayisalLotoDto>>(entities);
+        }
+
+
     }
 }

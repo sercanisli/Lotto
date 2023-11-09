@@ -23,7 +23,10 @@ namespace Repositories.EntityFrameworkCore
                 .ToListAsync();
                 return PagedList<SayisalLoto>.ToPagedList(entities, sayisalLotoParameters.PageNumber, sayisalLotoParameters.PageSize);
         }
-            
+
+        public async Task<IEnumerable<SayisalLoto>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges) =>
+            await FindAll(trackChanges).ToListAsync();
+
         public async Task<SayisalLoto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
             await FindByCondition(sl => sl.Id.Equals(id), trackChanges).SingleOrDefaultAsync();
 
