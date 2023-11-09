@@ -56,7 +56,7 @@ namespace Services.Concrete
 
         public async Task<SuperLotoDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
         {
-            var entities = await GetAllNumbersArrayAsyncWithoutPaginationAsync(trackChanges);
+            var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             var entityDate = entities.Where(e => e.Date == date).FirstOrDefault();
             if (entityDate == null)
             {
@@ -151,14 +151,14 @@ namespace Services.Concrete
 
         private async Task<IEnumerable<int>> GetOnlyNumbersAsync(bool trackChanges)
         {
-            var entities = await GetAllNumbersArrayAsyncWithoutPaginationAsync(trackChanges);
+            var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             var numbers = entities.SelectMany(e => e.Numbers).ToList();
             return numbers;
         }
 
-        private async Task<IEnumerable<SuperLotoDto>> GetAllNumbersArrayAsyncWithoutPaginationAsync(bool trackChanges)
+        private async Task<IEnumerable<SuperLotoDto>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges)
         {
-            var entities = await _manager.SuperLoto.GetAllNumbersArrayAsyncWithoutPaginationAsync(trackChanges);
+            var entities = await _manager.SuperLoto.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             return _mapper.Map<IEnumerable<SuperLotoDto>>(entities);
         }
     }

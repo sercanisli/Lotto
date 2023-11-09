@@ -22,7 +22,7 @@ namespace Repositories.EntityFrameworkCore
             return PagedList<SuperLoto>.ToPagedList(entities, superLotoParameters.PageNumber, superLotoParameters.PageSize);
         }
 
-        public async Task<IEnumerable<SuperLoto>> GetAllNumbersArrayAsyncWithoutPaginationAsync(bool trackChanges) =>
+        public async Task<IEnumerable<SuperLoto>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges) =>
             await FindAll(trackChanges).ToListAsync();
 
         public async Task<SuperLoto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
