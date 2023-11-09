@@ -1,11 +1,11 @@
 ﻿using Entities.DataTransferObjects;
-using Entities.Models;
+using Entities.RequestFeatures;
 
 namespace Services.Contracts
 {
     public interface ISayisalLotoService
     {
-        Task<IEnumerable<SayisalLotoDto>> GetAllNumbersArraysAsync(bool trackChanges);
+        Task<IEnumerable<SayisalLotoDto>> GetAllNumbersArraysAsync(SayisalLotoParameters sayisalLotoParameters, bool trackChanges);
         Task<SayisalLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
         Task<SayisalLotoDto> CreateOneNumbersArrayAsync(SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion);
         Task DeleteOneNumbersArrayAsync(int id, bool trackChanges);
