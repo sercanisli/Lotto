@@ -34,6 +34,13 @@ namespace Presentation.Controllers
             return Ok(entity);
         }
 
+        [HttpGet("GetOneNumbersArrayByDateForSayisalLotoAsync")]
+        public async Task<IActionResult> GetOneNumbersArrayByDateForSayisalLotoAsync([FromQuery]DateTime date)
+        {
+            var array = await _manager.SayisalLotoService.GetOneNumbersArrayByDateAsync(date, false);
+            return Ok(array);
+        }
+
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPost]
         public async Task<IActionResult> CreateOneNumbersArrayForSayisalLotoAsync([FromBody] SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion)
