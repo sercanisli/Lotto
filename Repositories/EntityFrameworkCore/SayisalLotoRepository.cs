@@ -2,6 +2,7 @@
 using Entities.RequestFeatures;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Contract;
+using Repositories.EntityFrameworkCore.Extensions;
 
 namespace Repositories.EntityFrameworkCore
 {
@@ -18,9 +19,9 @@ namespace Repositories.EntityFrameworkCore
         public async Task<PagedList<SayisalLoto>> GetAllNumbersArrayAsync(SayisalLotoParameters sayisalLotoParameters, bool trackChanges)
         {
             var entities = await FindAll(trackChanges)
-            .OrderBy(sl => sl.Numbers)
-            .ToListAsync();
-            return PagedList<SayisalLoto>.ToPagedList(entities, sayisalLotoParameters.PageNumber, sayisalLotoParameters.PageSize);
+                .Sort(sayisalLotoParameters.OrderBy)
+                .ToListAsync();
+                return PagedList<SayisalLoto>.ToPagedList(entities, sayisalLotoParameters.PageNumber, sayisalLotoParameters.PageSize);
         }
             
         public async Task<SayisalLoto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
