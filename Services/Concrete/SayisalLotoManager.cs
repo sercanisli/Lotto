@@ -57,6 +57,23 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
+        public async Task<List<int>> GetRondomNumbersAsync()
+        {
+            List<int> randomNumbers = new List<int>();
+            int i = 0;
+            do
+            {
+                var numbers = await GenerateRandomNumbersAsync();
+                if (AreTheNumbersTheSame(numbers) == true)
+                {
+                    i++;
+                    randomNumbers = numbers;
+                }
+            } while (i == 0);
+            randomNumbers = Sort(randomNumbers);
+            return randomNumbers;
+        }
+
         private async Task<SayisalLoto> GetOneNumbersArrayByIdAndCheckExists(int id, bool trackChanges)
         {
             var entity = await _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
@@ -73,6 +90,6 @@ namespace Services.Concrete
             return _mapper.Map<IEnumerable<SayisalLotoDto>>(entities);
         }
 
-
+        
     }
 }
