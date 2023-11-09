@@ -36,7 +36,7 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<(IEnumerable<SayisalLotoDto>, MetaData metaData)> GetAllNumbersArraysAsync(SayisalLotoParameters sayisalLotoParameters, bool trackChanges)
+        public async Task<(IEnumerable<SayisalLotoDto> sayisalLotos, MetaData metaData)> GetAllNumbersArraysAsync(SayisalLotoParameters sayisalLotoParameters, bool trackChanges)
         {
             var entitiesWithMetaData = await _manager.SayisalLoto.GetAllNumbersArrayAsync(sayisalLotoParameters,trackChanges);
             var sayisalLotosDto = _mapper.Map<IEnumerable<SayisalLotoDto>>(entitiesWithMetaData);
