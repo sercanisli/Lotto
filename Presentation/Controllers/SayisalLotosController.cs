@@ -1,4 +1,5 @@
 ﻿using Entities.DataTransferObjects;
+using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
 using Services.Contracts;
@@ -18,9 +19,9 @@ namespace Presentation.Controllers
         }
 
         [HttpGet(Name = "GetAllNumbersArrayForSayisalLotoAsync")]
-        public async Task<IActionResult> GetAllNumbersArrayForSayisalLotoAsync()
+        public async Task<IActionResult> GetAllNumbersArrayForSayisalLotoAsync([FromQuery]SayisalLotoParameters sayisalLotoParameters)
         {
-            var entities = await _manager.SayisalLotoService.GetAllNumbersArraysAsync(false);
+            var entities = await _manager.SayisalLotoService.GetAllNumbersArraysAsync(sayisalLotoParameters,false);
             return Ok(entities);
         }
 
