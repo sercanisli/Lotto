@@ -27,6 +27,13 @@ namespace Presentation.Controllers
             return Ok(pagedResult.sayisalLotos);
         }
 
+        [HttpGet("GetRandomNumbersForSayisalLotoAsync")]
+        public async Task<IActionResult> GetRandomNumbersForSayisalLotoAsync()
+        {
+            var numbers = await _manager.SayisalLotoService.GetRondomNumbersAsync();
+            return Ok(numbers);
+        }
+
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSayisalLotoAsync([FromRoute(Name = "id")] int id)
         { 
