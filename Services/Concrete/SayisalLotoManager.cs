@@ -49,6 +49,17 @@ namespace Services.Concrete
             return _mapper.Map<SayisalLotoDto>(entity);
         }
 
+        public async Task<SayisalLotoDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
+        {
+            var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
+            var entityDate = entities.Where(e=>e.Date == date).FirstOrDefault();
+            if(entityDate == null)
+            {
+                throw new SayisalLotoDateNotFoundException(Convert.ToDateTime(date));
+            }
+            return entityDate;
+        }
+
         public async Task UpdateOneNumbersArrayAsync(int id, SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate, bool trackChanges)
         {
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
@@ -143,7 +154,5 @@ namespace Services.Concrete
             var entities = await _manager.SayisalLoto.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             return _mapper.Map<IEnumerable<SayisalLotoDto>>(entities);
         }
-
-        
     }
 }
