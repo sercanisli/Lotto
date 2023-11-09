@@ -1,5 +1,6 @@
 ﻿using Entities.DataTransferObjects;
 using Microsoft.AspNetCore.Mvc;
+using Presentation.ActionFilters;
 using Services.Contracts;
 
 namespace Presentation.Controllers
@@ -29,32 +30,18 @@ namespace Presentation.Controllers
             return Ok(entity);
         }
 
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPost]
         public async Task<IActionResult> CreateOneNumbersArrayForSayisalLotoAsync([FromBody] SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion)
         {
-            if (sayisalLotoDtoForInsertion == null)
-            {
-                return BadRequest();
-            }
-            if (!ModelState.IsValid)
-            {
-                return UnprocessableEntity(ModelState);
-            }
             var entity = await _manager.SayisalLotoService.CreateOneNumbersArrayAsync(sayisalLotoDtoForInsertion);
             return StatusCode(201, entity);
         }
 
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")] int id, [FromBody] SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate)
         {
-            if (sayisalLotoDtoForUpdate == null)
-            {
-                return BadRequest();
-            }
-            if(!ModelState.IsValid)
-            {
-                return UnprocessableEntity(ModelState);
-            }
             await _manager.SayisalLotoService.UpdateOneNumbersArrayAsync(id, sayisalLotoDtoForUpdate, false);
             return NoContent();
         }
