@@ -74,6 +74,25 @@ namespace Services.Concrete
             return randomNumbers;
         }
 
+        private bool AreTheNumbersTheSame(List<int> numbers)
+        {
+            if(numbers.Count != 6)
+            {
+                return false;
+            }
+            for(int i = 0; i<numbers.Count -1; i++)
+            {
+                for(int j = i + 1; j < numbers.Count; j++)
+                {
+                    if (numbers[i] == numbers[j])
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         private async Task<List<int>> GenerateRandomNumbersAsync()
         {
             int index;
