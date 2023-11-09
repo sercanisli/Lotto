@@ -74,6 +74,27 @@ namespace Services.Concrete
             return randomNumbers;
         }
 
+        private async Task<List<int>> GenerateRandomNumbersAsync()
+        {
+            int index;
+            int selectedNumber;
+            int sleepTimeInSeconds = 1;
+            var numbers = await GetOnlyNumbersAsync(false);
+            int totalCount = numbers.Count();
+            long ticks = DateTime.Now.Ticks;
+            Random random = new Random((int)ticks);
+            var randomNumbers = new List<int>();
+
+            for(int i = 0; i < 6; i++)
+            {
+                Thread.Sleep(sleepTimeInSeconds);
+                index = random.Next(0, totalCount - 1);
+                selectedNumber = numbers.ElementAt(index);
+                randomNumbers.Add(selectedNumber);
+            }
+            return randomNumbers.ToList();
+        }
+
         private async Task<SayisalLoto> GetOneNumbersArrayByIdAndCheckExists(int id, bool trackChanges)
         {
             var entity = await _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
