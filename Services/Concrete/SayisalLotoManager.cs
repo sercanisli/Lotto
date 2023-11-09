@@ -30,11 +30,7 @@ namespace Services.Concrete
 
         public async Task DeleteOneNumbersArrayAsync(int id, bool trackChanges)
         {
-            var entity = await _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
-            if (entity == null)
-            {
-                throw new SayisalLotoNotFoundException(id);
-            }
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             _manager.SayisalLoto.DeleteOneNumbersArray(entity);
             await _manager.SaveAsync();
         }
@@ -47,24 +43,26 @@ namespace Services.Concrete
 
         public async Task<SayisalLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
-            var entity = await _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
-            if (entity == null)
-            {
-                throw new SayisalLotoNotFoundException(id);
-            }
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             return _mapper.Map<SayisalLotoDto>(entity);
         }
 
         public async Task UpdateOneNumbersArrayAsync(int id, SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate, bool trackChanges)
         {
-            var entity = await _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
-            if (entity == null)
-            {
-                throw new SayisalLotoNotFoundException(id);
-            }
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             entity = _mapper.Map<SayisalLoto>(sayisalLotoDtoForUpdate);
             _manager.SayisalLoto.UpdateOneNumbersArray(entity);
             await _manager.SaveAsync();
+        }
+
+        private async Task<SayisalLoto> GetOneNumbersArrayByIdAndCheckExists(int id, bool trackChanges)
+        {
+            var entity = await _manager.SayisalLoto.GetOneNumbersArrayByIdAsync(id, trackChanges);
+            if(entity == null)
+            {
+                throw new SayisalLotoNotFoundException(id);
+            }
+            return entity;
         }
     }
 }
