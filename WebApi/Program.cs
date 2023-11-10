@@ -1,4 +1,5 @@
 using AspNetCoreRateLimit;
+using Entities.DataTransferObjects;
 using Microsoft.AspNetCore.Mvc;
 using NLog;
 using Services.Contracts;
@@ -34,7 +35,8 @@ builder.Services.ConfigureLoggerService();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.ConfigureActionFilters();
 builder.Services.ConfigureCors();
-builder.Services.ConfigureDataShaper();
+builder.Services.ConfigureDataShaper<SuperLotoDto>();
+builder.Services.ConfigureDataShaper<SayisalLotoDto>();
 builder.Services.AddCustomMediaTypes();
 builder.Services.ConfigureLinks();
 builder.Services.ConfigureResponseCaching();

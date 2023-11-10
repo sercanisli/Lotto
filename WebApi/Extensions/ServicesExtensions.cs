@@ -59,9 +59,9 @@ namespace WebApi.Extensions
             });
         }
 
-        public static void ConfigureDataShaper(this IServiceCollection services)
+        public static void ConfigureDataShaper<T>(this IServiceCollection services) where T : class
         {
-            services.AddScoped<IDataShaper<SuperLotoDto>, DataShaper<SuperLotoDto>>();
+            services.AddScoped<IDataShaper<T>, DataShaper<T>>();
         }
 
         public static void AddCustomMediaTypes(this IServiceCollection services)

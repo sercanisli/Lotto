@@ -1,6 +1,5 @@
 ﻿using Entities.Models;
 using Services.Contracts;
-using System.Dynamic;
 using System.Reflection;
 
 namespace Services.Concrete
