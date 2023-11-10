@@ -1,5 +1,4 @@
 ﻿using AspNetCoreRateLimit;
-using Entities.DataTransferObjects;
 using Entities.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
