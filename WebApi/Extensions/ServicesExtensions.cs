@@ -93,6 +93,7 @@ namespace WebApi.Extensions
         public static void ConfigureLinks(this IServiceCollection services)
         {
             services.AddScoped<ISuperLotoLinks, SuperLotoLinks>();
+            services.AddScoped<ISayisalLotoLinks, SayisalLotoLinks>();
         }
 
         public static void ConfigureResponseCaching(this IServiceCollection services)
@@ -159,5 +160,6 @@ namespace WebApi.Extensions
                 }
             );
         }
+        
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Entities.DataTransferObjects;
 using Entities.Exceptions;
+using Entities.LinkModels;
 using Entities.Models;
 using Entities.RequestFeatures;
 using Repositories.Cantracts;
@@ -13,12 +14,14 @@ namespace Services.Concrete
         private readonly IRepositoryManager _manager;
         private readonly ILoggerService _logger;
         private readonly IMapper _mapper;
+        private readonly ISayisalLotoLinks _links;
 
-        public SayisalLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper)
+        public SayisalLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, ISayisalLotoLinks links)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
+            _links = links;
         }
 
         public async Task<SayisalLotoDto> CreateOneNumbersArrayAsync(SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion)
@@ -36,11 +39,12 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<(IEnumerable<SayisalLotoDto> sayisalLotos, MetaData metaData)> GetAllNumbersArraysAsync(SayisalLotoParameters sayisalLotoParameters, bool trackChanges)
+        public async Task<(LinkResponse linkResponse, MetaData metaData)> GetAllNumbersArraysAsync(LinkParameters<SayisalLotoParameters> linkParameters, bool trackChanges)
         {
-            var entitiesWithMetaData = await _manager.SayisalLoto.GetAllNumbersArrayAsync(sayisalLotoParameters,trackChanges);
+            var entitiesWithMetaData = await _manager.SayisalLoto.GetAllNumbersArrayAsync(linkParameters.Parameters, trackChanges);
             var sayisalLotosDto = _mapper.Map<IEnumerable<SayisalLotoDto>>(entitiesWithMetaData);
-            return (sayisalLotosDto, entitiesWithMetaData.MetaData);
+            var links = _links.TryGenerateLinks(sayisalLotosDto, linkParameters.Parameters.Fields, linkParameters.HttpContext);
+            return (linkResponse:links , metaData: entitiesWithMetaData.MetaData);
         }
 
         public async Task<SayisalLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)

@@ -17,11 +17,12 @@ namespace Services.Concrete
             ILoggerService logger, 
             IMapper mapper, 
             ISuperLotoLinks superLotoLinks, 
+            ISayisalLotoLinks sayisalLotoLinks,
             UserManager<User> userManager,
             IConfiguration configuration)
         {
             _superLotoService = new Lazy<ISuperLotoService>(() => new SuperLotoManager(repositoryManager, logger, mapper, superLotoLinks));
-            _stayalLotoService = new Lazy<ISayisalLotoService>(() => new SayisalLotoManager(repositoryManager, logger, mapper));
+            _stayalLotoService = new Lazy<ISayisalLotoService>(() => new SayisalLotoManager(repositoryManager, logger, mapper, sayisalLotoLinks));
 
             _authenticationService = new Lazy<IAuthenticationService>(() => new AuthenticationManager(logger, mapper, userManager,configuration));
         }
