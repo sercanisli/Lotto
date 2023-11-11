@@ -6,7 +6,7 @@ namespace Services.Contracts
 {
     public interface ISuperLotoService
     {
-        Task<(LinkResponse linkResponse, MetaData metaData)> GetAllNumbersArraysAsync(LinkParameters linkParameters, bool trackChanges);
+        Task<(LinkResponse linkResponse, MetaData metaData)> GetAllNumbersArraysAsync(LinkParameters<SuperLotoParameters> linkParameters, bool trackChanges);
         Task<SuperLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
         Task<SuperLotoDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges);
         Task<SuperLotoDto> CreateOneNumbersArrayAsync(SuperLotoDtoForInsertion superLotoDto);
