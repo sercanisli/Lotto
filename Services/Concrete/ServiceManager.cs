@@ -26,6 +26,7 @@ namespace Services.Concrete
 
             _authenticationService = new Lazy<IAuthenticationService>(() => new AuthenticationManager(logger, mapper, userManager,configuration));
         }
+
         public ISuperLotoService SuperLotoService => _superLotoService.Value;
         public ISayisalLotoService SayisalLotoService => _stayalLotoService.Value;
 
