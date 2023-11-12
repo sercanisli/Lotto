@@ -11,11 +11,11 @@ namespace Presentation.Controllers
     [ServiceFilter(typeof(LogFilterAttribute))]
     [ApiController]
     [Route("api/sayisalloto")]
-    public class SayisalLotosController : ControllerBase
+    public class SayisalLotoController : ControllerBase
     {
         private readonly IServiceManager _manager;
 
-        public SayisalLotosController(IServiceManager manager)
+        public SayisalLotoController(IServiceManager manager)
         {
             _manager = manager;
         }

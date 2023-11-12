@@ -54,8 +54,13 @@ namespace Services.Concrete
         {
             var links = new List<Link>()
             {
-                new Link("a1","b1","c1"),
-                new Link("a2","b2","c2")
+                new Link()
+                {
+                    Href = $"/api/{context.GetRouteData().Values["controller"].ToString().ToLower()}"
+                    + $"/{typeof(T).GetProperty("Id")?.GetValue(dto,null)}",
+                    Relation = "self",
+                    Method = "GET"
+                }
             };
             return links;
         }
@@ -63,7 +68,7 @@ namespace Services.Concrete
         private bool ShouldGenerateLinks(HttpContext context)
         {
             var mediaType = (MediaTypeHeaderValue)context.Items["AcceptHeaderMediaType"];
-            return mediaType.SubTypeWithoutSuffix.EndsWith("hateos", StringComparison.InvariantCultureIgnoreCase);
+            return mediaType.SubTypeWithoutSuffix.EndsWith("hateoas", StringComparison.InvariantCultureIgnoreCase);
         }
 
         private List<Entity> ShapeData(IEnumerable<T> dtos, string fields)
