@@ -42,7 +42,7 @@ namespace Services.Concrete
                 shapedData[index].Add("Links", links);
             }
             var collection = new LinkCollectionWrapper<Entity>(shapedData);
-
+            CreateLinksForSource(context, collection);
             return new LinkResponse
             {
                 HasLinks = true,
@@ -50,6 +50,17 @@ namespace Services.Concrete
             };
         }
 
+        private LinkCollectionWrapper<Entity> CreateLinksForSource(HttpContext context, LinkCollectionWrapper<Entity> collectionWrapper)
+        {
+            collectionWrapper.Links.Add(new Link()
+            {
+                Href = $"/api/{context.GetRouteData().Values["controller"].ToString().ToLower()}",
+                Relation = "self",
+                Method = "GET"
+            });
+            return collectionWrapper;
+        }
+        
         private List<Link> CreateLinks(HttpContext context, T dto, string fields)
         {
             var links = new List<Link>()
