@@ -60,6 +60,26 @@ namespace Services.Concrete
                     + $"/{typeof(T).GetProperty("Id")?.GetValue(dto,null)}",
                     Relation = "self",
                     Method = "GET"
+                },
+                new Link()
+                {
+                    Href = $"/api/{context.GetRouteData().Values["controller"].ToString().ToLower()}",
+                    Relation = "create",
+                    Method = "POST"
+                },
+                new Link()
+                {
+                    Href = $"/api/{context.GetRouteData().Values["controller"].ToString().ToLower()}"
+                    + $"/{typeof(T).GetProperty("Id")?.GetValue(dto,null)}",
+                    Relation = "update",
+                    Method = "PUT"
+                },
+                new Link()
+                {
+                    Href = $"/api/{context.GetRouteData().Values["controller"].ToString().ToLower()}"
+                    + $"/{typeof(T).GetProperty("Id")?.GetValue(dto,null)}",
+                    Relation = "delete",
+                    Method = "DELETE"
                 }
             };
             return links;
