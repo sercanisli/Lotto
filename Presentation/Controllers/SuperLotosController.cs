@@ -1,4 +1,5 @@
 ﻿using Entities.DataTransferObjects;
+using Entities.LinkModels;
 using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -27,11 +28,12 @@ namespace Presentation.Controllers
         [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetAllNumbersArrayForSuperLotoAsync([FromQuery]SuperLotoParameters superLotoParameters)
         {
-            var linkParameters = new LinkParameters()
+            var linkParameters = new LinkParameters<SuperLotoParameters>()
             {
-                SuperLotoParameters = superLotoParameters,
+                Parameters = superLotoParameters,
                 HttpContext = HttpContext
             };
+
             var result = await _manager.SuperLotoService.GetAllNumbersArraysAsync(linkParameters,false);
 
             Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(result.metaData));
