@@ -1,4 +1,5 @@
 ﻿using Entities.DataTransferObjects;
+using Entities.LinkModels;
 using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
@@ -21,11 +22,20 @@ namespace Presentation.Controllers
 
         [HttpGet(Name = "GetAllNumbersArrayForSayisalLotoAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
-        public async Task<IActionResult> GetAllNumbersArrayForSayisalLotoAsync([FromQuery]SayisalLotoParameters sayisalLotoParameters)
+        public async Task<IActionResult> GetAllNumbersArrayForSayisalLotoAsync([FromQuery] SayisalLotoParameters sayisalLotoParameters)
         {
-            var pagedResult = await _manager.SayisalLotoService.GetAllNumbersArraysAsync(sayisalLotoParameters,false);
-            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
-            return Ok(pagedResult.sayisalLotos);
+            var linkParameters = new LinkParameters<SayisalLotoParameters>()
+            {
+                Parameters = sayisalLotoParameters,
+                HttpContext = HttpContext
+            };
+
+            var result = await _manager.SayisalLotoService.GetAllNumbersArraysAsync(linkParameters, false);
+
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(result.metaData));
+            return result.linkResponse.HasLinks ?
+                Ok(result.linkResponse.LinkedEntities) :
+                Ok(result.linkResponse.ShapedEntities);
         }
 
         [HttpGet("GetRandomNumbersForSayisalLotoAsync")]
@@ -37,13 +47,13 @@ namespace Presentation.Controllers
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSayisalLotoAsync([FromRoute(Name = "id")] int id)
-        { 
+        {
             var entity = await _manager.SayisalLotoService.GetOneNumbersArrayByIdAsync(id, false);
             return Ok(entity);
         }
 
         [HttpGet("GetOneNumbersArrayByDateForSayisalLotoAsync")]
-        public async Task<IActionResult> GetOneNumbersArrayByDateForSayisalLotoAsync([FromQuery]DateTime date)
+        public async Task<IActionResult> GetOneNumbersArrayByDateForSayisalLotoAsync([FromQuery] DateTime date)
         {
             var array = await _manager.SayisalLotoService.GetOneNumbersArrayByDateAsync(date, false);
             return Ok(array);
