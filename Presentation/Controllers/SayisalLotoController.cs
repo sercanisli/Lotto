@@ -20,6 +20,7 @@ namespace Presentation.Controllers
             _manager = manager;
         }
 
+        [HttpHead]
         [HttpGet(Name = "GetAllNumbersArrayForSayisalLotoAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayForSayisalLotoAsync([FromQuery] SayisalLotoParameters sayisalLotoParameters)
