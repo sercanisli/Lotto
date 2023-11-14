@@ -81,6 +81,7 @@ namespace Services.Concrete
             }
             return result;
         }
+
         public async Task<bool> ValidateUser(UserDtoForAuthentication userDtoForAuth)
         {
             _user = await _userManager.FindByNameAsync(userDtoForAuth.UserName);
@@ -177,7 +178,5 @@ namespace Services.Concrete
             }
             return principal;
         }
-
-        
     }
 }

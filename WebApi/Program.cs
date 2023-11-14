@@ -13,9 +13,12 @@ builder.Services.AddControllers(configuration =>
 {
     configuration.RespectBrowserAcceptHeader = true;
     configuration.ReturnHttpNotAcceptable = true;
-    configuration.CacheProfiles.Add("5mins", new CacheProfile
-    { 
-        Duration = 300 
+    configuration.CacheProfiles.Add("5mins", new CacheProfile 
+    {
+        Duration = 300,
+        VaryByHeader = "User-Agent",
+        Location = ResponseCacheLocation.Any,
+        NoStore = false
     });
 })
     .AddXmlDataContractSerializerFormatters()
@@ -73,6 +76,7 @@ app.UseResponseCaching();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
 
 app.MapControllers();
 

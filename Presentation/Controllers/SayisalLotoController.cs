@@ -23,7 +23,7 @@ namespace Presentation.Controllers
         [HttpHead]
         [HttpGet(Name = "GetAllNumbersArrayForSayisalLotoAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
-        [ResponseCache(Duration = 60)]
+        [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetAllNumbersArrayForSayisalLotoAsync([FromQuery] SayisalLotoParameters sayisalLotoParameters)
         {
             var linkParameters = new LinkParameters<SayisalLotoParameters>()
