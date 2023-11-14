@@ -15,10 +15,7 @@ builder.Services.AddControllers(configuration =>
     configuration.ReturnHttpNotAcceptable = true;
     configuration.CacheProfiles.Add("5mins", new CacheProfile 
     {
-        Duration = 300,
-        VaryByHeader = "User-Agent",
-        Location = ResponseCacheLocation.Any,
-        NoStore = false
+        Duration = 300
     });
 })
     .AddXmlDataContractSerializerFormatters()

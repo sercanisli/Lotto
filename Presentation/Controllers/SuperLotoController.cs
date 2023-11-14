@@ -21,7 +21,6 @@ namespace Presentation.Controllers
             _manager = manager;
         }
 
-        [Authorize(Roles = "Admin, Editor, User")]
         [HttpHead]
         [HttpGet(Name = "GetAllNumbersArrayForSuperLotoAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
@@ -51,7 +50,6 @@ namespace Presentation.Controllers
             return Ok(numbers);
         }
 
-        [Authorize(Roles = "Admin, Editor, User")]
         [HttpGet("{id:int}")]
         [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSuperLotoAsync([FromRoute(Name = "id")] int id)
@@ -60,7 +58,6 @@ namespace Presentation.Controllers
             return Ok(array);
         }
 
-        [Authorize(Roles = "Admin, Editor, User")]
         [HttpGet("GetOneNumbersArrayByDateForSuperLotoAsync")]
         [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByDateForSuperLotoAsync([FromQuery]DateTime date)

@@ -1,6 +1,7 @@
 ﻿using Entities.DataTransferObjects;
 using Entities.LinkModels;
 using Entities.RequestFeatures;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
 using Services.Contracts;
@@ -48,6 +49,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSayisalLotoAsync([FromRoute(Name = "id")] int id)
         {
             var entity = await _manager.SayisalLotoService.GetOneNumbersArrayByIdAsync(id, false);
@@ -55,6 +57,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("GetOneNumbersArrayByDateForSayisalLotoAsync")]
+        [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByDateForSayisalLotoAsync([FromQuery] DateTime date)
         {
             var array = await _manager.SayisalLotoService.GetOneNumbersArrayByDateAsync(date, false);
