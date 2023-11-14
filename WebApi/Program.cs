@@ -13,7 +13,10 @@ builder.Services.AddControllers(configuration =>
 {
     configuration.RespectBrowserAcceptHeader = true;
     configuration.ReturnHttpNotAcceptable = true;
-    configuration.CacheProfiles.Add("5mins", new CacheProfile() { Duration = 300 });
+    configuration.CacheProfiles.Add("5mins", new CacheProfile
+    { 
+        Duration = 300 
+    });
 })
     .AddXmlDataContractSerializerFormatters()
     .AddCustomCsvFormatter()

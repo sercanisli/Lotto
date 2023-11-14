@@ -68,6 +68,10 @@ namespace Services.Concrete
 
         public async Task<IdentityResult> RegisterUser(UserDtoForRegistration userDtoForRegistration)
         {
+            if (!ConfirmPassword(userDtoForRegistration))
+            {
+                throw new PasswordsAreNotConfirmException();
+            }
             var user = _mapper.Map<User>(userDtoForRegistration);
             var result = await _userManager.CreateAsync(user, userDtoForRegistration.Password);
 
@@ -77,7 +81,6 @@ namespace Services.Concrete
             }
             return result;
         }
-
         public async Task<bool> ValidateUser(UserDtoForAuthentication userDtoForAuth)
         {
             _user = await _userManager.FindByNameAsync(userDtoForAuth.UserName);
@@ -87,6 +90,15 @@ namespace Services.Concrete
                 _logger.LogWarning($"{nameof(ValidateUser)} : Authentication failed. Wrong username or password.");
             }
             return result;
+        }
+
+        private bool ConfirmPassword(UserDtoForRegistration userDtoForRegistration)
+        {
+            if(userDtoForRegistration.Password==userDtoForRegistration.ConfirmPassword)
+            {
+                return true;
+            }
+            return false;
         }
 
         private SigningCredentials GetSigninCredentials()
