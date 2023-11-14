@@ -41,6 +41,7 @@ namespace Presentation.Controllers
                 Ok(result.linkResponse.ShapedEntities);
         }
 
+        [Authorize(Roles = "Admin, Editor, User")]
         [HttpGet("GetRandomNumbersForSayisalLotoAsync")]
         public async Task<IActionResult> GetRandomNumbersForSayisalLotoAsync()
         {
@@ -64,6 +65,7 @@ namespace Presentation.Controllers
             return Ok(array);
         }
 
+        [Authorize(Roles = "Admin, Editor")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPost]
         public async Task<IActionResult> CreateOneNumbersArrayForSayisalLotoAsync([FromBody] SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion)
@@ -72,6 +74,7 @@ namespace Presentation.Controllers
             return StatusCode(201, entity);
         }
 
+        [Authorize(Roles = "Admin, Editor")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")] int id, [FromBody] SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate)
@@ -80,6 +83,7 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
+        [Authorize(Roles = "Admin, Editor")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")] int id)
         {
@@ -88,6 +92,7 @@ namespace Presentation.Controllers
         }
 
         [HttpOptions]
+        [ResponseCache(CacheProfileName = "5mins")]
         public IActionResult GetSayisalLotoOptions()
         {
             Response.Headers.Add("Allow", "GET, PUT, POST, DELETE, HEAD, OPTIONS");
