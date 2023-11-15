@@ -10,6 +10,7 @@ namespace Repositories.EntityFrameworkCore
     {
         public DbSet<SuperLoto> SuperLotos { get; set; }
         public DbSet<SayisalLoto> SayisalLotos { get; set; }
+        public DbSet<OnNumara> OnNumaras { get; set; }
 
         public RepositoryContext(DbContextOptions options) : base(options)
         {
