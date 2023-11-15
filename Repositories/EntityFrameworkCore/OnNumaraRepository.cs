@@ -7,6 +7,7 @@ namespace Repositories.EntityFrameworkCore
     {
         public OnNumaraRepository(RepositoryContext context) : base(context)
         {
+
         }
     }
 }
