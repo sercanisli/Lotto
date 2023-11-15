@@ -4,6 +4,7 @@
     {
         ISuperLotoService SuperLotoService { get; }
         ISayisalLotoService SayisalLotoService { get;}
+        IOnNumaraService OnNumaraService { get; }
 
         IAuthenticationService AuthenticationService { get; }
     }
