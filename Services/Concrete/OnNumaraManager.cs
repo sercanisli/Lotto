@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Exceptions;
+using Entities.Models;
 using Repositories.Cantracts;
 using Services.Contracts;
 
@@ -27,9 +28,7 @@ namespace Services.Concrete
             var entity = _manager.OnNumara.GetOneNumbersArrayByIdAsync(id,trackChanges);
             if (entity == null)
             {
-                string message = $"The On Numara array with id : {id} could not found.";
-                _logger.LogInfo(message);
-                throw new Exception(message);
+                throw new OnNumaraNotFoundException(id);
             }
 
             _manager.OnNumara.DeleteOneNumbersArray(entity);
@@ -47,7 +46,7 @@ namespace Services.Concrete
             var entity = _manager.OnNumara.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
-                throw new Exception($"The On Numara array with id : {id} could not found.");
+                throw new OnNumaraNotFoundException(id);
             }
             return entity;
         }
@@ -61,9 +60,7 @@ namespace Services.Concrete
             var entity = _manager.OnNumara.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
-                string message = $"The On Numara array with id : {id} could not found.";
-                _logger.LogInfo(message);
-                throw new Exception(message);
+                throw new OnNumaraNotFoundException(id);
             }
 
             entity.Numbers = onNumara.Numbers;

@@ -26,10 +26,6 @@ namespace Presentation.Controllers
         public IActionResult GetOneNumbersArrayByIdForOnNumaraAsync([FromRoute(Name = "id")] int id)
         {
             var entity = _manager.OnNumaraService.GetOneNumbersArrayByIdAsync(id, false);
-            if (entity == null)
-            {
-                return NotFound();
-            }
             return Ok(entity);
         }
 
