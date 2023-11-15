@@ -6,7 +6,7 @@ namespace Repositories.Cantracts
     {
         ISuperLotoRepository SuperLoto { get; }
         ISayisalLotoRepository SayisalLoto { get; }
-
+        IOnNumaraRepository OnNumara { get; }
 
         void Save();
         Task SaveAsync();

@@ -8,19 +8,24 @@ namespace Repositories.EntityFrameworkCore
         private readonly RepositoryContext _context;
         private readonly Lazy<ISuperLotoRepository> _superLotoRepository;
         private readonly Lazy<ISayisalLotoRepository> _sayisalLotoRepository;
+        private readonly Lazy<IOnNumaraRepository> _onNumaraRepository;
 
         public RepositoryManager(RepositoryContext context)
         {
             _context = context;
             _superLotoRepository = new Lazy<ISuperLotoRepository>(() => new SuperLotoRepository(_context));
             _sayisalLotoRepository = new Lazy<ISayisalLotoRepository>(() => new SayisalLotoRepository(_context));
+            _onNumaraRepository = new Lazy<IOnNumaraRepository>(() => new  OnNumaraRepository(_context));
         }
 
         public ISuperLotoRepository SuperLoto => _superLotoRepository.Value;
 
         public ISayisalLotoRepository SayisalLoto => _sayisalLotoRepository.Value;
 
+        public IOnNumaraRepository OnNumara => _onNumaraRepository.Value;
+
         public void Save() => _context.SaveChanges();
+
         public async Task SaveAsync() => await _context.SaveChangesAsync();
     }
 }
