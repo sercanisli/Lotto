@@ -18,83 +18,48 @@ namespace Presentation.Controllers
         [HttpGet(Name = "GetAllNumbersArrayForOnNumaraAsync")]
         public IActionResult GetAllNumbersArrayForOnNumaraAsync()
         {
-            try
-            {
-                var entities = _manager.OnNumaraService.GetAllNumbersArraysAsync(false);
-                return Ok(entities);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            var entities = _manager.OnNumaraService.GetAllNumbersArraysAsync(false);
+            return Ok(entities);
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetOneNumbersArrayByIdForOnNumaraAsync([FromRoute(Name = "id")]int id) 
+        public IActionResult GetOneNumbersArrayByIdForOnNumaraAsync([FromRoute(Name = "id")] int id)
         {
-            try
+            var entity = _manager.OnNumaraService.GetOneNumbersArrayByIdAsync(id, false);
+            if (entity == null)
             {
-                var entity = _manager.OnNumaraService.GetOneNumbersArrayByIdAsync(id, false);
-                if(entity == null)
-                {
-                    return NotFound();
-                }
-                return Ok(entity);
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            return Ok(entity);
         }
 
         [HttpPost]
-        public IActionResult CreateOneNumbersArrayForOnNumaraAsync([FromBody]OnNumara onNumara)
+        public IActionResult CreateOneNumbersArrayForOnNumaraAsync([FromBody] OnNumara onNumara)
         {
-            try
+            if (onNumara == null)
             {
-                if(onNumara == null)
-                {
-                    return BadRequest();
-                }
-                _manager.OnNumaraService.CreateOneNumbersArrayAsync(onNumara);
-                return StatusCode(201, onNumara);
+                return BadRequest();
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            _manager.OnNumaraService.CreateOneNumbersArrayAsync(onNumara);
+            return StatusCode(201, onNumara);
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneNumbersArrayForOnNumaraAsync([FromRoute(Name = "id")]int id, [FromBody] OnNumara onNumara)
+        public IActionResult UpdateOneNumbersArrayForOnNumaraAsync([FromRoute(Name = "id")] int id, [FromBody] OnNumara onNumara)
         {
-            try
+            if (onNumara == null)
             {
-                if (onNumara == null)
-                {
-                    return BadRequest();
-                }
-                _manager.OnNumaraService.UpdateOneNumbersArrayAsync(id, onNumara, true);
-                return NoContent();
+                return BadRequest();
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            _manager.OnNumaraService.UpdateOneNumbersArrayAsync(id, onNumara, true);
+            return NoContent();
         }
 
         [HttpDelete("{id:int}")]
         public IActionResult DeleteOneNumbersArrayForOnNumaraAsync([FromRoute] int id)
         {
-            try
-            {
-                _manager.OnNumaraService.DeleteOneNumbersArrayAsync(id, false);
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            _manager.OnNumaraService.DeleteOneNumbersArrayAsync(id, false);
+            return NoContent();
         }
     }
 }

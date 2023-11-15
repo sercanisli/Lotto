@@ -1356,3 +1356,5 @@
 2023-11-15 19:34:14.4548 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
 2023-11-15 19:34:14.4725 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
 2023-11-15 19:34:14.4952 Info Configuration initialized.
+2023-11-15 19:37:29.8598 Info AppDomain Shutting down. LogFactory closing...
+2023-11-15 19:37:29.9209 Info LogFactory has been closed.
