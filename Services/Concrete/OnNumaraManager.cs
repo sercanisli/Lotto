@@ -7,19 +7,16 @@ namespace Services.Concrete
     public class OnNumaraManager : IOnNumaraService
     {
         private readonly IRepositoryManager _manager;
+        private readonly ILoggerService _logger;
 
-        public OnNumaraManager(IRepositoryManager manager)
+        public OnNumaraManager(IRepositoryManager manager, ILoggerService logger)
         {
             _manager = manager;
+            _logger = logger;
         }
 
         public OnNumara CreateOneNumbersArrayAsync(OnNumara onNumara)
         {
-            if(onNumara == null)
-            {
-                throw new ArgumentNullException(nameof(onNumara));
-            }
-
             _manager.OnNumara.CreateOneNumbersArray(onNumara);
             _manager.Save();
             return onNumara;
@@ -30,7 +27,9 @@ namespace Services.Concrete
             var entity = _manager.OnNumara.GetOneNumbersArrayByIdAsync(id,trackChanges);
             if (entity == null)
             {
-                throw new Exception($"The On Numara array with id : {id} could not found.");
+                string message = $"The On Numara array with id : {id} could not found.";
+                _logger.LogInfo(message);
+                throw new Exception(message);
             }
 
             _manager.OnNumara.DeleteOneNumbersArray(entity);
@@ -62,7 +61,9 @@ namespace Services.Concrete
             var entity = _manager.OnNumara.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
-                throw new Exception($"The On Numara array with id : {id} could not found.");
+                string message = $"The On Numara array with id : {id} could not found.";
+                _logger.LogInfo(message);
+                throw new Exception(message);
             }
 
             entity.Numbers = onNumara.Numbers;

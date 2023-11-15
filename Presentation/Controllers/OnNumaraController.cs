@@ -15,7 +15,7 @@ namespace Presentation.Controllers
             _manager = manager;
         }
 
-        [HttpGet(Name = "GetAllNumbersArrayForSayisalLotoAsync")]
+        [HttpGet(Name = "GetAllNumbersArrayForOnNumaraAsync")]
         public IActionResult GetAllNumbersArrayForOnNumaraAsync()
         {
             try
