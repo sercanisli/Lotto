@@ -8,8 +8,8 @@ namespace Repositories.Contract
     {
         IQueryable<OnNumara> GetAllNumbersArrayAsync(bool trackChanges);
         OnNumara GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
-        void CreateOneNumbersArray(OnNumara sayisalLoto);
-        void UpdateOneNumbersArray(OnNumara sayisalLoto);
-        void DeleteOneNumbersArray(OnNumara sayisalLoto);
+        void CreateOneNumbersArray(OnNumara onNumara);
+        void UpdateOneNumbersArray(OnNumara onNumara);
+        void DeleteOneNumbersArray(OnNumara onNumara);
     }
 }
