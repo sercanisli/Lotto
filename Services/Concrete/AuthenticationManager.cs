@@ -41,7 +41,7 @@ namespace Services.Concrete
 
             if (populateExp)
             {
-                _user.RefreshTokenExpiryTime = DateTime.Now.AddMinutes(60);
+                _user.RefreshTokenExpiryTime = DateTime.Now.AddMinutes(10);
             }
             await _userManager.UpdateAsync(_user);
 
