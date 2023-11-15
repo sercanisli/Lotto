@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.DataTransferObjects;
+using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 
@@ -41,13 +42,13 @@ namespace Presentation.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneNumbersArrayForOnNumaraAsync([FromRoute(Name = "id")] int id, [FromBody] OnNumara onNumara)
+        public IActionResult UpdateOneNumbersArrayForOnNumaraAsync([FromRoute(Name = "id")] int id, [FromBody] OnNumaraDtoForUpdate onNumaraDtoForUpdate)
         {
-            if (onNumara == null)
+            if (onNumaraDtoForUpdate == null)
             {
                 return BadRequest();
             }
-            _manager.OnNumaraService.UpdateOneNumbersArrayAsync(id, onNumara, true);
+            _manager.OnNumaraService.UpdateOneNumbersArrayAsync(id, onNumaraDtoForUpdate, true);
             return NoContent();
         }
 

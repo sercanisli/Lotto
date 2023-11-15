@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.DataTransferObjects;
+using Entities.Models;
 
 namespace Services.Contracts
 {
@@ -7,7 +8,7 @@ namespace Services.Contracts
         IEnumerable<OnNumara> GetAllNumbersArraysAsync(bool trackChanges);
         OnNumara GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
         OnNumara CreateOneNumbersArrayAsync(OnNumara onNumara);
-        void UpdateOneNumbersArrayAsync(int id, OnNumara onNumara, bool trackChanges);
+        void UpdateOneNumbersArrayAsync(int id, OnNumaraDtoForUpdate onNumaraDtoForUpdate, bool trackChanges);
         void DeleteOneNumbersArrayAsync(int id, bool trackChanges);
     }
 }

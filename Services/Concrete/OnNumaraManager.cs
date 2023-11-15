@@ -1,4 +1,6 @@
-﻿using Entities.Exceptions;
+﻿using AutoMapper;
+using Entities.DataTransferObjects;
+using Entities.Exceptions;
 using Entities.Models;
 using Repositories.Cantracts;
 using Services.Contracts;
@@ -9,11 +11,13 @@ namespace Services.Concrete
     {
         private readonly IRepositoryManager _manager;
         private readonly ILoggerService _logger;
+        private readonly IMapper _mapper;
 
-        public OnNumaraManager(IRepositoryManager manager, ILoggerService logger)
+        public OnNumaraManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper)
         {
             _manager = manager;
             _logger = logger;
+            _mapper = mapper;
         }
 
         public OnNumara CreateOneNumbersArrayAsync(OnNumara onNumara)
@@ -51,21 +55,18 @@ namespace Services.Concrete
             return entity;
         }
 
-        public void UpdateOneNumbersArrayAsync(int id, OnNumara onNumara, bool trackChanges)
+        public void UpdateOneNumbersArrayAsync(int id, OnNumaraDtoForUpdate onNumaraDtoForUpdate, bool trackChanges)
         {
-            if(onNumara == null)
+            if(onNumaraDtoForUpdate == null)
             {
-                throw new ArgumentNullException(nameof(onNumara));
+                throw new ArgumentNullException(nameof(onNumaraDtoForUpdate));
             }
             var entity = _manager.OnNumara.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
                 throw new OnNumaraNotFoundException(id);
             }
-
-            entity.Numbers = onNumara.Numbers;
-            entity.Date = onNumara.Date;
-
+            entity = _mapper.Map<OnNumara>(onNumaraDtoForUpdate);
             _manager.OnNumara.UpdateOneNumbersArray(entity);
             _manager.Save();
         }
