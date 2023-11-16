@@ -39,10 +39,10 @@ namespace Services.Concrete
             _manager.Save();
         }
 
-        public IEnumerable<OnNumara> GetAllNumbersArraysAsync(bool trackChanges)
+        public IEnumerable<OnNumaraDto> GetAllNumbersArraysAsync(bool trackChanges)
         {
             var entities = _manager.OnNumara.GetAllNumbersArrayAsync(trackChanges);
-            return entities;
+            return _mapper.Map<IEnumerable<OnNumaraDto>>(entities);
         }
 
         public OnNumara GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
