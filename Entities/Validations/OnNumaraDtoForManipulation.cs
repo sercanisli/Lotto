@@ -1,6 +1,6 @@
 ﻿namespace Entities.Validations
 {
-    public class OnNumaraDtoForManipulation
+    public abstract record OnNumaraDtoForManipulation
     {
         [ListLength(10, 10)]
         [RangeAttribute(1, 80)]

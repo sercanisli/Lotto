@@ -1,14 +1,11 @@
 ﻿using Entities.Validations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities.DataTransferObjects
 {
-    public record OnNumaraDtoForUpdate
+    public record OnNumaraDtoForUpdate : OnNumaraDtoForManipulation
     {
+        [Required]
         public int Id { get; init; }
-
-        [ListLength(10, 10)]
-        [RangeAttribute(1, 80)]
-        public List<int> Numbers { get; init; }
-        public DateTime? Date { get; init; }
     }
 }
