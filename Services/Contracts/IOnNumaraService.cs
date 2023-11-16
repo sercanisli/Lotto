@@ -6,8 +6,8 @@ namespace Services.Contracts
     public interface IOnNumaraService
     {
         IEnumerable<OnNumaraDto> GetAllNumbersArraysAsync(bool trackChanges);
-        OnNumara GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
-        OnNumara CreateOneNumbersArrayAsync(OnNumara onNumara);
+        OnNumaraDto GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
+        OnNumaraDto CreateOneNumbersArrayAsync(OnNumaraDtoForInsertion onNumaraDtoForInsertion);
         void UpdateOneNumbersArrayAsync(int id, OnNumaraDtoForUpdate onNumaraDtoForUpdate, bool trackChanges);
         void DeleteOneNumbersArrayAsync(int id, bool trackChanges);
     }

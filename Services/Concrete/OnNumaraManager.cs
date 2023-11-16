@@ -20,11 +20,12 @@ namespace Services.Concrete
             _mapper = mapper;
         }
 
-        public OnNumara CreateOneNumbersArrayAsync(OnNumara onNumara)
+        public OnNumaraDto CreateOneNumbersArrayAsync(OnNumaraDtoForInsertion onNumaraDtoForInsertion)
         {
-            _manager.OnNumara.CreateOneNumbersArray(onNumara);
+            var entity = _mapper.Map<OnNumara>(onNumaraDtoForInsertion);
+            _manager.OnNumara.CreateOneNumbersArray(entity);
             _manager.Save();
-            return onNumara;
+            return _mapper.Map<OnNumaraDto>(entity);
         }
 
         public void DeleteOneNumbersArrayAsync(int id, bool trackChanges)
@@ -45,14 +46,14 @@ namespace Services.Concrete
             return _mapper.Map<IEnumerable<OnNumaraDto>>(entities);
         }
 
-        public OnNumara GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
+        public OnNumaraDto GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
             var entity = _manager.OnNumara.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
                 throw new OnNumaraNotFoundException(id);
             }
-            return entity;
+            return _mapper.Map<OnNumaraDto>(entity);
         }
 
         public void UpdateOneNumbersArrayAsync(int id, OnNumaraDtoForUpdate onNumaraDtoForUpdate, bool trackChanges)
