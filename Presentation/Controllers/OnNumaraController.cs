@@ -33,9 +33,9 @@ namespace Presentation.Controllers
         [HttpPost]
         public IActionResult CreateOneNumbersArrayForOnNumaraAsync([FromBody] OnNumaraDtoForInsertion onNumaraDtoForInsertion)
         {
-            if (onNumaraDtoForInsertion == null)
+            if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return UnprocessableEntity(ModelState);
             }
             var entity = _manager.OnNumaraService.CreateOneNumbersArrayAsync(onNumaraDtoForInsertion);
             return StatusCode(201, entity);
