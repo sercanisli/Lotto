@@ -48,7 +48,7 @@ namespace Presentation.Controllers
             {
                 return BadRequest();
             }
-            _manager.OnNumaraService.UpdateOneNumbersArrayAsync(id, onNumaraDtoForUpdate, true);
+            _manager.OnNumaraService.UpdateOneNumbersArrayAsync(id, onNumaraDtoForUpdate, false);
             return NoContent();
         }
 
