@@ -31,14 +31,14 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOneNumbersArrayForOnNumaraAsync([FromBody] OnNumara onNumara)
+        public IActionResult CreateOneNumbersArrayForOnNumaraAsync([FromBody] OnNumaraDtoForInsertion onNumaraDtoForInsertion)
         {
-            if (onNumara == null)
+            if (onNumaraDtoForInsertion == null)
             {
                 return BadRequest();
             }
-            _manager.OnNumaraService.CreateOneNumbersArrayAsync(onNumara);
-            return StatusCode(201, onNumara);
+            var entity = _manager.OnNumaraService.CreateOneNumbersArrayAsync(onNumaraDtoForInsertion);
+            return StatusCode(201, entity);
         }
 
         [HttpPut("{id:int}")]
