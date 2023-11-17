@@ -89,6 +89,13 @@ namespace Services.Concrete
             return randomNumbers;
         }
 
+        private List<int> Sort(List<int> numbers)
+        {
+            List<int> sortedNumbers = numbers.ToList();
+            sortedNumbers.Sort();
+            return sortedNumbers;
+        }
+
         private bool AreTheNumbersTheSame(List<int> numbers)
         {
             if (numbers.Count != 6)
