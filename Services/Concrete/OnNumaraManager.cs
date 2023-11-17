@@ -56,6 +56,11 @@ namespace Services.Concrete
             return _mapper.Map<OnNumaraDto>(entity);
         }
 
+        public Task<List<int>> GetRondomNumbersAsync()
+        {
+
+        }
+
         public async Task UpdateOneNumbersArrayAsync(int id, OnNumaraDtoForUpdate onNumaraDtoForUpdate, bool trackChanges)
         {
             if(onNumaraDtoForUpdate == null)
