@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using Repositories.Contract;
 
 namespace Repositories.EntityFrameworkCore
@@ -14,11 +15,11 @@ namespace Repositories.EntityFrameworkCore
 
         public void DeleteOneNumbersArray(OnNumara onNumara) => Delete(onNumara);
 
-        public IQueryable<OnNumara> GetAllNumbersArrayAsync(bool trackChanges) =>
-            FindAll(trackChanges).OrderBy(o=>o.Date);
+        public async Task<IEnumerable<OnNumara>> GetAllNumbersArrayAsync(bool trackChanges) =>
+            await FindAll(trackChanges).OrderBy(o => o.Date).ToListAsync();
 
-        public OnNumara GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
-            FindByCondition(o => o.Id.Equals(id), trackChanges).SingleOrDefault();
+        public async Task<OnNumara> GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
+            await FindByCondition(o => o.Id.Equals(id), trackChanges).SingleOrDefaultAsync();
 
         public void UpdateOneNumbersArray(OnNumara onNumara) => Update(onNumara);
     }
