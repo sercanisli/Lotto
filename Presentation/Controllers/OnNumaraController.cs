@@ -1,4 +1,5 @@
 ﻿using Entities.DataTransferObjects;
+using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
 using Services.Contracts;
@@ -18,9 +19,9 @@ namespace Presentation.Controllers
         }
 
         [HttpGet(Name = "GetAllNumbersArrayForOnNumaraAsync")]
-        public async Task<IActionResult> GetAllNumbersArrayForOnNumaraAsync()
+        public async Task<IActionResult> GetAllNumbersArrayForOnNumaraAsync([FromQuery]OnNumaraParameters onNumaraParameters)
         {
-            var entities = await _manager.OnNumaraService.GetAllNumbersArraysAsync(false);
+            var entities = await _manager.OnNumaraService.GetAllNumbersArraysAsync(onNumaraParameters,false);
             return Ok(entities);
         }
 
