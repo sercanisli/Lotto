@@ -56,11 +56,6 @@ namespace Services.Concrete
             return _mapper.Map<OnNumaraDto>(entity);
         }
 
-        public Task<List<int>> GetRondomNumbersAsync()
-        {
-
-        }
-
         public async Task UpdateOneNumbersArrayAsync(int id, OnNumaraDtoForUpdate onNumaraDtoForUpdate, bool trackChanges)
         {
             if(onNumaraDtoForUpdate == null)
@@ -75,6 +70,44 @@ namespace Services.Concrete
             entity = _mapper.Map<OnNumara>(onNumaraDtoForUpdate);
             _manager.OnNumara.UpdateOneNumbersArray(entity);
             await _manager.SaveAsync();
+        }
+
+        public Task<List<int>> GetRondomNumbersAsync()
+        {
+            List<int> randomNumbers = new List<int>();
+            int i = 0;
+            do
+            {
+                var numbers = await GenerateRandomNumbersAsync();
+                if (AreTheNumbersTheSame(numbers) == true)
+                {
+                    i++;
+                    randomNumbers = numbers;
+                }
+            } while (i == 0);
+            randomNumbers = Sort(randomNumbers);
+            return randomNumbers;
+        }
+
+        private Task<List<int>> GenerateRandomNumbersAsync()
+        {
+            int index;
+            int selectedNumber;
+            int sleepTimeInSeconds = 1;
+            var numbers = await GetOnlyNumbersAsync(false);
+            int totalCount = numbers.Count();
+            long ticks = DateTime.Now.Ticks;
+            Random random = new Random((int)ticks);
+            var randomNumbers = new List<int>();
+
+            for (int i = 0; i < 6; i++)
+            {
+                Thread.Sleep(sleepTimeInSeconds);
+                index = random.Next(0, totalCount - 1);
+                selectedNumber = numbers.ElementAt(index);
+                randomNumbers.Add(selectedNumber);
+            }
+            return randomNumbers.ToList();
         }
     }
 }
