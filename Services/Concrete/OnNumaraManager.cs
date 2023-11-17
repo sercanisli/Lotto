@@ -30,12 +30,7 @@ namespace Services.Concrete
 
         public async Task DeleteOneNumbersArrayAsync(int id, bool trackChanges)
         {
-            var entity = await _manager.OnNumara.GetOneNumbersArrayByIdAsync(id,trackChanges);
-            if (entity == null)
-            {
-                throw new OnNumaraNotFoundException(id);
-            }
-
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             _manager.OnNumara.DeleteOneNumbersArray(entity);
             await _manager.SaveAsync();
         }
@@ -48,11 +43,7 @@ namespace Services.Concrete
 
         public async Task<OnNumaraDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
-            var entity = await _manager.OnNumara.GetOneNumbersArrayByIdAsync(id, trackChanges);
-            if (entity == null)
-            {
-                throw new OnNumaraNotFoundException(id);
-            }
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             return _mapper.Map<OnNumaraDto>(entity);
         }
 
@@ -62,11 +53,7 @@ namespace Services.Concrete
             {
                 throw new ArgumentNullException(nameof(onNumaraDtoForUpdate));
             }
-            var entity = await _manager.OnNumara.GetOneNumbersArrayByIdAsync(id, trackChanges);
-            if (entity == null)
-            {
-                throw new OnNumaraNotFoundException(id);
-            }
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             entity = _mapper.Map<OnNumara>(onNumaraDtoForUpdate);
             _manager.OnNumara.UpdateOneNumbersArray(entity);
             await _manager.SaveAsync();
@@ -147,6 +134,16 @@ namespace Services.Concrete
         {
             var entities = await _manager.OnNumara.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             return _mapper.Map<IEnumerable<OnNumaraDto>>(entities);
+        }
+
+        private async Task<OnNumara> GetOneNumbersArrayByIdAndCheckExists(int id, bool trackChanges)
+        {
+            var entity = await _manager.OnNumara.GetOneNumbersArrayByIdAsync(id, trackChanges);
+            if (entity == null)
+            {
+                throw new OnNumaraNotFoundException(id);
+            }
+            return entity;
         }
 
     }
