@@ -18,6 +18,9 @@ namespace Repositories.EntityFrameworkCore
         public async Task<IEnumerable<OnNumara>> GetAllNumbersArrayAsync(bool trackChanges) =>
             await FindAll(trackChanges).OrderBy(o => o.Date).ToListAsync();
 
+        public async Task<IEnumerable<OnNumara>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges) =>
+            await FindAll(trackChanges).ToListAsync();
+
         public async Task<OnNumara> GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
             await FindByCondition(o => o.Id.Equals(id), trackChanges).SingleOrDefaultAsync();
 
