@@ -72,7 +72,7 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public Task<List<int>> GetRondomNumbersAsync()
+        public async Task<List<int>> GetRondomNumbersAsync()
         {
             List<int> randomNumbers = new List<int>();
             int i = 0;
@@ -89,7 +89,26 @@ namespace Services.Concrete
             return randomNumbers;
         }
 
-        private Task<List<int>> GenerateRandomNumbersAsync()
+        private bool AreTheNumbersTheSame(List<int> numbers)
+        {
+            if (numbers.Count != 6)
+            {
+                return false;
+            }
+            for (int i = 0; i < numbers.Count - 1; i++)
+            {
+                for (int j = i + 1; j < numbers.Count; j++)
+                {
+                    if (numbers[i] == numbers[j])
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private async Task<List<int>> GenerateRandomNumbersAsync()
         {
             int index;
             int selectedNumber;
