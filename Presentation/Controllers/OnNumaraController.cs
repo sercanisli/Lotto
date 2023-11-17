@@ -1,5 +1,4 @@
 ﻿using Entities.DataTransferObjects;
-using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
 using Services.Contracts;
@@ -8,6 +7,7 @@ namespace Presentation.Controllers
 {
     [ApiController]
     [Route("api/onnumara")]
+    [ServiceFilter(typeof(LogFilterAttribute))]
     public class OnNumaraController : ControllerBase
     {
         private readonly IServiceManager _manager;
