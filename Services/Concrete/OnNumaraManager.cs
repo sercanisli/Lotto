@@ -20,35 +20,35 @@ namespace Services.Concrete
             _mapper = mapper;
         }
 
-        public OnNumaraDto CreateOneNumbersArrayAsync(OnNumaraDtoForInsertion onNumaraDtoForInsertion)
+        public async Task<OnNumaraDto> CreateOneNumbersArrayAsync(OnNumaraDtoForInsertion onNumaraDtoForInsertion)
         {
             var entity = _mapper.Map<OnNumara>(onNumaraDtoForInsertion);
             _manager.OnNumara.CreateOneNumbersArray(entity);
-            _manager.Save();
+            await _manager.SaveAsync();
             return _mapper.Map<OnNumaraDto>(entity);
         }
 
-        public void DeleteOneNumbersArrayAsync(int id, bool trackChanges)
+        public async Task DeleteOneNumbersArrayAsync(int id, bool trackChanges)
         {
-            var entity = _manager.OnNumara.GetOneNumbersArrayByIdAsync(id,trackChanges);
+            var entity = await _manager.OnNumara.GetOneNumbersArrayByIdAsync(id,trackChanges);
             if (entity == null)
             {
                 throw new OnNumaraNotFoundException(id);
             }
 
             _manager.OnNumara.DeleteOneNumbersArray(entity);
-            _manager.Save();
+            await _manager.SaveAsync();
         }
 
-        public IEnumerable<OnNumaraDto> GetAllNumbersArraysAsync(bool trackChanges)
+        public async Task<IEnumerable<OnNumaraDto>> GetAllNumbersArraysAsync(bool trackChanges)
         {
-            var entities = _manager.OnNumara.GetAllNumbersArrayAsync(trackChanges);
+            var entities = await _manager.OnNumara.GetAllNumbersArrayAsync(trackChanges);
             return _mapper.Map<IEnumerable<OnNumaraDto>>(entities);
         }
 
-        public OnNumaraDto GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
+        public async Task<OnNumaraDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
-            var entity = _manager.OnNumara.GetOneNumbersArrayByIdAsync(id, trackChanges);
+            var entity = await _manager.OnNumara.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
                 throw new OnNumaraNotFoundException(id);
@@ -56,20 +56,20 @@ namespace Services.Concrete
             return _mapper.Map<OnNumaraDto>(entity);
         }
 
-        public void UpdateOneNumbersArrayAsync(int id, OnNumaraDtoForUpdate onNumaraDtoForUpdate, bool trackChanges)
+        public async Task UpdateOneNumbersArrayAsync(int id, OnNumaraDtoForUpdate onNumaraDtoForUpdate, bool trackChanges)
         {
             if(onNumaraDtoForUpdate == null)
             {
                 throw new ArgumentNullException(nameof(onNumaraDtoForUpdate));
             }
-            var entity = _manager.OnNumara.GetOneNumbersArrayByIdAsync(id, trackChanges);
+            var entity = await _manager.OnNumara.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
                 throw new OnNumaraNotFoundException(id);
             }
             entity = _mapper.Map<OnNumara>(onNumaraDtoForUpdate);
             _manager.OnNumara.UpdateOneNumbersArray(entity);
-            _manager.Save();
+            await _manager.SaveAsync();
         }
     }
 }

@@ -5,10 +5,10 @@ namespace Services.Contracts
 {
     public interface IOnNumaraService
     {
-        IEnumerable<OnNumaraDto> GetAllNumbersArraysAsync(bool trackChanges);
-        OnNumaraDto GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
-        OnNumaraDto CreateOneNumbersArrayAsync(OnNumaraDtoForInsertion onNumaraDtoForInsertion);
-        void UpdateOneNumbersArrayAsync(int id, OnNumaraDtoForUpdate onNumaraDtoForUpdate, bool trackChanges);
-        void DeleteOneNumbersArrayAsync(int id, bool trackChanges);
+        Task<IEnumerable<OnNumaraDto>> GetAllNumbersArraysAsync(bool trackChanges);
+        Task<OnNumaraDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
+        Task<OnNumaraDto> CreateOneNumbersArrayAsync(OnNumaraDtoForInsertion onNumaraDtoForInsertion);
+        Task UpdateOneNumbersArrayAsync(int id, OnNumaraDtoForUpdate onNumaraDtoForUpdate, bool trackChanges);
+        Task DeleteOneNumbersArrayAsync(int id, bool trackChanges);
     }
 }
