@@ -98,7 +98,7 @@ namespace Services.Concrete
 
         private bool AreTheNumbersTheSame(List<int> numbers)
         {
-            if (numbers.Count != 6)
+            if (numbers.Count != 10)
             {
                 return false;
             }
@@ -126,7 +126,7 @@ namespace Services.Concrete
             Random random = new Random((int)ticks);
             var randomNumbers = new List<int>();
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Thread.Sleep(sleepTimeInSeconds);
                 index = random.Next(0, totalCount - 1);
@@ -143,10 +143,10 @@ namespace Services.Concrete
             return numbers;
         }
 
-        private async Task<IEnumerable<SayisalLotoDto>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges)
+        private async Task<IEnumerable<OnNumaraDto>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges)
         {
-            var entities = await _manager.SayisalLoto.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
-            return _mapper.Map<IEnumerable<SayisalLotoDto>>(entities);
+            var entities = await _manager.OnNumara.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
+            return _mapper.Map<IEnumerable<OnNumaraDto>>(entities);
         }
 
     }

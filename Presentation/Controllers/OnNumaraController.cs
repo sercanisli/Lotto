@@ -24,6 +24,13 @@ namespace Presentation.Controllers
             return Ok(entities);
         }
 
+        [HttpGet("GetRandomNumbersForOnNumaraAsync")]
+        public async Task<IActionResult> GetRandomNumbersForOnNumaraAsync()
+        {
+            var numbers = await _manager.OnNumaraService.GetRondomNumbersAsync();
+            return Ok(numbers);
+        }
+
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForOnNumaraAsync([FromRoute(Name = "id")] int id)
         {
