@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Entities.RequestFeatures;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Contract;
 
@@ -15,8 +16,12 @@ namespace Repositories.EntityFrameworkCore
 
         public void DeleteOneNumbersArray(OnNumara onNumara) => Delete(onNumara);
 
-        public async Task<IEnumerable<OnNumara>> GetAllNumbersArrayAsync(bool trackChanges) =>
-            await FindAll(trackChanges).OrderBy(o => o.Date).ToListAsync();
+        public async Task<IEnumerable<OnNumara>> GetAllNumbersArrayAsync(OnNumaraParameters onNumaraParameters, bool trackChanges) =>
+            await FindAll(trackChanges)
+            .OrderBy(o => o.Date)
+            .Skip((onNumaraParameters.PageNumber-1)*onNumaraParameters.PageSize)
+            .Take(onNumaraParameters.PageSize)
+            .ToListAsync();
 
         public async Task<IEnumerable<OnNumara>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges) =>
             await FindAll(trackChanges).ToListAsync();
