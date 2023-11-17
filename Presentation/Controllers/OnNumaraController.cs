@@ -17,32 +17,32 @@ namespace Presentation.Controllers
         }
 
         [HttpGet(Name = "GetAllNumbersArrayForOnNumaraAsync")]
-        public IActionResult GetAllNumbersArrayForOnNumaraAsync()
+        public async Task<IActionResult> GetAllNumbersArrayForOnNumaraAsync()
         {
-            var entities = _manager.OnNumaraService.GetAllNumbersArraysAsync(false);
+            var entities = await _manager.OnNumaraService.GetAllNumbersArraysAsync(false);
             return Ok(entities);
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetOneNumbersArrayByIdForOnNumaraAsync([FromRoute(Name = "id")] int id)
+        public async Task<IActionResult> GetOneNumbersArrayByIdForOnNumaraAsync([FromRoute(Name = "id")] int id)
         {
-            var entity = _manager.OnNumaraService.GetOneNumbersArrayByIdAsync(id, false);
+            var entity = await _manager.OnNumaraService.GetOneNumbersArrayByIdAsync(id, false);
             return Ok(entity);
         }
 
         [HttpPost]
-        public IActionResult CreateOneNumbersArrayForOnNumaraAsync([FromBody] OnNumaraDtoForInsertion onNumaraDtoForInsertion)
+        public async Task<IActionResult> CreateOneNumbersArrayForOnNumaraAsync([FromBody] OnNumaraDtoForInsertion onNumaraDtoForInsertion)
         {
             if (!ModelState.IsValid)
             {
                 return UnprocessableEntity(ModelState);
             }
-            var entity = _manager.OnNumaraService.CreateOneNumbersArrayAsync(onNumaraDtoForInsertion);
+            var entity = await _manager.OnNumaraService.CreateOneNumbersArrayAsync(onNumaraDtoForInsertion);
             return StatusCode(201, entity);
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneNumbersArrayForOnNumaraAsync([FromRoute(Name = "id")] int id, [FromBody] OnNumaraDtoForUpdate onNumaraDtoForUpdate)
+        public async Task<IActionResult> UpdateOneNumbersArrayForOnNumaraAsync([FromRoute(Name = "id")] int id, [FromBody] OnNumaraDtoForUpdate onNumaraDtoForUpdate)
         {
             if (onNumaraDtoForUpdate == null)
             {
@@ -52,14 +52,14 @@ namespace Presentation.Controllers
             {
                 return UnprocessableEntity(ModelState);
             }
-            _manager.OnNumaraService.UpdateOneNumbersArrayAsync(id, onNumaraDtoForUpdate, false);
+            await _manager.OnNumaraService.UpdateOneNumbersArrayAsync(id, onNumaraDtoForUpdate, false);
             return NoContent();
         }
 
         [HttpDelete("{id:int}")]
-        public IActionResult DeleteOneNumbersArrayForOnNumaraAsync([FromRoute] int id)
+        public async Task<IActionResult> DeleteOneNumbersArrayForOnNumaraAsync([FromRoute] int id)
         {
-            _manager.OnNumaraService.DeleteOneNumbersArrayAsync(id, false);
+            await _manager.OnNumaraService.DeleteOneNumbersArrayAsync(id, false);
             return NoContent();
         }
     }
