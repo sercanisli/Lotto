@@ -109,5 +109,13 @@ namespace Services.Concrete
             }
             return randomNumbers.ToList();
         }
+
+        private async Task<IEnumerable<int>> GetOnlyNumbersAsync(bool trackChanges)
+        {
+            var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
+            var numbers = entities.SelectMany(e => e.Numbers).ToList();
+            return numbers;
+        }
+
     }
 }
