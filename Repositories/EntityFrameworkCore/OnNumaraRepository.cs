@@ -2,6 +2,7 @@
 using Entities.RequestFeatures;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Contract;
+using Repositories.EntityFrameworkCore.Extensions;
 
 namespace Repositories.EntityFrameworkCore
 {
@@ -19,7 +20,7 @@ namespace Repositories.EntityFrameworkCore
         public async Task<PagedList<OnNumara>> GetAllNumbersArrayAsync(OnNumaraParameters onNumaraParameters, bool trackChanges)
         {
             var entities = await FindAll(trackChanges)
-                .OrderBy(e=>e.Date)
+                .Sort(onNumaraParameters.OrderBy)
                 .ToListAsync();
             return PagedList<OnNumara>
                 .ToPagedList(entities, onNumaraParameters.PageNumber, onNumaraParameters.PageSize);
