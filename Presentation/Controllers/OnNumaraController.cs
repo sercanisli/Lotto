@@ -3,6 +3,7 @@ using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
 using Services.Contracts;
+using System.Text.Json;
 
 namespace Presentation.Controllers
 {
@@ -21,8 +22,10 @@ namespace Presentation.Controllers
         [HttpGet(Name = "GetAllNumbersArrayForOnNumaraAsync")]
         public async Task<IActionResult> GetAllNumbersArrayForOnNumaraAsync([FromQuery]OnNumaraParameters onNumaraParameters)
         {
-            var entities = await _manager.OnNumaraService.GetAllNumbersArraysAsync(onNumaraParameters,false);
-            return Ok(entities);
+            var pagedResult = await _manager.OnNumaraService.GetAllNumbersArraysAsync(onNumaraParameters,false);
+
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
+            return Ok(pagedResult.onNumaraDtos);
         }
 
         [HttpGet("GetRandomNumbersForOnNumaraAsync")]
