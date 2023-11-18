@@ -13,12 +13,14 @@ namespace Services.Concrete
         private readonly IRepositoryManager _manager;
         private readonly ILoggerService _logger;
         private readonly IMapper _mapper;
+        private readonly IDataShaper<OnNumaraDto> _dataShaper;
 
-        public OnNumaraManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper)
+        public OnNumaraManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, IDataShaper<OnNumaraDto> dataShaper)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
+            _dataShaper = dataShaper;
         }
 
         public async Task<OnNumaraDto> CreateOneNumbersArrayAsync(OnNumaraDtoForInsertion onNumaraDtoForInsertion)
@@ -36,11 +38,12 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<(IEnumerable<OnNumaraDto> onNumaraDtos, MetaData metaData)> GetAllNumbersArraysAsync(OnNumaraParameters onNumaraParameters, bool trackChanges)
+        public async Task<(IEnumerable<ShapedEntity> onNumaraDtos, MetaData metaData)> GetAllNumbersArraysAsync(OnNumaraParameters onNumaraParameters, bool trackChanges)
         {
             var entitiesWithMetaData = await _manager.OnNumara.GetAllNumbersArrayAsync(onNumaraParameters ,trackChanges);
             var dtos = _mapper.Map<IEnumerable<OnNumaraDto>>(entitiesWithMetaData);
-            return (dtos, entitiesWithMetaData.MetaData);
+            var shapedEntities = _dataShaper.ShapeData(dtos, onNumaraParameters.Fields);
+            return (onNumaraDtos: shapedEntities, metaData: entitiesWithMetaData.MetaData);
         }
 
         public async Task<OnNumaraDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)

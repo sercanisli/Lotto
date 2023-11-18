@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Entities.DataTransferObjects;
 using Entities.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -20,11 +21,12 @@ namespace Services.Concrete
             ISuperLotoLinks superLotoLinks, 
             ISayisalLotoLinks sayisalLotoLinks,
             UserManager<User> userManager,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            IDataShaper<OnNumaraDto> shaper)
         {
             _superLotoService = new Lazy<ISuperLotoService>(() => new SuperLotoManager(repositoryManager, logger, mapper, superLotoLinks));
             _sayisalLotoService = new Lazy<ISayisalLotoService>(() => new SayisalLotoManager(repositoryManager, logger, mapper, sayisalLotoLinks));
-            _onNumaraService = new Lazy<IOnNumaraService>(() => new OnNumaraManager(repositoryManager, logger, mapper));
+            _onNumaraService = new Lazy<IOnNumaraService>(() => new OnNumaraManager(repositoryManager, logger, mapper, shaper));
 
             _authenticationService = new Lazy<IAuthenticationService>(() => new AuthenticationManager(logger, mapper, userManager,configuration));
         }
