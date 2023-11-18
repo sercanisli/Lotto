@@ -40,6 +40,7 @@ builder.Services.ConfigureActionFilters();
 builder.Services.ConfigureCors();
 builder.Services.ConfigureDataShaper<SuperLotoDto>();
 builder.Services.ConfigureDataShaper<SayisalLotoDto>();
+builder.Services.ConfigureDataShaper<OnNumaraDto>();
 builder.Services.AddCustomMediaTypes();
 builder.Services.ConfigureLinks();
 builder.Services.ConfigureResponseCaching();
