@@ -16,12 +16,13 @@ namespace Repositories.EntityFrameworkCore
 
         public void DeleteOneNumbersArray(OnNumara onNumara) => Delete(onNumara);
 
-        public async Task<IEnumerable<OnNumara>> GetAllNumbersArrayAsync(OnNumaraParameters onNumaraParameters, bool trackChanges) =>
-            await FindAll(trackChanges)
-            .OrderBy(o => o.Date)
-            .Skip((onNumaraParameters.PageNumber-1)*onNumaraParameters.PageSize)
-            .Take(onNumaraParameters.PageSize)
-            .ToListAsync();
+        public async Task<PagedList<OnNumara>> GetAllNumbersArrayAsync(OnNumaraParameters onNumaraParameters, bool trackChanges)
+        {
+            var entities = await FindAll(trackChanges)
+                .OrderBy(e=>e.Date)
+                .ToListAsync();
+            return PagedList<OnNumara>.ToPagedList(entities, onNumaraParameters.PageNumber, onNumaraParameters.PageSize);
+        }
 
         public async Task<IEnumerable<OnNumara>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges) =>
             await FindAll(trackChanges).ToListAsync();
