@@ -21,7 +21,8 @@ namespace Repositories.EntityFrameworkCore
             var entities = await FindAll(trackChanges)
                 .OrderBy(e=>e.Date)
                 .ToListAsync();
-            return PagedList<OnNumara>.ToPagedList(entities, onNumaraParameters.PageNumber, onNumaraParameters.PageSize);
+            return PagedList<OnNumara>
+                .ToPagedList(entities, onNumaraParameters.PageNumber, onNumaraParameters.PageSize);
         }
 
         public async Task<IEnumerable<OnNumara>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges) =>
