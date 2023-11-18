@@ -36,10 +36,11 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<IEnumerable<OnNumaraDto>> GetAllNumbersArraysAsync(OnNumaraParameters onNumaraParameters, bool trackChanges)
+        public async Task<(IEnumerable<OnNumaraDto> onNumaraDtos, MetaData metaData)> GetAllNumbersArraysAsync(OnNumaraParameters onNumaraParameters, bool trackChanges)
         {
-            var entities = await _manager.OnNumara.GetAllNumbersArrayAsync(onNumaraParameters ,trackChanges);
-            return _mapper.Map<IEnumerable<OnNumaraDto>>(entities);
+            var entitiesWithMetaData = await _manager.OnNumara.GetAllNumbersArrayAsync(onNumaraParameters ,trackChanges);
+            var dtos = _mapper.Map<IEnumerable<OnNumaraDto>>(entitiesWithMetaData);
+            return (dtos, entitiesWithMetaData.MetaData);
         }
 
         public async Task<OnNumaraDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
