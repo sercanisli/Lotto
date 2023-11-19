@@ -20,13 +20,14 @@ namespace Services.Concrete
             IMapper mapper, 
             ISuperLotoLinks superLotoLinks, 
             ISayisalLotoLinks sayisalLotoLinks,
+            IOnNumaraLinks onNumaraLinks,
             UserManager<User> userManager,
-            IConfiguration configuration,
-            IDataShaper<OnNumaraDto> shaper)
+            IConfiguration configuration
+            )
         {
             _superLotoService = new Lazy<ISuperLotoService>(() => new SuperLotoManager(repositoryManager, logger, mapper, superLotoLinks));
             _sayisalLotoService = new Lazy<ISayisalLotoService>(() => new SayisalLotoManager(repositoryManager, logger, mapper, sayisalLotoLinks));
-            _onNumaraService = new Lazy<IOnNumaraService>(() => new OnNumaraManager(repositoryManager, logger, mapper, shaper));
+            _onNumaraService = new Lazy<IOnNumaraService>(() => new OnNumaraManager(repositoryManager, logger, mapper, onNumaraLinks));
 
             _authenticationService = new Lazy<IAuthenticationService>(() => new AuthenticationManager(logger, mapper, userManager,configuration));
         }

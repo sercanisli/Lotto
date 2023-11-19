@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Entities.DataTransferObjects;
 using Entities.Exceptions;
+using Entities.LinkModels;
 using Entities.Models;
 using Entities.RequestFeatures;
 using Repositories.Cantracts;
@@ -13,14 +14,14 @@ namespace Services.Concrete
         private readonly IRepositoryManager _manager;
         private readonly ILoggerService _logger;
         private readonly IMapper _mapper;
-        private readonly IDataShaper<OnNumaraDto> _dataShaper;
+        private readonly IOnNumaraLinks _onNumaraLinks;
 
-        public OnNumaraManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, IDataShaper<OnNumaraDto> dataShaper)
+        public OnNumaraManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, IOnNumaraLinks onNumaraLinks)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
-            _dataShaper = dataShaper;
+            _onNumaraLinks = onNumaraLinks;
         }
 
         public async Task<OnNumaraDto> CreateOneNumbersArrayAsync(OnNumaraDtoForInsertion onNumaraDtoForInsertion)
@@ -38,12 +39,12 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<(IEnumerable<ShapedEntity> onNumaraDtos, MetaData metaData)> GetAllNumbersArraysAsync(OnNumaraParameters onNumaraParameters, bool trackChanges)
+        public async Task<(LinkResponse linkResponse, MetaData metaData)> GetAllNumbersArraysAsync(LinkParameters<OnNumaraParameters> linkParameters, bool trackChanges)
         {
-            var entitiesWithMetaData = await _manager.OnNumara.GetAllNumbersArrayAsync(onNumaraParameters ,trackChanges);
+            var entitiesWithMetaData = await _manager.OnNumara.GetAllNumbersArrayAsync(linkParameters.Parameters ,trackChanges);
             var dtos = _mapper.Map<IEnumerable<OnNumaraDto>>(entitiesWithMetaData);
-            var shapedEntities = _dataShaper.ShapeData(dtos, onNumaraParameters.Fields);
-            return (onNumaraDtos: shapedEntities, metaData: entitiesWithMetaData.MetaData);
+            var links = _onNumaraLinks.TryGenerateLinks(dtos, linkParameters.Parameters.Fields, linkParameters.HttpContext);
+            return (linkResponse:links, metaData: entitiesWithMetaData.MetaData);
         }
 
         public async Task<OnNumaraDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
