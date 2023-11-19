@@ -94,6 +94,7 @@ namespace WebApi.Extensions
         {
             services.AddScoped<ISuperLotoLinks, SuperLotoLinks>();
             services.AddScoped<ISayisalLotoLinks, SayisalLotoLinks>();
+            services.AddScoped<IOnNumaraLinks, OnNumaraLinks>();
         }
 
         public static void ConfigureResponseCaching(this IServiceCollection services)
