@@ -20,6 +20,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet(Name = "GetAllNumbersArrayForOnNumaraAsync")]
+        [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayForOnNumaraAsync([FromQuery]OnNumaraParameters onNumaraParameters)
         {
             var pagedResult = await _manager.OnNumaraService.GetAllNumbersArraysAsync(onNumaraParameters,false);
