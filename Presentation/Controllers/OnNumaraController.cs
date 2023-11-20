@@ -1,4 +1,5 @@
 ﻿using Entities.DataTransferObjects;
+using Entities.LinkModels;
 using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
@@ -23,10 +24,19 @@ namespace Presentation.Controllers
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayForOnNumaraAsync([FromQuery]OnNumaraParameters onNumaraParameters)
         {
-            var pagedResult = await _manager.OnNumaraService.GetAllNumbersArraysAsync(onNumaraParameters,false);
+            var linkParameters = new LinkParameters<OnNumaraParameters>()
+            {
+                Parameters = onNumaraParameters,
+                HttpContext = HttpContext
+            };
 
-            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
-            return Ok(pagedResult.onNumaraDtos);
+            var result = await _manager.OnNumaraService.GetAllNumbersArraysAsync(linkParameters,false);
+
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(result.metaData));
+
+            return result.linkResponse.HasLinks ?
+                Ok(result.linkResponse.LinkedEntities) :
+                Ok(result.linkResponse.ShapedEntities);
         }
 
         [HttpGet("GetRandomNumbersForOnNumaraAsync")]
