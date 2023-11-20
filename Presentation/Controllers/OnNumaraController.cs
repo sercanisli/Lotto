@@ -75,5 +75,12 @@ namespace Presentation.Controllers
             await _manager.OnNumaraService.DeleteOneNumbersArrayAsync(id, false);
             return NoContent();
         }
+
+        [HttpOptions]
+        public IActionResult GetOnNumaraOptions()
+        {
+            Response.Headers.Add("Allow", "GET, PUT, POST, DELETE, HEAD, OPTIONS");
+            return Ok();
+        }
     }
 }
