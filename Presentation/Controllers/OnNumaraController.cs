@@ -20,6 +20,7 @@ namespace Presentation.Controllers
             _manager = manager;
         }
 
+        [HttpHead]
         [HttpGet(Name = "GetAllNumbersArrayForOnNumaraAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayForOnNumaraAsync([FromQuery]OnNumaraParameters onNumaraParameters)
