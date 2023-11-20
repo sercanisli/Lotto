@@ -85,6 +85,7 @@ namespace Presentation.Controllers
 
         [Authorize(Roles = "Admin, Editor")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
+        [HttpPut(Name = "UpdateOneNumbersArrayForSuperLotoAsync")]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateOneNumbersArrayForSuperLotoAsync([FromRoute(Name = "id")] int id, [FromBody] SuperLotoDtoForUpdate superLotoDto)
         {
