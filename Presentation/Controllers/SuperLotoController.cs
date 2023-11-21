@@ -51,6 +51,7 @@ namespace Presentation.Controllers
             return Ok(numbers);
         }
 
+        
         [HttpGet("{id:int}")]
         [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSuperLotoAsync([FromRoute(Name = "id")] int id)
@@ -59,7 +60,7 @@ namespace Presentation.Controllers
             return Ok(array);
         }
 
-        [HttpGet("GetOneNumbersArrayByDateForSuperLotoAsync")]
+        [HttpGet("GetOneNumbersArrayByDateForSuperLotoAsync", Name = "GetOneNumbersArrayByDateForSuperLotoAsync")]
         [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByDateForSuperLotoAsync([FromQuery]DateTime date)
         {

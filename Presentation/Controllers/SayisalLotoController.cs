@@ -57,7 +57,7 @@ namespace Presentation.Controllers
             return Ok(entity);
         }
 
-        [HttpGet("GetOneNumbersArrayByDateForSayisalLotoAsync")]
+        [HttpGet("GetOneNumbersArrayByDateForSayisalLotoAsync", Name ="GetOneNumbersArrayByDateForSayisalLotoAsync")]
         [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByDateForSayisalLotoAsync([FromQuery] DateTime date)
         {
