@@ -53,6 +53,17 @@ namespace Services.Concrete
             return _mapper.Map<OnNumaraDto>(entity);
         }
 
+        public async Task<OnNumaraDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
+        {
+            var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
+            var entityDate = entities.Where(e => e.Date == date).FirstOrDefault();
+            if (entityDate == null)
+            {
+                throw new OnNumaraDateNotFoundException(Convert.ToDateTime(date));
+            }
+            return entityDate;
+        }
+
         public async Task UpdateOneNumbersArrayAsync(int id, OnNumaraDtoForUpdate onNumaraDtoForUpdate, bool trackChanges)
         {
             if(onNumaraDtoForUpdate == null)
@@ -152,5 +163,6 @@ namespace Services.Concrete
             return entity;
         }
 
+        
     }
 }

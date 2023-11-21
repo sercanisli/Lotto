@@ -42,6 +42,12 @@ namespace Presentation.Controllers
                     },
                     new Link()
                     {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(OnNumaraController.GetAllNumbersArrayForOnNumaraAsync), new{pageNumber=1, pageSize=10}),
+                        Relation = "onnumara",
+                        Method = "GET"
+                    },
+                    new Link()
+                    {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetAllNumbersArrayForSuperLotoAsync), new{pageNumber=1, pageSize=10, orderBy="date"}),
                         Relation = "superloto",
                         Method = "GET"
@@ -54,6 +60,12 @@ namespace Presentation.Controllers
                     },
                     new Link()
                     {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(OnNumaraController.GetAllNumbersArrayForOnNumaraAsync), new{pageNumber=1, pageSize=10, orderBy="date"}),
+                        Relation = "onnumara",
+                        Method = "GET"
+                    },
+                    new Link()
+                    {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetAllNumbersArrayForSuperLotoAsync), new{pageNumber=1, pageSize=10, fields = "id,numbers"}),
                         Relation = "superloto",
                         Method = "GET"
@@ -62,6 +74,12 @@ namespace Presentation.Controllers
                     {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.GetAllNumbersArrayForSayisalLotoAsync), new{pageNumber=1, pageSize=10, fields="id,numbers"}),
                         Relation = "sayisalloto",
+                        Method = "GET"
+                    },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(OnNumaraController.GetAllNumbersArrayForOnNumaraAsync), new{pageNumber=1, pageSize=10, fields="id,numbers"}),
+                        Relation = "onnumara",
                         Method = "GET"
                     },
                     new Link()
