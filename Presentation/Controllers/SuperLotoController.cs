@@ -102,6 +102,7 @@ namespace Presentation.Controllers
         }
         
         [Authorize(Roles = "Admin, Editor")]
+        [HttpDelete(Name = "DeleteOneNumbersArrayForSuperLotoAsync")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteOneNumbersArrayForSuperLotoAsync([FromRoute(Name = "id")] int id)
         {
