@@ -22,7 +22,7 @@ namespace Presentation.Controllers
         }
 
         [HttpHead]
-        [HttpGet(Name = "GetAllNumbersArrayForSayisalLotoAsync")]
+        [HttpGet(Name ="GetAllNumbersArrayForSayisalLotoAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetAllNumbersArrayForSayisalLotoAsync([FromQuery] SayisalLotoParameters sayisalLotoParameters)
@@ -42,7 +42,7 @@ namespace Presentation.Controllers
         }
 
         [Authorize(Roles = "Admin, Editor, User")]
-        [HttpGet("GetRandomNumbersForSayisalLotoAsync")]
+        [HttpGet("GetRandomNumbersForSayisalLotoAsync", Name = "GetRandomNumbersForSayisalLotoAsync")]
         public async Task<IActionResult> GetRandomNumbersForSayisalLotoAsync()
         {
             var numbers = await _manager.SayisalLotoService.GetRondomNumbersAsync();
@@ -76,8 +76,8 @@ namespace Presentation.Controllers
 
         [Authorize(Roles = "Admin, Editor")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [HttpPut(Name = "UpdateOneNumbersArrayForSayisalLotoAsync")]
         [HttpPut("{id:int}")]
+        [HttpPut(Name = "UpdateOneNumbersArrayForSayisalLotoAsync")]
         public async Task<IActionResult> UpdateOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")] int id, [FromBody] SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate)
         {
             await _manager.SayisalLotoService.UpdateOneNumbersArrayAsync(id, sayisalLotoDtoForUpdate, false);
@@ -85,8 +85,8 @@ namespace Presentation.Controllers
         }
 
         [Authorize(Roles = "Admin, Editor")]
-        [HttpDelete(Name = "DeleteOneNumbersArrayForSayisalLotoAsync")]
         [HttpDelete("{id:int}")]
+        [HttpDelete(Name = "DeleteOneNumbersArrayForSayisalLotoAsync")]
         public async Task<IActionResult> DeleteOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")] int id)
         {
             await _manager.SayisalLotoService.DeleteOneNumbersArrayAsync(id, false);

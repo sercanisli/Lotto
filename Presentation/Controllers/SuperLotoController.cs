@@ -43,14 +43,14 @@ namespace Presentation.Controllers
         }
 
         [Authorize(Roles = "Admin, Editor, User")]
-        [HttpGet(Name = "GetRandomNumbersForSuperLotoAsync")]
+        [HttpGet("GetRandomNumbersForSuperLotoAsync", Name = "GetRandomNumbersForSuperLotoAsync")]
+
         public async Task<IActionResult> GetRandomNumbersForSuperLotoAsync()
         {
             var numbers = await _manager.SuperLotoService.GetRondomNumbersAsync();
             return Ok(numbers);
         }
 
-        [HttpGet(Name = "GetOneNumbersArrayByIdForSuperLotoAsync")]
         [HttpGet("{id:int}")]
         [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSuperLotoAsync([FromRoute(Name = "id")] int id)
@@ -86,8 +86,8 @@ namespace Presentation.Controllers
 
         [Authorize(Roles = "Admin, Editor")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [HttpPut(Name = "UpdateOneNumbersArrayForSuperLotoAsync")]
         [HttpPut("{id:int}")]
+        [HttpPut(Name = "UpdateOneNumbersArrayForSuperLotoAsync")]
         public async Task<IActionResult> UpdateOneNumbersArrayForSuperLotoAsync([FromRoute(Name = "id")] int id, [FromBody] SuperLotoDtoForUpdate superLotoDto)
         {
             if (superLotoDto == null)
@@ -103,8 +103,8 @@ namespace Presentation.Controllers
         }
         
         [Authorize(Roles = "Admin, Editor")]
-        [HttpDelete(Name = "DeleteOneNumbersArrayForSuperLotoAsync")]
         [HttpDelete("{id:int}")]
+        [HttpDelete(Name = "DeleteOneNumbersArrayForSuperLotoAsync")]
         public async Task<IActionResult> DeleteOneNumbersArrayForSuperLotoAsync([FromRoute(Name = "id")] int id)
         {
             await _manager.SuperLotoService.DeleteOneNumbersArrayAsync(id, false);

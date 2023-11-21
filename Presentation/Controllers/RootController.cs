@@ -18,6 +18,7 @@ namespace Presentation.Controllers
         [HttpGet(Name = "GetRoot")]
         public async Task<IActionResult> GetRoot([FromHeader(Name = "Accept")] string mediaType)
         {
+
             if (mediaType.Contains("application/vnd.lotocum.apiroot"))
             {
                 var list = new List<Link>()
@@ -30,95 +31,88 @@ namespace Presentation.Controllers
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetAllNumbersArrayForSuperLotoAsync), new{pageNumber =1, pageSize=10}),
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetAllNumbersArrayForSuperLotoAsync), new{pageNumber=1, pageSize=10}),
                         Relation = "superloto",
                         Method = "GET"
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetAllNumbersArrayForSuperLotoAsync), new{pageNumber =1, pageSize=10, orderBy = "date"}),
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.GetAllNumbersArrayForSayisalLotoAsync), new{pageNumber=1, pageSize=10}),
+                        Relation = "sayisalloto",
+                        Method = "GET"
+                    },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetAllNumbersArrayForSuperLotoAsync), new{pageNumber=1, pageSize=10, orderBy="date"}),
                         Relation = "superloto",
                         Method = "GET"
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetAllNumbersArrayForSuperLotoAsync), new{pageNumber =1, pageSize=10, fields = "id" + "," + "date"}),
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.GetAllNumbersArrayForSayisalLotoAsync), new{pageNumber=1, pageSize=10, orderBy="date"}),
+                        Relation = "sayisalloto",
+                        Method = "GET"
+                    },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetAllNumbersArrayForSuperLotoAsync), new{pageNumber=1, pageSize=10, fields = "id,numbers"}),
                         Relation = "superloto",
                         Method = "GET"
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetRandomNumbersForSuperLotoAsync), new{}) + "/GetRandomNumbersForSuperLotoAsync".ToLower(),
-                        Relation = "superloto",
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.GetAllNumbersArrayForSayisalLotoAsync), new{pageNumber=1, pageSize=10, fields="id,numbers"}),
+                        Relation = "sayisalloto",
                         Method = "GET"
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetOneNumbersArrayByIdForSuperLotoAsync), new{}) + "/id",
-                        Relation = "superloto",
-                        Method = "GET"
-                    },
-                    new Link()
-                    {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetOneNumbersArrayByIdForSuperLotoAsync), new{date = "yyyy-mm-dd"}),
-                        Relation = "superloto",
-                        Method = "GET"
-                    },
-                    new Link()
-                    {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.CreateOneNumbersArrayForSuperLotoAsync), new {}),
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.CreateOneNumbersArrayForSuperLotoAsync), new{}),
                         Relation = "superloto",
                         Method = "POST"
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.UpdateOneNumbersArrayForSuperLotoAsync), new {}) + "/id",
-                        Relation = "superloto",
-                        Method = "PUT"
-                    },
-                    new Link()
-                    {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.DeleteOneNumbersArrayForSuperLotoAsync), new {}) + "/id",
-                        Relation = "superloto",
-                        Method = "DELETE"
-                    },
-                    new Link()
-                    {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.GetAllNumbersArrayForSayisalLotoAsync), new{pageNumber =1, pageSize=10}),
-                        Relation = "sayisalloto",
-                        Method = "GET"
-                    },
-                    new Link()
-                    {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.GetAllNumbersArrayForSayisalLotoAsync), new{pageNumber =1, pageSize=10, orderBy = "date"}),
-                        Relation = "sayisalloto",
-                        Method = "GET"
-                    },
-                    new Link()
-                    {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.GetAllNumbersArrayForSayisalLotoAsync), new{pageNumber =1, pageSize=10, fields = "id" + "," + "date"}),
-                        Relation = "sayisalloto",
-                        Method = "GET"
-                    },
-                    new Link()
-                    {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.CreateOneNumbersArrayForSayisalLotoAsync), new {}),
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.CreateOneNumbersArrayForSayisalLotoAsync), new{}),
                         Relation = "sayisalloto",
                         Method = "POST"
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.UpdateOneNumbersArrayForSayisalLotoAsync), new {}) + "/id",
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.UpdateOneNumbersArrayForSuperLotoAsync), new{}) + "/id",
+                        Relation = "superloto",
+                        Method = "PUT"
+                    },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.UpdateOneNumbersArrayForSayisalLotoAsync), new{}) + "/id",
                         Relation = "sayisalloto",
                         Method = "PUT"
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.DeleteOneNumbersArrayForSayisalLotoAsync), new {}) + "/id",
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.DeleteOneNumbersArrayForSuperLotoAsync), new{}) + "/id",
+                        Relation = "superloto",
+                        Method = "DELETE"
+                    },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.DeleteOneNumbersArrayForSayisalLotoAsync), new{}) + "/id",
                         Relation = "sayisalloto",
                         Method = "DELETE"
-                    }
-
+                    },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetRandomNumbersForSuperLotoAsync), new{}).ToLower(),
+                        Relation = "superloto",
+                        Method = "GET"
+                    },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.GetRandomNumbersForSayisalLotoAsync), new{}).ToLower(),
+                        Relation = "sayisalloto",
+                        Method = "GET"
+                    },
                 };
 
                 return Ok(list);
