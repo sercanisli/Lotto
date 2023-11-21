@@ -54,6 +54,13 @@ namespace Presentation.Controllers
             return Ok(entity);
         }
 
+        [HttpGet("GetOneNumbersArrayByDateForOnNumaraAsync", Name = "GetOneNumbersArrayByDateForOnNumaraAsync")]
+        public async Task<IActionResult> GetOneNumbersArrayByDateForOnNumaraAsync([FromQuery]DateTime date)
+        {
+            var entity = await _manager.OnNumaraService.GetOneNumbersArrayByDateAsync(date, false);
+            return Ok(entity);
+        }
+
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPost]
         public async Task<IActionResult> CreateOneNumbersArrayForOnNumaraAsync([FromBody] OnNumaraDtoForInsertion onNumaraDtoForInsertion)
