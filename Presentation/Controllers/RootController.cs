@@ -18,7 +18,6 @@ namespace Presentation.Controllers
         [HttpGet(Name = "GetRoot")]
         public async Task<IActionResult> GetRoot([FromHeader(Name = "Accept")] string mediaType)
         {
-            string baseUriForSuperLoto = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.CreateOneNumbersArrayForSuperLotoAsync), new {}) +"/1";
             if (mediaType.Contains("application/vnd.lotocum.apiroot"))
             {
                 var list = new List<Link>()
@@ -49,19 +48,37 @@ namespace Presentation.Controllers
                     },
                     new Link()
                     {
+                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetRandomNumbersForSuperLotoAsync), new{}) + "/GetRandomNumbersForSuperLotoAsync".ToLower(),
+                        Relation = "superloto",
+                        Method = "GET"
+                    },
+                    new Link()
+                    {
+                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetOneNumbersArrayByIdForSuperLotoAsync), new{}) + "/id",
+                        Relation = "superloto",
+                        Method = "GET"
+                    },
+                    new Link()
+                    {
+                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetOneNumbersArrayByIdForSuperLotoAsync), new{date = "yyyy-mm-dd"}),
+                        Relation = "superloto",
+                        Method = "GET"
+                    },
+                    new Link()
+                    {
                         Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.CreateOneNumbersArrayForSuperLotoAsync), new {}),
                         Relation = "superloto",
                         Method = "POST"
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.UpdateOneNumbersArrayForSuperLotoAsync), new {}) + "/1",
+                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.UpdateOneNumbersArrayForSuperLotoAsync), new {}) + "/id",
                         Relation = "superloto",
                         Method = "PUT"
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.DeleteOneNumbersArrayForSuperLotoAsync), new {}) + "/1",
+                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.DeleteOneNumbersArrayForSuperLotoAsync), new {}) + "/id",
                         Relation = "superloto",
                         Method = "DELETE"
                     },
@@ -91,13 +108,13 @@ namespace Presentation.Controllers
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.UpdateOneNumbersArrayForSayisalLotoAsync), new {}) + "/1",
+                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.UpdateOneNumbersArrayForSayisalLotoAsync), new {}) + "/id",
                         Relation = "sayisalloto",
                         Method = "PUT"
                     },
                     new Link()
                     {
-                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.DeleteOneNumbersArrayForSayisalLotoAsync), new {}) + "/1",
+                        Href=_linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.DeleteOneNumbersArrayForSayisalLotoAsync), new {}) + "/id",
                         Relation = "sayisalloto",
                         Method = "DELETE"
                     }

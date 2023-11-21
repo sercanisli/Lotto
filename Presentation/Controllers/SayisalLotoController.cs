@@ -67,7 +67,7 @@ namespace Presentation.Controllers
 
         [Authorize(Roles = "Admin, Editor")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [HttpPost]
+        [HttpPost(Name = "CreateOneNumbersArrayForSayisalLotoAsync")]
         public async Task<IActionResult> CreateOneNumbersArrayForSayisalLotoAsync([FromBody] SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion)
         {
             var entity = await _manager.SayisalLotoService.CreateOneNumbersArrayAsync(sayisalLotoDtoForInsertion);
@@ -76,6 +76,7 @@ namespace Presentation.Controllers
 
         [Authorize(Roles = "Admin, Editor")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
+        [HttpPut(Name = "UpdateOneNumbersArrayForSayisalLotoAsync")]
         [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")] int id, [FromBody] SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate)
         {
@@ -84,6 +85,7 @@ namespace Presentation.Controllers
         }
 
         [Authorize(Roles = "Admin, Editor")]
+        [HttpDelete(Name = "DeleteOneNumbersArrayForSayisalLotoAsync")]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteOneNumbersArrayForSayisalLotoAsync([FromRoute(Name = "id")] int id)
         {

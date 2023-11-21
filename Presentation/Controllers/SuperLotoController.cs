@@ -43,13 +43,14 @@ namespace Presentation.Controllers
         }
 
         [Authorize(Roles = "Admin, Editor, User")]
-        [HttpGet("GetRandomNumbersForSuperLotoAsync")]
+        [HttpGet(Name = "GetRandomNumbersForSuperLotoAsync")]
         public async Task<IActionResult> GetRandomNumbersForSuperLotoAsync()
         {
             var numbers = await _manager.SuperLotoService.GetRondomNumbersAsync();
             return Ok(numbers);
         }
 
+        [HttpGet(Name = "GetOneNumbersArrayByIdForSuperLotoAsync")]
         [HttpGet("{id:int}")]
         [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSuperLotoAsync([FromRoute(Name = "id")] int id)
