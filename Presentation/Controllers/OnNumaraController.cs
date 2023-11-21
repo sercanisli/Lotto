@@ -40,7 +40,7 @@ namespace Presentation.Controllers
                 Ok(result.linkResponse.ShapedEntities);
         }
 
-        [HttpGet("GetRandomNumbersForOnNumaraAsync")]
+        [HttpGet("GetRandomNumbersForOnNumaraAsync", Name = "GetRandomNumbersForOnNumaraAsync")]
         public async Task<IActionResult> GetRandomNumbersForOnNumaraAsync()
         {
             var numbers = await _manager.OnNumaraService.GetRondomNumbersAsync();
@@ -62,7 +62,7 @@ namespace Presentation.Controllers
         }
 
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [HttpPost]
+        [HttpPost(Name = "CreateOneNumbersArrayForOnNumaraAsync")]
         public async Task<IActionResult> CreateOneNumbersArrayForOnNumaraAsync([FromBody] OnNumaraDtoForInsertion onNumaraDtoForInsertion)
         {
             var entity = await _manager.OnNumaraService.CreateOneNumbersArrayAsync(onNumaraDtoForInsertion);
@@ -71,6 +71,7 @@ namespace Presentation.Controllers
        
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id:int}")]
+        [HttpPut(Name = "UpdateOneNumbersArrayForOnNumaraAsync")]
         public async Task<IActionResult> UpdateOneNumbersArrayForOnNumaraAsync([FromRoute(Name = "id")] int id, [FromBody] OnNumaraDtoForUpdate onNumaraDtoForUpdate)
         {
             await _manager.OnNumaraService.UpdateOneNumbersArrayAsync(id, onNumaraDtoForUpdate, false);
@@ -78,6 +79,7 @@ namespace Presentation.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [HttpDelete(Name = "DeleteOneNumbersArrayForOnNumaraAsync")]
         public async Task<IActionResult> DeleteOneNumbersArrayForOnNumaraAsync([FromRoute] int id)
         {
             await _manager.OnNumaraService.DeleteOneNumbersArrayAsync(id, false);

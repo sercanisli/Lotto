@@ -96,6 +96,12 @@ namespace Presentation.Controllers
                     },
                     new Link()
                     {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(OnNumaraController.GetOneNumbersArrayByDateForOnNumaraAsync), new{date = "yyyy-mm-dd"}).ToLower(),
+                        Relation = "onnumara",
+                        Method = "GET"
+                    },
+                    new Link()
+                    {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.CreateOneNumbersArrayForSuperLotoAsync), new{}),
                         Relation = "superloto",
                         Method = "POST"
@@ -104,6 +110,12 @@ namespace Presentation.Controllers
                     {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.CreateOneNumbersArrayForSayisalLotoAsync), new{}),
                         Relation = "sayisalloto",
+                        Method = "POST"
+                    },
+                     new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(OnNumaraController.CreateOneNumbersArrayForOnNumaraAsync), new{}),
+                        Relation = "onnumara",
                         Method = "POST"
                     },
                     new Link()
@@ -120,6 +132,12 @@ namespace Presentation.Controllers
                     },
                     new Link()
                     {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(OnNumaraController.UpdateOneNumbersArrayForOnNumaraAsync), new{}) + "/id",
+                        Relation = "onnumara",
+                        Method = "PUT"
+                    },
+                    new Link()
+                    {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.DeleteOneNumbersArrayForSuperLotoAsync), new{}) + "/id",
                         Relation = "superloto",
                         Method = "DELETE"
@@ -128,6 +146,12 @@ namespace Presentation.Controllers
                     {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.DeleteOneNumbersArrayForSayisalLotoAsync), new{}) + "/id",
                         Relation = "sayisalloto",
+                        Method = "DELETE"
+                    },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(OnNumaraController.DeleteOneNumbersArrayForOnNumaraAsync), new{}) + "/id",
+                        Relation = "onnumara",
                         Method = "DELETE"
                     },
                     new Link()
@@ -142,6 +166,12 @@ namespace Presentation.Controllers
                         Relation = "sayisalloto",
                         Method = "GET"
                     },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(OnNumaraController.GetRandomNumbersForOnNumaraAsync), new{}).ToLower(),
+                        Relation = "onnumara",
+                        Method = "GET"
+                    }
                 };
 
                 return Ok(list);
