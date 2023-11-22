@@ -109,7 +109,7 @@ namespace WebApi.Extensions
                 new RateLimitRule()
                 {
                     Endpoint = "*",
-                    Limit = 10,
+                    Limit = 15,
                     Period = "1m"
                 }
             };
