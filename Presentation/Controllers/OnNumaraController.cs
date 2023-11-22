@@ -22,6 +22,7 @@ namespace Presentation.Controllers
 
         [HttpHead]
         [HttpGet(Name = "GetAllNumbersArrayForOnNumaraAsync")]
+        [ResponseCache(CacheProfileName = "5mins")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayForOnNumaraAsync([FromQuery]OnNumaraParameters onNumaraParameters)
         {
@@ -48,6 +49,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForOnNumaraAsync([FromRoute(Name = "id")] int id)
         {
             var entity = await _manager.OnNumaraService.GetOneNumbersArrayByIdAsync(id, false);
@@ -55,6 +57,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("GetOneNumbersArrayByDateForOnNumaraAsync", Name = "GetOneNumbersArrayByDateForOnNumaraAsync")]
+        [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByDateForOnNumaraAsync([FromQuery]DateTime date)
         {
             var entity = await _manager.OnNumaraService.GetOneNumbersArrayByDateAsync(date, false);
@@ -87,6 +90,7 @@ namespace Presentation.Controllers
         }
 
         [HttpOptions]
+        [ResponseCache(CacheProfileName = "5mins")]
         public IActionResult GetOnNumaraOptions()
         {
             Response.Headers.Add("Allow", "GET, PUT, POST, DELETE, HEAD, OPTIONS");
