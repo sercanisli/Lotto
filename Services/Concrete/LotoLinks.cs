@@ -63,8 +63,30 @@ namespace Services.Concrete
         
         private List<Link> CreateLinks(HttpContext context, T dto, string fields)
         {
+            var pageSize = context.Request.Query["pageSize"];
+            var pageNumber = context.Request.Query["pageNumber"];
+            var orderBy = context.Request.Query["orderBy"];
+            var fileds = context.Request.Query["fields"];
             var links = new List<Link>()
             {
+                new Link()
+                {
+                    Href = $"/api/{context.GetRouteData().Values["controller"].ToString().ToLower()}?pageSize={pageSize}&pageNumber={pageNumber}",
+                    Relation = "self",
+                    Method = "GET"
+                },
+                new Link()
+                {
+                    Href = $"/api/{context.GetRouteData().Values["controller"].ToString().ToLower()}?pageSize={pageSize}&pageNumber={pageNumber}&orderBy={orderBy}",
+                    Relation = "self",
+                    Method = "GET"
+                },
+                new Link()
+                {
+                    Href = $"/api/{context.GetRouteData().Values["controller"].ToString().ToLower()}?pageSize={pageSize}&pageNumber={pageNumber}&fields={fields}",
+                    Relation = "self",
+                    Method = "GET"
+                },
                 new Link()
                 {
                     Href = $"/api/{context.GetRouteData().Values["controller"].ToString().ToLower()}"
