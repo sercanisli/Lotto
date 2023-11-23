@@ -2,11 +2,6 @@
 {
     public class SansTopu : Lotto
     {
-        public List<int> PlusNumbers { get; set; }
-
-        public SansTopu()
-        {
-            PlusNumbers = new List<int>();
-        }
+        public int PlusNumber { get; set; }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Entities.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Repositories.EntityFrameworkCore.Configuration;
 using System.Reflection;
 
 namespace Repositories.EntityFrameworkCore
