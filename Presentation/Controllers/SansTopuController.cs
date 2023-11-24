@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.DataTransferObjects;
+using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 
@@ -37,9 +38,9 @@ namespace Presentation.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneNumbersArrayForSansTopu([FromRoute(Name = "id")] int id, [FromBody] SansTopu sansTopu)
+        public IActionResult UpdateOneNumbersArrayForSansTopu([FromRoute(Name = "id")] int id, [FromBody] SansTopuDtoForUpdate sansTopuDtoForUpdate)
         {
-            _manager.SansTopuService.UpdateOneNumbersArray(id, sansTopu, false);
+            _manager.SansTopuService.UpdateOneNumbersArray(id, sansTopuDtoForUpdate, false);
             return NoContent();
         }
 
