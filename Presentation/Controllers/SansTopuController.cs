@@ -18,72 +18,36 @@ namespace Presentation.Controllers
         [HttpGet]
         public IActionResult GetAllNumbersArrayForSansTopu()
         {
-            try
-            {
-                var entities = _manager.SansTopuService.GetAllNumbersArrays(false);
-                return Ok(entities);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            var entities = _manager.SansTopuService.GetAllNumbersArrays(false);
+            return Ok(entities);
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetOneNumbersArrayByIdForSansTopu([FromRoute(Name = "id")]int id)
+        public IActionResult GetOneNumbersArrayByIdForSansTopu([FromRoute(Name = "id")] int id)
         {
-            try
-            {
-                var entity = _manager.SansTopuService.GetOneNumbersArrayById(id, false);
-                return Ok(entity);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            var entity = _manager.SansTopuService.GetOneNumbersArrayById(id, false);
+            return Ok(entity);
         }
 
         [HttpPost]
         public IActionResult CreateOneNumbersArrayForSansTopu([FromBody] SansTopu sansTopu)
         {
-            try
-            {
-                _manager.SansTopuService.CreateOneNumbersArray(sansTopu);
-                return StatusCode(201, sansTopu);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            _manager.SansTopuService.CreateOneNumbersArray(sansTopu);
+            return StatusCode(201, sansTopu);
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneNumbersArrayForSansTopu([FromRoute(Name = "id")]int id, [FromBody]SansTopu sansTopu)
+        public IActionResult UpdateOneNumbersArrayForSansTopu([FromRoute(Name = "id")] int id, [FromBody] SansTopu sansTopu)
         {
-            try
-            {
-                _manager.SansTopuService.UpdateOneNumbersArray(id,sansTopu,false);
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            _manager.SansTopuService.UpdateOneNumbersArray(id, sansTopu, false);
+            return NoContent();
         }
 
         [HttpDelete("{id:int}")]
-        public IActionResult DeleteOneNumbersArrayForSansTopu([FromRoute(Name = "id")]int id)
+        public IActionResult DeleteOneNumbersArrayForSansTopu([FromRoute(Name = "id")] int id)
         {
-            try
-            {
-                _manager.SansTopuService.DeleteOneNumbersArray(id, false);
-                return NoContent();
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            _manager.SansTopuService.DeleteOneNumbersArray(id, false);
+            return NoContent();
         }
     }
 }
