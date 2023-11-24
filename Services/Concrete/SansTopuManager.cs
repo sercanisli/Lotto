@@ -7,10 +7,12 @@ namespace Services.Concrete
     public class SansTopuManager : ISansTopuService
     {
         private readonly IRepositoryManager _manager;
+        private readonly ILoggerService _logger;
 
-        public SansTopuManager(IRepositoryManager manager)
+        public SansTopuManager(IRepositoryManager manager, ILoggerService logger)
         {
             _manager = manager;
+            _logger = logger;
         }
 
         public SansTopu CreateOneNumbersArray(SansTopu sansTopu)
