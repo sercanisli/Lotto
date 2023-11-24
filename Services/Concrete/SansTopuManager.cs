@@ -29,9 +29,9 @@ namespace Services.Concrete
         public void DeleteOneNumbersArray(int id, bool trackChanges)
         {
             var entity = _manager.SansTopu.GetOneNumbersArrayById(id,trackChanges);
-            string message = $"Sans Topu with id : {id} could not found";
             if (entity == null)
             {
+                string message = $"Sans Topu with id : {id} could not found";
                 _logger.LogInfo(message);
                 throw new Exception(message);
             }
@@ -48,9 +48,9 @@ namespace Services.Concrete
         public SansTopu GetOneNumbersArrayById(int id, bool trackChanges)
         {
             var entity = _manager.SansTopu.GetOneNumbersArrayById(id, trackChanges);
-            string message = $"Sans Topu with id : {id} could not found";
             if (entity == null)
             {
+                string message = $"Sans Topu with id : {id} could not found";
                 _logger.LogInfo(message);
                 throw new Exception(message);
             }
@@ -60,9 +60,9 @@ namespace Services.Concrete
         public void UpdateOneNumbersArray(int id, SansTopu sansTopu, bool trackChanges)
         {
             var entity = _manager.SansTopu.GetOneNumbersArrayById(id,trackChanges);
-            string message = $"Sans Topu with id : {id} could not found";
             if (entity == null)
             {
+                string message = $"Sans Topu with id : {id} could not found";
                 _logger.LogInfo(message);
                 throw new Exception(message);
             }
