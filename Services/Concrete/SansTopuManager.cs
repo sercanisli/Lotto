@@ -1,4 +1,6 @@
-﻿using Entities.Exceptions;
+﻿using AutoMapper;
+using Entities.DataTransferObjects;
+using Entities.Exceptions;
 using Entities.Models;
 using Repositories.Cantracts;
 using Services.Contracts;
@@ -9,11 +11,13 @@ namespace Services.Concrete
     {
         private readonly IRepositoryManager _manager;
         private readonly ILoggerService _logger;
+        private readonly IMapper _mapper;
 
-        public SansTopuManager(IRepositoryManager manager, ILoggerService logger)
+        public SansTopuManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper)
         {
             _manager = manager;
             _logger = logger;
+            _mapper = mapper;
         }
 
         public SansTopu CreateOneNumbersArray(SansTopu sansTopu)
@@ -54,20 +58,18 @@ namespace Services.Concrete
             return entity;
         }
 
-        public void UpdateOneNumbersArray(int id, SansTopu sansTopu, bool trackChanges)
+        public void UpdateOneNumbersArray(int id, SansTopuDtoForUpdate sansTopuDtoForUpdate, bool trackChanges)
         {
             var entity = _manager.SansTopu.GetOneNumbersArrayById(id,trackChanges);
             if (entity == null)
             {
                 throw new SansTopuNotFoundExceptions(id);
             }
-            if (sansTopu == null)
+            if (sansTopuDtoForUpdate == null)
             {
-                throw new ArgumentNullException(nameof(sansTopu));
+                throw new ArgumentNullException(nameof(sansTopuDtoForUpdate));
             }
-            entity.Numbers = sansTopu.Numbers;
-            entity.PlusNumber = sansTopu.PlusNumber;
-            entity.Date = sansTopu.Date;
+            entity = _mapper.Map<SansTopu>(sansTopuDtoForUpdate);
             _manager.SansTopu.Update(entity);
             _manager.Save();
         }
