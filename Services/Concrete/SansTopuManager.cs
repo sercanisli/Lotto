@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Exceptions;
+using Entities.Models;
 using Repositories.Cantracts;
 using Services.Contracts;
 
@@ -31,9 +32,7 @@ namespace Services.Concrete
             var entity = _manager.SansTopu.GetOneNumbersArrayById(id,trackChanges);
             if (entity == null)
             {
-                string message = $"Sans Topu with id : {id} could not found";
-                _logger.LogInfo(message);
-                throw new Exception(message);
+                throw new SansTopuNotFoundExceptions(id);
             }
             _manager.SansTopu.DeleteOneNumbersArray(entity);
             _manager.Save();
@@ -50,9 +49,7 @@ namespace Services.Concrete
             var entity = _manager.SansTopu.GetOneNumbersArrayById(id, trackChanges);
             if (entity == null)
             {
-                string message = $"Sans Topu with id : {id} could not found";
-                _logger.LogInfo(message);
-                throw new Exception(message);
+                throw new SansTopuNotFoundExceptions(id);
             }
             return entity;
         }
@@ -62,9 +59,7 @@ namespace Services.Concrete
             var entity = _manager.SansTopu.GetOneNumbersArrayById(id,trackChanges);
             if (entity == null)
             {
-                string message = $"Sans Topu with id : {id} could not found";
-                _logger.LogInfo(message);
-                throw new Exception(message);
+                throw new SansTopuNotFoundExceptions(id);
             }
             if (sansTopu == null)
             {
