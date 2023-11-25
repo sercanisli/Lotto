@@ -20,15 +20,16 @@ namespace Services.Concrete
             _mapper = mapper;
         }
 
-        public SansTopu CreateOneNumbersArray(SansTopu sansTopu)
+        public SansTopuDto CreateOneNumbersArray(SansTopuDtoForInsertion sansTopuDtoForInsertion)
         {
-            if(sansTopu == null)
+            if(sansTopuDtoForInsertion == null)
             {
-                throw new ArgumentNullException(nameof(sansTopu));
+                throw new ArgumentNullException(nameof(sansTopuDtoForInsertion));
             }
-            _manager.SansTopu.CreateOneNumbersArray(sansTopu);
+            var entity = _mapper.Map<SansTopu>(sansTopuDtoForInsertion);
+            _manager.SansTopu.CreateOneNumbersArray(entity);
             _manager.Save();
-            return sansTopu;
+            return _mapper.Map<SansTopuDto>(entity);
         }
 
         public void DeleteOneNumbersArray(int id, bool trackChanges)
@@ -48,14 +49,14 @@ namespace Services.Concrete
             return _mapper.Map<IEnumerable<SansTopuDto>>(entities);
         }
 
-        public SansTopu GetOneNumbersArrayById(int id, bool trackChanges)
+        public SansTopuDto GetOneNumbersArrayById(int id, bool trackChanges)
         {
             var entity = _manager.SansTopu.GetOneNumbersArrayById(id, trackChanges);
             if (entity == null)
             {
                 throw new SansTopuNotFoundExceptions(id);
             }
-            return entity;
+            return _mapper.Map<SansTopuDto>(entity);
         }
 
         public void UpdateOneNumbersArray(int id, SansTopuDtoForUpdate sansTopuDtoForUpdate, bool trackChanges)
