@@ -1,6 +1,5 @@
 ﻿namespace Entities.DataTransferObjects
 {
-    [Serializable]
     public record LotoDto
     {
         public int Id { get; init; }
