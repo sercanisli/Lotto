@@ -17,41 +17,41 @@ namespace Presentation.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllNumbersArrayForSansTopu()
+        public async Task<IActionResult> GetAllNumbersArrayForSansTopuAsync()
         {
-            var entities = _manager.SansTopuService.GetAllNumbersArrays(false);
+            var entities = await _manager.SansTopuService.GetAllNumbersArraysAsync(false);
             return Ok(entities);
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult GetOneNumbersArrayByIdForSansTopu([FromRoute(Name = "id")] int id)
+        public async Task<IActionResult> GetOneNumbersArrayByIdForSansTopuAsync([FromRoute(Name = "id")] int id)
         {
-            var entity = _manager.SansTopuService.GetOneNumbersArrayById(id, false);
+            var entity = await _manager.SansTopuService.GetOneNumbersArrayByIdAsync(id, false);
             return Ok(entity);
         }
 
         [HttpPost]
-        public IActionResult CreateOneNumbersArrayForSansTopu([FromBody] SansTopuDtoForInsertion sansTopuDtoForInsertion)
+        public async Task<IActionResult> CreateOneNumbersArrayForSansTopuAsync([FromBody] SansTopuDtoForInsertion sansTopuDtoForInsertion)
         {
             if(!ModelState.IsValid)
             {
                 return UnprocessableEntity(ModelState);
             }
-            var entity = _manager.SansTopuService.CreateOneNumbersArray(sansTopuDtoForInsertion);
+            var entity = await _manager.SansTopuService.CreateOneNumbersArrayAsync(sansTopuDtoForInsertion);
             return StatusCode(201, entity);
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult UpdateOneNumbersArrayForSansTopu([FromRoute(Name = "id")] int id, [FromBody] SansTopuDtoForUpdate sansTopuDtoForUpdate)
+        public async Task<IActionResult> UpdateOneNumbersArrayForSansTopuAsync([FromRoute(Name = "id")] int id, [FromBody] SansTopuDtoForUpdate sansTopuDtoForUpdate)
         {
-            _manager.SansTopuService.UpdateOneNumbersArray(id, sansTopuDtoForUpdate, false);
+            await _manager.SansTopuService.UpdateOneNumbersArrayAsync(id, sansTopuDtoForUpdate, false);
             return NoContent();
         }
 
         [HttpDelete("{id:int}")]
-        public IActionResult DeleteOneNumbersArrayForSansTopu([FromRoute(Name = "id")] int id)
+        public async Task<IActionResult> DeleteOneNumbersArrayForSansTopuAsync([FromRoute(Name = "id")] int id)
         {
-            _manager.SansTopuService.DeleteOneNumbersArray(id, false);
+            await _manager.SansTopuService.DeleteOneNumbersArrayAsync(id, false);
             return NoContent();
         }
     }
