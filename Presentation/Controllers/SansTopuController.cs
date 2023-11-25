@@ -31,10 +31,10 @@ namespace Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateOneNumbersArrayForSansTopu([FromBody] SansTopu sansTopu)
+        public IActionResult CreateOneNumbersArrayForSansTopu([FromBody] SansTopuDtoForInsertion sansTopuDtoForInsertion)
         {
-            _manager.SansTopuService.CreateOneNumbersArray(sansTopu);
-            return StatusCode(201, sansTopu);
+            var entity = _manager.SansTopuService.CreateOneNumbersArray(sansTopuDtoForInsertion);
+            return StatusCode(201, entity);
         }
 
         [HttpPut("{id:int}")]
