@@ -33,6 +33,10 @@ namespace Presentation.Controllers
         [HttpPost]
         public IActionResult CreateOneNumbersArrayForSansTopu([FromBody] SansTopuDtoForInsertion sansTopuDtoForInsertion)
         {
+            if(!ModelState.IsValid)
+            {
+                return UnprocessableEntity(ModelState);
+            }
             var entity = _manager.SansTopuService.CreateOneNumbersArray(sansTopuDtoForInsertion);
             return StatusCode(201, entity);
         }
