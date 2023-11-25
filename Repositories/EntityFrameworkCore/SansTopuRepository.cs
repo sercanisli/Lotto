@@ -19,7 +19,7 @@ namespace Repositories.EntityFrameworkCore
            await FindAll(trackChanges).OrderBy(st=>st.Date).ToListAsync();
 
         public async Task<SansTopu> GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
-            await FindByCondition(st => st.Id.Equals(id), trackChanges).SingleOrDefaultAsync();
+            await FindByCondition(st => st.Id == id, trackChanges).SingleOrDefaultAsync();
 
         public void UpdateOneNumbersArray(SansTopu sansTopu) => Update(sansTopu);
     }

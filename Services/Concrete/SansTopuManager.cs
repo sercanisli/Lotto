@@ -22,10 +22,6 @@ namespace Services.Concrete
 
         public async Task<SansTopuDto> CreateOneNumbersArrayAsync(SansTopuDtoForInsertion sansTopuDtoForInsertion)
         {
-            if(sansTopuDtoForInsertion == null)
-            {
-                throw new ArgumentNullException(nameof(sansTopuDtoForInsertion));
-            }
             var entity = _mapper.Map<SansTopu>(sansTopuDtoForInsertion);
             _manager.SansTopu.CreateOneNumbersArray(entity);
             await _manager.SaveAsync();
@@ -51,7 +47,7 @@ namespace Services.Concrete
 
         public async Task<SansTopuDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
-            var entity = _manager.SansTopu.GetOneNumbersArrayByIdAsync(id, trackChanges);
+            var entity = await _manager.SansTopu.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
                 throw new SansTopuNotFoundExceptions(id);
@@ -65,10 +61,6 @@ namespace Services.Concrete
             if (entity == null)
             {
                 throw new SansTopuNotFoundExceptions(id);
-            }
-            if (sansTopuDtoForUpdate == null)
-            {
-                throw new ArgumentNullException(nameof(sansTopuDtoForUpdate));
             }
             entity = _mapper.Map<SansTopu>(sansTopuDtoForUpdate);
             _manager.SansTopu.Update(entity);
