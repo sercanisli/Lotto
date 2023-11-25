@@ -22,6 +22,7 @@ namespace WebApi.Utilities.AutoMapper
             CreateMap<OnNumaraDtoForUpdate, OnNumara>().ReverseMap();
             CreateMap<OnNumaraDtoForInsertion, OnNumara>().ReverseMap();
 
+            CreateMap<SansTopu,SansTopuDto>().ReverseMap();
             CreateMap<SansTopuDtoForUpdate, SansTopu>().ReverseMap();
         }
     }
