@@ -6,6 +6,7 @@ using Services.Contracts;
 
 namespace Presentation.Controllers
 {
+    [ServiceFilter(typeof(LogFilterAttribute))]
     [ApiController]
     [Route("api/sanstopu")]
     public class SansTopuController : ControllerBase
