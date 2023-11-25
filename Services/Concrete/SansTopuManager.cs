@@ -30,11 +30,7 @@ namespace Services.Concrete
 
         public async Task DeleteOneNumbersArrayAsync(int id, bool trackChanges)
         {
-            var entity = await _manager.SansTopu.GetOneNumbersArrayByIdAsync(id,trackChanges);
-            if (entity == null)
-            {
-                throw new SansTopuNotFoundExceptions(id);
-            }
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             _manager.SansTopu.DeleteOneNumbersArray(entity);
             await _manager.SaveAsync();
         }
@@ -47,24 +43,26 @@ namespace Services.Concrete
 
         public async Task<SansTopuDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
-            var entity = await _manager.SansTopu.GetOneNumbersArrayByIdAsync(id, trackChanges);
-            if (entity == null)
-            {
-                throw new SansTopuNotFoundExceptions(id);
-            }
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             return _mapper.Map<SansTopuDto>(entity);
         }
 
         public async Task UpdateOneNumbersArrayAsync(int id, SansTopuDtoForUpdate sansTopuDtoForUpdate, bool trackChanges)
         {
-            var entity = await _manager.SansTopu.GetOneNumbersArrayByIdAsync(id,trackChanges);
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
+            entity = _mapper.Map<SansTopu>(sansTopuDtoForUpdate);
+            _manager.SansTopu.Update(entity);
+            await _manager.SaveAsync();
+        }
+
+        private async Task<SansTopu> GetOneNumbersArrayByIdAndCheckExists(int id, bool trackChanges)
+        {
+            var entity = await _manager.SansTopu.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
                 throw new SansTopuNotFoundExceptions(id);
             }
-            entity = _mapper.Map<SansTopu>(sansTopuDtoForUpdate);
-            _manager.SansTopu.Update(entity);
-            await _manager.SaveAsync();
+            return entity;
         }
     }
 }
