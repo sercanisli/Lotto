@@ -20,7 +20,7 @@ namespace Services.Concrete
             _mapper = mapper;
         }
 
-        public SansTopuDto CreateOneNumbersArray(SansTopuDtoForInsertion sansTopuDtoForInsertion)
+        public async Task<SansTopuDto> CreateOneNumbersArrayAsync(SansTopuDtoForInsertion sansTopuDtoForInsertion)
         {
             if(sansTopuDtoForInsertion == null)
             {
@@ -28,30 +28,30 @@ namespace Services.Concrete
             }
             var entity = _mapper.Map<SansTopu>(sansTopuDtoForInsertion);
             _manager.SansTopu.CreateOneNumbersArray(entity);
-            _manager.Save();
+            await _manager.SaveAsync();
             return _mapper.Map<SansTopuDto>(entity);
         }
 
-        public void DeleteOneNumbersArray(int id, bool trackChanges)
+        public async Task DeleteOneNumbersArrayAsync(int id, bool trackChanges)
         {
-            var entity = _manager.SansTopu.GetOneNumbersArrayById(id,trackChanges);
+            var entity = await _manager.SansTopu.GetOneNumbersArrayByIdAsync(id,trackChanges);
             if (entity == null)
             {
                 throw new SansTopuNotFoundExceptions(id);
             }
             _manager.SansTopu.DeleteOneNumbersArray(entity);
-            _manager.Save();
+            await _manager.SaveAsync();
         }
 
-        public IEnumerable<SansTopuDto> GetAllNumbersArrays(bool trackChanges)
+        public async Task<IEnumerable<SansTopuDto>> GetAllNumbersArraysAsync(bool trackChanges)
         {
-            var entities = _manager.SansTopu.GetAllNumbersArray(trackChanges);
+            var entities = await _manager.SansTopu.GetAllNumbersArrayAsync(trackChanges);
             return _mapper.Map<IEnumerable<SansTopuDto>>(entities);
         }
 
-        public SansTopuDto GetOneNumbersArrayById(int id, bool trackChanges)
+        public async Task<SansTopuDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
-            var entity = _manager.SansTopu.GetOneNumbersArrayById(id, trackChanges);
+            var entity = _manager.SansTopu.GetOneNumbersArrayByIdAsync(id, trackChanges);
             if (entity == null)
             {
                 throw new SansTopuNotFoundExceptions(id);
@@ -59,9 +59,9 @@ namespace Services.Concrete
             return _mapper.Map<SansTopuDto>(entity);
         }
 
-        public void UpdateOneNumbersArray(int id, SansTopuDtoForUpdate sansTopuDtoForUpdate, bool trackChanges)
+        public async Task UpdateOneNumbersArrayAsync(int id, SansTopuDtoForUpdate sansTopuDtoForUpdate, bool trackChanges)
         {
-            var entity = _manager.SansTopu.GetOneNumbersArrayById(id,trackChanges);
+            var entity = await _manager.SansTopu.GetOneNumbersArrayByIdAsync(id,trackChanges);
             if (entity == null)
             {
                 throw new SansTopuNotFoundExceptions(id);
@@ -72,7 +72,7 @@ namespace Services.Concrete
             }
             entity = _mapper.Map<SansTopu>(sansTopuDtoForUpdate);
             _manager.SansTopu.Update(entity);
-            _manager.Save();
+            await _manager.SaveAsync();
         }
     }
 }
