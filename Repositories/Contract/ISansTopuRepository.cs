@@ -5,8 +5,8 @@ namespace Repositories.Contract
 {
     public interface ISansTopuRepository : IRepositoryBase<SansTopu>
     {
-        IQueryable<SansTopu> GetAllNumbersArray(bool trackChanges);
-        SansTopu GetOneNumbersArrayById(int id, bool trackChanges);
+        Task<IEnumerable<SansTopu>> GetAllNumbersArrayAsync(bool trackChanges);
+        Task<SansTopu> GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
         void CreateOneNumbersArray(SansTopu sansTopu);
         void UpdateOneNumbersArray(SansTopu sansTopu);
         void DeleteOneNumbersArray(SansTopu sansTopu);

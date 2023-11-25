@@ -28,7 +28,6 @@ namespace Repositories.EntityFrameworkCore
 
         public ISansTopuRepository SansTopu => _sansTopuRepository.Value;
 
-        public void Save() => _context.SaveChanges();
 
         public async Task SaveAsync() => await _context.SaveChangesAsync();
     }
