@@ -27,7 +27,7 @@ namespace Presentation.ActionFilters
                 Controller = routeData.Values["controller"],
                 Action = routeData.Values["action"]
             };
-            if(routeData.Values.Count >= 3)
+            if(routeData.Values.ContainsKey("Id"))
             {
                 logDetails.Id = routeData.Values["Id"];
             }
