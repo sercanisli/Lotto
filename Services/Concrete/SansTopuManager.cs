@@ -42,10 +42,10 @@ namespace Services.Concrete
             _manager.Save();
         }
 
-        public IEnumerable<SansTopu> GetAllNumbersArrays(bool trackChanges)
+        public IEnumerable<SansTopuDto> GetAllNumbersArrays(bool trackChanges)
         {
             var entities = _manager.SansTopu.GetAllNumbersArray(trackChanges);
-            return entities;
+            return _mapper.Map<IEnumerable<SansTopuDto>>(entities);
         }
 
         public SansTopu GetOneNumbersArrayById(int id, bool trackChanges)
