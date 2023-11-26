@@ -1,5 +1,6 @@
 ﻿using Entities.DataTransferObjects;
 using Entities.Models;
+using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
 using Services.Contracts;
@@ -19,9 +20,9 @@ namespace Presentation.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllNumbersArrayForSansTopuAsync()
+        public async Task<IActionResult> GetAllNumbersArrayForSansTopuAsync([FromQuery] SansTopuParameters sansTopuParameters)
         {
-            var entities = await _manager.SansTopuService.GetAllNumbersArraysAsync(false);
+            var entities = await _manager.SansTopuService.GetAllNumbersArraysAsync(sansTopuParameters,false);
             return Ok(entities);
         }
 
