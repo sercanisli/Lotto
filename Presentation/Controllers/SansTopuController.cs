@@ -4,6 +4,7 @@ using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
 using Services.Contracts;
+using System.Text.Json;
 
 namespace Presentation.Controllers
 {
@@ -22,8 +23,9 @@ namespace Presentation.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllNumbersArrayForSansTopuAsync([FromQuery] SansTopuParameters sansTopuParameters)
         {
-            var entities = await _manager.SansTopuService.GetAllNumbersArraysAsync(sansTopuParameters,false);
-            return Ok(entities);
+            var pagedResult = await _manager.SansTopuService.GetAllNumbersArraysAsync(sansTopuParameters,false);
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
+            return Ok(pagedResult.sansTopuDto);
         }
 
         [HttpGet("{id:int}")]
