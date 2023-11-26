@@ -36,10 +36,11 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<IEnumerable<SansTopuDto>> GetAllNumbersArraysAsync(SansTopuParameters sansTopuParameters, bool trackChanges)
+        public async Task<(IEnumerable<SansTopuDto> sansTopuDto, MetaData metaData )> GetAllNumbersArraysAsync(SansTopuParameters sansTopuParameters, bool trackChanges)
         {
-            var entities = await _manager.SansTopu.GetAllNumbersArrayAsync(sansTopuParameters, trackChanges);
-            return _mapper.Map<IEnumerable<SansTopuDto>>(entities);
+            var entitiesWithMetaData = await _manager.SansTopu.GetAllNumbersArrayAsync(sansTopuParameters, trackChanges);
+            var stDto = _mapper.Map<IEnumerable<SansTopuDto>>(entitiesWithMetaData);
+            return (stDto, entitiesWithMetaData.MetaData);
         }
 
         public async Task<SansTopuDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
