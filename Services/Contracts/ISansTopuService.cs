@@ -1,10 +1,11 @@
 ﻿using Entities.DataTransferObjects;
+using Entities.RequestFeatures;
 
 namespace Services.Contracts
 {
     public interface ISansTopuService
     {
-        Task<IEnumerable<SansTopuDto>> GetAllNumbersArraysAsync(bool trackChanges);
+        Task<IEnumerable<SansTopuDto>> GetAllNumbersArraysAsync(SansTopuParameters sansTopuParameters, bool trackChanges);
         Task<SansTopuDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges);
         Task<SansTopuDto> CreateOneNumbersArrayAsync(SansTopuDtoForInsertion sansTopuDtoForInsertion);
         Task UpdateOneNumbersArrayAsync(int id, SansTopuDtoForUpdate sansTopuDtoForUpdate, bool trackChanges);

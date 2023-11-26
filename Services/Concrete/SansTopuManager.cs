@@ -2,6 +2,7 @@
 using Entities.DataTransferObjects;
 using Entities.Exceptions;
 using Entities.Models;
+using Entities.RequestFeatures;
 using Repositories.Cantracts;
 using Services.Contracts;
 
@@ -35,9 +36,9 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<IEnumerable<SansTopuDto>> GetAllNumbersArraysAsync(bool trackChanges)
+        public async Task<IEnumerable<SansTopuDto>> GetAllNumbersArraysAsync(SansTopuParameters sansTopuParameters, bool trackChanges)
         {
-            var entities = await _manager.SansTopu.GetAllNumbersArrayAsync(trackChanges);
+            var entities = await _manager.SansTopu.GetAllNumbersArrayAsync(sansTopuParameters, trackChanges);
             return _mapper.Map<IEnumerable<SansTopuDto>>(entities);
         }
 
