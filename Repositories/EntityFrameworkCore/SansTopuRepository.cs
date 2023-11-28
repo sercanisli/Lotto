@@ -2,6 +2,7 @@
 using Entities.RequestFeatures;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Contract;
+using Repositories.EntityFrameworkCore.Extensions;
 
 namespace Repositories.EntityFrameworkCore
 {
@@ -19,7 +20,7 @@ namespace Repositories.EntityFrameworkCore
         public async Task<PagedList<SansTopu>> GetAllNumbersArrayAsync(SansTopuParameters sansTopuParameters, bool trackChanges)
         {
             var entities = await FindAll(trackChanges)
-                .OrderBy(st => st.Date)
+                .Sort(sansTopuParameters.OrderBy)
                 .ToListAsync();
 
             return PagedList<SansTopu>.ToPagedList(entities, sansTopuParameters.PageNumber, sansTopuParameters.PageSize);
