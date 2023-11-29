@@ -1,4 +1,5 @@
 ﻿using AspNetCoreRateLimit;
+using Entities.DataTransferObjects;
 using Entities.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -61,6 +62,14 @@ namespace WebApi.Extensions
         public static void ConfigureDataShaper<T>(this IServiceCollection services) where T : class
         {
             services.AddScoped<IDataShaper<T>, DataShaper<T>>();
+        }
+
+        public static void ConfigureDataShaperEntities(this IServiceCollection services)
+        {
+            services.ConfigureDataShaper<SuperLotoDto>();
+            services.ConfigureDataShaper<SayisalLotoDto>();
+            services.ConfigureDataShaper<OnNumaraDto>();
+            services.ConfigureDataShaper<SansTopuDto>();
         }
 
         public static void AddCustomMediaTypes(this IServiceCollection services)
