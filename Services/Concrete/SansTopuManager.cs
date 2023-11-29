@@ -13,12 +13,14 @@ namespace Services.Concrete
         private readonly IRepositoryManager _manager;
         private readonly ILoggerService _logger;
         private readonly IMapper _mapper;
+        private readonly IDataShaper<SansTopuDto> _shaper;
 
-        public SansTopuManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper)
+        public SansTopuManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, IDataShaper<SansTopuDto> shaper)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
+            _shaper = shaper;
         }
 
         public async Task<SansTopuDto> CreateOneNumbersArrayAsync(SansTopuDtoForInsertion sansTopuDtoForInsertion)
@@ -36,11 +38,12 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<(IEnumerable<SansTopuDto> sansTopuDto, MetaData metaData )> GetAllNumbersArraysAsync(SansTopuParameters sansTopuParameters, bool trackChanges)
+        public async Task<(IEnumerable<ShapedEntity> sansTopuDto, MetaData metaData )> GetAllNumbersArraysAsync(SansTopuParameters sansTopuParameters, bool trackChanges)
         {
             var entitiesWithMetaData = await _manager.SansTopu.GetAllNumbersArrayAsync(sansTopuParameters, trackChanges);
             var stDto = _mapper.Map<IEnumerable<SansTopuDto>>(entitiesWithMetaData);
-            return (stDto, entitiesWithMetaData.MetaData);
+            var shapedData = _shaper.ShapeData(stDto, sansTopuParameters.Fields);
+            return (sansTopuDto: shapedData, metaData: entitiesWithMetaData.MetaData);
         }
 
         public async Task<SansTopuDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
