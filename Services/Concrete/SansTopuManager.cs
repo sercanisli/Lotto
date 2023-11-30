@@ -47,6 +47,11 @@ namespace Services.Concrete
             return (linkResponse: links, metaData: entitiesWithMetaData.MetaData);
         }
 
+        public Task<SansTopuDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
+        {
+
+        }
+
         public async Task<SansTopuDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
