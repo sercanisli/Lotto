@@ -22,15 +22,15 @@ namespace Services.Concrete
             ISuperLotoLinks superLotoLinks, 
             ISayisalLotoLinks sayisalLotoLinks,
             IOnNumaraLinks onNumaraLinks,
+            ISansTopuLinks sansTopuLinks,
             UserManager<User> userManager,
-            IConfiguration configuration,
-            IDataShaper<SansTopuDto> shaper
+            IConfiguration configuration
             )
         {
             _superLotoService = new Lazy<ISuperLotoService>(() => new SuperLotoManager(repositoryManager, logger, mapper, superLotoLinks));
             _sayisalLotoService = new Lazy<ISayisalLotoService>(() => new SayisalLotoManager(repositoryManager, logger, mapper, sayisalLotoLinks));
             _onNumaraService = new Lazy<IOnNumaraService>(() => new OnNumaraManager(repositoryManager, logger, mapper, onNumaraLinks));
-            _sansTopuService = new Lazy<ISansTopuService>(() => new SansTopuManager(repositoryManager, logger, mapper));
+            _sansTopuService = new Lazy<ISansTopuService>(() => new SansTopuManager(repositoryManager, logger, mapper, sansTopuLinks));
 
             _authenticationService = new Lazy<IAuthenticationService>(() => new AuthenticationManager(logger, mapper, userManager,configuration));
         }
