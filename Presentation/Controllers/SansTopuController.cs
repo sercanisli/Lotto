@@ -21,6 +21,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet]
+        [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayForSansTopuAsync([FromQuery] SansTopuParameters sansTopuParameters)
         {
             var pagedResult = await _manager.SansTopuService.GetAllNumbersArraysAsync(sansTopuParameters,false);
