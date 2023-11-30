@@ -47,9 +47,15 @@ namespace Services.Concrete
             return (linkResponse: links, metaData: entitiesWithMetaData.MetaData);
         }
 
-        public Task<SansTopuDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
+        public async Task<SansTopuDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
         {
-
+            var entities = await _manager.SansTopu.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
+            var entityDate = entities.Where(e => e.Date == date).FirstOrDefault();
+            if (entityDate == null)
+            {
+                throw new SansTopuDateNotFoundException(Convert.ToDateTime(date));
+            }
+            return entityDate;
         }
 
         public async Task<SansTopuDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
