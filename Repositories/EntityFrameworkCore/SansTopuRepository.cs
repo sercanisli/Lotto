@@ -25,7 +25,9 @@ namespace Repositories.EntityFrameworkCore
 
             return PagedList<SansTopu>.ToPagedList(entities, sansTopuParameters.PageNumber, sansTopuParameters.PageSize);
         }
-           
+
+        public async Task<IEnumerable<SansTopu>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges) => 
+            await FindAll(trackChanges).ToListAsync();
 
         public async Task<SansTopu> GetOneNumbersArrayByIdAsync(int id, bool trackChanges) =>
             await FindByCondition(st => st.Id == id, trackChanges).SingleOrDefaultAsync();
