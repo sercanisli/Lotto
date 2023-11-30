@@ -4,8 +4,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Services.Contracts
 {
-    public interface ISansTopuLinks
+    public interface ISansTopuLinks : ILotoLinks<SansTopuDto>
     {
-        LinkResponse TryGenerateLinks(IEnumerable<SansTopuDto> sansTopuDtos, string fields, HttpContext context);
     }
 }
