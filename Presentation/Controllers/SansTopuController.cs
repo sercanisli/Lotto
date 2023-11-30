@@ -1,4 +1,5 @@
 ﻿using Entities.DataTransferObjects;
+using Entities.LinkModels;
 using Entities.Models;
 using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
@@ -24,9 +25,18 @@ namespace Presentation.Controllers
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayForSansTopuAsync([FromQuery] SansTopuParameters sansTopuParameters)
         {
-            var pagedResult = await _manager.SansTopuService.GetAllNumbersArraysAsync(sansTopuParameters,false);
-            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
-            return Ok(pagedResult.sansTopuDto);
+            var linkParameters = new LinkParameters<SansTopuParameters>()
+            {
+                Parameters = sansTopuParameters,
+                HttpContext = HttpContext
+            };
+
+            var result = await _manager.SansTopuService.GetAllNumbersArraysAsync(linkParameters,false);
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(result.metaData));
+
+            return result.linkResponse.HasLinks ?
+                Ok(result.linkResponse.LinkedEntities) :
+                Ok(result.linkResponse.ShapedEntities);
         }
 
         [HttpGet("{id:int}")]
