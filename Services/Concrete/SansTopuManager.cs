@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Entities.DataTransferObjects;
 using Entities.Exceptions;
+using Entities.LinkModels;
 using Entities.Models;
 using Entities.RequestFeatures;
 using Repositories.Cantracts;
@@ -13,14 +14,14 @@ namespace Services.Concrete
         private readonly IRepositoryManager _manager;
         private readonly ILoggerService _logger;
         private readonly IMapper _mapper;
-        private readonly IDataShaper<SansTopuDto> _shaper;
+        private readonly ISansTopuLinks _sansTopuLinks;
 
-        public SansTopuManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, IDataShaper<SansTopuDto> shaper)
+        public SansTopuManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, ISansTopuLinks sansTopuLinks)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
-            _shaper = shaper;
+            _sansTopuLinks = sansTopuLinks;
         }
 
         public async Task<SansTopuDto> CreateOneNumbersArrayAsync(SansTopuDtoForInsertion sansTopuDtoForInsertion)
@@ -38,12 +39,12 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<(IEnumerable<ShapedEntity> sansTopuDto, MetaData metaData )> GetAllNumbersArraysAsync(SansTopuParameters sansTopuParameters, bool trackChanges)
+        public async Task<(LinkResponse linkResponse, MetaData metaData )> GetAllNumbersArraysAsync(LinkParameters<SansTopuParameters> linkParameters, bool trackChanges)
         {
-            var entitiesWithMetaData = await _manager.SansTopu.GetAllNumbersArrayAsync(sansTopuParameters, trackChanges);
+            var entitiesWithMetaData = await _manager.SansTopu.GetAllNumbersArrayAsync(linkParameters.Parameters, trackChanges);
             var stDto = _mapper.Map<IEnumerable<SansTopuDto>>(entitiesWithMetaData);
-            var shapedData = _shaper.ShapeData(stDto, sansTopuParameters.Fields);
-            return (sansTopuDto: shapedData, metaData: entitiesWithMetaData.MetaData);
+            var links = _sansTopuLinks.TryGenerateLinks(stDto, linkParameters.Parameters.Fields, linkParameters.HttpContext);
+            return (linkResponse: links, metaData: entitiesWithMetaData.MetaData);
         }
 
         public async Task<SansTopuDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
