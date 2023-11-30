@@ -49,13 +49,19 @@ namespace Services.Concrete
 
         public async Task<SansTopuDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
         {
-            var entities = await _manager.SansTopu.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
+            var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             var entityDate = entities.Where(e => e.Date == date).FirstOrDefault();
             if (entityDate == null)
             {
                 throw new SansTopuDateNotFoundException(Convert.ToDateTime(date));
             }
             return entityDate;
+        }
+
+        private async Task<IEnumerable<SansTopuDto>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges)
+        {
+            var entities = await _manager.SansTopu.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
+            return _mapper.Map<IEnumerable<SansTopuDto>>(entities);
         }
 
         public async Task<SansTopuDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
