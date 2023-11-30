@@ -58,12 +58,6 @@ namespace Services.Concrete
             return entityDate;
         }
 
-        private async Task<IEnumerable<SansTopuDto>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges)
-        {
-            var entities = await _manager.SansTopu.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
-            return _mapper.Map<IEnumerable<SansTopuDto>>(entities);
-        }
-
         public async Task<SansTopuDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
@@ -86,6 +80,12 @@ namespace Services.Concrete
                 throw new SansTopuNotFoundExceptions(id);
             }
             return entity;
+        }
+
+        private async Task<IEnumerable<SansTopuDto>> GetAllNumbersArrayWithoutPaginationAsync(bool trackChanges)
+        {
+            var entities = await _manager.SansTopu.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
+            return _mapper.Map<IEnumerable<SansTopuDto>>(entities);
         }
     }
 }
