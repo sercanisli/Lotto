@@ -50,7 +50,7 @@ namespace Presentation.Controllers
         [HttpGet("GetOneNumbersArrayByDateForSansTopuAsync", Name = "GetOneNumbersArrayByDateForSansTopuAsync")]
         public async Task<IActionResult> GetOneNumbersArrayByDateForSansTopuAsync([FromQuery]DateTime date)
         {
-            var entity = _manager.SansTopuService.GetOneNumbersArrayByDateAsync(date, false);
+            var entity = await _manager.SansTopuService.GetOneNumbersArrayByDateAsync(date, false);
             return Ok(entity);
         }
 
