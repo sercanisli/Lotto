@@ -22,7 +22,7 @@ namespace Presentation.Controllers
         }
 
         [HttpHead]
-        [HttpGet]
+        [HttpGet(Name = "GetAllNumbersArrayForSansTopuAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayForSansTopuAsync([FromQuery] SansTopuParameters sansTopuParameters)
         {
@@ -55,7 +55,7 @@ namespace Presentation.Controllers
         }
 
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [HttpPost]
+        [HttpPost(Name = "CreateOneNumbersArrayForSansTopuAsync")]
         public async Task<IActionResult> CreateOneNumbersArrayForSansTopuAsync([FromBody] SansTopuDtoForInsertion sansTopuDtoForInsertion)
         {
             if(!ModelState.IsValid)
@@ -68,6 +68,7 @@ namespace Presentation.Controllers
 
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("{id:int}")]
+        [HttpPut(Name = "UpdateOneNumbersArrayForSansTopuAsync")]
         public async Task<IActionResult> UpdateOneNumbersArrayForSansTopuAsync([FromRoute(Name = "id")] int id, [FromBody] SansTopuDtoForUpdate sansTopuDtoForUpdate)
         {
             await _manager.SansTopuService.UpdateOneNumbersArrayAsync(id, sansTopuDtoForUpdate, false);
@@ -75,6 +76,7 @@ namespace Presentation.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [HttpDelete(Name = "DeleteOneNumbersArrayForSansTopuAsync")]
         public async Task<IActionResult> DeleteOneNumbersArrayForSansTopuAsync([FromRoute(Name = "id")] int id)
         {
             await _manager.SansTopuService.DeleteOneNumbersArrayAsync(id, false);
