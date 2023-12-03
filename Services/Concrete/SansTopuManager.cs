@@ -78,7 +78,7 @@ namespace Services.Concrete
             int i = 0;
             do
             {
-                var plusNumber = await GetPlusNumber()
+                var plusNumber = await GetPlusNumber(false);
                 var numbers = await GenerateRandomNumbersAsync();
                 if (AreTheNumbersTheSame(numbers) == true)
                 {
@@ -88,6 +88,13 @@ namespace Services.Concrete
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
             return randomNumbers;
+        }
+
+        private async Task<int> GetPlusNumber(bool trackChanges)
+        {
+            var plusNumbers = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
+            var plusNumber = plusNumbers.Select(pl => pl.PlusNumber).ToList();
+            return plusNumber;
         }
 
         private async Task<List<int>> GenerateRandomNumbersAsync()
