@@ -90,6 +90,25 @@ namespace Services.Concrete
             return (numbers:randomNumbers, plusNumber: randomPlusNumber);
         }
 
+        private bool AreTheNumbersTheSame(List<int> numbers)
+        {
+            if (numbers.Count != 5)
+            {
+                return false;
+            }
+            for (int i = 0; i < numbers.Count - 1; i++)
+            {
+                for (int j = i + 1; j < numbers.Count; j++)
+                {
+                    if (numbers[i] == numbers[j])
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
         private async Task<int> GenerateRandomPlusNumberAsync()
         {
             int index;
