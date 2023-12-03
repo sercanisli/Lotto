@@ -64,12 +64,21 @@ namespace Services.Concrete
             return _mapper.Map<SansTopuDto>(entity);
         }
 
-        public Task<List<int>> GetRondomNumbersAsync()
+        public async Task UpdateOneNumbersArrayAsync(int id, SansTopuDtoForUpdate sansTopuDtoForUpdate, bool trackChanges)
+        {
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
+            entity = _mapper.Map<SansTopu>(sansTopuDtoForUpdate);
+            _manager.SansTopu.Update(entity);
+            await _manager.SaveAsync();
+        }
+
+        public async Task<List<int>> GetRondomNumbersAsync()
         {
             List<int> randomNumbers = new List<int>();
             int i = 0;
             do
             {
+                var plusNumber = await GetPlusNumber()
                 var numbers = await GenerateRandomNumbersAsync();
                 if (AreTheNumbersTheSame(numbers) == true)
                 {
@@ -81,12 +90,25 @@ namespace Services.Concrete
             return randomNumbers;
         }
 
-        public async Task UpdateOneNumbersArrayAsync(int id, SansTopuDtoForUpdate sansTopuDtoForUpdate, bool trackChanges)
+        private async Task<List<int>> GenerateRandomNumbersAsync()
         {
-            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
-            entity = _mapper.Map<SansTopu>(sansTopuDtoForUpdate);
-            _manager.SansTopu.Update(entity);
-            await _manager.SaveAsync();
+            int index;
+            int selectedNumber;
+            int sleepTimeInSeconds = 1;
+            var numbers = await GetOnlyNumbersAsync(false);
+            int totalCount = numbers.Count();
+            long ticks = DateTime.Now.Ticks;
+            Random random = new Random((int)ticks);
+            var randomNumbers = new List<int>();
+
+            for (int i = 0; i < 6; i++)
+            {
+                Thread.Sleep(sleepTimeInSeconds);
+                index = random.Next(0, totalCount - 1);
+                selectedNumber = numbers.ElementAt(index);
+                randomNumbers.Add(selectedNumber);
+            }
+            return randomNumbers.ToList();
         }
 
         private async Task<SansTopu> GetOneNumbersArrayByIdAndCheckExists(int id, bool trackChanges)
