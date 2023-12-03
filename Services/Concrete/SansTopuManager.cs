@@ -92,9 +92,26 @@ namespace Services.Concrete
 
         private async Task<int> GenerateRandomPlusNumberAsync()
         {
-            var entities = await GetAllNumbersArrayWithoutPaginationAsync(false);
+            int index;
+            int randomPlusNumber;
+            int sleepTimeInSeconds = 1;
+            var plusNumbers = await GetOnlyPlusNumbersAsync(false);
+            int totalCount = plusNumbers.Count();
+            long ticks = DateTime.Now.Ticks;
+
+            Random random = new Random((int)ticks);
+            Thread.Sleep(sleepTimeInSeconds);
+            index = random.Next(0, totalCount - 1);
+            randomPlusNumber = plusNumbers.ElementAt(index);
+
+            return randomPlusNumber;
+        }
+
+        private async Task<List<int>> GetOnlyPlusNumbersAsync(bool trackChanges)
+        {
+            var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             var plusNumbers = entities.Select(pl => pl.PlusNumber).ToList();
-            return plusNumbers.ToList();
+            return plusNumbers;
         }
 
         private async Task<List<int>> GenerateRandomNumbersAsync()
