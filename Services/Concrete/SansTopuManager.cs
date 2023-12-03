@@ -90,6 +90,13 @@ namespace Services.Concrete
             return (numbers:randomNumbers, plusNumber: randomPlusNumber);
         }
 
+        private List<int> Sort(List<int> randomNumbers)
+        {
+            List<int> sortedNumbers = randomNumbers.ToList();
+            sortedNumbers.Sort();
+            return sortedNumbers;
+        }
+
         private bool AreTheNumbersTheSame(List<int> numbers)
         {
             if (numbers.Count != 5)
