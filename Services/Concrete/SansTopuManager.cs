@@ -72,7 +72,7 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<List<int>> GetRondomNumbersAsync()
+        public async Task<(List<int> numbers, int plusNumber)> GetRondomNumbersAsync()
         {
             List<int> randomNumbers = new List<int>();
             int i = 0;
@@ -87,7 +87,7 @@ namespace Services.Concrete
                 }
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
-            return randomNumbers;
+            return (numbers:randomNumbers, plusNumber:randomPlusNumber);
         }
 
         private async Task<int> GetPlusNumber(bool trackChanges)
