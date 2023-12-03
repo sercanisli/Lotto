@@ -72,7 +72,7 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<(List<int> numbers, int plusNumber)> GetRondomNumbersAsync()
+        public async Task<SansTopuDtoForRandom> GetRondomNumbersAsync()
         {
             var randomPlusNumber = await GenerateRandomPlusNumberAsync();
             List<int> randomNumbers = new List<int>();
@@ -87,7 +87,13 @@ namespace Services.Concrete
                 }
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
-            return (numbers:randomNumbers, plusNumber: randomPlusNumber);
+
+            var sansTopuDto = new SansTopuDtoForRandom()
+            {
+                PlusNumber = randomPlusNumber,
+                Numbers = randomNumbers
+            };
+            return sansTopuDto; 
         }
 
         private List<int> Sort(List<int> randomNumbers)
