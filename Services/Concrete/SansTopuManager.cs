@@ -74,11 +74,11 @@ namespace Services.Concrete
 
         public async Task<(List<int> numbers, int plusNumber)> GetRondomNumbersAsync()
         {
+            var randomPlusNumber = await GenerateRandomPlusNumberAsync();
             List<int> randomNumbers = new List<int>();
             int i = 0;
             do
             {
-                var plusNumber = await GenerateRandomPlusNumberAsync();
                 var numbers = await GenerateRandomNumbersAsync();
                 if (AreTheNumbersTheSame(numbers) == true)
                 {
@@ -87,7 +87,7 @@ namespace Services.Concrete
                 }
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
-            return (numbers:randomNumbers, plusNumber:randomPlusNumber);
+            return (numbers:randomNumbers, plusNumber: randomPlusNumber);
         }
 
         private async Task<int> GenerateRandomPlusNumberAsync()
@@ -110,7 +110,7 @@ namespace Services.Concrete
         private async Task<List<int>> GetOnlyPlusNumbersAsync(bool trackChanges)
         {
             var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
-            var plusNumbers = entities.Select(pl => pl.PlusNumber).ToList();
+            var plusNumbers = entities.Select(e => e.PlusNumber).ToList();
             return plusNumbers;
         }
 
@@ -133,6 +133,13 @@ namespace Services.Concrete
                 randomNumbers.Add(selectedNumber);
             }
             return randomNumbers.ToList();
+        }
+
+        private async Task<IEnumerable<int>> GetOnlyNumbersAsync(bool trackChanges)
+        {
+            var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
+            var numbers = entities.SelectMany(e => e.Numbers).ToList();
+            return numbers;
         }
 
         private async Task<SansTopu> GetOneNumbersArrayByIdAndCheckExists(int id, bool trackChanges)
