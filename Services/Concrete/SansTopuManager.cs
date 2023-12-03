@@ -64,6 +64,8 @@ namespace Services.Concrete
             return _mapper.Map<SansTopuDto>(entity);
         }
 
+
+
         public async Task UpdateOneNumbersArrayAsync(int id, SansTopuDtoForUpdate sansTopuDtoForUpdate, bool trackChanges)
         {
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
@@ -87,5 +89,7 @@ namespace Services.Concrete
             var entities = await _manager.SansTopu.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             return _mapper.Map<IEnumerable<SansTopuDto>>(entities);
         }
+
+       
     }
 }
