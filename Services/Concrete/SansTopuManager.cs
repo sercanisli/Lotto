@@ -64,7 +64,22 @@ namespace Services.Concrete
             return _mapper.Map<SansTopuDto>(entity);
         }
 
-
+        public Task<List<int>> GetRondomNumbersAsync()
+        {
+            List<int> randomNumbers = new List<int>();
+            int i = 0;
+            do
+            {
+                var numbers = await GenerateRandomNumbersAsync();
+                if (AreTheNumbersTheSame(numbers) == true)
+                {
+                    i++;
+                    randomNumbers = numbers;
+                }
+            } while (i == 0);
+            randomNumbers = Sort(randomNumbers);
+            return randomNumbers;
+        }
 
         public async Task UpdateOneNumbersArrayAsync(int id, SansTopuDtoForUpdate sansTopuDtoForUpdate, bool trackChanges)
         {
@@ -90,6 +105,6 @@ namespace Services.Concrete
             return _mapper.Map<IEnumerable<SansTopuDto>>(entities);
         }
 
-       
+        
     }
 }
