@@ -40,6 +40,12 @@ namespace Presentation.Controllers
                 Ok(result.linkResponse.ShapedEntities);
         }
 
+        [HttpGet("GetRandomNumbersForSansTopuAsync", Name = "GetRandomNumbersForSansTopuAsync")]
+        public async Task<IActionResult> GetRandomNumbersForSansTopuAsync()
+        {
+
+        }
+
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSansTopuAsync([FromRoute(Name = "id")] int id)
         {
