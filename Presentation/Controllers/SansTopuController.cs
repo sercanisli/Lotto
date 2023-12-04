@@ -23,6 +23,7 @@ namespace Presentation.Controllers
 
         [HttpHead]
         [HttpGet(Name = "GetAllNumbersArrayForSansTopuAsync")]
+        [ResponseCache(CacheProfileName = "5mins")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayForSansTopuAsync([FromQuery] SansTopuParameters sansTopuParameters)
         {
@@ -48,6 +49,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSansTopuAsync([FromRoute(Name = "id")] int id)
         {
             var entity = await _manager.SansTopuService.GetOneNumbersArrayByIdAsync(id, false);
@@ -55,6 +57,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("GetOneNumbersArrayByDateForSansTopuAsync", Name = "GetOneNumbersArrayByDateForSansTopuAsync")]
+        [ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByDateForSansTopuAsync([FromQuery]DateTime date)
         {
             var entity = await _manager.SansTopuService.GetOneNumbersArrayByDateAsync(date, false);
@@ -91,6 +94,7 @@ namespace Presentation.Controllers
         }
 
         [HttpOptions]
+        [ResponseCache(CacheProfileName = "5mins")]
         public IActionResult GetSansTopuOptions()
         {
             Response.Headers.Add("Allow", "GET, PUT, POST, DELETE, HEAD, OPTIONS");
