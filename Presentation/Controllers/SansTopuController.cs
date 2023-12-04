@@ -43,7 +43,7 @@ namespace Presentation.Controllers
         [HttpGet("GetRandomNumbersForSansTopuAsync", Name = "GetRandomNumbersForSansTopuAsync")]
         public async Task<IActionResult> GetRandomNumbersForSansTopuAsync()
         {
-            var entities = _manager.SansTopuService.GetRondomNumbersAsync();
+            var entities = await _manager.SansTopuService.GetRondomNumbersAsync();
             return Ok(entities);
         }
 

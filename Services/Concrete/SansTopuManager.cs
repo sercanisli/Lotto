@@ -124,18 +124,8 @@ namespace Services.Concrete
 
         private async Task<int> GenerateRandomPlusNumberAsync()
         {
-            int index;
-            int randomPlusNumber;
-            int sleepTimeInSeconds = 1;
             var plusNumbers = await GetOnlyPlusNumbersAsync(false);
-            int totalCount = plusNumbers.Count();
-            long ticks = DateTime.Now.Ticks;
-
-            Random random = new Random((int)ticks);
-            Thread.Sleep(sleepTimeInSeconds);
-            index = random.Next(0, totalCount - 1);
-            randomPlusNumber = plusNumbers.ElementAt(index);
-
+            var randomPlusNumber = Random(plusNumbers);
             return randomPlusNumber;
         }
 
@@ -148,30 +138,35 @@ namespace Services.Concrete
 
         private async Task<List<int>> GenerateRandomNumbersAsync()
         {
-            int index;
-            int selectedNumber;
-            int sleepTimeInSeconds = 1;
-            var numbers = await GetOnlyNumbersAsync(false);
-            int totalCount = numbers.Count();
-            long ticks = DateTime.Now.Ticks;
-            Random random = new Random((int)ticks);
             var randomNumbers = new List<int>();
-
-            for (int i = 0; i < 6; i++)
+            var numbers = await GetOnlyNumbersAsync(false);
+            for (int i=0; i < 5; i++)
             {
-                Thread.Sleep(sleepTimeInSeconds);
-                index = random.Next(0, totalCount - 1);
-                selectedNumber = numbers.ElementAt(index);
-                randomNumbers.Add(selectedNumber);
+                var randomNumber = Random(numbers);
+                randomNumbers.Add(randomNumber);
             }
             return randomNumbers.ToList();
         }
 
-        private async Task<IEnumerable<int>> GetOnlyNumbersAsync(bool trackChanges)
+        private async Task<List<int>> GetOnlyNumbersAsync(bool trackChanges)
         {
             var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             var numbers = entities.SelectMany(e => e.Numbers).ToList();
             return numbers;
+        }
+
+        private int Random(List<int> numbers)
+        {
+            int index;
+            int randomNumber;
+            int sleepTimeInSeconds = 1;
+            int totalCount = numbers.Count();
+            long ticks = DateTime.Now.Ticks;
+            Random random = new Random((int)ticks);
+            Thread.Sleep(sleepTimeInSeconds);
+            index = random.Next(0, totalCount - 1);
+            randomNumber= numbers.ElementAt(index);
+            return randomNumber;
         }
 
         private async Task<SansTopu> GetOneNumbersArrayByIdAndCheckExists(int id, bool trackChanges)
@@ -189,7 +184,5 @@ namespace Services.Concrete
             var entities = await _manager.SansTopu.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             return _mapper.Map<IEnumerable<SansTopuDto>>(entities);
         }
-
-        
     }
 }
