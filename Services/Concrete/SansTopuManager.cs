@@ -4,8 +4,11 @@ using Entities.Exceptions;
 using Entities.LinkModels;
 using Entities.Models;
 using Entities.RequestFeatures;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
+using System.Security.Claims;
 
 namespace Services.Concrete
 {
@@ -15,13 +18,15 @@ namespace Services.Concrete
         private readonly ILoggerService _logger;
         private readonly IMapper _mapper;
         private readonly ISansTopuLinks _sansTopuLinks;
+        private readonly UserManager<User> _userManager;
 
-        public SansTopuManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, ISansTopuLinks sansTopuLinks)
+        public SansTopuManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, ISansTopuLinks sansTopuLinks, UserManager<User> userManager)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
             _sansTopuLinks = sansTopuLinks;
+            _userManager = userManager;
         }
 
         public async Task<SansTopuDto> CreateOneNumbersArrayAsync(SansTopuDtoForInsertion sansTopuDtoForInsertion)
@@ -72,8 +77,9 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<SansTopuDtoForRandom> GetRondomNumbersAsync()
+        public async Task<SansTopuDtoForRandom> GetRondomNumbersAsync(HttpContext context)
         {
+            var user = await GetUser(context);
             var randomPlusNumber = await GenerateRandomPlusNumberAsync();
             List<int> randomNumbers = new List<int>();
             int i = 0;
@@ -93,7 +99,23 @@ namespace Services.Concrete
                 PlusNumber = randomPlusNumber,
                 Numbers = randomNumbers
             };
+
+            _logger.LogInfo($"User :{user.UserName}, Random PlusNumber : {randomPlusNumber}, Random Numbers : {string.Join(",", randomNumbers)}");
+
             return sansTopuDto; 
+        }
+
+        private async Task<UserDtoForGetRandomNumbers> GetUser(HttpContext context)
+        {
+            var userName = context.User.Identity?.Name;
+            var user = await _userManager.FindByNameAsync(userName);
+
+            var userDto = new UserDtoForGetRandomNumbers()
+            {
+                UserId = user.Id,
+                UserName = user.UserName
+            };
+            return userDto;
         }
 
         private List<int> Sort(List<int> randomNumbers)

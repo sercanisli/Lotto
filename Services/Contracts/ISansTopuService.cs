@@ -1,7 +1,7 @@
 ﻿using Entities.DataTransferObjects;
 using Entities.LinkModels;
-using Entities.Models;
 using Entities.RequestFeatures;
+using Microsoft.AspNetCore.Http;
 
 namespace Services.Contracts
 {
@@ -13,7 +13,7 @@ namespace Services.Contracts
         Task<SansTopuDto> CreateOneNumbersArrayAsync(SansTopuDtoForInsertion sansTopuDtoForInsertion);
         Task UpdateOneNumbersArrayAsync(int id, SansTopuDtoForUpdate sansTopuDtoForUpdate, bool trackChanges);
         Task DeleteOneNumbersArrayAsync(int id, bool trackChanges);
-        Task<SansTopuDtoForRandom> GetRondomNumbersAsync();
+        Task<SansTopuDtoForRandom> GetRondomNumbersAsync(HttpContext context);
 
     }
 }

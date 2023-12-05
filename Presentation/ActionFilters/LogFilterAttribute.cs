@@ -21,6 +21,7 @@ namespace Presentation.ActionFilters
 
         private string Log(string modelName, RouteData routeData)
         {
+            var action = routeData.Values["action"];
             var logDetails = new LogDetails()
             {
                 ModelName = modelName,
@@ -31,6 +32,7 @@ namespace Presentation.ActionFilters
             {
                 logDetails.Id = routeData.Values["Id"];
             }
+            
             return logDetails.ToString();
         }
     }
