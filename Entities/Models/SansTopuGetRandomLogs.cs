@@ -2,6 +2,6 @@
 {
     public class SansTopuGetRandomLogs : GetRandomLogs
     {
-        public int PlusNumber { get; set; }
+        public int RandomPlusNumber { get; set; }
     }
 }

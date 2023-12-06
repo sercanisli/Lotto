@@ -11,6 +11,7 @@ namespace Repositories.EntityFrameworkCore
         public DbSet<SayisalLoto> SayisalLotos { get; set; }
         public DbSet<OnNumara> OnNumaras { get; set; }
         public DbSet<SansTopu> SansTopus { get; set; }
+        public DbSet<SansTopuGetRandomLogs> SansTopuGetRandomLogs { get; set; }
 
         public RepositoryContext(DbContextOptions options) : base(options)
         {
@@ -22,6 +23,7 @@ namespace Repositories.EntityFrameworkCore
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
         }
     }
 }
