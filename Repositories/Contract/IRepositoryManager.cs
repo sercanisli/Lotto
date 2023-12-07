@@ -9,6 +9,9 @@ namespace Repositories.Cantracts
         IOnNumaraRepository OnNumara { get; }
         ISansTopuRepository SansTopu { get; }
 
+
+        ISansTopuGetRandomLogsRepository SansTopuGetRandomLogs { get; }
+
         Task SaveAsync();
     }
 }
