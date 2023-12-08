@@ -43,10 +43,10 @@ namespace Services.Concrete
 
         public async Task<(LinkResponse linkResponse, MetaData metaData)> GetAllNumbersArraysAsync(LinkParameters<OnNumaraParameters> linkParameters, bool trackChanges)
         {
-            var entitiesWithMetaData = await _manager.OnNumara.GetAllNumbersArrayAsync(linkParameters.Parameters ,trackChanges);
+            var entitiesWithMetaData = await _manager.OnNumara.GetAllNumbersArrayAsync(linkParameters.Parameters, trackChanges);
             var dtos = _mapper.Map<IEnumerable<OnNumaraDto>>(entitiesWithMetaData);
             var links = _onNumaraLinks.TryGenerateLinks(dtos, linkParameters.Parameters.Fields, linkParameters.HttpContext);
-            return (linkResponse:links, metaData: entitiesWithMetaData.MetaData);
+            return (linkResponse: links, metaData: entitiesWithMetaData.MetaData);
         }
 
         public async Task<OnNumaraDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
@@ -68,7 +68,7 @@ namespace Services.Concrete
 
         public async Task UpdateOneNumbersArrayAsync(int id, OnNumaraDtoForUpdate onNumaraDtoForUpdate, bool trackChanges)
         {
-            if(onNumaraDtoForUpdate == null)
+            if (onNumaraDtoForUpdate == null)
             {
                 throw new ArgumentNullException(nameof(onNumaraDtoForUpdate));
             }
@@ -105,14 +105,12 @@ namespace Services.Concrete
         private async Task<string> GetUser(string userName)
         {
             User user = new User();
-            if(userName == null)
-            {
-                user.UserName = GenerateRandomUserName();
-            }
-            else
+            if (userName != null)
             {
                 user = await _userManager.FindByNameAsync(userName);
+                return user.UserName.ToString();
             }
+            user.UserName = GenerateRandomUserName();
             return "Guest-" + user.UserName.ToString();
         }
 
@@ -198,6 +196,6 @@ namespace Services.Concrete
             return entity;
         }
 
-        
+
     }
 }

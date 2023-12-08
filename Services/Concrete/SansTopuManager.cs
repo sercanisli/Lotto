@@ -126,16 +126,13 @@ namespace Services.Concrete
         private async Task<string> GetUser(string userName)
         {
             User user = new User();
-            if (userName == null)
-            {
-                user.UserName = GenerateRandomUserName();
-            }
-            else
+            if (userName != null)
             {
                 user = await _userManager.FindByNameAsync(userName);
+                return user.UserName.ToString();
             }
-
-            return "Guest-"+user.UserName.ToString();
+            user.UserName = GenerateRandomUserName();
+            return "Guest-" + user.UserName.ToString();
         }
 
         private List<int> Sort(List<int> randomNumbers)
