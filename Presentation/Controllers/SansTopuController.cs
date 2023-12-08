@@ -1,6 +1,5 @@
 ﻿using Entities.DataTransferObjects;
 using Entities.LinkModels;
-using Entities.Models;
 using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
@@ -44,7 +43,10 @@ namespace Presentation.Controllers
         [HttpGet("GetRandomNumbersForSansTopuAsync", Name = "GetRandomNumbersForSansTopuAsync")]
         public async Task<IActionResult> GetRandomNumbersForSansTopuAsync()
         {
-            var entities = await _manager.SansTopuService.GetRondomNumbersAsync(HttpContext);
+            var entities = HttpContext.User.Identity?.Name != null ?
+                await _manager.SansTopuService.GetRondomNumbersAsync(HttpContext.User.Identity?.Name) :
+                await _manager.SansTopuService.GetRondomNumbersAsync(null);
+
             return Ok(entities);
         }
 

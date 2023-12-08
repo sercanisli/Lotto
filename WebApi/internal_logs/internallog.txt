@@ -2408,3 +2408,441 @@
 2023-12-07 01:10:59.8047 Info Configuration initialized.
 2023-12-07 01:11:06.9061 Info AppDomain Shutting down. LogFactory closing...
 2023-12-07 01:11:06.9301 Info LogFactory has been closed.
+2023-12-07 21:38:45.0301 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-07 21:38:46.5245 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-07 21:38:46.5742 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-07 21:38:46.6270 Info Configuration initialized.
+2023-12-07 21:38:46.6615 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:38:46.7704 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-07 21:38:47.0843 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-07 21:38:47.0843 Info Closing old configuration.
+2023-12-07 21:38:47.1875 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:38:47.1875 Info Configuration initialized.
+2023-12-07 21:47:14.6917 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-07 21:47:14.7192 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-07 21:47:14.7404 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-07 21:47:14.7650 Info Configuration initialized.
+2023-12-07 21:47:14.7677 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:47:14.7677 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-07 21:47:14.8169 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-07 21:47:14.8169 Info Closing old configuration.
+2023-12-07 21:47:14.8375 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:47:14.8375 Info Configuration initialized.
+2023-12-07 21:47:18.8453 Info AppDomain Shutting down. LogFactory closing...
+2023-12-07 21:47:18.8493 Info LogFactory has been closed.
+2023-12-07 21:47:35.1760 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-07 21:47:35.1972 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-07 21:47:35.2222 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-07 21:47:35.2425 Info Configuration initialized.
+2023-12-07 21:47:35.2425 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:47:35.2529 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-07 21:47:35.2681 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-07 21:47:35.2681 Info Closing old configuration.
+2023-12-07 21:47:35.2840 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:47:35.2840 Info Configuration initialized.
+2023-12-07 21:47:38.9580 Info AppDomain Shutting down. LogFactory closing...
+2023-12-07 21:47:38.9580 Info LogFactory has been closed.
+2023-12-07 21:52:17.4882 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-07 21:52:17.5472 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-07 21:52:17.5726 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-07 21:52:17.6067 Info Configuration initialized.
+2023-12-07 21:52:17.6067 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:52:17.6210 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-07 21:52:17.6545 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-07 21:52:17.6545 Info Closing old configuration.
+2023-12-07 21:52:17.6727 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:52:17.6734 Info Configuration initialized.
+2023-12-07 21:52:21.5999 Info AppDomain Shutting down. LogFactory closing...
+2023-12-07 21:52:21.5999 Info LogFactory has been closed.
+2023-12-07 21:52:48.4210 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-07 21:52:48.4436 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-07 21:52:48.4596 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-07 21:52:48.4779 Info Configuration initialized.
+2023-12-07 21:52:48.4779 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:52:48.4926 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-07 21:52:48.5127 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-07 21:52:48.5127 Info Closing old configuration.
+2023-12-07 21:52:48.5340 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:52:48.5340 Info Configuration initialized.
+2023-12-07 21:52:51.1558 Info AppDomain Shutting down. LogFactory closing...
+2023-12-07 21:52:51.1594 Info LogFactory has been closed.
+2023-12-07 21:53:19.8519 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-07 21:53:19.8710 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-07 21:53:19.8873 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-07 21:53:19.9074 Info Configuration initialized.
+2023-12-07 21:53:19.9094 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:53:19.9094 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-07 21:53:19.9294 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-07 21:53:19.9294 Info Closing old configuration.
+2023-12-07 21:53:19.9447 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:53:19.9447 Info Configuration initialized.
+2023-12-07 21:53:22.8447 Info AppDomain Shutting down. LogFactory closing...
+2023-12-07 21:53:22.8485 Info LogFactory has been closed.
+2023-12-07 21:53:38.3322 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-07 21:53:38.3597 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-07 21:53:38.3862 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-07 21:53:38.4132 Info Configuration initialized.
+2023-12-07 21:53:38.4132 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:53:38.4248 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-07 21:53:38.4248 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-07 21:53:38.4412 Info Closing old configuration.
+2023-12-07 21:53:38.4546 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:53:38.4546 Info Configuration initialized.
+2023-12-07 21:53:42.0231 Info AppDomain Shutting down. LogFactory closing...
+2023-12-07 21:53:42.0231 Info LogFactory has been closed.
+2023-12-07 21:56:13.8770 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-07 21:56:13.8956 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-07 21:56:13.9106 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-07 21:56:13.9297 Info Configuration initialized.
+2023-12-07 21:56:13.9297 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:56:13.9297 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-07 21:56:13.9535 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-07 21:56:13.9535 Info Closing old configuration.
+2023-12-07 21:56:13.9685 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:56:13.9685 Info Configuration initialized.
+2023-12-07 21:56:16.3388 Info AppDomain Shutting down. LogFactory closing...
+2023-12-07 21:56:16.3388 Info LogFactory has been closed.
+2023-12-07 21:56:37.9147 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-07 21:56:37.9339 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-07 21:56:37.9505 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-07 21:56:37.9744 Info Configuration initialized.
+2023-12-07 21:56:37.9744 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:56:37.9744 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-07 21:56:37.9970 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-07 21:56:37.9970 Info Closing old configuration.
+2023-12-07 21:56:38.0135 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:56:38.0135 Info Configuration initialized.
+2023-12-07 21:56:40.3090 Info AppDomain Shutting down. LogFactory closing...
+2023-12-07 21:56:40.3090 Info LogFactory has been closed.
+2023-12-07 21:57:08.8608 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-07 21:57:08.9356 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-07 21:57:08.9850 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-07 21:57:09.0592 Info Configuration initialized.
+2023-12-07 21:57:09.0592 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:57:09.0993 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-07 21:57:09.2004 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-07 21:57:09.2004 Info Closing old configuration.
+2023-12-07 21:57:09.2385 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-07 21:57:09.2385 Info Configuration initialized.
+2023-12-08 01:47:17.7554 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 01:47:17.8277 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 01:47:17.8660 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 01:47:17.9161 Info Configuration initialized.
+2023-12-08 01:47:17.9271 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 01:47:17.9666 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 01:47:18.0705 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 01:47:18.0705 Info Closing old configuration.
+2023-12-08 01:47:18.1220 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 01:47:18.1220 Info Configuration initialized.
+2023-12-08 01:49:27.7391 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 01:49:27.8330 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 01:49:27.8670 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 01:49:27.9253 Info Configuration initialized.
+2023-12-08 01:49:27.9253 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 01:49:27.9774 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 01:49:28.0656 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 01:49:28.0656 Info Closing old configuration.
+2023-12-08 01:49:28.1042 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 01:49:28.1057 Info Configuration initialized.
+2023-12-08 01:51:10.8135 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 01:51:10.8758 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 01:51:10.9047 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 01:51:10.9478 Info Configuration initialized.
+2023-12-08 01:51:10.9478 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 01:51:10.9803 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 01:51:11.0498 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 01:51:11.0498 Info Closing old configuration.
+2023-12-08 01:51:11.0932 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 01:51:11.0969 Info Configuration initialized.
+2023-12-08 01:52:09.2060 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 01:52:09.2680 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 01:52:09.3021 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 01:52:09.3536 Info Configuration initialized.
+2023-12-08 01:52:09.3536 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 01:52:09.3897 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 01:52:09.4629 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 01:52:09.4629 Info Closing old configuration.
+2023-12-08 01:52:09.5040 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 01:52:09.5040 Info Configuration initialized.
+2023-12-08 01:59:06.2279 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 01:59:06.2990 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 01:59:06.3408 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 01:59:06.3863 Info Configuration initialized.
+2023-12-08 01:59:06.4237 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 01:59:06.4539 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 01:59:06.6332 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 01:59:06.6332 Info Closing old configuration.
+2023-12-08 01:59:06.6824 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 01:59:06.6824 Info Configuration initialized.
+2023-12-08 02:06:10.5284 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:06:10.6035 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:06:10.6441 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:06:10.6895 Info Configuration initialized.
+2023-12-08 02:06:10.6895 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 02:06:10.7396 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:06:10.8029 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:06:10.8029 Info Closing old configuration.
+2023-12-08 02:06:10.8503 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 02:06:10.8503 Info Configuration initialized.
+2023-12-08 02:11:52.7262 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:11:52.7859 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:11:52.8423 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:11:52.8964 Info Configuration initialized.
+2023-12-08 02:11:52.8998 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 02:11:52.9275 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:11:53.0007 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:11:53.0007 Info Closing old configuration.
+2023-12-08 02:11:53.0375 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 02:11:53.0375 Info Configuration initialized.
+2023-12-08 02:15:50.4984 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:15:50.6626 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:15:50.6918 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:15:50.7308 Info Configuration initialized.
+2023-12-08 02:15:50.7308 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 02:15:50.7603 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:15:50.8236 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:15:50.8236 Info Closing old configuration.
+2023-12-08 02:15:50.8639 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 02:15:50.8639 Info Configuration initialized.
+2023-12-08 02:20:08.6889 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:20:08.7641 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:20:08.7938 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:20:08.8370 Info Configuration initialized.
+2023-12-08 02:20:08.8370 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 02:20:08.8669 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:20:08.9299 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:20:08.9299 Info Closing old configuration.
+2023-12-08 02:20:08.9688 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 02:20:08.9688 Info Configuration initialized.
+2023-12-08 02:21:52.1260 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:21:52.1821 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:21:52.2146 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:21:52.2619 Info Configuration initialized.
+2023-12-08 02:21:52.2619 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 02:21:52.2914 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:21:52.3651 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:21:52.3651 Info Closing old configuration.
+2023-12-08 02:21:52.4367 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 02:21:52.4367 Info Configuration initialized.
+2023-12-08 02:25:59.0269 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:25:59.0883 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:25:59.1252 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:25:59.1682 Info Configuration initialized.
+2023-12-08 02:25:59.1682 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 02:25:59.1975 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:25:59.2583 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:25:59.2583 Info Closing old configuration.
+2023-12-08 02:25:59.2956 Info Validating config: Targets=0, ConfigItems=1, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\sansTopuLog.config
+2023-12-08 02:25:59.2956 Info Configuration initialized.
+2023-12-08 02:33:57.5326 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:33:57.6499 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:33:57.6840 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:33:57.7251 Info Configuration initialized.
+2023-12-08 02:35:47.7400 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:35:47.7884 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:35:47.8899 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:35:47.9196 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:35:47.9512 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:35:47.9913 Info Configuration initialized.
+2023-12-08 02:39:50.6295 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:39:50.6801 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:39:50.7747 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:39:50.7976 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:39:50.8319 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:39:50.8720 Info Configuration initialized.
+2023-12-08 02:43:56.3950 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:43:56.7577 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:43:57.1538 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:43:57.1958 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:43:57.2584 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:43:57.3545 Info Configuration initialized.
+2023-12-08 02:47:57.3726 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:47:57.6849 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:47:57.8349 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:47:57.8749 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:47:57.9139 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:47:57.9607 Info Configuration initialized.
+2023-12-08 02:51:08.6905 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:51:08.7071 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:51:08.7323 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:51:08.7408 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:51:08.7593 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:51:08.7817 Info Configuration initialized.
+2023-12-08 02:51:11.1313 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 02:51:11.1472 Info LogFactory has been closed.
+2023-12-08 02:52:20.8959 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:52:20.9098 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:52:20.9286 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:52:20.9355 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:52:20.9508 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:52:20.9686 Info Configuration initialized.
+2023-12-08 02:52:22.9162 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 02:52:22.9289 Info LogFactory has been closed.
+2023-12-08 02:52:54.2436 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:52:54.2579 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:52:54.2771 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:52:54.2771 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:52:54.2966 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:52:54.3144 Info Configuration initialized.
+2023-12-08 02:52:56.3148 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 02:52:56.3148 Info LogFactory has been closed.
+2023-12-08 02:53:07.0842 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:53:07.0842 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:53:07.1141 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:53:07.1193 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:53:07.1193 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:53:07.1511 Info Configuration initialized.
+2023-12-08 02:53:09.4460 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 02:53:09.4590 Info LogFactory has been closed.
+2023-12-08 02:55:21.8016 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:55:21.8163 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:55:21.8343 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:55:21.8401 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:55:21.8401 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:55:21.8720 Info Configuration initialized.
+2023-12-08 02:55:24.3983 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 02:55:24.4123 Info LogFactory has been closed.
+2023-12-08 02:55:42.8315 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:55:42.8315 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:55:42.8625 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:55:42.8625 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:55:42.8931 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:55:42.9213 Info Configuration initialized.
+2023-12-08 02:55:45.1118 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 02:55:45.1273 Info LogFactory has been closed.
+2023-12-08 02:55:54.8030 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:55:54.8205 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:55:54.8455 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:55:54.8523 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:55:54.8724 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:55:54.8948 Info Configuration initialized.
+2023-12-08 02:55:56.8549 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 02:55:56.8746 Info LogFactory has been closed.
+2023-12-08 02:57:10.6867 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:57:10.6996 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:57:10.7191 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:57:10.7245 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:57:10.7392 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:57:10.7561 Info Configuration initialized.
+2023-12-08 02:57:13.3038 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 02:57:13.3200 Info LogFactory has been closed.
+2023-12-08 02:57:46.6457 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:57:46.6680 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:57:46.6949 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:57:46.6949 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:57:46.7257 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:57:46.7498 Info Configuration initialized.
+2023-12-08 02:57:48.9266 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 02:57:48.9266 Info LogFactory has been closed.
+2023-12-08 02:58:05.4952 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:58:05.5123 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:58:05.5312 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:58:05.5368 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:58:05.5544 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:58:05.5727 Info Configuration initialized.
+2023-12-08 02:58:07.9096 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 02:58:07.9340 Info LogFactory has been closed.
+2023-12-08 02:58:24.8373 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 02:58:24.8511 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 02:58:24.8692 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 02:58:24.8692 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 02:58:24.8915 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 02:58:24.9087 Info Configuration initialized.
+2023-12-08 02:58:27.1794 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 02:58:27.1974 Info LogFactory has been closed.
+2023-12-08 03:02:02.6639 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 03:02:02.7212 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 03:02:02.8128 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 03:02:02.8390 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 03:02:02.8740 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 03:02:02.9181 Info Configuration initialized.
+2023-12-08 03:08:28.9691 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 03:08:29.0662 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 03:08:29.2094 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 03:08:29.2334 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 03:08:29.2707 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 03:08:29.3174 Info Configuration initialized.
+2023-12-08 03:12:55.2631 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 03:12:55.3251 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 03:12:55.4177 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 03:12:55.4423 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 03:12:55.4718 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 03:12:55.5214 Info Configuration initialized.

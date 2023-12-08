@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.LogModels;
+using Entities.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -11,7 +12,8 @@ namespace Repositories.EntityFrameworkCore
         public DbSet<SayisalLoto> SayisalLotos { get; set; }
         public DbSet<OnNumara> OnNumaras { get; set; }
         public DbSet<SansTopu> SansTopus { get; set; }
-        public DbSet<SansTopuGetRandomLogs> SansTopuGetRandomLogs { get; set; }
+
+        public DbSet<SansTopuLogs> SansTopuLogs { get; set; }
 
         public RepositoryContext(DbContextOptions options) : base(options)
         {

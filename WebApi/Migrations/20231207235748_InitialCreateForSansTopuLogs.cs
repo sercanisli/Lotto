@@ -7,7 +7,7 @@
 namespace WebApi.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreateForSansTopuGetRandomLogs : Migration
+    public partial class InitialCreateForSansTopuLogs : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -28,61 +28,45 @@ namespace WebApi.Migrations
                 keyValue: "b3d7e4b8-357b-4fb7-b6c8-21b1b33a4afe");
 
             migrationBuilder.CreateTable(
-                name: "SansTopuGetRandomLogs",
+                name: "SansTopuLogs",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    User = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RandomPlusNumber = table.Column<int>(type: "int", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RandomNumbers = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SansTopuGetRandomLogs", x => x.Id);
+                    table.PrimaryKey("PK_SansTopuLogs", x => x.Id);
                 });
 
-            migrationBuilder.InsertData(
-                table: "AspNetRoles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[,]
-                {
-                    { "22cf17c1-7c80-465e-a808-949fd2e6c052", null, "User", "USER" },
-                    { "2c2fb5aa-46f8-4bc2-ba2b-53401c4db8ea", null, "Admin", "ADMIN" },
-                    { "65d14bfc-6761-4363-bcba-1e0f878e59a3", null, "Editor", "EDITOR" }
-                });
+            
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "SansTopuGetRandomLogs");
+                name: "SansTopuLogs");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "22cf17c1-7c80-465e-a808-949fd2e6c052");
+                keyValue: "2f47a833-56c2-4f45-84e0-8d8ca1bb3367");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "2c2fb5aa-46f8-4bc2-ba2b-53401c4db8ea");
+                keyValue: "694f1a12-190e-4a3a-95a0-e73eeee6ba57");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "65d14bfc-6761-4363-bcba-1e0f878e59a3");
+                keyValue: "b242ce5b-25c2-4175-9a48-c44452ddc478");
 
-            migrationBuilder.InsertData(
-                table: "AspNetRoles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[,]
-                {
-                    { "60f30142-4609-486c-869a-8ef4d733689f", null, "Admin", "ADMIN" },
-                    { "aab52cd7-f34d-4466-93a4-d9a9ee103473", null, "User", "USER" },
-                    { "b3d7e4b8-357b-4fb7-b6c8-21b1b33a4afe", null, "Editor", "EDITOR" }
-                });
+           
         }
     }
 }

@@ -4,11 +4,9 @@ using Entities.Exceptions;
 using Entities.LinkModels;
 using Entities.Models;
 using Entities.RequestFeatures;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
-using System.Security.Claims;
 
 namespace Services.Concrete
 {
@@ -77,9 +75,9 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<SansTopuDtoForRandom> GetRondomNumbersAsync(HttpContext context)
+        public async Task<SansTopuDtoForRandom> GetRondomNumbersAsync(string userName)
         {
-            var user = await GetUser(context);
+            var user = await GetUser(userName);
             var randomPlusNumber = await GenerateRandomPlusNumberAsync();
             List<int> randomNumbers = new List<int>();
             int i = 0;
@@ -100,22 +98,37 @@ namespace Services.Concrete
                 Numbers = randomNumbers
             };
 
-            _logger.LogInfo($"User :{user.UserName}, Random PlusNumber : {randomPlusNumber}, Random Numbers : {string.Join(",", randomNumbers)}");
+
+            _logger.LogInfo($"User :{user}, Random PlusNumber : {randomPlusNumber}, Random Numbers : {string.Join(",", randomNumbers)}");
 
             return sansTopuDto; 
         }
 
-        private async Task<UserDtoForGetRandomNumbers> GetUser(HttpContext context)
+        private string? GenerateRandomUserName()
         {
-            var userName = context.User.Identity?.Name;
-            var user = await _userManager.FindByNameAsync(userName);
-
-            var userDto = new UserDtoForGetRandomNumbers()
+            string characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            Random random = new Random();
+            char[] randomUserName = new char[16];
+            for(int i = 0; i< randomUserName.Length; i++)
             {
-                UserId = user.Id,
-                UserName = user.UserName
-            };
-            return userDto;
+                randomUserName[i] = characters[random.Next(characters.Length)];
+            }
+            return new string(randomUserName);
+        }
+
+        private async Task<string> GetUser(string userName)
+        {
+            User user = new User();
+            if (userName == null)
+            {
+                user.UserName = GenerateRandomUserName();
+            }
+            else
+            {
+                user = await _userManager.FindByNameAsync(userName);
+            }
+
+            return "Guest-"+user.UserName.ToString();
         }
 
         private List<int> Sort(List<int> randomNumbers)

@@ -10,7 +10,6 @@ namespace Repositories.EntityFrameworkCore
         private readonly Lazy<ISayisalLotoRepository> _sayisalLotoRepository;
         private readonly Lazy<IOnNumaraRepository> _onNumaraRepository;
         private readonly Lazy<ISansTopuRepository> _sansTopuRepository;
-        private readonly Lazy<ISansTopuGetRandomLogsRepository> _sansTopuGetRandomLogsRepository;
 
         public RepositoryManager(RepositoryContext context)
         {
@@ -20,7 +19,6 @@ namespace Repositories.EntityFrameworkCore
             _onNumaraRepository = new Lazy<IOnNumaraRepository>(() => new  OnNumaraRepository(_context));
             _sansTopuRepository = new Lazy<ISansTopuRepository>(() => new SansTopuRepository(_context));
 
-            _sansTopuGetRandomLogsRepository = new Lazy<ISansTopuGetRandomLogsRepository>(() => new SansTopuGetRandomLogsRepository(_context));
         }
 
         public ISuperLotoRepository SuperLoto => _superLotoRepository.Value;
@@ -31,8 +29,6 @@ namespace Repositories.EntityFrameworkCore
 
         public ISansTopuRepository SansTopu => _sansTopuRepository.Value;
 
-
-        public ISansTopuGetRandomLogsRepository SansTopuGetRandomLogs => _sansTopuGetRandomLogsRepository.Value;
 
         public async Task SaveAsync() => await _context.SaveChangesAsync();
     }

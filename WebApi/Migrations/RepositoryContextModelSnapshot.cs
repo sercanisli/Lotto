@@ -22,6 +22,30 @@ namespace WebApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Entities.LogModels.SansTopuLogs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("RandomNumbers")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RandomPlusNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("User")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SansTopuLogs", (string)null);
+                });
+
             modelBuilder.Entity("Entities.Models.OnNumara", b =>
                 {
                     b.Property<int>("Id")
@@ -108,30 +132,6 @@ namespace WebApi.Migrations
                             Numbers = "13,12,1,27,22",
                             PlusNumber = 3
                         });
-                });
-
-            modelBuilder.Entity("Entities.Models.SansTopuGetRandomLogs", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("RandomNumbers")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RandomPlusNumber")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SansTopuGetRandomLogs", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Models.SayisalLoto", b =>
@@ -322,19 +322,19 @@ namespace WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "22cf17c1-7c80-465e-a808-949fd2e6c052",
+                            Id = "694f1a12-190e-4a3a-95a0-e73eeee6ba57",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "65d14bfc-6761-4363-bcba-1e0f878e59a3",
+                            Id = "b242ce5b-25c2-4175-9a48-c44452ddc478",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "2c2fb5aa-46f8-4bc2-ba2b-53401c4db8ea",
+                            Id = "2f47a833-56c2-4f45-84e0-8d8ca1bb3367",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
