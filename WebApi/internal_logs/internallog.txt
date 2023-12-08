@@ -2846,3 +2846,712 @@
 2023-12-08 03:12:55.4423 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
 2023-12-08 03:12:55.4718 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
 2023-12-08 03:12:55.5214 Info Configuration initialized.
+2023-12-08 11:51:18.6272 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 11:51:18.6829 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 11:51:18.7974 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 11:51:18.8450 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 11:51:18.8971 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 11:51:18.9596 Info Configuration initialized.
+2023-12-08 12:38:36.9555 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 12:38:37.0392 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 12:38:37.1207 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 12:38:37.1551 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 12:38:37.1943 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 12:38:37.2387 Info Configuration initialized.
+2023-12-08 12:51:11.5302 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 12:51:11.6074 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 12:51:11.7461 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 12:51:11.7709 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 12:51:11.8246 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 12:51:11.8865 Info Configuration initialized.
+2023-12-08 14:06:28.9887 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 14:06:29.0270 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 14:06:29.1104 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'SansTopuLogs' not found for logging rule: *.
+2023-12-08 14:06:29.1333 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 14:06:29.1712 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 14:06:29.2088 Info Configuration initialized.
+2023-12-08 14:23:39.4428 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 14:23:40.0668 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 14:23:40.1773 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'SansTopuLogs' not found for logging rule: *.
+2023-12-08 14:23:40.2079 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 14:23:40.2413 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 14:23:40.2891 Info Configuration initialized.
+2023-12-08 14:37:24.6462 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 14:37:24.7012 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 14:37:24.7881 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'SansTopuLogs' not found for logging rule: *.
+2023-12-08 14:37:24.8107 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 14:37:24.8435 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 14:37:24.8807 Info Configuration initialized.
+2023-12-08 14:42:03.9543 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 14:42:04.0170 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 14:42:04.1127 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'SansTopuLogs' not found for logging rule: *.
+2023-12-08 14:42:04.1381 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 14:42:04.1825 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 14:42:04.2323 Info Configuration initialized.
+2023-12-08 14:52:54.9136 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 14:52:54.9704 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 14:52:55.0664 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'SansTopuLogs' not found for logging rule: *.
+2023-12-08 14:52:55.0954 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 14:52:55.1473 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 14:52:55.2026 Info Configuration initialized.
+2023-12-08 14:57:21.5068 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 14:57:21.5954 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 14:57:21.6823 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'database' not found for logging rule: *.
+2023-12-08 14:57:21.7077 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 14:57:21.7436 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 14:57:21.7936 Info Configuration initialized.
+2023-12-08 14:59:31.5979 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 14:59:31.6448 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 14:59:31.7156 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'SansTopuLogs' not found for logging rule: *.
+2023-12-08 14:59:31.7366 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.5.2160. Product version: 5.2.5+7c014325443d65541200b698a50b9dd4ec30c7f0. GlobalAssemblyCache: False
+2023-12-08 14:59:31.7638 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 14:59:31.8135 Info Configuration initialized.
+2023-12-08 15:00:39.4427 Info Configuration file change detected! Reloading in 1000ms...
+2023-12-08 15:00:40.4631 Info Reloading configuration...
+2023-12-08 15:00:40.4752 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:00:40.4899 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:00:40.5065 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create Target with unknown type-alias: 'Database' - Extension NLog.Database not included?
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Config.LoggingConfigurationParser.FactoryCreateInstance[T](String typeName, IFactory`1 factory)
+2023-12-08 15:00:40.5065 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Target 'SansTopuLogs' not found for logging rule: *.
+2023-12-08 15:00:40.5065 Info Closing old configuration.
+2023-12-08 15:00:40.5632 Info Validating config: TargetNames=logfile, ConfigItems=13, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:00:40.5693 Info Configuration initialized.
+2023-12-08 15:05:05.3925 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:05:05.6532 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'user' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 15:05:05.6991 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'randomPlusNumber' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 15:05:05.7047 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'randomNumbers' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 15:05:05.7047 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:05:05.7305 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:05:05.7519 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:05:05.8765 Info Configuration initialized.
+2023-12-08 15:05:25.7526 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'User'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:fdf78b12-6723-4fdb-980a-fbc57215e79a
+Error Number:156,State:1,Class:15
+2023-12-08 15:05:28.3407 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'User'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:fdf78b12-6723-4fdb-980a-fbc57215e79a
+Error Number:156,State:1,Class:15
+2023-12-08 15:05:28.3558 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'User'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:fdf78b12-6723-4fdb-980a-fbc57215e79a
+Error Number:156,State:1,Class:15
+2023-12-08 15:08:55.2102 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:08:55.3148 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'logger.user' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 15:08:55.4108 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'logger.randomPlusNumber' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 15:08:55.4265 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'logger.randomNumbers' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 15:08:55.4265 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:08:55.4663 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:08:55.5002 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:08:55.6711 Info Configuration initialized.
+2023-12-08 15:09:07.9482 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'User'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:9660c356-4e6d-4214-b710-9493e7405115
+Error Number:156,State:1,Class:15
+2023-12-08 15:09:10.4596 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'User'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:9660c356-4e6d-4214-b710-9493e7405115
+Error Number:156,State:1,Class:15
+2023-12-08 15:09:10.4726 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near the keyword 'User'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:9660c356-4e6d-4214-b710-9493e7405115
+Error Number:156,State:1,Class:15
+2023-12-08 15:11:54.9863 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:11:55.0526 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:11:55.0921 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:11:55.1303 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:11:55.2566 Info Configuration initialized.
+2023-12-08 15:12:07.1296 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserName'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:22816d01-f853-49f2-ab16-88386365bf3a
+Error Number:207,State:1,Class:16
+2023-12-08 15:12:09.7248 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserName'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:22816d01-f853-49f2-ab16-88386365bf3a
+Error Number:207,State:1,Class:16
+2023-12-08 15:12:09.7365 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'UserName'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:22816d01-f853-49f2-ab16-88386365bf3a
+Error Number:207,State:1,Class:16
+2023-12-08 15:16:51.2175 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:16:51.2391 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:16:51.2391 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:16:51.2665 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:16:51.3130 Info Configuration initialized.
+2023-12-08 15:16:53.4646 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 15:16:53.4857 Info LogFactory has been closed.
+2023-12-08 15:17:02.4350 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:17:02.4554 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:17:02.4554 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:17:02.4848 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:17:02.5281 Info Configuration initialized.
+2023-12-08 15:17:04.6341 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 15:17:04.6466 Info LogFactory has been closed.
+2023-12-08 15:17:20.4903 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:17:20.5125 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:17:20.5240 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:17:20.5401 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:17:20.5879 Info Configuration initialized.
+2023-12-08 15:17:22.8712 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 15:17:22.8835 Info LogFactory has been closed.
+2023-12-08 15:17:48.1041 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:17:48.1243 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:17:48.1351 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:17:48.1514 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:17:48.1966 Info Configuration initialized.
+2023-12-08 15:17:50.6487 Info AppDomain Shutting down. LogFactory closing...
+2023-12-08 15:17:50.6622 Info LogFactory has been closed.
+2023-12-08 15:18:20.7844 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:18:20.8706 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:18:20.9109 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:18:20.9517 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:18:21.1492 Info Configuration initialized.
+2023-12-08 15:22:57.3525 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:22:57.4322 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:22:57.4690 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:22:57.5052 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:22:57.6982 Info Configuration initialized.
+2023-12-08 15:23:13.4751 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@userName".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:d96ca41d-ee9d-43e2-a3c6-7a80bcd086e7
+Error Number:137,State:2,Class:15
+2023-12-08 15:23:16.9251 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@userName".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:d96ca41d-ee9d-43e2-a3c6-7a80bcd086e7
+Error Number:137,State:2,Class:15
+2023-12-08 15:23:16.9433 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@userName".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:d96ca41d-ee9d-43e2-a3c6-7a80bcd086e7
+Error Number:137,State:2,Class:15
+2023-12-08 15:25:01.9022 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:25:01.9880 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:25:02.0310 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:25:02.0736 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:25:02.2900 Info Configuration initialized.
+2023-12-08 15:26:14.5123 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:26:14.6118 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'UserName' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 15:26:14.6839 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'RandomPlusNumber' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 15:26:14.6839 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'RandomNumbers' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 15:26:14.6839 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:26:14.7270 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:26:14.7679 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:26:14.9782 Info Configuration initialized.
+2023-12-08 15:28:39.0064 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:28:39.0844 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:28:39.1922 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:28:39.2546 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:28:39.4701 Info Configuration initialized.
+2023-12-08 15:29:52.6921 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:29:52.8046 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:29:52.8419 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:29:52.8802 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:29:53.0785 Info Configuration initialized.
+2023-12-08 15:32:43.3971 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:32:43.5764 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:32:43.6135 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:32:43.6505 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:32:43.8488 Info Configuration initialized.
+2023-12-08 15:35:16.3192 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:35:16.3963 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:35:16.4418 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:35:16.4868 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:35:16.6730 Info Configuration initialized.
+2023-12-08 15:35:29.8366 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@sercanisli".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:07c5a675-5f51-464b-a713-7f94d4e64515
+Error Number:137,State:2,Class:15
+2023-12-08 15:35:33.0390 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@sercanisli".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:07c5a675-5f51-464b-a713-7f94d4e64515
+Error Number:137,State:2,Class:15
+2023-12-08 15:35:33.0584 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@sercanisli".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:07c5a675-5f51-464b-a713-7f94d4e64515
+Error Number:137,State:2,Class:15
+2023-12-08 15:35:42.4589 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@sercanisli".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:07c5a675-5f51-464b-a713-7f94d4e64515
+Error Number:137,State:2,Class:15
+2023-12-08 15:35:42.6530 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@sercanisli".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:07c5a675-5f51-464b-a713-7f94d4e64515
+Error Number:137,State:2,Class:15
+2023-12-08 15:35:42.6579 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@sercanisli".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:07c5a675-5f51-464b-a713-7f94d4e64515
+Error Number:137,State:2,Class:15
+2023-12-08 15:36:13.2928 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:36:13.4002 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:36:13.5021 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:36:13.6032 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:36:13.9616 Info Configuration initialized.
+2023-12-08 15:36:25.5121 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:42c66b8a-d047-4b8f-a2f7-87db10910297
+Error Number:137,State:2,Class:15
+2023-12-08 15:36:27.8956 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:42c66b8a-d047-4b8f-a2f7-87db10910297
+Error Number:137,State:2,Class:15
+2023-12-08 15:36:27.9143 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:42c66b8a-d047-4b8f-a2f7-87db10910297
+Error Number:137,State:2,Class:15
+2023-12-08 15:37:19.2343 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:37:19.3062 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:37:19.3414 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:37:19.3840 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:37:19.5724 Info Configuration initialized.
+2023-12-08 15:37:29.0515 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@sercanisli".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:9604012b-fe98-41b6-b435-3b9dc6cdc6f1
+Error Number:137,State:2,Class:15
+2023-12-08 15:37:31.9078 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@sercanisli".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:9604012b-fe98-41b6-b435-3b9dc6cdc6f1
+Error Number:137,State:2,Class:15
+2023-12-08 15:37:31.9284 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@sercanisli".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:9604012b-fe98-41b6-b435-3b9dc6cdc6f1
+Error Number:137,State:2,Class:15
+2023-12-08 15:39:39.0619 Info Configuration file change detected! Reloading in 1000ms...
+2023-12-08 15:39:40.0788 Info Reloading configuration...
+2023-12-08 15:39:40.1100 Info Loading NLog config from XML file: C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:39:40.1200 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:39:40.1200 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:39:40.1200 Info Closing old configuration.
+2023-12-08 15:39:40.1610 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:39:40.1655 Info Configuration initialized.
+2023-12-08 15:40:08.3293 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 15:40:08.3949 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 15:40:08.4362 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 15:40:08.4877 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 15:40:08.6991 Info Configuration initialized.
+2023-12-08 17:26:34.0177 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 17:26:34.3964 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 17:26:34.4520 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 17:26:34.4750 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 17:26:34.8949 Info Configuration initialized.
+2023-12-08 17:26:49.7144 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@sercanisli".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:0aa1b296-37ee-41be-bfc0-7c5077160516
+Error Number:137,State:2,Class:15
+2023-12-08 17:26:52.4251 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@sercanisli".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:0aa1b296-37ee-41be-bfc0-7c5077160516
+Error Number:137,State:2,Class:15
+2023-12-08 17:26:52.4392 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@sercanisli".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:0aa1b296-37ee-41be-bfc0-7c5077160516
+Error Number:137,State:2,Class:15
+2023-12-08 17:29:16.3933 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 17:29:16.4776 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 17:29:16.5155 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 17:29:16.5499 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 17:29:16.7413 Info Configuration initialized.
+2023-12-08 17:30:33.3132 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 17:30:33.3874 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 17:30:33.4350 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 17:30:33.4778 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 17:30:33.6674 Info Configuration initialized.
+2023-12-08 17:36:30.8310 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 17:36:30.8917 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 17:36:30.9287 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 17:36:30.9652 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=20, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 17:36:31.1546 Info Configuration initialized.
+2023-12-08 17:36:42.1222 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@userName".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:d67ac6fa-2417-4484-8797-2f288344e243
+Error Number:137,State:2,Class:15
+2023-12-08 17:36:44.6821 Error DatabaseTarget(Name=SansTopuLogs): Error when writing to database. Exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Must declare the scalar variable "@userName".
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at NLog.Targets.DatabaseTarget.ExecuteDbCommandWithParameters(LogEventInfo logEvent, IDbConnection dbConnection, IDbTransaction dbTransaction)
+   at NLog.Targets.DatabaseTarget.WriteLogEventSuppressTransactionScope(LogEventInfo logEvent, String connectionString)
+ClientConnectionId:d67ac6fa-2417-4484-8797-2f288344e243
+Error Number:137,State:2,Class:15
+2023-12-08 17:44:12.3783 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 17:44:12.6597 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 17:44:12.7750 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 17:44:12.8386 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 17:44:13.1539 Info Configuration initialized.
+2023-12-08 17:45:31.1923 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 17:45:31.2629 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'userName' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 17:45:31.3150 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'randomPlusNumber' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 17:45:31.3150 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'randomNumbers' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 17:45:31.3150 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 17:45:31.3488 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 17:45:31.3701 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 17:45:31.4917 Info Configuration initialized.
+2023-12-08 17:57:39.1109 Info Loading assembly name: UserNameLayoutRenderer
+2023-12-08 17:57:39.2886 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: UserNameLayoutRenderer
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'UserNameLayoutRenderer, Culture=neutral, PublicKeyToken=null'. Sistem belirtilen dosyayı bulamıyor.
+File name: 'UserNameLayoutRenderer, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.InternalLoad(AssemblyName assemblyName, StackCrawlMark& stackMark, AssemblyLoadContext assemblyLoadContext, RuntimeAssembly requestingAssembly, Boolean throwOnFileNotFound)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(String assemblyName)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(ConfigurationItemFactory factory, String assemblyName, String itemNamePrefix)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssemblyName(String assemblyName, String prefix)
+   --- End of inner exception stack trace ---
+2023-12-08 17:57:39.3574 Info Loading assembly name: RandomPlusNumberLayoutRenderer
+2023-12-08 17:57:39.3574 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: RandomPlusNumberLayoutRenderer
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'RandomPlusNumberLayoutRenderer, Culture=neutral, PublicKeyToken=null'. Sistem belirtilen dosyayı bulamıyor.
+File name: 'RandomPlusNumberLayoutRenderer, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.InternalLoad(AssemblyName assemblyName, StackCrawlMark& stackMark, AssemblyLoadContext assemblyLoadContext, RuntimeAssembly requestingAssembly, Boolean throwOnFileNotFound)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(String assemblyName)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(ConfigurationItemFactory factory, String assemblyName, String itemNamePrefix)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssemblyName(String assemblyName, String prefix)
+   --- End of inner exception stack trace ---
+2023-12-08 17:57:39.3574 Info Loading assembly name: RandomNumbersLayoutRenderer
+2023-12-08 17:57:39.3574 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: RandomNumbersLayoutRenderer
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'RandomNumbersLayoutRenderer, Culture=neutral, PublicKeyToken=null'. Sistem belirtilen dosyayı bulamıyor.
+File name: 'RandomNumbersLayoutRenderer, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.InternalLoad(AssemblyName assemblyName, StackCrawlMark& stackMark, AssemblyLoadContext assemblyLoadContext, RuntimeAssembly requestingAssembly, Boolean throwOnFileNotFound)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(String assemblyName)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(ConfigurationItemFactory factory, String assemblyName, String itemNamePrefix)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssemblyName(String assemblyName, String prefix)
+   --- End of inner exception stack trace ---
+2023-12-08 17:57:39.4500 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-08 17:57:39.4984 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'userName' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 17:57:39.5032 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'randomPlusNumber' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 17:57:39.5032 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'randomNumbers' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-08 17:57:39.5032 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-08 17:57:39.5430 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-08 17:57:39.5811 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-08 17:57:39.7712 Info Configuration initialized.

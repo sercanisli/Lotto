@@ -33,7 +33,7 @@ namespace WebApi.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    User = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RandomPlusNumber = table.Column<int>(type: "int", nullable: false),
                     RandomNumbers = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -42,7 +42,6 @@ namespace WebApi.Migrations
                     table.PrimaryKey("PK_SansTopuLogs", x => x.Id);
                 });
 
-            
         }
 
         /// <inheritdoc />
@@ -54,19 +53,19 @@ namespace WebApi.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "2f47a833-56c2-4f45-84e0-8d8ca1bb3367");
+                keyValue: "0b9148c5-bbbe-4fa7-bd9b-346fec8a3ada");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "694f1a12-190e-4a3a-95a0-e73eeee6ba57");
+                keyValue: "784a9b03-fdb0-414f-b77a-d6f2009b91a2");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "b242ce5b-25c2-4175-9a48-c44452ddc478");
+                keyValue: "94acf8fd-55fb-4b96-be25-50cfb625b7ce");
 
-           
+          
         }
     }
 }

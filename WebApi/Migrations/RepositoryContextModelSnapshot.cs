@@ -37,7 +37,7 @@ namespace WebApi.Migrations
                     b.Property<int>("RandomPlusNumber")
                         .HasColumnType("int");
 
-                    b.Property<string>("User")
+                    b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -322,19 +322,19 @@ namespace WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "694f1a12-190e-4a3a-95a0-e73eeee6ba57",
+                            Id = "0b9148c5-bbbe-4fa7-bd9b-346fec8a3ada",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "b242ce5b-25c2-4175-9a48-c44452ddc478",
+                            Id = "784a9b03-fdb0-414f-b77a-d6f2009b91a2",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "2f47a833-56c2-4f45-84e0-8d8ca1bb3367",
+                            Id = "94acf8fd-55fb-4b96-be25-50cfb625b7ce",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });

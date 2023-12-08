@@ -2,11 +2,13 @@
 using Entities.DataTransferObjects;
 using Entities.Exceptions;
 using Entities.LinkModels;
+using Entities.LogModels;
 using Entities.Models;
 using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
+using System.Text.Json;
 
 namespace Services.Concrete
 {
@@ -97,12 +99,20 @@ namespace Services.Concrete
                 PlusNumber = randomPlusNumber,
                 Numbers = randomNumbers
             };
-
-
+            var sansTopuLogs = new SansTopuLogs()
+            {
+                UserName = user,
+                RandomPlusNumber = randomPlusNumber,
+                RandomNumbers = randomNumbers
+            };
             _logger.LogInfo($"User :{user}, Random PlusNumber : {randomPlusNumber}, Random Numbers : {string.Join(",", randomNumbers)}");
+
+           
+
 
             return sansTopuDto; 
         }
+
 
         private string? GenerateRandomUserName()
         {
