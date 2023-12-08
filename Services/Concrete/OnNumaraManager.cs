@@ -76,8 +76,9 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<List<int>> GetRondomNumbersAsync()
+        public async Task<OnNumaraDtoForRandom> GetRondomNumbersAsync(string userName)
         {
+            var user = await GetUser(userName);
             List<int> randomNumbers = new List<int>();
             int i = 0;
             do
@@ -91,6 +92,20 @@ namespace Services.Concrete
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
             return randomNumbers;
+        }
+
+        private async Task<string> GetUser(string userName)
+        {
+            User user = new User();
+            if(userName == null)
+            {
+                user.UserName = GenerateRandomUserName();
+            }
+            else
+            {
+                user = await _userManager.FindByNameAsync(userName);
+            }
+            return "Guest-" + user.UserName.ToString();
         }
 
         private List<int> Sort(List<int> numbers)
