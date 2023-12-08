@@ -46,7 +46,10 @@ namespace Presentation.Controllers
         [Authorize(Roles = "Admin, Editor, User")]
         public async Task<IActionResult> GetRandomNumbersForOnNumaraAsync()
         {
-            var numbers = await _manager.OnNumaraService.GetRondomNumbersAsync();
+            var numbers = HttpContext.User.Identity?.Name != null ?
+                await _manager.OnNumaraService.GetRondomNumbersAsync(HttpContext.User.Identity?.Name) :
+                await _manager.OnNumaraService.GetRondomNumbersAsync(null);
+
             return Ok(numbers);
         }
 
