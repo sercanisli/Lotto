@@ -93,7 +93,12 @@ namespace Services.Concrete
                 }
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
-            return randomNumbers;
+
+            var onNumaraDto = new OnNumaraDtoForRandom()
+            {
+                Numbers = randomNumbers,
+            };
+            return onNumaraDto;
         }
 
         private async Task<string> GetUser(string userName)
@@ -121,7 +126,6 @@ namespace Services.Concrete
             }
             return new string(randomUserName);
         }
-    }
 
         private List<int> Sort(List<int> numbers)
         {
