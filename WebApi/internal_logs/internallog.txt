@@ -3555,3 +3555,47 @@ File name: 'RandomNumbersLayoutRenderer, Culture=neutral, PublicKeyToken=null'
 2023-12-08 17:57:39.5430 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
 2023-12-08 17:57:39.5811 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
 2023-12-08 17:57:39.7712 Info Configuration initialized.
+2023-12-09 00:59:25.6203 Info Loading assembly name: UserNameLayoutRenderer
+2023-12-09 00:59:25.8959 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: UserNameLayoutRenderer
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'UserNameLayoutRenderer, Culture=neutral, PublicKeyToken=null'. Sistem belirtilen dosyayı bulamıyor.
+File name: 'UserNameLayoutRenderer, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.InternalLoad(AssemblyName assemblyName, StackCrawlMark& stackMark, AssemblyLoadContext assemblyLoadContext, RuntimeAssembly requestingAssembly, Boolean throwOnFileNotFound)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(String assemblyName)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(ConfigurationItemFactory factory, String assemblyName, String itemNamePrefix)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssemblyName(String assemblyName, String prefix)
+   --- End of inner exception stack trace ---
+2023-12-09 00:59:26.2628 Info Loading assembly name: RandomPlusNumberLayoutRenderer
+2023-12-09 00:59:26.2998 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: RandomPlusNumberLayoutRenderer
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'RandomPlusNumberLayoutRenderer, Culture=neutral, PublicKeyToken=null'. Sistem belirtilen dosyayı bulamıyor.
+File name: 'RandomPlusNumberLayoutRenderer, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.InternalLoad(AssemblyName assemblyName, StackCrawlMark& stackMark, AssemblyLoadContext assemblyLoadContext, RuntimeAssembly requestingAssembly, Boolean throwOnFileNotFound)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(String assemblyName)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(ConfigurationItemFactory factory, String assemblyName, String itemNamePrefix)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssemblyName(String assemblyName, String prefix)
+   --- End of inner exception stack trace ---
+2023-12-09 00:59:26.2998 Info Loading assembly name: RandomNumbersLayoutRenderer
+2023-12-09 00:59:26.2998 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Error loading extensions: RandomNumbersLayoutRenderer
+ ---> System.IO.FileNotFoundException: Could not load file or assembly 'RandomNumbersLayoutRenderer, Culture=neutral, PublicKeyToken=null'. Sistem belirtilen dosyayı bulamıyor.
+File name: 'RandomNumbersLayoutRenderer, Culture=neutral, PublicKeyToken=null'
+   at System.Reflection.RuntimeAssembly.InternalLoad(AssemblyName assemblyName, StackCrawlMark& stackMark, AssemblyLoadContext assemblyLoadContext, RuntimeAssembly requestingAssembly, Boolean throwOnFileNotFound)
+   at System.Reflection.Assembly.Load(String assemblyString)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(String assemblyName)
+   at NLog.Config.AssemblyExtensionLoader.LoadAssemblyFromName(ConfigurationItemFactory factory, String assemblyName, String itemNamePrefix)
+   at NLog.Config.LoggingConfigurationParser.ParseExtensionWithAssemblyName(String assemblyName, String prefix)
+   --- End of inner exception stack trace ---
+2023-12-09 00:59:26.3849 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-09 00:59:26.8157 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'userName' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-09 00:59:26.8157 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'randomPlusNumber' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-09 00:59:26.8157 Warn Error has been raised. Exception: NLog.NLogConfigurationException: Failed to create LayoutRenderer with unknown type-alias: 'randomNumbers' - Verify type-alias and check extension is included.
+   at NLog.Config.FactoryExtensions.CreateInstance[TBaseType](IFactory`1 factory, String typeAlias)
+   at NLog.Layouts.LayoutParser.GetLayoutRenderer(String typeName, ConfigurationItemFactory configurationItemFactory, Nullable`1 throwConfigExceptions)
+2023-12-09 00:59:26.8157 Info Registered target NLog.Targets.DatabaseTarget(Name=SansTopuLogs)
+2023-12-09 00:59:27.0122 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-09 00:59:27.0573 Info Validating config: TargetNames=logfile, SansTopuLogs, ConfigItems=29, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-09 00:59:27.7236 Info Configuration initialized.

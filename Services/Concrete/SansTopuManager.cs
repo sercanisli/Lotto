@@ -107,9 +107,6 @@ namespace Services.Concrete
             };
             _logger.LogInfo($"User :{user}, Random PlusNumber : {randomPlusNumber}, Random Numbers : {string.Join(",", randomNumbers)}");
 
-           
-
-
             return sansTopuDto; 
         }
 

@@ -98,6 +98,7 @@ namespace Services.Concrete
             {
                 Numbers = randomNumbers,
             };
+            _logger.LogInfo($"User :{user}, Random Numbers : {string.Join(",", randomNumbers)}");
             return onNumaraDto;
         }
 
