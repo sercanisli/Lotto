@@ -4,6 +4,7 @@ using Entities.Exceptions;
 using Entities.LinkModels;
 using Entities.Models;
 using Entities.RequestFeatures;
+using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
 
@@ -15,13 +16,14 @@ namespace Services.Concrete
         private readonly ILoggerService _logger;
         private readonly IMapper _mapper;
         private readonly IOnNumaraLinks _onNumaraLinks;
-
-        public OnNumaraManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, IOnNumaraLinks onNumaraLinks)
+        private readonly UserManager<User> _userManager;
+        public OnNumaraManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, IOnNumaraLinks onNumaraLinks, UserManager<User> userManager)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
             _onNumaraLinks = onNumaraLinks;
+            _userManager = userManager;
         }
 
         public async Task<OnNumaraDto> CreateOneNumbersArrayAsync(OnNumaraDtoForInsertion onNumaraDtoForInsertion)
