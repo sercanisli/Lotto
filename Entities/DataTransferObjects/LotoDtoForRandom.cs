@@ -1,8 +1,8 @@
 ﻿namespace Entities.DataTransferObjects
 {
-    public class LotoDtoForRandom
+    public record LotoDtoForRandom
     {
-        public List<int> Numbers { get; set; }
+        public List<int> Numbers { get; init; }
         public LotoDtoForRandom()
         {
             Numbers = new List<int>();

@@ -1,12 +1,6 @@
 ﻿namespace Entities.DataTransferObjects
 {
-    public record OnNumaraDtoForRandom
+    public record OnNumaraDtoForRandom : LotoDtoForRandom
     {
-        public List<int> Numbers { get; init; }
-
-        public OnNumaraDtoForRandom()
-        {
-            Numbers = new List<int>();
-        }
     }
 }
