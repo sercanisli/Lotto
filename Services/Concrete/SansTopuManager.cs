@@ -110,7 +110,6 @@ namespace Services.Concrete
             return sansTopuDto; 
         }
 
-
         private string? GenerateRandomUserName()
         {
             string characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
