@@ -11,6 +11,8 @@ namespace Repositories.EntityFrameworkCore
         private readonly Lazy<IOnNumaraRepository> _onNumaraRepository;
         private readonly Lazy<ISansTopuRepository> _sansTopuRepository;
 
+        private readonly Lazy<ISansTopuLogsRepository> _sansTopuLogsRepository;
+
         public RepositoryManager(RepositoryContext context)
         {
             _context = context;
@@ -18,6 +20,9 @@ namespace Repositories.EntityFrameworkCore
             _sayisalLotoRepository = new Lazy<ISayisalLotoRepository>(() => new SayisalLotoRepository(_context));
             _onNumaraRepository = new Lazy<IOnNumaraRepository>(() => new  OnNumaraRepository(_context));
             _sansTopuRepository = new Lazy<ISansTopuRepository>(() => new SansTopuRepository(_context));
+
+
+            _sansTopuLogsRepository = new Lazy<ISansTopuLogsRepository>(() => new SansTopuLogsRepository(_context));
 
         }
 
@@ -29,6 +34,9 @@ namespace Repositories.EntityFrameworkCore
 
         public ISansTopuRepository SansTopu => _sansTopuRepository.Value;
 
+
+
+        public ISansTopuLogsRepository SansTopuLogs => _sansTopuLogsRepository.Value;
 
         public async Task SaveAsync() => await _context.SaveChangesAsync();
     }
