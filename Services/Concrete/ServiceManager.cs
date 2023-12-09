@@ -26,16 +26,13 @@ namespace Services.Concrete
             IOnNumaraLinks onNumaraLinks,
             ISansTopuLinks sansTopuLinks,
             UserManager<User> userManager,
-            IConfiguration configuration,
-            ISansTopuLogsService sansTopuLogsService
+            IConfiguration configuration
             )
         {
             _superLotoService = new Lazy<ISuperLotoService>(() => new SuperLotoManager(repositoryManager, logger, mapper, superLotoLinks));
             _sayisalLotoService = new Lazy<ISayisalLotoService>(() => new SayisalLotoManager(repositoryManager, logger, mapper, sayisalLotoLinks));
             _onNumaraService = new Lazy<IOnNumaraService>(() => new OnNumaraManager(repositoryManager, logger, mapper, onNumaraLinks, userManager));
-            _sansTopuService = new Lazy<ISansTopuService>(() => new SansTopuManager(repositoryManager, logger, mapper, sansTopuLinks, userManager, sansTopuLogsService));
-
-            _sansTopuLogsService = new Lazy<ISansTopuLogsService>(() => new SansTopuLogsManager(repositoryManager, mapper));
+            _sansTopuService = new Lazy<ISansTopuService>(() => new SansTopuManager(repositoryManager, logger, mapper, sansTopuLinks, userManager));
 
             _authenticationService = new Lazy<IAuthenticationService>(() => new AuthenticationManager(logger, mapper, userManager,configuration));
         }
@@ -44,9 +41,6 @@ namespace Services.Concrete
         public ISayisalLotoService SayisalLotoService => _sayisalLotoService.Value;
         public IOnNumaraService OnNumaraService => _onNumaraService.Value;
         public ISansTopuService SansTopuService => _sansTopuService.Value;
-
-
-        public ISansTopuLogsService SansTopuLogsService => _sansTopuLogsService.Value;
 
 
         public IAuthenticationService AuthenticationService => _authenticationService.Value;

@@ -7,7 +7,6 @@
         IOnNumaraService OnNumaraService { get; }
         ISansTopuService SansTopuService { get; }
 
-        ISansTopuLogsService SansTopuLogsService { get; }
 
         IAuthenticationService AuthenticationService { get; }
     }
