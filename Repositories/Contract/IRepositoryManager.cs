@@ -10,6 +10,8 @@ namespace Repositories.Cantracts
         ISansTopuRepository SansTopu { get; }
 
 
+        ISansTopuLogsRepository SansTopuLogs { get; }
+
 
         Task SaveAsync();
     }
