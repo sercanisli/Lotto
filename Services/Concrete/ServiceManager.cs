@@ -26,13 +26,14 @@ namespace Services.Concrete
             IOnNumaraLinks onNumaraLinks,
             ISansTopuLinks sansTopuLinks,
             UserManager<User> userManager,
-            IConfiguration configuration
+            IConfiguration configuration,
+            ISansTopuLogsService sansTopuLogsService
             )
         {
             _superLotoService = new Lazy<ISuperLotoService>(() => new SuperLotoManager(repositoryManager, logger, mapper, superLotoLinks));
             _sayisalLotoService = new Lazy<ISayisalLotoService>(() => new SayisalLotoManager(repositoryManager, logger, mapper, sayisalLotoLinks));
             _onNumaraService = new Lazy<IOnNumaraService>(() => new OnNumaraManager(repositoryManager, logger, mapper, onNumaraLinks, userManager));
-            _sansTopuService = new Lazy<ISansTopuService>(() => new SansTopuManager(repositoryManager, logger, mapper, sansTopuLinks, userManager));
+            _sansTopuService = new Lazy<ISansTopuService>(() => new SansTopuManager(repositoryManager, logger, mapper, sansTopuLinks, userManager, sansTopuLogsService));
 
             _sansTopuLogsService = new Lazy<ISansTopuLogsService>(() => new SansTopuLogsManager(repositoryManager, mapper));
 
