@@ -15,8 +15,6 @@ namespace Services.Concrete
         private readonly Lazy<IOnNumaraService> _onNumaraService;
         private readonly Lazy<ISansTopuService> _sansTopuService;
 
-        private readonly Lazy<ISansTopuLogsService> _sansTopuLogsService;
-
         private readonly Lazy<IAuthenticationService> _authenticationService;
         public ServiceManager(IRepositoryManager repositoryManager, 
             ILoggerService logger, 
