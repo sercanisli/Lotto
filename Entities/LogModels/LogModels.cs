@@ -1,14 +1,11 @@
-﻿using System.Text.Json;
-
-namespace Entities.LogModels
+﻿namespace Entities.LogModels
 {
-    public class SansTopuLogs
+    public class LogModels
     {
         public int Id { get; set; }
         public string UserName { get; set; }
-        public int RandomPlusNumber { get; set; }
         public List<int> RandomNumbers { get; set; }
-        public SansTopuLogs()
+        public LogModels()
         {
             RandomNumbers = new List<int>();
         }

@@ -22,30 +22,6 @@ namespace WebApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Entities.LogModels.SansTopuLogs", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("RandomNumbers")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RandomPlusNumber")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SansTopuLogs", (string)null);
-                });
-
             modelBuilder.Entity("Entities.Models.OnNumara", b =>
                 {
                     b.Property<int>("Id")
@@ -322,19 +298,19 @@ namespace WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0b9148c5-bbbe-4fa7-bd9b-346fec8a3ada",
+                            Id = "aab52cd7-f34d-4466-93a4-d9a9ee103473",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "784a9b03-fdb0-414f-b77a-d6f2009b91a2",
+                            Id = "b3d7e4b8-357b-4fb7-b6c8-21b1b33a4afe",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "94acf8fd-55fb-4b96-be25-50cfb625b7ce",
+                            Id = "60f30142-4609-486c-869a-8ef4d733689f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
