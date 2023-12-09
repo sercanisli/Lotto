@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Entities.DataTransferObjects;
+using Entities.LogModels;
 using Repositories.Cantracts;
 using Services.Contracts;
 
@@ -15,9 +16,12 @@ namespace Services.Concrete
             _mapper = mapper;
         }
 
-        public Task<SansTopuDtoForRandom> CreateLog(SansTopuDtoForRandom sansTopuDtoForRandom)
+        public async Task<SansTopuDtoForRandom> CreateLog(SansTopuDtoForRandom sansTopuDtoForRandom)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<SansTopuLogs>(sansTopuDtoForRandom);
+            _manager.SansTopuLogs.CreateLog(entity);
+            await _manager.SaveAsync();
+            return _mapper.Map<SansTopuDtoForRandom>(entity);
         }
 
         public async Task<IEnumerable<SansTopuDtoForRandom>> GetAllLogsAsync(bool trackChanges)
@@ -25,8 +29,6 @@ namespace Services.Concrete
             var logs = await _manager.SansTopuLogs.GetAllLogsAsync(trackChanges);
             var sansTopuLogs = _mapper.Map<IEnumerable<SansTopuDtoForRandom>>(logs);
             return sansTopuLogs;
-            //mapping
-            //return 
         }
     }
 }
