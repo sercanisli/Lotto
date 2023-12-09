@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Entities.DataTransferObjects;
+using Entities.LogModels;
 using Entities.Models;
 
 namespace WebApi.Utilities.AutoMapper
@@ -25,7 +26,7 @@ namespace WebApi.Utilities.AutoMapper
             CreateMap<SansTopu, SansTopuDto>().ReverseMap();
             CreateMap<SansTopuDtoForUpdate, SansTopu>().ReverseMap();
             CreateMap<SansTopuDtoForInsertion, SansTopu>().ReverseMap();
-            CreateMap<SansTopu, SansTopuDtoForRandom>().ReverseMap();
+            CreateMap<SansTopuLogs, SansTopuDtoForRandom>().ReverseMap();
         }
     }
 }

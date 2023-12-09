@@ -20,9 +20,9 @@ namespace Services.Concrete
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<SansTopuDtoForRandom>> GetAllLogsAsync(bool trackChanges)
+        public async Task<IEnumerable<SansTopuDtoForRandom>> GetAllLogsAsync(bool trackChanges)
         {
-            var logs = _manager.SansTopuLogs.FindAll(trackChanges).ToList();
+            var logs = await _manager.SansTopuLogs.GetAllLogsAsync(trackChanges);
             var sansTopuLogs = _mapper.Map<IEnumerable<SansTopuDtoForRandom>>(logs);
             return sansTopuLogs;
             //mapping
