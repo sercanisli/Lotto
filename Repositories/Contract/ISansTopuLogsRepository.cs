@@ -4,6 +4,5 @@ namespace Repositories.Contract
 {
     public interface ISansTopuLogsRepository : ILogsRepositoryBase<SansTopu>
     {
-
     }
 }
