@@ -110,6 +110,18 @@ namespace Services.Concrete
 
         }
 
+        private string? GenerateRandomUserName()
+        {
+            string characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            Random random = new Random();
+            char[] randomUserName = new char[16];
+            for (int i = 0; i < randomUserName.Length; i++)
+            {
+                randomUserName[i] = characters[random.Next(characters.Length)];
+            }
+            return new string(randomUserName);
+        }
+
         private List<int> Sort(List<int> numbers)
         {
             List<int> sortedNumbers = numbers.ToList();
