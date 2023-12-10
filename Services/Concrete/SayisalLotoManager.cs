@@ -16,13 +16,15 @@ namespace Services.Concrete
         private readonly ILoggerService _logger;
         private readonly IMapper _mapper;
         private readonly ISayisalLotoLinks _links;
+        private readonly UserManager<User> _userManager;
 
-        public SayisalLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, ISayisalLotoLinks links)
+        public SayisalLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, ISayisalLotoLinks links, UserManager<User> userManager)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
             _links = links;
+            _userManager = userManager;
         }
 
         public async Task<SayisalLotoDto> CreateOneNumbersArrayAsync(SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion)
