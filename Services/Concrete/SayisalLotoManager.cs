@@ -99,7 +99,7 @@ namespace Services.Concrete
             return sayisalLotoDto;
         }
 
-        private Task<string> GetUser(string userName)
+        private async Task<string> GetUser(string userName)
         {
             User user = new User();
             if (userName != null)

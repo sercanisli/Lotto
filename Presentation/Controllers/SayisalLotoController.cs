@@ -2,6 +2,7 @@
 using Entities.LinkModels;
 using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Presentation.ActionFilters;
 using Services.Contracts;
@@ -45,7 +46,10 @@ namespace Presentation.Controllers
         [HttpGet("GetRandomNumbersForSayisalLotoAsync", Name = "GetRandomNumbersForSayisalLotoAsync")]
         public async Task<IActionResult> GetRandomNumbersForSayisalLotoAsync()
         {
-            var numbers = await _manager.SayisalLotoService.GetRondomNumbersAsync();
+            var numbers = HttpContext.User.Identity?.Name != null ?
+                await _manager.SayisalLotoService.GetRondomNumbersAsync(HttpContext.User.Identity?.Name) :
+                await _manager.SayisalLotoService.GetRondomNumbersAsync(null);
+
             return Ok(numbers);
         }
 
