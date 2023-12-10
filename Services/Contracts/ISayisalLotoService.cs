@@ -12,6 +12,6 @@ namespace Services.Contracts
         Task<SayisalLotoDto> CreateOneNumbersArrayAsync(SayisalLotoDtoForInsertion sayisalLotoDtoForInsertion);
         Task DeleteOneNumbersArrayAsync(int id, bool trackChanges);
         Task UpdateOneNumbersArrayAsync(int id, SayisalLotoDtoForUpdate sayisalLotoDtoForUpdate, bool trackChanges);
-        Task<SayisalLotoDtoForRandom> GetRondomNumbersAsync();
+        Task<SayisalLotoDtoForRandom> GetRondomNumbersAsync(string userName);
     }
 }
