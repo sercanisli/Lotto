@@ -1,7 +1,6 @@
 ﻿using Entities.DataTransferObjects;
 using Entities.LinkModels;
 using Entities.RequestFeatures;
-using Microsoft.AspNetCore.Http;
 
 namespace Services.Contracts
 {
