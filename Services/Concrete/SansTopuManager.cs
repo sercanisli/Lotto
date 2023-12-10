@@ -106,6 +106,7 @@ namespace Services.Concrete
                 RandomNumbers = randomNumbers
             };
              _manager.SansTopuLogs.CreateLog(sansTopuLogs);
+            await _manager.SaveAsync();
             _logger.LogInfo($"User :{user}, Random PlusNumber : {randomPlusNumber}, Random Numbers : {string.Join(",", randomNumbers)}");
 
             return sansTopuDto; 

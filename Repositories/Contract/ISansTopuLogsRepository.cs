@@ -6,5 +6,6 @@ namespace Repositories.Contract
     {
         Task<IEnumerable<SansTopuLogs>> GetAllLogsAsync(bool trackChanges);
         void CreateLog(SansTopuLogs sansTopuLogs);
+
     }
 }

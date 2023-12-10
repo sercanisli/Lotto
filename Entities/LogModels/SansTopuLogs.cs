@@ -2,15 +2,8 @@
 
 namespace Entities.LogModels
 {
-    public class SansTopuLogs
+    public class SansTopuLogs :LogModels
     {
-        public int Id { get; set; }
-        public string UserName { get; set; }
         public int RandomPlusNumber { get; set; }
-        public List<int> RandomNumbers { get; set; }
-        public SansTopuLogs()
-        {
-            RandomNumbers = new List<int>();
-        }
     }
 }

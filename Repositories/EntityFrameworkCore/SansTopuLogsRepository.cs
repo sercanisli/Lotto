@@ -14,5 +14,7 @@ namespace Repositories.EntityFrameworkCore
 
         public async Task<IEnumerable<SansTopuLogs>> GetAllLogsAsync(bool trackChanges) =>
             await FindAll(trackChanges).ToListAsync();
+
+
     }
 }

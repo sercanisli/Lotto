@@ -1,5 +1,4 @@
 using AspNetCoreRateLimit;
-using Entities.DataTransferObjects;
 using Microsoft.AspNetCore.Mvc;
 using NLog;
 using Services.Contracts;
