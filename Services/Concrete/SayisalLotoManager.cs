@@ -4,6 +4,7 @@ using Entities.Exceptions;
 using Entities.LinkModels;
 using Entities.Models;
 using Entities.RequestFeatures;
+using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
 
@@ -72,8 +73,9 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<SayisalLotoDtoForRandom> GetRondomNumbersAsync()
+        public async Task<SayisalLotoDtoForRandom> GetRondomNumbersAsync(string userName)
         {
+            var user = await GetUser(userName);
             List<int> randomNumbers = new List<int>();
             int i = 0;
             do
@@ -93,6 +95,19 @@ namespace Services.Concrete
             };
 
             return sayisalLotoDto;
+        }
+
+        private Task<string> GetUser(string userName)
+        {
+            User user = new User();
+            if (userName != null)
+            {
+                user = await _userManager.FindByNameAsync(userName);
+                return user.UserName.ToString();
+            }
+            user.UserName = GenerateRandomUserName();
+            return "Guest-" + user.UserName.ToString();
+
         }
 
         private List<int> Sort(List<int> numbers)
