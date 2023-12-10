@@ -72,7 +72,7 @@ namespace Services.Concrete
             await _manager.SaveAsync();
         }
 
-        public async Task<List<int>> GetRondomNumbersAsync()
+        public async Task<SayisalLotoDtoForRandom> GetRondomNumbersAsync()
         {
             List<int> randomNumbers = new List<int>();
             int i = 0;
@@ -86,7 +86,13 @@ namespace Services.Concrete
                 }
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
-            return randomNumbers;
+
+            var sayisalLotoDto = new SayisalLotoDtoForRandom()
+            {
+                Numbers = randomNumbers
+            };
+
+            return sayisalLotoDto;
         }
 
         private List<int> Sort(List<int> numbers)
