@@ -92,7 +92,13 @@ namespace Services.Concrete
                 }
             } while (i == 0);
             randomNumbers=Sort(randomNumbers);
-            return randomNumbers;
+            var superLotoDto = new SuperLotoDtoForRandom()
+            {
+                Numbers = randomNumbers,
+            };
+
+            _logger.LogInfo($"User : {user}, Random Numbers : {string.Join(",", randomNumbers)}");
+            return superLotoDto;
         }
 
         private async Task<string> GetUser(string userName)
