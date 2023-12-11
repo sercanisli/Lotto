@@ -47,7 +47,10 @@ namespace Presentation.Controllers
 
         public async Task<IActionResult> GetRandomNumbersForSuperLotoAsync()
         {
-            var numbers = await _manager.SuperLotoService.GetRondomNumbersAsync();
+            var numbers = HttpContext.User.Identity?.Name != null ?
+                await _manager.SuperLotoService.GetRondomNumbersAsync(HttpContext.User.Identity?.Name) :
+                await _manager.SuperLotoService.GetRondomNumbersAsync(null);
+
             return Ok(numbers);
         }
 
