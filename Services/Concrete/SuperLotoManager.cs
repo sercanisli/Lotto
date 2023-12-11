@@ -4,6 +4,7 @@ using Entities.Exceptions;
 using Entities.LinkModels;
 using Entities.Models;
 using Entities.RequestFeatures;
+using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
 using System.Dynamic;
@@ -16,13 +17,15 @@ namespace Services.Concrete
         private readonly ILoggerService _logger;
         private readonly IMapper _mapper;
         private readonly ISuperLotoLinks _links;
+        private readonly UserManager<User> _userManager;
 
-        public SuperLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, ISuperLotoLinks links)
+        public SuperLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, ISuperLotoLinks links, UserManager<User> userManager)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
             _links = links;
+            _userManager = userManager;
         }
 
         public async Task<SuperLotoDto> CreateOneNumbersArrayAsync(SuperLotoDtoForInsertion superLotoDto)
