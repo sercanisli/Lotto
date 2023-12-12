@@ -2,6 +2,7 @@
 using Entities.DataTransferObjects;
 using Entities.Exceptions;
 using Entities.LinkModels;
+using Entities.LogModels;
 using Entities.Models;
 using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Identity;
@@ -98,6 +99,14 @@ namespace Services.Concrete
             {
                 Numbers = randomNumbers,
             };
+
+            var onNumaraLogs = new OnNumaraLogs()
+            {
+                UserName = user,
+                RandomNumbers = randomNumbers
+            };
+            _manager.OnNumaraLogs.CreateLog(onNumaraLogs);
+            await _manager.SaveAsync();
             _logger.LogInfo($"User :{user}, Random Numbers : {string.Join(",", randomNumbers)}");
             return onNumaraDto;
         }
