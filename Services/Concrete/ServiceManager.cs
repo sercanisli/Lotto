@@ -2,6 +2,7 @@
 using Entities.DataTransferObjects;
 using Entities.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
 using Repositories.Cantracts;
 using Services.Contracts;
@@ -16,20 +17,21 @@ namespace Services.Concrete
         private readonly Lazy<ISansTopuService> _sansTopuService;
 
         private readonly Lazy<IAuthenticationService> _authenticationService;
-        public ServiceManager(IRepositoryManager repositoryManager, 
-            ILoggerService logger, 
-            IMapper mapper, 
-            ISuperLotoLinks superLotoLinks, 
+        public ServiceManager(IRepositoryManager repositoryManager,
+            ILoggerService logger,
+            IMapper mapper,
+            ISuperLotoLinks superLotoLinks,
             ISayisalLotoLinks sayisalLotoLinks,
             IOnNumaraLinks onNumaraLinks,
             ISansTopuLinks sansTopuLinks,
             UserManager<User> userManager,
-            IConfiguration configuration
+            IConfiguration configuration,
+            IDistributedCache cache
             )
         {
             _superLotoService = new Lazy<ISuperLotoService>(() => new SuperLotoManager(repositoryManager, logger, mapper, superLotoLinks, userManager));
             _sayisalLotoService = new Lazy<ISayisalLotoService>(() => new SayisalLotoManager(repositoryManager, logger, mapper, sayisalLotoLinks, userManager));
-            _onNumaraService = new Lazy<IOnNumaraService>(() => new OnNumaraManager(repositoryManager, logger, mapper, onNumaraLinks, userManager));
+            _onNumaraService = new Lazy<IOnNumaraService>(() => new OnNumaraManager(repositoryManager, logger, mapper, onNumaraLinks, userManager, cache));
             _sansTopuService = new Lazy<ISansTopuService>(() => new SansTopuManager(repositoryManager, logger, mapper, sansTopuLinks, userManager));
 
             _authenticationService = new Lazy<IAuthenticationService>(() => new AuthenticationManager(logger, mapper, userManager,configuration));

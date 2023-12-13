@@ -41,6 +41,7 @@ builder.Services.ConfigureDataShaperEntities();
 builder.Services.AddCustomMediaTypes();
 builder.Services.ConfigureLinks();
 builder.Services.ConfigureResponseCaching();
+builder.Services.ConfigureDistributedCaching(builder.Configuration);
 builder.Services.AddMemoryCache();
 builder.Services.ConfigureRateLimitingOptions();
 builder.Services.AddHttpContextAccessor();

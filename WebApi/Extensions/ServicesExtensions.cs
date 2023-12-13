@@ -112,6 +112,15 @@ namespace WebApi.Extensions
             services.AddResponseCaching();
         }
 
+        public static void ConfigureDistributedCaching(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddStackExchangeRedisCache(redisOptions =>
+            {
+                string connection = configuration.GetConnectionString("redis");
+                redisOptions.Configuration = connection;
+            });
+        }
+
         public static void ConfigureRateLimitingOptions(this IServiceCollection services)
         {
             var rateLimitRules = new List<RateLimitRule>()
