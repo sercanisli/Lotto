@@ -119,6 +119,7 @@ namespace WebApi.Extensions
                 string connection = configuration.GetConnectionString("redis");
                 redisOptions.Configuration = connection;
             });
+            services.AddScoped<ICacheService, CacheManager>();
         }
 
         public static void ConfigureRateLimitingOptions(this IServiceCollection services)

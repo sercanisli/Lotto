@@ -20,8 +20,8 @@ namespace Services.Concrete
         private readonly IMapper _mapper;
         private readonly IOnNumaraLinks _onNumaraLinks;
         private readonly UserManager<User> _userManager;
-        private readonly IDistributedCache _cache;
-        public OnNumaraManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, IOnNumaraLinks onNumaraLinks, UserManager<User> userManager, IDistributedCache cache)
+        private readonly ICacheService _cache;
+        public OnNumaraManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, IOnNumaraLinks onNumaraLinks, UserManager<User> userManager, ICacheService cache)
         {
             _manager = manager;
             _logger = logger;

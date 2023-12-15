@@ -26,7 +26,7 @@ namespace Services.Concrete
             ISansTopuLinks sansTopuLinks,
             UserManager<User> userManager,
             IConfiguration configuration,
-            IDistributedCache cache
+            ICacheService cache
             )
         {
             _superLotoService = new Lazy<ISuperLotoService>(() => new SuperLotoManager(repositoryManager, logger, mapper, superLotoLinks, userManager));
