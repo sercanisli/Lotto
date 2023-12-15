@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Entities.CacheModels;
+using Entities.LinkModels;
+using Entities.RequestFeatures;
+using Microsoft.Extensions.Configuration;
 using Services.Contracts;
 using StackExchange.Redis;
 using System.Text.Json;
@@ -12,7 +15,7 @@ namespace Services.Concrete
 
         public CacheManager()
         {
-            var redis = ConnectionMultiplexer.Connect(configuration.GetConnectionString("redis"));
+            var redis = ConnectionMultiplexer.Connect("localhost:6379");
             _cacheDb = redis.GetDatabase();
         }
 
@@ -25,6 +28,24 @@ namespace Services.Concrete
             }
             return default;
         }
+
+        //public CacheData<T> GetDatas<T>(string key)
+        //{
+        //    var value = _cacheDb.StringGet(key);
+        //    if (!value.IsNullOrEmpty)
+        //    {
+        //        return new CacheData<T>()
+        //        { 
+        //            Entity = JsonSerializer.Deserialize<T>(value), 
+        //            LinkResponse = value
+        //        };
+        //    }
+        //    return new CacheData<T>()
+        //    { 
+        //        Data = default, 
+        //        IsCached = false 
+        //    };
+        //}
 
         public object RemoveData(string key)
         {

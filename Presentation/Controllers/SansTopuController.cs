@@ -51,7 +51,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
-        [ResponseCache(CacheProfileName = "5mins")]
+        //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSansTopuAsync([FromRoute(Name = "id")] int id)
         {
             var entity = await _manager.SansTopuService.GetOneNumbersArrayByIdAsync(id, false);

@@ -23,7 +23,7 @@ namespace Presentation.Controllers
 
         [HttpHead]
         [HttpGet(Name = "GetAllNumbersArrayForOnNumaraAsync")]
-        [ResponseCache(CacheProfileName = "5mins")]
+        //[ResponseCache(CacheProfileName = "5mins")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayForOnNumaraAsync([FromQuery]OnNumaraParameters onNumaraParameters)
         {
