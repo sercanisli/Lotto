@@ -38,7 +38,8 @@ namespace Services.Concrete
 
         public bool SetData<T>(string key, T value, DateTimeOffset expirationTime)
         {
-            throw new NotImplementedException();
+            var expirtyTime = expirationTime.DateTime.Subtract(DateTime.Now);
+            return _cacheDb.StringSet(key, JsonSerializer.Serialize(value), expirtyTime);
         }
     }
 }
