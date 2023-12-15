@@ -28,7 +28,12 @@ namespace Services.Concrete
 
         public object RemoveData(string key)
         {
-            throw new NotImplementedException();
+            var _exist = _cacheDb.KeyExists(key);
+            if(_exist)
+            {
+                return _cacheDb.KeyDelete(key);
+            }
+            return false;
         }
 
         public bool SetData<T>(string key, T value, DateTimeOffset expirationTime)
