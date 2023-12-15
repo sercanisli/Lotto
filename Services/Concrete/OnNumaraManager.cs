@@ -56,25 +56,7 @@ namespace Services.Concrete
 
         public async Task<OnNumaraDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges, CancellationToken cancellationToken = default)
         {
-            OnNumara entity;
-            string key = $"{id}";
-            string? cachedEntity = await _cache.GetStringAsync(key, cancellationToken);
-            if (string.IsNullOrEmpty(cachedEntity))
-            {
-                entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
-                if(entity == null)
-                {
-                    return _mapper.Map<OnNumaraDto>(entity);
-                }
-                await _cache.SetStringAsync(key,
-                    JsonConvert.SerializeObject(entity),
-                    cancellationToken);
-                return _mapper.Map<OnNumaraDto>(entity); 
-            }
-            entity = JsonConvert.DeserializeObject<OnNumara>(cachedEntity, new JsonSerializerSettings
-            {
-                ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
-            });
+            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             return _mapper.Map<OnNumaraDto>(entity);
         }
 
