@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Entities.CacheModels;
 using Entities.DataTransferObjects;
 using Entities.Exceptions;
 using Entities.LinkModels;
@@ -47,21 +46,32 @@ namespace Services.Concrete
 
         public async Task<(LinkResponse linkResponse, MetaData metaData)> GetAllNumbersArraysAsync(LinkParameters<OnNumaraParameters> linkParameters, bool trackChanges)
         {
-            var cachedData = _cache.GetData<List<OnNumara>>("entities");
-            if (cachedData != null && cachedData.Count() > 0)
+            var page = _cache.GetData<LinkParametersDtoForCache>("page");
+            if(page!=null && page.PageNumber == linkParameters.Parameters.PageNumber && page.PageSize == linkParameters.Parameters.PageSize)
             {
-                var cachedDtos = _mapper.Map<IEnumerable<OnNumaraDto>>(cachedData);
-                var cachedLinks = _onNumaraLinks.TryGenerateLinks(cachedDtos, linkParameters.Parameters.Fields, linkParameters.HttpContext);
-                PagedList<OnNumara> pagedList = new PagedList<OnNumara>(cachedData, cachedData.Count(), linkParameters.Parameters.PageNumber, linkParameters.Parameters.PageSize );
-                return (linkResponse: cachedLinks, metaData: pagedList.MetaData);
+                var cachedData = _cache.GetData<List<OnNumara>>("entities");
+                if (cachedData != null && cachedData.Count() > 0)
+                {
+                    var cachedDtos = _mapper.Map<IEnumerable<OnNumaraDto>>(cachedData);
+                    var cachedLinks = _onNumaraLinks.TryGenerateLinks(cachedDtos, linkParameters.Parameters.Fields, linkParameters.HttpContext);
+                    PagedList<OnNumara> pagedList = new PagedList<OnNumara>(cachedData, cachedData.Count(), linkParameters.Parameters.PageNumber, linkParameters.Parameters.PageSize);
+                    return (linkResponse: cachedLinks, metaData: pagedList.MetaData);
+                }
             }
 
             var entitiesWithMetaData = await _manager.OnNumara.GetAllNumbersArrayAsync(linkParameters.Parameters, trackChanges);
             var dtos = _mapper.Map<IEnumerable<OnNumaraDto>>(entitiesWithMetaData);
             var links = _onNumaraLinks.TryGenerateLinks(dtos, linkParameters.Parameters.Fields, linkParameters.HttpContext);
 
+            LinkParametersDtoForCache linkParametersDtoForCache = new LinkParametersDtoForCache()
+            {
+                PageSize = linkParameters.Parameters.PageSize,
+                PageNumber = linkParameters.Parameters.PageNumber
+            };
+
             var expiryTime = DateTimeOffset.Now.AddSeconds(120);
             _cache.SetData("entities", entitiesWithMetaData, expiryTime);
+            _cache.SetData("page", linkParametersDtoForCache, expiryTime);
 
             return (linkResponse: links, metaData: entitiesWithMetaData.MetaData);
         }

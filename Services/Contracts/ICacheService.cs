@@ -1,8 +1,4 @@
-﻿using Entities.CacheModels;
-using Entities.LinkModels;
-using Entities.RequestFeatures;
-
-namespace Services.Contracts
+﻿namespace Services.Contracts
 {
     public interface ICacheService
     {
