@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Entities.DataTransferObjects;
+using Entities.LinkModels;
 using Entities.LogModels;
 using Entities.Models;
+using Entities.RequestFeatures;
 
 namespace WebApi.Utilities.AutoMapper
 {

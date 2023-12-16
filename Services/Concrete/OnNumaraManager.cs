@@ -47,11 +47,13 @@ namespace Services.Concrete
 
         public async Task<(LinkResponse linkResponse, MetaData metaData)> GetAllNumbersArraysAsync(LinkParameters<OnNumaraParameters> linkParameters, bool trackChanges)
         {
-            var cachedData = _cache.GetData<IEnumerable<CacheData>>("entities");
-            if(cachedData != null && cachedData.Count()>0) 
+            var cachedData = _cache.GetData<List<OnNumara>>("entities");
+            if (cachedData != null && cachedData.Count() > 0)
             {
-                var cache = _mapper.Map<(LinkResponse, MetaData)>(cachedData);
-                return cache;
+                var cachedDtos = _mapper.Map<IEnumerable<OnNumaraDto>>(cachedData);
+                var cachedLinks = _onNumaraLinks.TryGenerateLinks(cachedDtos, linkParameters.Parameters.Fields, linkParameters.HttpContext);
+                PagedList<OnNumara> pagedList = new PagedList<OnNumara>(cachedData, cachedData.Count(), linkParameters.Parameters.PageNumber, linkParameters.Parameters.PageSize );
+                return (linkResponse: cachedLinks, metaData: pagedList.MetaData);
             }
 
             var entitiesWithMetaData = await _manager.OnNumara.GetAllNumbersArrayAsync(linkParameters.Parameters, trackChanges);
@@ -59,7 +61,7 @@ namespace Services.Concrete
             var links = _onNumaraLinks.TryGenerateLinks(dtos, linkParameters.Parameters.Fields, linkParameters.HttpContext);
 
             var expiryTime = DateTimeOffset.Now.AddSeconds(120);
-            _cache.SetData("entities", (links, entitiesWithMetaData.MetaData), expiryTime);
+            _cache.SetData("entities", entitiesWithMetaData, expiryTime);
 
             return (linkResponse: links, metaData: entitiesWithMetaData.MetaData);
         }
@@ -67,15 +69,15 @@ namespace Services.Concrete
         public async Task<OnNumaraDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges, CancellationToken cancellationToken = default)
         {
             var cachedData = _cache.GetData<OnNumara>("entity");
-            if(cachedData != null)
+            if (cachedData != null)
             {
                 var cache = _mapper.Map<OnNumaraDto>(cachedData);
                 return cache;
             }
-           cachedData = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
+            cachedData = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
 
             var expiryTime = DateTimeOffset.Now.AddSeconds(120);
-            _cache.SetData("entity", cachedData , expiryTime);
+            _cache.SetData("entity", cachedData, expiryTime);
 
             return _mapper.Map<OnNumaraDto>(cachedData);
         }
