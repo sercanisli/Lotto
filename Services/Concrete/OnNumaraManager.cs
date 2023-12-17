@@ -43,6 +43,7 @@ namespace Services.Concrete
         {
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             _manager.OnNumara.DeleteOneNumbersArray(entity);
+            _cache.RemoveData($"entity-{id}");
             await _manager.SaveAsync();
         }
 
@@ -89,7 +90,7 @@ namespace Services.Concrete
             cachedData = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
 
             var expiryTime = DateTimeOffset.Now.AddSeconds(120);
-            _cache.SetData("entity", cachedData, expiryTime);
+            _cache.SetData($"entity-{id}", cachedData, expiryTime);
 
             return _mapper.Map<OnNumaraDto>(cachedData);
         }
