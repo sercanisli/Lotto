@@ -34,6 +34,8 @@ namespace Services.Concrete
             var entity = _mapper.Map<OnNumara>(onNumaraDtoForInsertion);
             _manager.OnNumara.CreateOneNumbersArray(entity);
             await _manager.SaveAsync();
+            var expriyTime = DateTimeOffset.Now.AddSeconds(120);
+            _cache.SetData<OnNumara>($"entity-{entity.Id}", entity, expriyTime);
             return _mapper.Map<OnNumaraDto>(entity);
         }
 
@@ -78,7 +80,7 @@ namespace Services.Concrete
 
         public async Task<OnNumaraDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges, CancellationToken cancellationToken = default)
         {
-            var cachedData = _cache.GetData<OnNumara>("entity");
+            var cachedData = _cache.GetData<OnNumara>($"entity-{id}");
             if (cachedData != null)
             {
                 var cache = _mapper.Map<OnNumaraDto>(cachedData);
