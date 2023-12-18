@@ -19,14 +19,15 @@ namespace Services.Concrete
         private readonly IMapper _mapper;
         private readonly ISansTopuLinks _sansTopuLinks;
         private readonly UserManager<User> _userManager;
-
-        public SansTopuManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, ISansTopuLinks sansTopuLinks, UserManager<User> userManager)
+        private readonly ICacheService _cache;
+        public SansTopuManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, ISansTopuLinks sansTopuLinks, UserManager<User> userManager, ICacheService cache)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
             _sansTopuLinks = sansTopuLinks;
             _userManager = userManager;
+            _cache = cache;
         }
 
         public async Task<SansTopuDto> CreateOneNumbersArrayAsync(SansTopuDtoForInsertion sansTopuDtoForInsertion)
