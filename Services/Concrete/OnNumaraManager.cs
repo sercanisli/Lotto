@@ -97,12 +97,23 @@ namespace Services.Concrete
 
         public async Task<OnNumaraDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
         {
+            var day = date.Day;
+            var mounth = date.Month;
+            var year = date.Year;
+            var newdate = $"{day}/{mounth}/{year}";
+            var cachedData = _cache.GetData<OnNumara>($"onnumara-entity-{newdate}");
+            if(cachedData != null)
+            {
+                return _mapper.Map<OnNumaraDto>(cachedData);
+            }
             var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             var entityDate = entities.Where(e => e.Date == date).FirstOrDefault();
             if (entityDate == null)
             {
                 throw new OnNumaraDateNotFoundException(Convert.ToDateTime(date));
             }
+            var expiryTime = DateTimeOffset.Now.AddSeconds(120);
+            _cache.SetData($"onnumara-entity-{newdate}", entityDate, expiryTime);
             return entityDate;
         }
 

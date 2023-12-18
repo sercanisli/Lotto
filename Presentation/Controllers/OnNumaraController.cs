@@ -62,7 +62,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("GetOneNumbersArrayByDateForOnNumaraAsync", Name = "GetOneNumbersArrayByDateForOnNumaraAsync")]
-        [ResponseCache(CacheProfileName = "5mins")]
+        //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByDateForOnNumaraAsync([FromQuery]DateTime date)
         {
             var entity = await _manager.OnNumaraService.GetOneNumbersArrayByDateAsync(date, false);
