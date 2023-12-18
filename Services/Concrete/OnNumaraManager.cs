@@ -115,6 +115,8 @@ namespace Services.Concrete
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             entity = _mapper.Map<OnNumara>(onNumaraDtoForUpdate);
             _manager.OnNumara.UpdateOneNumbersArray(entity);
+            var expriyTime = DateTimeOffset.Now.AddSeconds(120);
+            _cache.SetData<OnNumara>($"onnumara-entity-{entity.Id}", entity, expriyTime);
             await _manager.SaveAsync();
         }
 
