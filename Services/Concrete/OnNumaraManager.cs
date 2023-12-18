@@ -97,11 +97,8 @@ namespace Services.Concrete
 
         public async Task<OnNumaraDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
         {
-            var day = date.Day;
-            var mounth = date.Month;
-            var year = date.Year;
-            var newdate = $"{day}/{mounth}/{year}";
-            var cachedData = _cache.GetData<OnNumara>($"onnumara-entity-{newdate}");
+            var formatedDate = FormatDate(date);
+            var cachedData = _cache.GetData<OnNumara>($"onnumara-entity-{formatedDate}");
             if(cachedData != null)
             {
                 return _mapper.Map<OnNumaraDto>(cachedData);
@@ -113,7 +110,7 @@ namespace Services.Concrete
                 throw new OnNumaraDateNotFoundException(Convert.ToDateTime(date));
             }
             var expiryTime = DateTimeOffset.Now.AddSeconds(120);
-            _cache.SetData($"onnumara-entity-{newdate}", entityDate, expiryTime);
+            _cache.SetData($"onnumara-entity-{formatedDate}", entityDate, expiryTime);
             return entityDate;
         }
 
@@ -257,6 +254,12 @@ namespace Services.Concrete
             return entity;
         }
 
-
+        private string FormatDate(DateTime date)
+        {
+            var day = date.Day;
+            var month = date.Month;
+            var year = date.Year;
+            return $"{day}/{month}/{year}";
+        }
     }
 }
