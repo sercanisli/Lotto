@@ -35,7 +35,7 @@ namespace Services.Concrete
             _manager.OnNumara.CreateOneNumbersArray(entity);
             await _manager.SaveAsync();
             var expriyTime = DateTimeOffset.Now.AddSeconds(120);
-            _cache.SetData<OnNumara>($"entity-{entity.Id}", entity, expriyTime);
+            _cache.SetData<OnNumara>($"onnumara-entity-{entity.Id}", entity, expriyTime);
             return _mapper.Map<OnNumaraDto>(entity);
         }
 
@@ -43,16 +43,16 @@ namespace Services.Concrete
         {
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             _manager.OnNumara.DeleteOneNumbersArray(entity);
-            _cache.RemoveData($"entity-{id}");
+            _cache.RemoveData($"onnumara-entity-{id}");
             await _manager.SaveAsync();
         }
 
         public async Task<(LinkResponse linkResponse, MetaData metaData)> GetAllNumbersArraysAsync(LinkParameters<OnNumaraParameters> linkParameters, bool trackChanges)
         {
-            var page = _cache.GetData<LinkParametersDtoForCache>("page");
+            var page = _cache.GetData<LinkParametersDtoForCache>("onnumara-page");
             if(page!=null && page.PageNumber == linkParameters.Parameters.PageNumber && page.PageSize == linkParameters.Parameters.PageSize)
             {
-                var cachedData = _cache.GetData<List<OnNumara>>("entities");
+                var cachedData = _cache.GetData<List<OnNumara>>("onnumara-entities");
                 if (cachedData != null && cachedData.Count() > 0)
                 {
                     var cachedDtos = _mapper.Map<IEnumerable<OnNumaraDto>>(cachedData);
@@ -73,15 +73,15 @@ namespace Services.Concrete
             };
 
             var expiryTime = DateTimeOffset.Now.AddSeconds(120);
-            _cache.SetData("entities", entitiesWithMetaData, expiryTime);
-            _cache.SetData("page", linkParametersDtoForCache, expiryTime);
+            _cache.SetData("onnumara-entities", entitiesWithMetaData, expiryTime);
+            _cache.SetData("onnumara-page", linkParametersDtoForCache, expiryTime);
 
             return (linkResponse: links, metaData: entitiesWithMetaData.MetaData);
         }
 
         public async Task<OnNumaraDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges, CancellationToken cancellationToken = default)
         {
-            var cachedData = _cache.GetData<OnNumara>($"entity-{id}");
+            var cachedData = _cache.GetData<OnNumara>($"onnumara-entity-{id}");
             if (cachedData != null)
             {
                 var cache = _mapper.Map<OnNumaraDto>(cachedData);
@@ -90,7 +90,7 @@ namespace Services.Concrete
             cachedData = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
 
             var expiryTime = DateTimeOffset.Now.AddSeconds(120);
-            _cache.SetData($"entity-{id}", cachedData, expiryTime);
+            _cache.SetData($"onnumara-entity-{id}", cachedData, expiryTime);
 
             return _mapper.Map<OnNumaraDto>(cachedData);
         }
