@@ -66,8 +66,17 @@ namespace Services.Concrete
 
         public async Task<SansTopuDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
-            var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
-            return _mapper.Map<SansTopuDto>(entity);
+            var cachedData = _cache.GetData<SansTopu>($"sanstopu-entity-{id}");
+            if (cachedData != null)
+            {
+                return _mapper.Map<SansTopuDto>(cachedData);
+            }
+            cachedData = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
+
+            var expiryTime = DateTimeOffset.Now.AddSeconds(120);
+            _cache.SetData($"sanstopu-entity-{id}", cachedData, expiryTime);
+
+            return _mapper.Map<SansTopuDto>(cachedData);
         }
 
         public async Task UpdateOneNumbersArrayAsync(int id, SansTopuDtoForUpdate sansTopuDtoForUpdate, bool trackChanges)
