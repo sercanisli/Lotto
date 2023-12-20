@@ -73,8 +73,7 @@ namespace Services.Concrete
             }
             cachedData = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
 
-            var expiryTime = DateTimeOffset.Now.AddSeconds(120);
-            _cache.SetData($"sanstopu-entity-{id}", cachedData, expiryTime);
+            SetCache<SansTopu>($"sanstopu-entity-{id}", cachedData);
 
             return _mapper.Map<SansTopuDto>(cachedData);
         }
@@ -233,6 +232,12 @@ namespace Services.Concrete
         {
             var entities = await _manager.SansTopu.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             return _mapper.Map<IEnumerable<SansTopuDto>>(entities);
+        }
+
+        private void SetCache<T>(string key, T value)
+        {
+            var expiryTime = DateTimeOffset.Now.AddSeconds(120);
+            _cache.SetData(key , value, expiryTime);
         }
     }
 }
