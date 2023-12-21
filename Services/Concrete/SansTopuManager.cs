@@ -77,12 +77,20 @@ namespace Services.Concrete
 
         public async Task<SansTopuDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
         {
+            var formatedDate = FormatDate(date);
+            var cachedData = _cache.GetData<SansTopu>($"sanstopu-entity-{formatedDate}");
+            if(cachedData!=null)
+            {
+                return _mapper.Map<SansTopuDto>(cachedData);
+            }
             var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             var entityDate = entities.Where(e => e.Date == date).FirstOrDefault();
             if (entityDate == null)
             {
                 throw new SansTopuDateNotFoundException(Convert.ToDateTime(date));
             }
+            var reMappedEntity = _mapper.Map<SansTopu>(entityDate);
+            SetCache<SansTopu>($"sanstopu-entity-{formatedDate}", reMappedEntity);
             return entityDate;
         }
 
@@ -260,6 +268,14 @@ namespace Services.Concrete
         {
             var expiryTime = DateTimeOffset.Now.AddSeconds(120);
             _cache.SetData(key , value, expiryTime);
+        }
+
+        private string FormatDate(DateTime date)
+        {
+            var day = date.Day;
+            var month = date.Month;
+            var year = date.Year;
+            return $"{day}/{month}/{year}";
         }
     }
 }
