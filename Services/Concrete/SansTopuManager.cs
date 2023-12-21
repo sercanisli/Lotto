@@ -42,6 +42,7 @@ namespace Services.Concrete
         {
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             _manager.SansTopu.DeleteOneNumbersArray(entity);
+            _cache.RemoveData($"sanstopu-entity-{id}");
             await _manager.SaveAsync();
         }
 
