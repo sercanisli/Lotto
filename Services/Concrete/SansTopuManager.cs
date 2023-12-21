@@ -8,7 +8,6 @@ using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
-using System.Text.Json;
 
 namespace Services.Concrete
 {
@@ -114,6 +113,7 @@ namespace Services.Concrete
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             entity = _mapper.Map<SansTopu>(sansTopuDtoForUpdate);
             _manager.SansTopu.Update(entity);
+            SetCache<SansTopu>($"sanstopu-entity-{id}", entity);
             await _manager.SaveAsync();
         }
 

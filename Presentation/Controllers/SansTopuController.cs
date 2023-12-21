@@ -22,7 +22,7 @@ namespace Presentation.Controllers
 
         [HttpHead]
         [HttpGet(Name = "GetAllNumbersArrayForSansTopuAsync")]
-        [ResponseCache(CacheProfileName = "5mins")]
+        //[ResponseCache(CacheProfileName = "5mins")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayForSansTopuAsync([FromQuery] SansTopuParameters sansTopuParameters)
         {
