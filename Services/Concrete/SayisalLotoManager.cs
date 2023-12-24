@@ -54,7 +54,15 @@ namespace Services.Concrete
 
         public async Task<SayisalLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
+            var cachedData = _cache.GetData<SayisalLoto>($"sayisalloto-entity-{id}");
+            if(cachedData != null)
+            {
+                return _mapper.Map<SayisalLotoDto>(cachedData);
+            }
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
+
+            SetCache<SayisalLoto>($"sayisalloto-entity-{id}", entity);
+
             return _mapper.Map<SayisalLotoDto>(entity);
         }
 
