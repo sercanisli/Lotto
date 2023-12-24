@@ -195,5 +195,11 @@ namespace Services.Concrete
             var entities = await _manager.SayisalLoto.GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             return _mapper.Map<IEnumerable<SayisalLotoDto>>(entities);
         }
+
+        private void SetCache<T>(string key, T value)
+        {
+            var expiryTime = DateTimeOffset.Now.AddSeconds(120);
+            _cache.SetData(key, value, expiryTime);
+        }
     }
 }
