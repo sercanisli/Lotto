@@ -107,8 +107,8 @@ namespace Services.Concrete
             {
                 throw new OnNumaraDateNotFoundException(Convert.ToDateTime(date));
             }
-            var expiryTime = DateTimeOffset.Now.AddSeconds(120);
-            _cache.SetData($"onnumara-entity-{formatedDate}", entityDate, expiryTime);
+            var reMappedEntity = _mapper.Map<OnNumara>(entityDate);
+            SetCache<OnNumara>($"sanstopu-entity-{formatedDate}", reMappedEntity);
             return entityDate;
         }
 
