@@ -88,8 +88,7 @@ namespace Services.Concrete
             }
             cachedData = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
 
-            var expiryTime = DateTimeOffset.Now.AddSeconds(120);
-            _cache.SetData($"onnumara-entity-{id}", cachedData, expiryTime);
+            SetCache<OnNumara>($"onnumara-entity-{id}", cachedData);
 
             return _mapper.Map<OnNumaraDto>(cachedData);
         }
