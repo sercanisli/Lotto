@@ -254,6 +254,12 @@ namespace Services.Concrete
             return entity;
         }
 
+        private void SetCache<T>(string key, T value)
+        {
+            var expiryTime = DateTimeOffset.Now.AddSeconds(120);
+            _cache.SetData(key, value, expiryTime);
+        }
+
         private string FormatDate(DateTime date)
         {
             var day = date.Day;
