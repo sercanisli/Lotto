@@ -108,7 +108,7 @@ namespace Services.Concrete
                 throw new OnNumaraDateNotFoundException(Convert.ToDateTime(date));
             }
             var reMappedEntity = _mapper.Map<OnNumara>(entityDate);
-            SetCache<OnNumara>($"sanstopu-entity-{formatedDate}", reMappedEntity);
+            SetCache<OnNumara>($"onnumara-entity-{formatedDate}", reMappedEntity);
             return entityDate;
         }
 
@@ -121,8 +121,7 @@ namespace Services.Concrete
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             entity = _mapper.Map<OnNumara>(onNumaraDtoForUpdate);
             _manager.OnNumara.UpdateOneNumbersArray(entity);
-            var expriyTime = DateTimeOffset.Now.AddSeconds(120);
-            _cache.SetData<OnNumara>($"onnumara-entity-{entity.Id}", entity, expriyTime);
+            SetCache<OnNumara>($"onnumara-entity-{id}", entity);
             await _manager.SaveAsync();
         }
 
