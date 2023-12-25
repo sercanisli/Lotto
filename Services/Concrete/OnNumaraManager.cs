@@ -72,9 +72,8 @@ namespace Services.Concrete
                 PageNumber = linkParameters.Parameters.PageNumber
             };
 
-            var expiryTime = DateTimeOffset.Now.AddSeconds(120);
-            _cache.SetData("onnumara-entities", entitiesWithMetaData, expiryTime);
-            _cache.SetData("onnumara-page", linkParametersDtoForCache, expiryTime);
+            SetCache<PagedList<OnNumara>>("onnumara-entities", entitiesWithMetaData);
+            SetCache<LinkParametersDtoForCache>("onnumara-page", linkParametersDtoForCache);
 
             return (linkResponse: links, metaData: entitiesWithMetaData.MetaData);
         }
