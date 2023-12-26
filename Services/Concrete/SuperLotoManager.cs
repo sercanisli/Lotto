@@ -18,14 +18,16 @@ namespace Services.Concrete
         private readonly IMapper _mapper;
         private readonly ISuperLotoLinks _links;
         private readonly UserManager<User> _userManager;
+        private readonly ICacheService _cache;
 
-        public SuperLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, ISuperLotoLinks links, UserManager<User> userManager)
+        public SuperLotoManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, ISuperLotoLinks links, UserManager<User> userManager, ICacheService cache)
         {
             _manager = manager;
             _logger = logger;
             _mapper = mapper;
             _links = links;
             _userManager = userManager;
+            _cache = cache;
         }
 
         public async Task<SuperLotoDto> CreateOneNumbersArrayAsync(SuperLotoDtoForInsertion superLotoDto)

@@ -29,7 +29,7 @@ namespace Services.Concrete
             ICacheService cache
             )
         {
-            _superLotoService = new Lazy<ISuperLotoService>(() => new SuperLotoManager(repositoryManager, logger, mapper, superLotoLinks, userManager));
+            _superLotoService = new Lazy<ISuperLotoService>(() => new SuperLotoManager(repositoryManager, logger, mapper, superLotoLinks, userManager, cache));
             _sayisalLotoService = new Lazy<ISayisalLotoService>(() => new SayisalLotoManager(repositoryManager, logger, mapper, sayisalLotoLinks, userManager, cache));
             _onNumaraService = new Lazy<IOnNumaraService>(() => new OnNumaraManager(repositoryManager, logger, mapper, onNumaraLinks, userManager, cache));
             _sansTopuService = new Lazy<ISansTopuService>(() => new SansTopuManager(repositoryManager, logger, mapper, sansTopuLinks, userManager, cache));
