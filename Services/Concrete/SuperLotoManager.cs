@@ -47,9 +47,30 @@ namespace Services.Concrete
 
         public async Task<(LinkResponse linkResponse, MetaData metaData)> GetAllNumbersArraysAsync(LinkParameters<SuperLotoParameters> linkParameters, bool trackChanges)
         {
+            var page = _cache.GetData<LinkParametersDtoForCache>("superloto-page");
+            if(page!=null && page.PageNumber==linkParameters.Parameters.PageNumber && page.PageSize == linkParameters.Parameters.PageSize)
+            {
+                var cachedData = _cache.GetData<List<SuperLoto>>("superloto-entities");
+                if(cachedData != null && cachedData.Count() > 0)
+                {
+                    var cachedDtos = _mapper.Map<IEnumerable<SuperLotoDto>>(cachedData);
+                    var cachedLinks = _links.TryGenerateLinks(cachedDtos, linkParameters.Parameters.Fields, linkParameters.HttpContext);
+                    PagedList<SuperLoto> pagedList = new PagedList<SuperLoto>(cachedData, cachedData.Count(), linkParameters.Parameters.PageNumber, linkParameters.Parameters.PageSize);
+                    return (linkResponse: cachedLinks, metaData: pagedList.MetaData);
+                }
+            }
             var entitiesWithMetaData = await _manager.SuperLoto.GetAllNumbersArrayAsync(linkParameters.Parameters, trackChanges);
             var sLDto = _mapper.Map<IEnumerable<SuperLotoDto>>(entitiesWithMetaData);
             var links = _links.TryGenerateLinks(sLDto, linkParameters.Parameters.Fields, linkParameters.HttpContext);
+
+            LinkParametersDtoForCache linkParametersDtoForCache = new LinkParametersDtoForCache()
+            {
+                PageSize = linkParameters.Parameters.PageSize,
+                PageNumber = linkParameters.Parameters.PageNumber
+            };
+
+            
+
             return (linkResponse:links, metaData: entitiesWithMetaData.MetaData);
         }
 
