@@ -46,9 +46,31 @@ namespace Services.Concrete
 
         public async Task<(LinkResponse linkResponse, MetaData metaData)> GetAllNumbersArraysAsync(LinkParameters<SayisalLotoParameters> linkParameters, bool trackChanges)
         {
+            var page = _cache.GetData<LinkParametersDtoForCache>("sayisalloto-page");
+            if(page != null && page.PageNumber == linkParameters.Parameters.PageNumber && page.PageSize == linkParameters.Parameters.PageSize)
+            {
+                var cachedData = _cache.GetData<List<SayisalLoto>>("sayisalloto-entities");
+                if(cachedData != null && cachedData.Count() > 0)
+                {
+                    var cachedDtos = _mapper.Map<IEnumerable<SayisalLotoDto>>(cachedData);
+                    var cachedLinks = _links.TryGenerateLinks(cachedDtos, linkParameters.Parameters.Fields, linkParameters.HttpContext);
+                    PagedList<SayisalLoto> pagedList = new PagedList<SayisalLoto>(cachedData, cachedData.Count(), linkParameters.Parameters.PageNumber, linkParameters.Parameters.PageSize);
+                    return (linkResponse: cachedLinks, metaData: pagedList.MetaData);
+                }
+            }
             var entitiesWithMetaData = await _manager.SayisalLoto.GetAllNumbersArrayAsync(linkParameters.Parameters, trackChanges);
             var sayisalLotosDto = _mapper.Map<IEnumerable<SayisalLotoDto>>(entitiesWithMetaData);
             var links = _links.TryGenerateLinks(sayisalLotosDto, linkParameters.Parameters.Fields, linkParameters.HttpContext);
+
+            LinkParametersDtoForCache linkParametersDtoForCache = new LinkParametersDtoForCache()
+            {
+                PageSize = linkParameters.Parameters.PageSize,
+                PageNumber = linkParameters.Parameters.PageNumber
+            };
+
+            SetCache<PagedList<SayisalLoto>>("sayisalloto-entities", entitiesWithMetaData);
+            SetCache<LinkParametersDtoForCache>("sayisalloto-page", linkParametersDtoForCache);
+
             return (linkResponse:links , metaData: entitiesWithMetaData.MetaData);
         }
 
