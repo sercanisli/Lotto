@@ -69,7 +69,8 @@ namespace Services.Concrete
                 PageNumber = linkParameters.Parameters.PageNumber
             };
 
-            
+            SetCache<PagedList<SuperLoto>>("superloto-entities", entitiesWithMetaData);
+            SetCache<LinkParametersDtoForCache>("superloto-page", linkParametersDtoForCache);
 
             return (linkResponse:links, metaData: entitiesWithMetaData.MetaData);
         }
