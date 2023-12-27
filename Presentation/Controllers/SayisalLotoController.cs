@@ -25,7 +25,7 @@ namespace Presentation.Controllers
         [HttpHead]
         [HttpGet(Name ="GetAllNumbersArrayForSayisalLotoAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
-        [ResponseCache(CacheProfileName = "5mins")]
+        //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetAllNumbersArrayForSayisalLotoAsync([FromQuery] SayisalLotoParameters sayisalLotoParameters)
         {
             var linkParameters = new LinkParameters<SayisalLotoParameters>()
@@ -54,7 +54,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
-        [ResponseCache(CacheProfileName = "5mins")]
+        //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSayisalLotoAsync([FromRoute(Name = "id")] int id)
         {
             var entity = await _manager.SayisalLotoService.GetOneNumbersArrayByIdAsync(id, false);
@@ -62,7 +62,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("GetOneNumbersArrayByDateForSayisalLotoAsync", Name ="GetOneNumbersArrayByDateForSayisalLotoAsync")]
-        [ResponseCache(CacheProfileName = "5mins")]
+        //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByDateForSayisalLotoAsync([FromQuery] DateTime date)
         {
             var array = await _manager.SayisalLotoService.GetOneNumbersArrayByDateAsync(date, false);

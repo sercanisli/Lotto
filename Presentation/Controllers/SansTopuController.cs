@@ -59,7 +59,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("GetOneNumbersArrayByDateForSansTopuAsync", Name = "GetOneNumbersArrayByDateForSansTopuAsync")]
-        [ResponseCache(CacheProfileName = "5mins")]
+        //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByDateForSansTopuAsync([FromQuery]DateTime date)
         {
             var entity = await _manager.SansTopuService.GetOneNumbersArrayByDateAsync(date, false);
