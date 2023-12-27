@@ -90,12 +90,20 @@ namespace Services.Concrete
 
         public async Task<SayisalLotoDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
         {
+            var formatedDate = FormatDate(date);
+            var cachedData = _cache.GetData<SayisalLoto>($"sayisalloto-entity-{formatedDate}");
+            if(cachedData != null)
+            {
+                return _mapper.Map<SayisalLotoDto>(cachedData);
+            }
             var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             var entityDate = entities.Where(e=>e.Date == date).FirstOrDefault();
             if(entityDate == null)
             {
                 throw new SayisalLotoDateNotFoundException(Convert.ToDateTime(date));
             }
+            var reMappedEntity = _mapper.Map<SayisalLoto>(entityDate);
+            SetCache<SayisalLoto>($"sayisalloto-entity-{formatedDate}", reMappedEntity);
             return entityDate;
         }
 
