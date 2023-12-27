@@ -77,7 +77,13 @@ namespace Services.Concrete
 
         public async Task<SuperLotoDto> GetOneNumbersArrayByIdAsync(int id, bool trackChanges)
         {
+            var cachedData = _cache.GetData<SuperLoto>($"superloto-entity-{id}");
+            if(cachedData != null)
+            {
+                return _mapper.Map<SuperLotoDto>(cachedData);
+            }
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
+            SetCache<SuperLoto>($"superloto-entity-{id}", entity);
             return _mapper.Map<SuperLotoDto>(entity);
         }
 
