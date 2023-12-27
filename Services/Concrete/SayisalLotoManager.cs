@@ -231,5 +231,13 @@ namespace Services.Concrete
             var expiryTime = DateTimeOffset.Now.AddSeconds(120);
             _cache.SetData(key, value, expiryTime);
         }
+
+        private string FormatDate(DateTime date)
+        {
+            var day = date.Day;
+            var month = date.Month;
+            var year = date.Year;
+            return $"{day}/{month}/{year}";
+        }
     }
 }
