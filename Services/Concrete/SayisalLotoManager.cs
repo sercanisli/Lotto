@@ -131,9 +131,11 @@ namespace Services.Concrete
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
 
+            var matchRate = await MatchRate(randomNumbers);
+
             var sayisalLotoDto = new SayisalLotoDtoForRandom()
             {
-                Numbers = randomNumbers
+                Numbers = randomNumbers,
             };
             _logger.LogInfo($"User : {user}, Random Numbers : {string.Join(",", randomNumbers)}");
             return sayisalLotoDto;
@@ -247,5 +249,36 @@ namespace Services.Concrete
             var year = date.Year;
             return $"{day}/{month}/{year}";
         }
+
+        private async Task<string> MatchRate(List<int> randomNumbers)
+        {
+            int count = 0;
+            double calculatedMatchRate = 0;
+            var entities = await GetAllNumbersArrayWithoutPaginationAsync(false);
+            foreach(var entity in entities)
+            {
+                var entityNumbers = entity.Numbers;
+                for(int j = 0; j<randomNumbers.Count(); j++)
+                {
+                    for(int k = 0; k<entityNumbers.Count() ; k++)
+                    {
+                        if (randomNumbers[k] == entityNumbers[j])
+                        {
+                            count++;
+                        }
+                    }
+                    if(count>=2)
+                    {
+                        calculatedMatchRate = CalculateMatchRate(count);
+                    }
+                }
+                count = 0;
+            }
+            return calculatedMatchRate == null ?
+                "No matching" :
+                calculatedMatchRate.ToString();
+        }
+
+       
     }
 }
