@@ -279,6 +279,11 @@ namespace Services.Concrete
                 calculatedMatchRate.ToString();
         }
 
-       
+        private double CalculateMatchRate(int count)
+        {
+            var matchRate = ((double)count / 6) * 100;
+            matchRate = Math.Round(matchRate, 2);
+            return matchRate;
+        }
     }
 }
