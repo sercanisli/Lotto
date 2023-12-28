@@ -2,5 +2,6 @@
 {
     public record SayisalLotoDtoForRandom : LotoDtoForRandom
     {
+        public string? MatchRate { get; set; }
     }
 }
