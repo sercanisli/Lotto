@@ -254,6 +254,7 @@ namespace Services.Concrete
         private async Task<string> MatchRate(List<int> randomNumbers)
         {
             int count = 0;
+            int limit = 0;
             double calculatedMatchRate = 0;
             var entities = await GetAllNumbersArrayWithoutPaginationAsync(false);
             foreach(var entity in entities)
@@ -268,9 +269,10 @@ namespace Services.Concrete
                             count++;
                         }
                     }
-                    if(count>=2)
+                    if(count>limit)
                     {
                         calculatedMatchRate = CalculateMatchRate(count);
+                        limit = count;
                     }
                 }
                 count = 0;
