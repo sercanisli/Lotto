@@ -136,6 +136,7 @@ namespace Services.Concrete
             var sayisalLotoDto = new SayisalLotoDtoForRandom()
             {
                 Numbers = randomNumbers,
+                MatchRate = matchRate
             };
             _logger.LogInfo($"User : {user}, Random Numbers : {string.Join(",", randomNumbers)}");
             return sayisalLotoDto;
