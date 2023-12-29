@@ -2,6 +2,7 @@
 using Entities.DataTransferObjects;
 using Entities.Exceptions;
 using Entities.LinkModels;
+using Entities.LogModels;
 using Entities.Models;
 using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Identity;
@@ -138,6 +139,15 @@ namespace Services.Concrete
                 Numbers = randomNumbers,
                 MatchRate = matchRate
             };
+
+            var sayisalLotoLogs = new SayisalLotoLogs()
+            {
+                UserName = userName,
+                RandomNumbers = randomNumbers
+            };
+
+            _manager.SayisalLotoLogs.CreateLog(sayisalLotoLogs);
+            await _manager.SaveAsync();
             _logger.LogInfo($"User : {user}, Random Numbers : {string.Join(",", randomNumbers)}");
             return sayisalLotoDto;
         }
