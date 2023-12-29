@@ -12,7 +12,7 @@ using Repositories.EntityFrameworkCore;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20231105220337_InitialCreateForSayisalLoto")]
+    [Migration("20231229155022_InitialCreateForSayisalLoto")]
     partial class InitialCreateForSayisalLoto
     {
         /// <inheritdoc />
@@ -24,6 +24,165 @@ namespace WebApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Entities.LogModels.OnNumaraLogs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RandomNumbers")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("RandomNumbers");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OnNumaraLogs", (string)null);
+                });
+
+            modelBuilder.Entity("Entities.LogModels.SansTopuLogs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RandomNumbers")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("RandomNumbers");
+
+                    b.Property<int>("RandomPlusNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SansTopuLogs", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Date = new DateTime(2023, 12, 29, 18, 50, 22, 459, DateTimeKind.Local).AddTicks(7952),
+                            RandomNumbers = "5,10,15,20,25",
+                            RandomPlusNumber = 11,
+                            UserName = "sercanisli"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Date = new DateTime(2023, 12, 29, 18, 50, 22, 459, DateTimeKind.Local).AddTicks(7959),
+                            RandomNumbers = "6,7,17,21,27,16",
+                            RandomPlusNumber = 3,
+                            UserName = "esinduru"
+                        });
+                });
+
+            modelBuilder.Entity("Entities.Models.OnNumara", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Numbers")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Numbers");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OnNumaras", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Date = new DateTime(2022, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Numbers = "6,25,17,13,27,60,63,66,71,78"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Date = new DateTime(2023, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Numbers = "19,17,9,23,27,45,47,53,64,67"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Date = new DateTime(2023, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Numbers = "13,45,53,52,27,3,34,37,59,78"
+                        });
+                });
+
+            modelBuilder.Entity("Entities.Models.SansTopu", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Numbers")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Numbers");
+
+                    b.Property<int>("PlusNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SansTopus", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Date = new DateTime(2022, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Numbers = "6,25,17,13,27",
+                            PlusNumber = 4
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Date = new DateTime(2023, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Numbers = "19,17,9,5,34",
+                            PlusNumber = 9
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Date = new DateTime(2023, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Numbers = "13,12,1,27,22",
+                            PlusNumber = 3
+                        });
+                });
 
             modelBuilder.Entity("Entities.Models.SayisalLoto", b =>
                 {
@@ -44,26 +203,6 @@ namespace WebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SayisalLotos", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Date = new DateTime(2022, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Numbers = "6,25,17,13,27,60"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Date = new DateTime(2023, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Numbers = "19,17,9,23,27,45"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Date = new DateTime(2023, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Numbers = "13,45,53,52,27,3"
-                        });
                 });
 
             modelBuilder.Entity("Entities.Models.SuperLoto", b =>
@@ -213,19 +352,19 @@ namespace WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "85507ffa-f696-4c72-851e-4dedd9584ca9",
+                            Id = "f75983e3-d3b3-45c7-8deb-1718ab724fbd",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "a4f72667-160e-4d67-b524-61118f69b7ca",
+                            Id = "c7362e1f-ac2a-45ff-909f-e9c266a2976b",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "149dd7fb-8a7b-40ac-9180-96c12a4f4078",
+                            Id = "f98dfe0a-2188-4073-a8e0-62dfd9ce835c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
