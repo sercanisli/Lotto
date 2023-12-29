@@ -4478,3 +4478,15 @@ File name: 'RandomNumbersLayoutRenderer, Culture=neutral, PublicKeyToken=null'
 2023-12-29 18:53:56.9944 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
 2023-12-29 18:53:57.0335 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
 2023-12-29 18:53:57.0807 Info Configuration initialized.
+2023-12-30 02:16:05.4129 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-30 02:16:05.4726 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-30 02:16:05.4908 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-30 02:16:05.5128 Info Configuration initialized.
+2023-12-30 02:16:08.2201 Info AppDomain Shutting down. LogFactory closing...
+2023-12-30 02:16:08.2342 Info LogFactory has been closed.
+2023-12-30 02:16:44.6754 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-12-30 02:16:44.6988 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2023-12-30 02:16:44.7167 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2023-12-30 02:16:44.7378 Info Configuration initialized.
+2023-12-30 02:16:51.2513 Info AppDomain Shutting down. LogFactory closing...
+2023-12-30 02:16:51.2637 Info LogFactory has been closed.
