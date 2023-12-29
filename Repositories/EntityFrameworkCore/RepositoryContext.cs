@@ -15,6 +15,7 @@ namespace Repositories.EntityFrameworkCore
 
         public DbSet<OnNumaraLogs> OnNumaraLogs { get; set; }
         public DbSet<SansTopuLogs> SansTopuLogs { get; set; }
+        public DbSet<SayisalLotoLogs> SayisalLotoLogs { get; set; }
 
         public RepositoryContext(DbContextOptions options) : base(options)
         {
