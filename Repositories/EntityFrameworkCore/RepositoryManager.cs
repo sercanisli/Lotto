@@ -48,7 +48,7 @@ namespace Repositories.EntityFrameworkCore
 
         public ISayisalLotoLogsRepository SayisalLotoLogs => _sayisalLotoLogsRepository.Value;
 
-        public ISuperLotoLogsRepository SuperLotoLogsRepository => _superLotoLogsRepository.Value;
+        public ISuperLotoLogsRepository SuperLotoLogs => _superLotoLogsRepository.Value;
 
         public async Task SaveAsync() => await _context.SaveChangesAsync();
     }
