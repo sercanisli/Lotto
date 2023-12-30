@@ -50,6 +50,8 @@ namespace Repositories.EntityFrameworkCore
 
         public ISuperLotoLogsRepository SuperLotoLogs => _superLotoLogsRepository.Value;
 
+
+
         public async Task SaveAsync() => await _context.SaveChangesAsync();
     }
 }
