@@ -13,7 +13,7 @@ namespace Repositories.Cantracts
         IOnNumaraLogsRepository OnNumaraLogs { get; }
         ISansTopuLogsRepository SansTopuLogs { get; }
         ISayisalLotoLogsRepository SayisalLotoLogs { get; }
-        ISuperLotoLogsRepository SuperLotoLogsRepository { get; }
+        ISuperLotoLogsRepository SuperLotoLogs { get; }
 
         Task SaveAsync();
     }

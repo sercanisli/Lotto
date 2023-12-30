@@ -128,6 +128,15 @@ namespace Services.Concrete
                 Numbers = randomNumbers,
             };
 
+            var superLotoLogs = new SuperLotoLogs()
+            {
+                UserName = userName,
+                RandomNumbers = randomNumbers
+            };
+
+            _manager.SuperLotoLogs.CreateLog(superLotoLogs);
+            await _manager.SaveAsync();
+
             _logger.LogInfo($"User : {user}, Random Numbers : {string.Join(",", randomNumbers)}");
             return superLotoDto;
         }
