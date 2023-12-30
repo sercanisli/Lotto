@@ -78,7 +78,7 @@ namespace WebApi.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2023, 12, 30, 2, 16, 7, 395, DateTimeKind.Local).AddTicks(7940),
+                            Date = new DateTime(2023, 12, 30, 16, 27, 21, 131, DateTimeKind.Local).AddTicks(7980),
                             RandomNumbers = "5,10,15,20,25",
                             RandomPlusNumber = 11,
                             UserName = "sercanisli"
@@ -86,7 +86,7 @@ namespace WebApi.Migrations
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2023, 12, 30, 2, 16, 7, 395, DateTimeKind.Local).AddTicks(7946),
+                            Date = new DateTime(2023, 12, 30, 16, 27, 21, 131, DateTimeKind.Local).AddTicks(7993),
                             RandomNumbers = "6,7,17,21,27,16",
                             RandomPlusNumber = 3,
                             UserName = "esinduru"
@@ -181,29 +181,6 @@ namespace WebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SansTopus", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Date = new DateTime(2022, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Numbers = "6,25,17,13,27",
-                            PlusNumber = 4
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Date = new DateTime(2023, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Numbers = "19,17,9,5,34",
-                            PlusNumber = 9
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Date = new DateTime(2023, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Numbers = "13,12,1,27,22",
-                            PlusNumber = 3
-                        });
                 });
 
             modelBuilder.Entity("Entities.Models.SayisalLoto", b =>
@@ -374,19 +351,19 @@ namespace WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "64313271-af2e-497b-98b7-5d04debf6149",
+                            Id = "049e33ac-4cf5-4e24-ae8d-c51ec084d752",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "3639e419-8060-494b-bec1-8293491437e0",
+                            Id = "cd38005d-c8b5-4824-ba3a-213ccfe57e53",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "a3e33264-86b7-41ed-9c8f-4f5040d0df9a",
+                            Id = "3d5122ba-3f89-454a-bda8-102327405347",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
