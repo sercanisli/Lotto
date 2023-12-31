@@ -44,6 +44,7 @@ namespace Services.Concrete
         {
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             _manager.SuperLoto.DeleteOneNumbersArray(entity);
+            _cache.RemoveData($"superloto-entity-{id}");
             await _manager.SaveAsync();
         }
 
