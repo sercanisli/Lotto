@@ -34,6 +34,7 @@ namespace Services.Concrete
             var entity = _mapper.Map<SansTopu>(sansTopuDtoForInsertion);
             _manager.SansTopu.CreateOneNumbersArray(entity);
             await _manager.SaveAsync();
+            SetCache<SansTopu>($"sanstopu-entity-{entity.Id}", entity);
             return _mapper.Map<SansTopuDto>(entity);
         }
 
