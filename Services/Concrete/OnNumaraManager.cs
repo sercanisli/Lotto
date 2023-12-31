@@ -34,8 +34,7 @@ namespace Services.Concrete
             var entity = _mapper.Map<OnNumara>(onNumaraDtoForInsertion);
             _manager.OnNumara.CreateOneNumbersArray(entity);
             await _manager.SaveAsync();
-            var expriyTime = DateTimeOffset.Now.AddSeconds(120);
-            _cache.SetData<OnNumara>($"onnumara-entity-{entity.Id}", entity, expriyTime);
+            SetCache<OnNumara>($"onnumara-entity-{entity.Id}", entity);
             return _mapper.Map<OnNumaraDto>(entity);
         }
 
