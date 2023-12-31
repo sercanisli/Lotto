@@ -36,6 +36,7 @@ namespace Services.Concrete
             var entity = _mapper.Map<SuperLoto>(superLotoDto);
             _manager.SuperLoto.CreateOneNumbersArray(entity);
             await _manager.SaveAsync();
+            SetCache<SuperLoto>($"superloto-entity-{entity.Id}", entity);
             return _mapper.Map<SuperLotoDto>(entity);
         }
 
