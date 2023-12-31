@@ -43,6 +43,7 @@ namespace Services.Concrete
         {
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             _manager.SayisalLoto.DeleteOneNumbersArray(entity);
+            _cache.RemoveData($"sayisalloto-entity-{id}");
             await _manager.SaveAsync();
         }
 
