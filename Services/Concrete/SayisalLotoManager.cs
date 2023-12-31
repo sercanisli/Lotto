@@ -35,6 +35,7 @@ namespace Services.Concrete
             var entity = _mapper.Map<SayisalLoto>(sayisalLotoDtoForInsertion);
             _manager.SayisalLoto.CreateOneNumbersArray(entity);
             await _manager.SaveAsync();
+            SetCache<SayisalLoto>($"sayisalloto-entity-{entity.Id}", entity);
             return _mapper.Map<SayisalLotoDto>(entity);
         }
 
