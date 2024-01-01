@@ -104,7 +104,6 @@ namespace Services.Concrete
         public async Task UpdateOneNumbersArrayAsync(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges)
         {
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
-
             entity = _mapper.Map<SuperLoto>(superLotoDto);
             _manager.SuperLoto.UpdateOneNubersArray(entity);
             await _manager.SaveAsync();

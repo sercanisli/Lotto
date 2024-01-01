@@ -113,7 +113,7 @@ namespace Services.Concrete
         {
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             entity = _mapper.Map<SansTopu>(sansTopuDtoForUpdate);
-            _manager.SansTopu.Update(entity);
+            _manager.SansTopu.UpdateOneNumbersArray(entity);
             SetCache<SansTopu>($"sanstopu-entity-{id}", entity);
             await _manager.SaveAsync();
         }
