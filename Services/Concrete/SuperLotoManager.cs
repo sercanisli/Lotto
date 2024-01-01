@@ -106,6 +106,7 @@ namespace Services.Concrete
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
             entity = _mapper.Map<SuperLoto>(superLotoDto);
             _manager.SuperLoto.UpdateOneNubersArray(entity);
+            SetCache<SuperLoto>($"superloto-entity-{id}", entity);
             await _manager.SaveAsync();
         }
 
