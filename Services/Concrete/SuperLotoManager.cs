@@ -92,6 +92,12 @@ namespace Services.Concrete
 
         public async Task<SuperLotoDto> GetOneNumbersArrayByDateAsync(DateTime date, bool trackChanges)
         {
+            var formatedDate = FormatDate(date);
+            var cachedData = _cache.GetData<SuperLoto>($"superloto-entity-{formatedDate}");
+            if(cachedData != null)
+            {
+                return _mapper.Map<SuperLotoDto>(cachedData);
+            }
             var entities = await GetAllNumbersArrayWithoutPaginationAsync(trackChanges);
             var entityDate = entities.Where(e => e.Date == date).FirstOrDefault();
             if (entityDate == null)
