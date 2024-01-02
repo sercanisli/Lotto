@@ -104,6 +104,8 @@ namespace Services.Concrete
             {
                 throw new SuperLotoDateNotFoundException(Convert.ToDateTime(date));
             }
+            var reMappedEntity = _mapper.Map<SuperLoto>(entityDate);
+            SetCache<SuperLoto>($"superloto-entity-{formatedDate}", reMappedEntity);
             return entityDate;
         }
 
