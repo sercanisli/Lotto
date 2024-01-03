@@ -134,9 +134,10 @@ namespace Services.Concrete
                 }
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
-
+            var matchRate = MatchRate(randomNumbers, randomPlusNumber);
             var sansTopuDto = new SansTopuDtoForRandom()
             {
+                MatchRate = matchRate,
                 PlusNumber = randomPlusNumber,
                 Numbers = randomNumbers
             };
@@ -151,6 +152,41 @@ namespace Services.Concrete
             _logger.LogInfo($"User :{user}, Random PlusNumber : {randomPlusNumber}, Random Numbers : {string.Join(",", randomNumbers)}");
 
             return sansTopuDto; 
+        }
+
+        private async Task<string> MatchRate(List<int> randomNumbers, int randomPlusNumber)
+        {
+            int count = 0;
+            int limit = 0;
+            double calculatedMatchRate = 0;
+            var entities = await GetAllNumbersArrayWithoutPaginationAsync(false);
+            foreach(var entity in entities)
+            {
+                var entityNumbers = entity.Numbers;
+                var entityPlusNumber = entity.PlusNumber;
+                var matchedNumbers = MatchedNumbers(entityNumbers);
+                var matchedPlusNumbers = MatchedPlusNumbers(entityPlusNumber);
+                var calculetedMatchRate = matchedNumbers + matchedPlusNumbers;
+                calculetedMatchRate = CalculatedMatchRate(calculatedMatchRate);
+            }
+            return calculatedMatchRate == null ?
+               "No matching" :
+               calculatedMatchRate.ToString();
+        }
+
+        private int CalculatedMatchRate(double calculatedMatchRate)
+        {
+            throw new NotImplementedException();
+        }
+
+        private int MatchedPlusNumbers(int entityPlusNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        private int MatchedNumbers(List<int> entityNumbers)
+        {
+            throw new NotImplementedException();
         }
 
         private string? GenerateRandomUserName()
