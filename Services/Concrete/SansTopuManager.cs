@@ -134,7 +134,10 @@ namespace Services.Concrete
                 }
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
-            var matchRate = MatchRate(randomNumbers, randomPlusNumber);
+            var matchRateNumbers = MatchRateForRandomNumbers(randomNumbers);
+            var matchRatePlusNumbers = MatchRatePlusNumber(randomPlusNumber);
+            double matchRate = Convert.ToDouble(matchRateNumbers + matchRatePlusNumbers);
+
             var sansTopuDto = new SansTopuDtoForRandom()
             {
                 MatchRate = matchRate,
@@ -154,27 +157,12 @@ namespace Services.Concrete
             return sansTopuDto; 
         }
 
-        private async Task<string> MatchRate(List<int> randomNumbers, int randomPlusNumber)
+        private async Task<double> MatchRatePlusNumber(int randomPlusNumber)
         {
-            int count = 0;
-            int limit = 0;
-            double calculatedMatchRate = 0;
-            var entities = await GetAllNumbersArrayWithoutPaginationAsync(false);
-            foreach(var entity in entities)
-            {
-                var entityNumbers = entity.Numbers;
-                var entityPlusNumber = entity.PlusNumber;
-                var matchedNumbers = MatchedNumbers(entityNumbers);
-                var matchedPlusNumbers = MatchedPlusNumbers(entityPlusNumber);
-                var calculetedMatchRate = matchedNumbers + matchedPlusNumbers;
-                calculetedMatchRate = CalculatedMatchRate(calculatedMatchRate);
-            }
-            return calculatedMatchRate == null ?
-               "No matching" :
-               calculatedMatchRate.ToString();
+            throw new NotImplementedException();
         }
 
-        private int CalculatedMatchRate(double calculatedMatchRate)
+        private async Task<double> MatchRateForRandomNumbers(List<int> randomNumbers)
         {
             throw new NotImplementedException();
         }
