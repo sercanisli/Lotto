@@ -164,7 +164,37 @@ namespace Services.Concrete
 
         private async Task<double> MatchRateForRandomNumbers(List<int> randomNumbers)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            int limit = 0;
+            double calculatedMatchRate = 0;
+            var entities = await GetAllNumbersArrayWithoutPaginationAsync(false);
+            foreach(var entity in entities)
+            {
+                var entityNumbers = entity.Numbers;
+                for(int i = 0; i<randomNumbers.Count(); i++)
+                {
+                    for(int j = 0; j<entityNumbers.Count(); j++)
+                    {
+                        if (randomNumbers[j] == entityNumbers[i])
+                        {
+                            count++;
+                        }
+                        if(count>limit)
+                        {
+                            calculatedMatchRate = CalculateMatchRate(count,5);
+                            limit = count;
+                        }
+                    }
+                    count = 0;
+                }
+            }
+        }
+
+        private double CalculateMatchRate(int count,int numbersCount)
+        {
+            var matchRate = ((double)count / numbersCount) * 100;
+            matchRate = Math.Round(matchRate, 2);
+            return matchRate;
         }
 
         private int MatchedPlusNumbers(int entityPlusNumber)
