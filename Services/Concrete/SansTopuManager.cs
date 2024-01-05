@@ -134,13 +134,13 @@ namespace Services.Concrete
                 }
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
-            var matchRateNumbers = MatchRateForRandomNumbers(randomNumbers);
-            var matchRatePlusNumbers = MatchRatePlusNumber(randomPlusNumber);
+            var matchRateNumbers = await MatchRateForRandomNumbers(randomNumbers);
+            var matchRatePlusNumbers = await MatchRatePlusNumber(randomPlusNumber);
             double matchRate = Convert.ToDouble(matchRateNumbers + matchRatePlusNumbers);
 
             var sansTopuDto = new SansTopuDtoForRandom()
             {
-                MatchRate = matchRate,
+                MatchRate = matchRate.ToString(),
                 PlusNumber = randomPlusNumber,
                 Numbers = randomNumbers
             };
