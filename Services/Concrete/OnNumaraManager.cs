@@ -140,6 +140,8 @@ namespace Services.Concrete
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
 
+            var matchRate = MatchRate(randomNumbers);
+
             var onNumaraDto = new OnNumaraDtoForRandom()
             {
                 Numbers = randomNumbers,
@@ -154,6 +156,37 @@ namespace Services.Concrete
             await _manager.SaveAsync();
             _logger.LogInfo($"User :{user}, Random Numbers : {string.Join(",", randomNumbers)}");
             return onNumaraDto;
+        }
+
+        private async Task<string> MatchRate(List<int> randomNumbers)
+        {
+            int count = 0;
+            int limit = 0;
+            double calculatedMatchRate = 0;
+            var entities = await GetAllNumbersArrayWithoutPaginationAsync(false);
+            foreach (var entity in entities)
+            {
+                var entityNumbers = entity.Numbers;
+                for(int i = 0; i<randomNumbers.Count(); i++)
+                {
+                    for(int j = 0; j<entityNumbers.Count(); j++)
+                    {
+                        if (randomNumbers[i] == entityNumbers[j])
+                        {
+                            count++;
+                        }
+                        if (count > limit)
+                        {
+                            calculatedMatchRate = CalculateMatchRate(count);
+                            limit = count;
+                        }
+                    }
+                }
+                count = 0;
+            }
+            return calculatedMatchRate == null ?
+                "No matching" :
+                calculatedMatchRate.ToString();
         }
 
         private async Task<string> GetUser(string userName)
