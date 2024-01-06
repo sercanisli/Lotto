@@ -156,11 +156,13 @@ namespace Services.Concrete
             return sansTopuDto; 
         }
 
-        private async Task<string> MatchRate(List<int> randomNumbers, int randomPlusNumber)
+        private async Task<MatchRateDto> MatchRate(List<int> randomNumbers, int randomPlusNumber)
         {
             int count = 0;
             int limit = 0;
             double calculatedMatchRate = 0;
+            string date = "";
+            string matchRate = "";
             var entities = await GetAllNumbersArrayWithoutPaginationAsync(false);
             foreach(var entity in entities)
             {
@@ -182,15 +184,24 @@ namespace Services.Concrete
                         if(count>limit)
                         {
                             calculatedMatchRate = CalculateMatchRate(count);
+                            matchRate = calculatedMatchRate.ToString();
                             limit = count;
+                            date = entity.Date.ToString();
                         }
                     }
                 }
                 count = 0;
             }
-            return calculatedMatchRate == null ?
-                "No matching" :
-                calculatedMatchRate.ToString();
+            if(string.IsNullOrEmpty(calculatedMatchRate.ToString()))
+            {
+                matchRate = "No Matching";
+            }
+            var matchRateDto = new MatchRateDto()
+            {
+                MatchRate = matchRate,
+                Date = date
+            };
+            return matchRateDto;
         }
 
         private double CalculateMatchRate(int count)
