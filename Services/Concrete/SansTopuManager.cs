@@ -134,13 +134,12 @@ namespace Services.Concrete
                 }
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
-            var matchRateNumbers = await MatchRateForRandomNumbers(randomNumbers);
-            var matchRatePlusNumbers = await MatchRatePlusNumber(randomPlusNumber);
-            double matchRate = Convert.ToDouble(matchRateNumbers + matchRatePlusNumbers);
+
+            var matchRate = await MatchRate(randomNumbers, randomPlusNumber);
 
             var sansTopuDto = new SansTopuDtoForRandom()
             {
-                MatchRate = matchRate.ToString(),
+                MatchRate = matchRate,
                 PlusNumber = randomPlusNumber,
                 Numbers = randomNumbers
             };
@@ -157,12 +156,7 @@ namespace Services.Concrete
             return sansTopuDto; 
         }
 
-        private async Task<double> MatchRatePlusNumber(int randomPlusNumber)
-        {
-            throw new NotImplementedException();
-        }
-
-        private async Task<double> MatchRateForRandomNumbers(List<int> randomNumbers)
+        private async Task<string> MatchRate(List<int> randomNumbers, int randomPlusNumber)
         {
             int count = 0;
             int limit = 0;
@@ -171,6 +165,12 @@ namespace Services.Concrete
             foreach(var entity in entities)
             {
                 var entityNumbers = entity.Numbers;
+                var entityPlusNumber = entity.PlusNumber;
+                if (randomPlusNumber == entityPlusNumber)
+                {
+                    count++;
+                    limit = count;
+                }
                 for(int i = 0; i<randomNumbers.Count(); i++)
                 {
                     for(int j = 0; j<entityNumbers.Count(); j++)
@@ -181,30 +181,16 @@ namespace Services.Concrete
                         }
                         if(count>limit)
                         {
-                            calculatedMatchRate = CalculateMatchRate(count,5);
+                            calculatedMatchRate = CalculateMatchRate(count);
                             limit = count;
                         }
                     }
-                    count = 0;
                 }
+                count = 0;
             }
-        }
-
-        private double CalculateMatchRate(int count,int numbersCount)
-        {
-            var matchRate = ((double)count / numbersCount) * 100;
-            matchRate = Math.Round(matchRate, 2);
-            return matchRate;
-        }
-
-        private int MatchedPlusNumbers(int entityPlusNumber)
-        {
-            throw new NotImplementedException();
-        }
-
-        private int MatchedNumbers(List<int> entityNumbers)
-        {
-            throw new NotImplementedException();
+            return calculatedMatchRate == null ?
+                "No matching" :
+                calculatedMatchRate.ToString();
         }
 
         private string? GenerateRandomUserName()
