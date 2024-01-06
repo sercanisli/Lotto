@@ -139,7 +139,8 @@ namespace Services.Concrete
 
             var sansTopuDto = new SansTopuDtoForRandom()
             {
-                MatchRate = matchRate,
+                MatchRate = matchRate.MatchRate,
+                Date = matchRate.Date,
                 PlusNumber = randomPlusNumber,
                 Numbers = randomNumbers
             };
