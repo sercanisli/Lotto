@@ -280,11 +280,11 @@ namespace Services.Concrete
                         {
                             count++;
                         }
-                    }
-                    if(count>limit)
-                    {
-                        calculatedMatchRate = CalculateMatchRate(count);
-                        limit = count;
+                        if (count > limit)
+                        {
+                            calculatedMatchRate = CalculateMatchRate(count);
+                            limit = count;
+                        }
                     }
                 }
                 count = 0;
