@@ -140,11 +140,12 @@ namespace Services.Concrete
             } while (i == 0);
             randomNumbers = Sort(randomNumbers);
 
-            var matchRate = MatchRate(randomNumbers);
+            var matchRate = await MatchRate(randomNumbers);
 
             var onNumaraDto = new OnNumaraDtoForRandom()
             {
-                Numbers = randomNumbers,
+                MatchRate = matchRate,
+                Numbers = randomNumbers
             };
 
             var onNumaraLogs = new OnNumaraLogs()
