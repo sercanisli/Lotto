@@ -1,8 +1,8 @@
 ﻿namespace Entities.DataTransferObjects
 {
-    public class MatchRateDto
+    public record MatchRateDto
     {
-        public string? MatchRate { get; set; }
-        public string? Date { get; set; }
+        public string? MatchRate { get; init; }
+        public string? Date { get; init; }
     }
 }
