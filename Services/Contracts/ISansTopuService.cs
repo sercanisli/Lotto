@@ -12,6 +12,7 @@ namespace Services.Contracts
         Task<SansTopuDto> CreateOneNumbersArrayAsync(SansTopuDtoForInsertion sansTopuDtoForInsertion);
         Task UpdateOneNumbersArrayAsync(int id, SansTopuDtoForUpdate sansTopuDtoForUpdate, bool trackChanges);
         Task DeleteOneNumbersArrayAsync(int id, bool trackChanges);
+        Task<MatchRateDto> CompareSansTopuNumbersAsync(SansTopuDtoForCompare sansTopuDtoForCompare);
         Task<SansTopuDtoForRandom> GetRondomNumbersAsync(string userName);
 
     }
