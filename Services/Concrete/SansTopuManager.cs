@@ -157,6 +157,12 @@ namespace Services.Concrete
             return sansTopuDto; 
         }
 
+        public async Task<MatchRateDto> CompareSansTopuNumbersAsync(SansTopuDtoForCompare sansTopuDtoForCompare)
+        {
+            var matchRate = await MatchRate(sansTopuDtoForCompare.Numbers, sansTopuDtoForCompare.PlusNumber);
+            return matchRate;
+        }
+
         private async Task<MatchRateDto> MatchRate(List<int> randomNumbers, int randomPlusNumber)
         {
             int count = 0;
