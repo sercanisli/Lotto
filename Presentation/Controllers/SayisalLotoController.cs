@@ -97,6 +97,13 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
+        [HttpGet("CompareReleasedSayisalLotoNumbersWithAllSayisalLotoNumbersAsync")]
+        public async Task<IActionResult> CompareReleasedSayisalLotoNumbersWithAllSayisalLotoNumbersAsync([FromBody] SayisalLotoDtoForCompare sayisalLotoDtoForCompare)
+        {
+            var matchRate = await _manager.SayisalLotoService.CompareSayisalLotoNumbersAsync(sayisalLotoDtoForCompare);
+            return Ok(matchRate);
+        }
+
         [HttpOptions]
         [ResponseCache(CacheProfileName = "5mins")]
         public IActionResult GetSayisalLotoOptions()
