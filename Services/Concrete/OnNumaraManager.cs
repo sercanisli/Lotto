@@ -8,6 +8,7 @@ using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Services.Concrete
 {
@@ -159,17 +160,19 @@ namespace Services.Concrete
             return onNumaraDto;
         }
 
-        public Task<MatchRateDto> CompareOnNumaraNumbersAsync(OnNumaraDtoForCompare onNumaraDtoForCompare)
+        public async Task<MatchRateDto> CompareOnNumaraNumbersAsync(OnNumaraDtoForCompare onNumaraDtoForCompare)
         {
             var matchRate = await MatchRate(onNumaraDtoForCompare.Numbers);
             return matchRate;
         }
 
-        private async Task<string> MatchRate(List<int> randomNumbers)
+        private async Task<MatchRateDto> MatchRate(List<int> randomNumbers)
         {
             int count = 0;
             int limit = 0;
             double calculatedMatchRate = 0;
+            string date = "";
+            string matchRate = "";
             var entities = await GetAllNumbersArrayWithoutPaginationAsync(false);
             foreach (var entity in entities)
             {
@@ -191,9 +194,16 @@ namespace Services.Concrete
                 }
                 count = 0;
             }
-            return calculatedMatchRate == null ?
-                "No matching" :
-                calculatedMatchRate.ToString();
+            if (string.IsNullOrEmpty(calculatedMatchRate.ToString()))
+            {
+                matchRate = "No Matching";
+            }
+            var matchRateDto = new MatchRateDto()
+            {
+                MatchRate = matchRate,
+                Date = date
+            };
+            return matchRateDto;
         }
 
         private double CalculateMatchRate(int count)
