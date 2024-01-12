@@ -97,6 +97,13 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
+        [HttpGet("CompareReleasedOnNumaraNumbersWithAllOnNumaraNumbersAsync")]
+        public async Task<IActionResult> CompareReleasedOnNumaraNumbersWithAllOnNumaraNumbersAsync([FromBody] OnNumaraDtoForCompare onNumaraDtoForCompare)
+        {
+            var matchRate = await _manager.OnNumaraService.CompareOnNumaraNumbersAsync(onNumaraDtoForCompare);
+            return Ok(matchRate);
+        }
+
         [HttpOptions]
         [ResponseCache(CacheProfileName = "5mins")]
         public IActionResult GetOnNumaraOptions()
