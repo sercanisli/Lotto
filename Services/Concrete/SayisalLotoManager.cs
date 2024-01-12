@@ -8,6 +8,7 @@ using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Services.Concrete
 {
@@ -139,7 +140,8 @@ namespace Services.Concrete
             var sayisalLotoDto = new SayisalLotoDtoForRandom()
             {
                 Numbers = randomNumbers,
-                MatchRate = matchRate
+                MatchRate = matchRate.MatchRate,
+                Date = matchRate.Date
             };
 
             var sayisalLotoLogs = new SayisalLotoLogs()
@@ -152,6 +154,12 @@ namespace Services.Concrete
             await _manager.SaveAsync();
             _logger.LogInfo($"User : {user}, Random Numbers : {string.Join(",", randomNumbers)}");
             return sayisalLotoDto;
+        }
+
+        public async Task<MatchRateDto> CompareSayisalLotoNumbersAsync(SayisalLotoDtoForCompare sayisalLotoDtoForCompare)
+        {
+            var matchRate = await MatchRate(sayisalLotoDtoForCompare.Numbers);
+            return matchRate;
         }
 
         private async Task<string> GetUser(string userName)
@@ -263,11 +271,13 @@ namespace Services.Concrete
             return $"{day}/{month}/{year}";
         }
 
-        private async Task<string> MatchRate(List<int> randomNumbers)
+        private async Task<MatchRateDto> MatchRate(List<int> randomNumbers)
         {
             int count = 0;
             int limit = 0;
             double calculatedMatchRate = 0;
+            string date = "";
+            string matchRate = "";
             var entities = await GetAllNumbersArrayWithoutPaginationAsync(false);
             foreach(var entity in entities)
             {
@@ -283,15 +293,24 @@ namespace Services.Concrete
                         if (count > limit)
                         {
                             calculatedMatchRate = CalculateMatchRate(count);
+                            matchRate = calculatedMatchRate.ToString();
                             limit = count;
+                            date = entity.Date.ToString();
                         }
                     }
                 }
                 count = 0;
             }
-            return calculatedMatchRate == null ?
-                "No matching" :
-                calculatedMatchRate.ToString();
+            if (string.IsNullOrEmpty(calculatedMatchRate.ToString()))
+            {
+                matchRate = "No Matching";
+            }
+            var matchRateDto = new MatchRateDto()
+            {
+                MatchRate = matchRate,
+                Date = date
+            };
+            return matchRateDto;
         }
 
         private double CalculateMatchRate(int count)
