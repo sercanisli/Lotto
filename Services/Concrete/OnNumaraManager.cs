@@ -145,7 +145,8 @@ namespace Services.Concrete
 
             var onNumaraDto = new OnNumaraDtoForRandom()
             {
-                MatchRate = matchRate.,
+                MatchRate = matchRate.MatchRate,
+                Date = matchRate.Date,
                 Numbers = randomNumbers
             };
 
