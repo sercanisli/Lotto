@@ -159,6 +159,12 @@ namespace Services.Concrete
             return onNumaraDto;
         }
 
+        public Task<MatchRateDto> CompareOnNumaraNumbersAsync(OnNumaraDtoForCompare onNumaraDtoForCompare)
+        {
+            var matchRate = await MatchRate(onNumaraDtoForCompare.Numbers);
+            return matchRate;
+        }
+
         private async Task<string> MatchRate(List<int> randomNumbers)
         {
             int count = 0;
