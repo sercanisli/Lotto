@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Entities.Models;
+using FluentAssertions;
 using Microsoft.AspNetCore.Identity;
 using NSubstitute;
+using NSubstitute.ReturnsExtensions;
 using Repositories.Cantracts;
 using Services.Concrete;
 using Services.Contracts;
@@ -24,15 +26,16 @@ namespace Lotto.Api.Tests.Unit.ServiceTests
         }
 
         [Fact]
-        public async Task GetAllNumbersArraysAsync_ShouldReturnEmptyList_WhenNoUserExist()
+        public async Task GetOneNumbersArrayByIdAsync_ShouldReturnNull_WhenNoUserExist()
         {
             // Arrange
-            
+            _manager.SansTopu.GetOneNumbersArrayByIdAsync(Arg.Any<int>(), false).ReturnsNull();
 
             //Act
-
+            var result = await _sut.GetOneNumbersArrayByIdAsync(Arg.Any<int>(), false);
 
             //Assert
+            result.Should().BeNull();
         }
     }
 }

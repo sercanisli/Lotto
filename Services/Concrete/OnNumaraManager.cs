@@ -188,7 +188,9 @@ namespace Services.Concrete
                         if (count > limit)
                         {
                             calculatedMatchRate = CalculateMatchRate(count);
+                            matchRate = calculatedMatchRate.ToString();
                             limit = count;
+                            date = entity.Date.ToString();
                         }
                     }
                 }

@@ -78,7 +78,7 @@ namespace WebApi.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2023, 12, 31, 1, 59, 49, 260, DateTimeKind.Local).AddTicks(6608),
+                            Date = new DateTime(2024, 1, 13, 16, 8, 16, 488, DateTimeKind.Local).AddTicks(6246),
                             RandomNumbers = "5,10,15,20,25",
                             RandomPlusNumber = 11,
                             UserName = "sercanisli"
@@ -86,7 +86,7 @@ namespace WebApi.Migrations
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2023, 12, 31, 1, 59, 49, 260, DateTimeKind.Local).AddTicks(6616),
+                            Date = new DateTime(2024, 1, 13, 16, 8, 16, 488, DateTimeKind.Local).AddTicks(6253),
                             RandomNumbers = "6,7,17,21,27,16",
                             RandomPlusNumber = 3,
                             UserName = "esinduru"
@@ -162,26 +162,6 @@ namespace WebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("OnNumaras", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Date = new DateTime(2022, 11, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Numbers = "6,25,17,13,27,60,63,66,71,78"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Date = new DateTime(2023, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Numbers = "19,17,9,23,27,45,47,53,64,67"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Date = new DateTime(2023, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Numbers = "13,45,53,52,27,3,34,37,59,78"
-                        });
                 });
 
             modelBuilder.Entity("Entities.Models.SansTopu", b =>
@@ -376,19 +356,19 @@ namespace WebApi.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ace94cc0-c158-499d-9883-1f7ad6f2f2d9",
+                            Id = "bbc4b342-0f3f-4d9c-ae7c-cf8c170d089c",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "1cf1ee80-3995-40ee-a593-1681b1d267cb",
+                            Id = "92c651c2-5cc4-4783-834d-4235f74d6448",
                             Name = "Editor",
                             NormalizedName = "EDITOR"
                         },
                         new
                         {
-                            Id = "d3c28195-18dc-415e-89db-48ad6600c2bd",
+                            Id = "62ff7d8c-a7a9-4474-85fb-45cea82d903c",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
