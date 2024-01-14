@@ -196,6 +196,13 @@ namespace Services.Concrete
             return matchRateDto;
         }
 
+        private double CalculateMatchRate(int count)
+        {
+            var matchRate = ((double)count / 6) * 100;
+            matchRate = Math.Round(matchRate, 2);
+            return matchRate;
+        }
+
         private async Task<string> GetUser(string userName)
         {
             User user = new User();
