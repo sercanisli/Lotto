@@ -133,6 +133,9 @@ namespace Services.Concrete
                 }
             } while (i == 0);
             randomNumbers=Sort(randomNumbers);
+
+            var matchRate = await MatchRate(randomNumbers);
+
             var superLotoDto = new SuperLotoDtoForRandom()
             {
                 Numbers = randomNumbers,
@@ -149,6 +152,48 @@ namespace Services.Concrete
 
             _logger.LogInfo($"User : {user}, Random Numbers : {string.Join(",", randomNumbers)}");
             return superLotoDto;
+        }
+
+        private async Task<MatchRateDto> MatchRate(List<int> randomNumbers)
+        {
+            int count = 0;
+            int limit = 0;
+            double calculatedMatchRate = 0;
+            string date = "";
+            string matchRate = "";
+            var entities = await GetAllNumbersArrayWithoutPaginationAsync(false);
+            foreach (var entity in entities)
+            {
+                var entityNumbers = entity.Numbers;
+                for (int i = 0; i < randomNumbers.Count(); i++)
+                {
+                    for (int j = 0; j < entityNumbers.Count(); j++)
+                    {
+                        if (randomNumbers[j] == entityNumbers[i])
+                        {
+                            count++;
+                        }
+                        if (count > limit)
+                        {
+                            calculatedMatchRate = CalculateMatchRate(count);
+                            matchRate = calculatedMatchRate.ToString();
+                            limit = count;
+                            date = entity.Date.ToString();
+                        }
+                    }
+                }
+                count = 0;
+            }
+            if (string.IsNullOrEmpty(calculatedMatchRate.ToString()))
+            {
+                matchRate = "No Matching";
+            }
+            var matchRateDto = new MatchRateDto()
+            {
+                MatchRate = matchRate,
+                Date = date
+            };
+            return matchRateDto;
         }
 
         private async Task<string> GetUser(string userName)
