@@ -139,6 +139,8 @@ namespace Services.Concrete
             var superLotoDto = new SuperLotoDtoForRandom()
             {
                 Numbers = randomNumbers,
+                MatchRate = matchRate.MatchRate,
+                Date = matchRate.Date
             };
 
             var superLotoLogs = new SuperLotoLogs()
