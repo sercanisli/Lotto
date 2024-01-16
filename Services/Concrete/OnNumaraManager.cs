@@ -166,6 +166,48 @@ namespace Services.Concrete
             return matchRate;
         }
 
+        public async Task<MatchRateDto> CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync(OnNumaraDtoForCompare onNumaraDtoForCompare)
+        {
+            int count = 0;
+            int limit = 0;
+            double calculatedMatchRate = 0;
+            string date = "";
+            string matchRate = "";
+            var entities = await _manager.OnNumaraLogs.GetAllLogsAsync(false);
+            foreach(var entity in entities)
+            {
+                var entityNumbers = entity.RandomNumbers;
+                for(int i = 0; i<onNumaraDtoForCompare.Numbers.Count(); i++)
+                {
+                    for(int j = 0; j<entityNumbers.Count(); j++)
+                    {
+                        if (onNumaraDtoForCompare.Numbers[i] == entityNumbers[j])
+                        {
+                            count++;
+                        }
+                        if(count>limit)
+                        {
+                            calculatedMatchRate = CalculateMatchRate(count);
+                            matchRate = calculatedMatchRate.ToString();
+                            limit = count;
+                            date = entity.Date.ToString();
+                        }
+                    }
+                }
+                count = 0;
+            }
+            if (string.IsNullOrEmpty(calculatedMatchRate.ToString()))
+            {
+                matchRate = "No Matching";
+            }
+            var matchRateDto = new MatchRateDto()
+            {
+                MatchRate = matchRate,
+                Date = date
+            };
+            return matchRateDto;
+        }
+
         private async Task<MatchRateDto> MatchRate(List<int> randomNumbers)
         {
             int count = 0;
