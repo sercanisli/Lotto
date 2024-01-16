@@ -167,7 +167,7 @@ namespace Services.Concrete
             return matchRate;
         }
 
-        public async Task<MatchRateDto> CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync(OnNumaraDtoForCompare onNumaraDtoForCompare)
+        public async Task<MatchRateDto> CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync(OnNumaraDtoForCompareWithLogs onNumaraDtoForCompareWithLogs)
         {
             int count = 0;
             int limit = 0;
@@ -178,11 +178,11 @@ namespace Services.Concrete
             foreach(var entity in entities)
             {
                 var entityNumbers = entity.RandomNumbers;
-                for(int i = 0; i<onNumaraDtoForCompare.Numbers.Count(); i++)
+                for(int i = 0; i<onNumaraDtoForCompareWithLogs.Numbers.Count(); i++)
                 {
                     for(int j = 0; j<entityNumbers.Count(); j++)
                     {
-                        if (onNumaraDtoForCompare.Numbers[i] == entityNumbers[j])
+                        if (onNumaraDtoForCompareWithLogs.Numbers[i] == entityNumbers[j])
                         {
                             count++;
                         }

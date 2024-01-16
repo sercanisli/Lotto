@@ -105,9 +105,9 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync")]
-        public async Task<IActionResult> CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync([FromBody] OnNumaraDtoForCompare onNumaraDtoForCompare)
+        public async Task<IActionResult> CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync([FromBody] OnNumaraDtoForCompareWithLogs onNumaraDtoForCompareWithLogs)
         {
-            var matchRate = await _manager.OnNumaraService.CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync(onNumaraDtoForCompare);
+            var matchRate = await _manager.OnNumaraService.CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync(onNumaraDtoForCompareWithLogs);
             return Ok(matchRate);
         }
 
