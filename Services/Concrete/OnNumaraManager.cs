@@ -19,6 +19,7 @@ namespace Services.Concrete
         private readonly IOnNumaraLinks _onNumaraLinks;
         private readonly UserManager<User> _userManager;
         private readonly ICacheService _cache;
+
         public OnNumaraManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper, IOnNumaraLinks onNumaraLinks, UserManager<User> userManager, ICacheService cache)
         {
             _manager = manager;
