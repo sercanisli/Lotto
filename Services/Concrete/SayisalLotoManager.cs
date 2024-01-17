@@ -8,7 +8,6 @@ using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Services.Concrete
 {
@@ -160,6 +159,48 @@ namespace Services.Concrete
         {
             var matchRate = await MatchRate(sayisalLotoDtoForCompare.Numbers);
             return matchRate;
+        }
+
+        public async Task<MatchRateDto> CompareSayisalLotoNumbersWithSayisalLotoLogsNumbersAsync(SayisalLotoDtoForCompareWithLogs sayisalLotoDtoForCompareWithLogs)
+        {
+            int count = 0;
+            int limit = 0;
+            double calculatedMatchRate = 0;
+            string date = "";
+            string matchRate = "";
+            var entities = await _manager.SayisalLotoLogs.GetAllLogsAsync(false);
+            foreach (var entity in entities)
+            {
+                var entityNumbers = entity.RandomNumbers;
+                for(int i = 0; i<sayisalLotoDtoForCompareWithLogs.Numbers.Count(); i++)
+                {
+                    for(int j = 0; j<entityNumbers.Count(); j++)
+                    {
+                        if (sayisalLotoDtoForCompareWithLogs.Numbers[i] == entityNumbers[j])
+                        {
+                            count++;
+                        }
+                        if(count>limit)
+                        {
+                            calculatedMatchRate = CalculateMatchRate(count);
+                            matchRate = calculatedMatchRate.ToString();
+                            limit = count;
+                            date = entity.Date.ToString();
+                        }
+                    }
+                }
+                count = 0;
+            }
+            if(string.IsNullOrEmpty(calculatedMatchRate.ToString()))
+            {
+                matchRate = "No matching";
+            }
+            var matchRateDto = new MatchRateDto()
+            {
+                MatchRate = matchRate,
+                Date = date
+            };
+            return matchRateDto;
         }
 
         private async Task<string> GetUser(string userName)
@@ -319,5 +360,7 @@ namespace Services.Concrete
             matchRate = Math.Round(matchRate, 2);
             return matchRate;
         }
+
+        
     }
 }
