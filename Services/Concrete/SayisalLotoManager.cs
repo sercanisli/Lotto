@@ -360,7 +360,5 @@ namespace Services.Concrete
             matchRate = Math.Round(matchRate, 2);
             return matchRate;
         }
-
-        
     }
 }
