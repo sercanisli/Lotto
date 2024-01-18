@@ -156,6 +156,12 @@ namespace Services.Concrete
             return superLotoDto;
         }
 
+        public async Task<MatchRateDto> CompareSuperLotoNumbersAsync(SuperLotoDtoForCompare superLotoDtoForCompare)
+        {
+            var matchRate = await MatchRate(superLotoDtoForCompare.Numbers);
+            return matchRate;
+        }
+
         private async Task<MatchRateDto> MatchRate(List<int> randomNumbers)
         {
             int count = 0;
