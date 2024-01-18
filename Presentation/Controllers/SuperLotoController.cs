@@ -115,6 +115,13 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
+        [HttpGet("CompareRelasedSuperLotoNumbersWithAllSuperLotoNumbersAsync")]
+        public async Task<IActionResult> CompareRelasedSuperLotoNumbersWithAllSuperLotoNumbersAsync([FromBody] SuperLotoDtoForCompare superLotoDtoForCompare)
+        {
+            var matchRate = await _manager.SuperLotoService.CompareSuperLotoNumbersAsync(superLotoDtoForCompare);
+            return Ok(matchRate);
+        }
+
         [HttpOptions]
         [ResponseCache(CacheProfileName = "5mins")]
         public IActionResult GetSuperLotoOptions()
