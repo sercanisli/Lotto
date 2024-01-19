@@ -163,6 +163,54 @@ namespace Services.Concrete
             return matchRate;
         }
 
+        public async Task<MatchRateDto> CompareSansTopuNumbersWithSansTopuLogsNumbersAsync(SansTopuDtoForCompareWithLogs sansTopuDtoForCompareWithLogs)
+        {
+            int count = 0;
+            int limit = 0;
+            double calculatedMatchRate = 0;
+            string date = "";
+            string matchRate = "";
+            var logs = await _manager.SansTopuLogs.GetAllLogsAsync(false);
+            foreach (var log in logs)
+            {
+                var logNumbers = log.RandomNumbers;
+                var logPlusNumber = log.RandomPlusNumber;
+                if (sansTopuDtoForCompareWithLogs.PlusNumber == logPlusNumber)
+                {
+                    count++;
+                    limit = count;
+                }
+                for(int i=0; i<sansTopuDtoForCompareWithLogs.Numbers.Count(); i++)
+                {
+                    for(int j = 0; j<logNumbers.Count(); j++)
+                    {
+                        if (sansTopuDtoForCompareWithLogs.Numbers[j] == logNumbers[i])
+                        {
+                            count++;
+                        }
+                        if(count>limit)
+                        {
+                            calculatedMatchRate = CalculateMatchRate(count);
+                            matchRate = calculatedMatchRate.ToString();
+                            limit = count;
+                            date = log.Date.ToString();
+                        }
+                    }
+                }
+                count = 0;
+            }
+            if (string.IsNullOrEmpty(calculatedMatchRate.ToString()))
+            {
+                matchRate = "No Matching";
+            }
+            var matchRateDto = new MatchRateDto()
+            {
+                MatchRate = matchRate,
+                Date = date
+            };
+            return matchRateDto;
+        }
+
         private async Task<MatchRateDto> MatchRate(List<int> randomNumbers, int randomPlusNumber)
         {
             int count = 0;
@@ -344,5 +392,7 @@ namespace Services.Concrete
             var year = date.Year;
             return $"{day}/{month}/{year}";
         }
+
+       
     }
 }
