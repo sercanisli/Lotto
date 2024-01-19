@@ -102,6 +102,13 @@ namespace Presentation.Controllers
             return Ok(matchRate);
         }
 
+        [HttpGet("CompareSansTopuNumbersWithSansTopuLogsNumbersAsync")]
+        public async Task<IActionResult> CompareSansTopuNumbersWithSansTopuLogsNumbersAsync([FromBody] SansTopuDtoForCompareWithLogs sansTopuDtoForCompareWithLogs)
+        {
+            var matchRate = await _manager.SansTopuService.CompareSansTopuNumbersWithSansTopuLogsNumbersAsync(sansTopuDtoForCompareWithLogs);
+            return Ok(matchRate);
+        }
+
         [HttpOptions]
         [ResponseCache(CacheProfileName = "5mins")]
         public IActionResult GetSansTopuOptions()
