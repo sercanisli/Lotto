@@ -171,25 +171,24 @@ namespace Services.Concrete
             string date = "";
             string matchRate = "";
             var logs = await _manager.SansTopuLogs.GetAllLogsAsync(false);
-
-            foreach (var log in logs)
+            foreach(var log in logs)
             {
                 var logNumbers = log.RandomNumbers;
-                var logPlusNumber = log.RandomPlusNumber;
-                if (sansTopuDtoForCompareWithLogs.PlusNumber == logPlusNumber)
+                int logPlusNumber = log.RandomPlusNumber;
+                if(logPlusNumber==sansTopuDtoForCompareWithLogs.PlusNumber)
                 {
                     count++;
                     limit = count;
                 }
-                for(int i = 0; i<sansTopuDtoForCompareWithLogs.Numbers.Count; i++)
+                for(int i = 0; i<sansTopuDtoForCompareWithLogs.Numbers.Count(); i++)
                 {
-                    for(int j = 0; j<logNumbers.Count; j++)
+                    for(int j = 0; j<logNumbers.Count(); j++)
                     {
-                        if (sansTopuDtoForCompareWithLogs.Numbers[j] == logNumbers[i])
+                        if (sansTopuDtoForCompareWithLogs.Numbers[i] == logNumbers[j])
                         {
                             count++;
                         }
-                        if(count>limit)
+                        if(count > limit)
                         {
                             calculatedMatchRate = CalculateMatchRate(count);
                             matchRate = calculatedMatchRate.ToString();
@@ -202,7 +201,7 @@ namespace Services.Concrete
             }
             if (string.IsNullOrEmpty(calculatedMatchRate.ToString()))
             {
-                matchRate = "No Matching";
+                matchRate = "No matching";
             }
             var matchRateDto = new MatchRateDto()
             {
@@ -393,7 +392,5 @@ namespace Services.Concrete
             var year = date.Year;
             return $"{day}/{month}/{year}";
         }
-
-       
     }
 }

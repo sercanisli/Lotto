@@ -4798,3 +4798,15 @@ File name: 'RandomNumbersLayoutRenderer, Culture=neutral, PublicKeyToken=null'
 2024-01-20 02:41:50.6754 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
 2024-01-20 02:41:50.7092 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
 2024-01-20 02:41:50.7382 Info Configuration initialized.
+2024-01-21 00:56:49.4662 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-01-21 00:56:49.9555 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2024-01-21 00:56:50.0406 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2024-01-21 00:56:50.1017 Info Configuration initialized.
+2024-01-21 01:01:48.7667 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-01-21 01:01:48.8529 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2024-01-21 01:01:48.9031 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2024-01-21 01:01:48.9826 Info Configuration initialized.
+2024-01-21 01:23:28.0121 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-01-21 01:23:28.1933 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.7.2287. Product version: 5.2.7+a1ef7cd83b5a6a172142a6850f0ced4e759a4b3b. GlobalAssemblyCache: False
+2024-01-21 01:23:28.2774 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Sercan\source\repos\Lotto\WebApi\nlog.config
+2024-01-21 01:23:28.3571 Info Configuration initialized.
