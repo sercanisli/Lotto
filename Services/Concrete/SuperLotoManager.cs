@@ -8,7 +8,6 @@ using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
-using System.Dynamic;
 
 namespace Services.Concrete
 {
