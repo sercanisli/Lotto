@@ -13,6 +13,7 @@ namespace Services.Contracts
         Task UpdateOneNumbersArrayAsync(int id, SuperLotoDtoForUpdate superLotoDto, bool trackChanges);
         Task DeleteOneNumbersArrayAsync(int id, bool trackChanges);
         Task<MatchRateDto> CompareSuperLotoNumbersAsync(SuperLotoDtoForCompare superLotoDtoForCompare);
+        Task<MatchRateDto> CompareSuperLotoNumbersWithSuperLotoLogsNumbersAsync(SuperLotoDtoForCompareWithLogs superLotoDtoForCompareWithLogs);
         Task<SuperLotoDtoForRandom> GetRondomNumbersAsync(string userName);
     }
 }
