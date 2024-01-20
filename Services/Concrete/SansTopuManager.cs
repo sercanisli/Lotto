@@ -171,6 +171,7 @@ namespace Services.Concrete
             string date = "";
             string matchRate = "";
             var logs = await _manager.SansTopuLogs.GetAllLogsAsync(false);
+
             foreach (var log in logs)
             {
                 var logNumbers = log.RandomNumbers;
@@ -180,9 +181,9 @@ namespace Services.Concrete
                     count++;
                     limit = count;
                 }
-                for(int i=0; i<sansTopuDtoForCompareWithLogs.Numbers.Count(); i++)
+                for(int i = 0; i<sansTopuDtoForCompareWithLogs.Numbers.Count; i++)
                 {
-                    for(int j = 0; j<logNumbers.Count(); j++)
+                    for(int j = 0; j<logNumbers.Count; j++)
                     {
                         if (sansTopuDtoForCompareWithLogs.Numbers[j] == logNumbers[i])
                         {
