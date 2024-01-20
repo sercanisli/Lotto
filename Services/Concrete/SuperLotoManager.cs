@@ -162,6 +162,48 @@ namespace Services.Concrete
             return matchRate;
         }
 
+        public async Task<MatchRateDto> CompareSuperLotoNumbersWithSuperLotoLogsNumbersAsync(SuperLotoDtoForCompareWithLogs superLotoDtoForCompareWithLogs)
+        {
+            int count = 0;
+            int limit = 0;
+            double calculatedMatchRate = 0;
+            string date = "";
+            string matchRate = "";
+            var logs = await _manager.SuperLotoLogs.GetAllLogsAsync(false);
+            foreach (var log in logs)
+            {
+                var logNumbers = log.RandomNumbers;
+                for(int i = 0; i<superLotoDtoForCompareWithLogs.Numbers.Count(); i++)
+                {
+                    for(int j = 0; j<logNumbers.Count(); j++)
+                    {
+                        if (superLotoDtoForCompareWithLogs.Numbers[i] == logNumbers[j])
+                        {
+                            count++;
+                        }
+                        if(count > limit)
+                        {
+                            calculatedMatchRate = CalculateMatchRate(count);
+                            matchRate = calculatedMatchRate.ToString();
+                            limit = count;
+                            date = log.Date.ToString();
+                        }
+                    }
+                }
+                count = 0;
+            }
+            if(string.IsNullOrEmpty(calculatedMatchRate.ToString()))
+            {
+                matchRate = "No matching";
+            }
+            var matchRateDto = new MatchRateDto()
+            {
+                MatchRate = matchRate,
+                Date = date
+            };
+            return matchRateDto;
+        }
+
         private async Task<MatchRateDto> MatchRate(List<int> randomNumbers)
         {
             int count = 0;
