@@ -113,5 +113,20 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             result.StatusCode.Should().Be(204);
         }
 
+        [Fact]
+        public async Task DeleteOneNumbersArrayForSayisalLotoAsync_ShouldReturnNoContent()
+        {
+            //Arrange
+            int id = Arg.Any<int>();
+
+            _serviceManager.SayisalLotoService.DeleteOneNumbersArrayAsync(id, false);
+
+            //Act
+            var result = (NoContentResult)await _sut.DeleteOneNumbersArrayForSayisalLotoAsync(id);
+
+            //Assert
+            result.StatusCode.Should().Be(204);
+        }
+
     }
 }
