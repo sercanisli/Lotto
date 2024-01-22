@@ -1,14 +1,9 @@
 ﻿using Entities.DataTransferObjects;
-using Entities.LinkModels;
-using Entities.RequestFeatures;
 using FluentAssertions;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 using Presentation.Controllers;
 using Services.Contracts;
-using System.Numerics;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Lotto.Api.Tests.Unit.ControllerTests
 {
@@ -136,6 +131,19 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
 
             //Act
             var result = (OkObjectResult)await _sut.CompareReleasedSayisalLotoNumbersWithAllSayisalLotoNumbersAsync(Arg.Any<SayisalLotoDtoForCompare>());
+
+            //Assert
+            result.StatusCode.Should().Be(200);
+        }
+
+        [Fact]
+        public async Task CompareSayisalLotoNumbersWithSayisalLotoLogsNumbersAsync_ShouldReturnOk()
+        {
+            //Arrange
+            _serviceManager.SayisalLotoService.CompareSayisalLotoNumbersWithSayisalLotoLogsNumbersAsync(Arg.Any<SayisalLotoDtoForCompareWithLogs>());
+
+            //Act
+            var result = (OkObjectResult)await _sut.CompareSayisalLotoNumbersWithSayisalLotoLogsNumbersAsync(Arg.Any<SayisalLotoDtoForCompareWithLogs>());
 
             //Assert
             result.StatusCode.Should().Be(200);
