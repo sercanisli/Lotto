@@ -128,5 +128,17 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             result.StatusCode.Should().Be(204);
         }
 
+        [Fact]
+        public async Task CompareReleasedSayisalLotoNumbersWithAllSayisalLotoNumbersAsync_ShouldReturnOk()
+        {
+            //Arrange
+            _serviceManager.SayisalLotoService.CompareSayisalLotoNumbersAsync(Arg.Any<SayisalLotoDtoForCompare>());
+
+            //Act
+            var result = (OkObjectResult)await _sut.CompareReleasedSayisalLotoNumbersWithAllSayisalLotoNumbersAsync(Arg.Any<SayisalLotoDtoForCompare>());
+
+            //Assert
+            result.StatusCode.Should().Be(200);
+        }
     }
 }
