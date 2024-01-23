@@ -135,5 +135,18 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(200);
         }
+
+        [Fact]
+        public async Task CompareSuperLotoNumbersWithSuperLotoLogsNumbersAsync_ShouldReturnOk()
+        {
+            //Arrange
+            _serviceManager.SuperLotoService.CompareSuperLotoNumbersWithSuperLotoLogsNumbersAsync(Arg.Any<SuperLotoDtoForCompareWithLogs>());
+
+            //Act
+            var result = (OkObjectResult)await _sut.CompareSuperLotoNumbersWithSuperLotoLogsNumbersAsync(Arg.Any<SuperLotoDtoForCompareWithLogs>());
+
+            //Assert
+            result.StatusCode.Should().Be(200);
+        }
     }
 }
