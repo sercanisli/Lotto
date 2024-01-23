@@ -1,5 +1,6 @@
 ﻿using Entities.DataTransferObjects;
 using FluentAssertions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 using Presentation.Controllers;
