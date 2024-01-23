@@ -107,5 +107,20 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(204);
         }
+
+        [Fact]
+        public async Task DeleteOneNumbersArrayForSuperLotoAsync_ShouldReturnNoContent()
+        {
+            //Arrange
+            int id = Arg.Any<int>();
+
+            _serviceManager.SuperLotoService.DeleteOneNumbersArrayAsync(id, false);
+
+            //Act
+            var result = (NoContentResult)await _sut.DeleteOneNumbersArrayForSuperLotoAsync(id);
+
+            //Assert
+            result.StatusCode.Should().Be(204);
+        }
     }
 }
