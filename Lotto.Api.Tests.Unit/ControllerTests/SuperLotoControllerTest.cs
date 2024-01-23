@@ -85,5 +85,27 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(201);
         }
+
+        [Fact]
+        public async Task UpdateOneNumbersArrayForSuperLotoAsync_ShouldReturnNoContent()
+        {
+            //Arrange
+            int id = Arg.Any<int>();
+            var numbers = new List<int> { 5, 10, 15, 20, 25, 30 };
+
+            var superLotoDtoForUpdate = new SuperLotoDtoForUpdate()
+            {
+                Id = id,
+                Numbers = numbers,
+                Date = Convert.ToDateTime("27.02.1998 00:00:00")
+            };
+            _serviceManager.SuperLotoService.UpdateOneNumbersArrayAsync(id, superLotoDtoForUpdate, false);
+
+            //Act
+            var result = (NoContentResult)await _sut.UpdateOneNumbersArrayForSuperLotoAsync(id, superLotoDtoForUpdate);
+
+            //Assert
+            result.StatusCode.Should().Be(204);
+        }
     }
 }
