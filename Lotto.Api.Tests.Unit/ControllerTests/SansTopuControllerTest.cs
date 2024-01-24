@@ -129,5 +129,18 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(204);
         }
+
+        [Fact]
+        public async Task CompareReleasedSansTopuNumbersWithAllSansTopuNumbersAsync_ShouldReturnOk()
+        {
+            //Arrange
+            _serviceManager.SansTopuService.CompareSansTopuNumbersAsync(Arg.Any<SansTopuDtoForCompare>());
+
+            //Act
+            var result = (OkObjectResult)await _sut.CompareReleasedSansTopuNumbersWithAllSansTopuNumbersAsync(Arg.Any<SansTopuDtoForCompare>());
+
+            //Assert
+            result.StatusCode.Should().Be(200);
+        }
     }
 }
