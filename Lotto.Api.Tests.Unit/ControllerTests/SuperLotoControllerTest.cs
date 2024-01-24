@@ -59,7 +59,7 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
         }
 
         [Fact]
-        public async Task CreateOneNumbersArrayForSuperLotoAsync_ShouldReturnOk()
+        public async Task CreateOneNumbersArrayForSuperLotoAsync_ShouldReturnCreated()
         {
             //Arrange
             var numbers = new List<int> { 5, 10, 15, 20, 25, 30 };
