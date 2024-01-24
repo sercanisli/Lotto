@@ -91,6 +91,28 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             result.StatusCode.Should().Be(201);
         }
 
-        
+        [Fact]
+        public async Task UpdateOneNumbersArrayForSansTopuAsync_ShouldReturnNoContent()
+        {
+            //Arrange
+            int id = Arg.Any<int>();
+            var numbers = new List<int> { 5, 10, 15, 20, 25 };
+            int plusNumber = 1;
+
+            var sansTopuDtoForUpdate = new SansTopuDtoForUpdate()
+            {
+                Id = id,
+                Numbers = numbers,
+                PlusNumber = plusNumber,
+                Date = Convert.ToDateTime("27.02.1998 00:00:00")
+            };
+            _serviceManager.SansTopuService.UpdateOneNumbersArrayAsync(id, sansTopuDtoForUpdate, false);
+
+            //Act
+            var result = (NoContentResult)await _sut.UpdateOneNumbersArrayForSansTopuAsync(id, sansTopuDtoForUpdate);
+
+            //Assert
+            result.StatusCode.Should().Be(204);
+        }
     }
 }
