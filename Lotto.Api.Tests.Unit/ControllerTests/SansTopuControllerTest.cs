@@ -114,5 +114,20 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(204);
         }
+
+        [Fact]
+        public async Task DeleteOneNumbersArrayForSansTopuAsync_ShouldReturnNoContent()
+        {
+            //Arrange
+            int id = Arg.Any<int>();
+
+            _serviceManager.SansTopuService.DeleteOneNumbersArrayAsync(id, false);
+
+            //Act
+            var result = (NoContentResult)await _sut.DeleteOneNumbersArrayForSansTopuAsync(id);
+
+            //Assert
+            result.StatusCode.Should().Be(204);
+        }
     }
 }
