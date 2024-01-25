@@ -12,6 +12,8 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
         private readonly OnNumaraController _sut;
         private readonly IServiceManager _serviceManager = Substitute.For<IServiceManager>();
 
+        List<int> numbers = new List<int> { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44 };
+
         public OnNumaraControllerTest()
         {
             _sut = new(_serviceManager);
@@ -26,7 +28,7 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             var onNumaraDto = new OnNumaraDto()
             {
                 Id = id,
-                Numbers = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44 },
+                Numbers = numbers,
                 Date = Convert.ToDateTime("27.02.1998 00:00:00")
             };
 
@@ -48,7 +50,7 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             var onNumaraDto = new OnNumaraDto()
             {
                 Id = 9999,
-                Numbers = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44 },
+                Numbers = numbers,
                 Date = date
             };
 
@@ -59,6 +61,32 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
 
             //Assert
             result.StatusCode.Should().Be(200);
+        }
+
+        [Fact]
+        public async Task CreateOneNumbersArrayForOnNumaraAsync_ShouldReturnCreated()
+        {
+            //Arrange
+            var onNumaraDtoForInsertion = new OnNumaraDtoForInsertion()
+            {
+                Numbers = numbers,
+                Date = "27.02.1998 00:00:00"
+            };
+
+            var onNumaraDto = new OnNumaraDto()
+            {
+                Id = 9999,
+                Numbers = numbers,
+                Date = Convert.ToDateTime("27.02.1998 00:00:00")
+            };
+
+            _serviceManager.OnNumaraService.CreateOneNumbersArrayAsync(onNumaraDtoForInsertion).Returns(onNumaraDto);
+
+            //Act
+            var result = (ObjectResult)await _sut.CreateOneNumbersArrayForOnNumaraAsync(onNumaraDtoForInsertion);
+
+            //Assert
+            result.StatusCode.Should().Be(201);
         }
     }
 }
