@@ -138,5 +138,18 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(200);
         }
+
+        [Fact]
+        public async Task CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync_ShouldReturnOk()
+        {
+            //Arrange
+            _serviceManager.OnNumaraService.CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync(Arg.Any<OnNumaraDtoForCompareWithLogs>());
+
+            //Act
+            var result = (OkObjectResult)await _sut.CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync(Arg.Any<OnNumaraDtoForCompareWithLogs>());
+
+            //Assert
+            result.StatusCode.Should().Be(200);
+        }
     }
 }
