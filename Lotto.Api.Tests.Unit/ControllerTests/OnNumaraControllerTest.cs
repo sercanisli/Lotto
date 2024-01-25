@@ -88,5 +88,27 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(201);
         }
+
+        [Fact]
+        public async Task UpdateOneNumbersArrayForOnNumaraAsync_ShouldReturnNoContent()
+        {
+            //Arrange
+            int id = Arg.Any<int>();
+
+            var onNumaraDtoForUpdate = new OnNumaraDtoForUpdate()
+            {
+                Id = id,
+                Numbers = numbers,
+                Date = Convert.ToDateTime("27.02.1998 00:00:00")
+            };
+
+            _serviceManager.OnNumaraService.UpdateOneNumbersArrayAsync(id, onNumaraDtoForUpdate, false);
+
+            //Act
+            var result = (NoContentResult)await _sut.UpdateOneNumbersArrayForOnNumaraAsync(id, onNumaraDtoForUpdate);
+
+            //Assert
+            result.StatusCode.Should().Be(204);
+        }
     }
 }
