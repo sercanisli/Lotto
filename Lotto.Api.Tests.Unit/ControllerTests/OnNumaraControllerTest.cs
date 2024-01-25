@@ -110,5 +110,20 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(204);
         }
+
+        [Fact]
+        public async Task DeleteOneNumbersArrayForOnNumaraAsync_ShouldReturnNoContent()
+        {
+            //Arrange
+            int id = Arg.Any<int>();
+
+            _serviceManager.OnNumaraService.DeleteOneNumbersArrayAsync(id, false);
+
+            //Act
+            var result = (NoContentResult)await _sut.DeleteOneNumbersArrayForOnNumaraAsync(id);
+
+            //Assert
+            result.StatusCode.Should().Be(204);
+        }
     }
 }
