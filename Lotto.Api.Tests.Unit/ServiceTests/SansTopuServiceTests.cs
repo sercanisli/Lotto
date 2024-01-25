@@ -2,9 +2,13 @@
 using Entities.Models;
 using FluentAssertions;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using NSubstitute.ReturnsExtensions;
 using Repositories.Cantracts;
+using Repositories.EntityFrameworkCore;
 using Services.Concrete;
 using Services.Contracts;
 
@@ -13,26 +17,36 @@ namespace Lotto.Api.Tests.Unit.ServiceTests
     public class SansTopuServiceTests
     {
         private readonly SansTopuManager _sut;
-        private readonly IRepositoryManager _manager = Substitute.For<IRepositoryManager>();
+        private readonly IRepositoryManager _repositoryManager = Substitute.For<IRepositoryManager>();
         private readonly ILoggerService _loggerService = Substitute.For<ILoggerService>();
         private readonly IMapper _mapper = Substitute.For<IMapper>();
         private readonly ISansTopuLinks _links = Substitute.For<ISansTopuLinks>();
-        private readonly UserManager<User> _userManager = Substitute.For<UserManager<User>>();
+        private readonly UserManager<User> _userManager;
         private readonly ICacheService _cache = Substitute.For<ICacheService>();
-
         public SansTopuServiceTests()
         {
-            _sut = new(_manager, _loggerService, _mapper, _links, _userManager, _cache);
+            var dbContextOptions = new DbContextOptionsBuilder<RepositoryContext>()
+            .UseInMemoryDatabase(databaseName: "InMemoryDatabase")
+            .Options;
+
+            var dbContext = new RepositoryContext(dbContextOptions);
+
+            var serviceProvider = new ServiceCollection().AddIdentity<User, IdentityRole>().Services.BuildServiceProvider();
+            var userStore = new UserStore<User>(dbContext, null);
+
+            _userManager = new UserManager<User>(userStore, null, null, null, null, null, null, null, null);
+
+            _sut = new SansTopuManager(_repositoryManager, _loggerService, _mapper, _links, _userManager, _cache);
         }
 
         [Fact]
-        public async Task GetOneNumbersArrayByIdAsync_ShouldReturnNull_WhenNoUserExist()
+        public async Task GetOneNumbersArrayByIdAsync_ShouldReturnNull_WhenNoNumbersArrayExist()
         {
             // Arrange
-            _manager.SansTopu.GetOneNumbersArrayByIdAsync(Arg.Any<int>(), false).ReturnsNull();
+            _repositoryManager.SansTopu.GetOneNumbersArrayByIdAsync(9999, false).ReturnsNull();
 
             //Act
-            var result = await _sut.GetOneNumbersArrayByIdAsync(Arg.Any<int>(), false);
+            var result = await _sut.GetOneNumbersArrayByIdAsync(9999, false);
 
             //Assert
             result.Should().BeNull();
