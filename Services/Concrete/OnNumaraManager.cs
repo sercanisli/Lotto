@@ -169,9 +169,13 @@ namespace Services.Concrete
 
         public async Task<MatchRateDto> CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync(OnNumaraDtoForCompareWithLogs onNumaraDtoForCompareWithLogs)
         {
+            var matchRate = new MatchRateDto();
             var logs = await _manager.OnNumaraLogs.GetAllLogsAsync(false);
-            var logNumbers = logs.SelectMany(l => l.RandomNumbers).ToList();
-            var matchRate = await MatchRate(logNumbers);
+            foreach (var log in logs)
+            {
+                var logNumbers = log.RandomNumbers;
+                matchRate = await MatchRate(logNumbers);
+            }
             return matchRate;
         }
 
