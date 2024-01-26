@@ -169,44 +169,10 @@ namespace Services.Concrete
 
         public async Task<MatchRateDto> CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync(OnNumaraDtoForCompareWithLogs onNumaraDtoForCompareWithLogs)
         {
-            int count = 0;
-            int limit = 0;
-            double calculatedMatchRate = 0;
-            string date = "";
-            string matchRate = "";
-            var entities = await _manager.OnNumaraLogs.GetAllLogsAsync(false);
-            foreach(var entity in entities)
-            {
-                var entityNumbers = entity.RandomNumbers;
-                for(int i = 0; i<onNumaraDtoForCompareWithLogs.Numbers.Count(); i++)
-                {
-                    for(int j = 0; j<entityNumbers.Count(); j++)
-                    {
-                        if (onNumaraDtoForCompareWithLogs.Numbers[i] == entityNumbers[j])
-                        {
-                            count++;
-                        }
-                        if(count>limit)
-                        {
-                            calculatedMatchRate = CalculateMatchRate(count);
-                            matchRate = calculatedMatchRate.ToString();
-                            limit = count;
-                            date = entity.Date.ToString();
-                        }
-                    }
-                }
-                count = 0;
-            }
-            if (string.IsNullOrEmpty(calculatedMatchRate.ToString()))
-            {
-                matchRate = "No Matching";
-            }
-            var matchRateDto = new MatchRateDto()
-            {
-                MatchRate = matchRate,
-                Date = date
-            };
-            return matchRateDto;
+            var logs = await _manager.OnNumaraLogs.GetAllLogsAsync(false);
+            var logNumbers = logs.SelectMany(l => l.RandomNumbers).ToList();
+            var matchRate = await MatchRate(logNumbers);
+            return matchRate;
         }
 
         private async Task<MatchRateDto> MatchRate(List<int> randomNumbers)

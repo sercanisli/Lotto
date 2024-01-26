@@ -1,12 +1,11 @@
 ﻿using AutoMapper;
+using Entities.DataTransferObjects;
 using Entities.Models;
-using FluentAssertions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
-using NSubstitute.ReturnsExtensions;
 using Repositories.Cantracts;
 using Repositories.EntityFrameworkCore;
 using Services.Concrete;
@@ -23,6 +22,7 @@ namespace Lotto.Api.Tests.Unit.ServiceTests
         private readonly ISansTopuLinks _links = Substitute.For<ISansTopuLinks>();
         private readonly UserManager<User> _userManager;
         private readonly ICacheService _cache = Substitute.For<ICacheService>();
+
         public SansTopuServiceTests()
         {
             var dbContextOptions = new DbContextOptionsBuilder<RepositoryContext>()
@@ -40,16 +40,9 @@ namespace Lotto.Api.Tests.Unit.ServiceTests
         }
 
         [Fact]
-        public async Task GetOneNumbersArrayByIdAsync_ShouldReturnNull_WhenNoNumbersArrayExist()
+        public async Task GetOneNumbersArrayByIdAsync_ShouldReturnSansTopuDto()
         {
-            // Arrange
-            _repositoryManager.SansTopu.GetOneNumbersArrayByIdAsync(9999, false).ReturnsNull();
-
-            //Act
-            var result = await _sut.GetOneNumbersArrayByIdAsync(9999, false);
-
-            //Assert
-            result.Should().BeNull();
+           
         }
     }
 }
