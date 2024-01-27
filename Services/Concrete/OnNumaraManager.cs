@@ -50,7 +50,7 @@ namespace Services.Concrete
         public async Task<(LinkResponse linkResponse, MetaData metaData)> GetAllNumbersArraysAsync(LinkParameters<OnNumaraParameters> linkParameters, bool trackChanges)
         {
             var page = _cache.GetData<LinkParametersDtoForCache>("onnumara-page");
-            if(page!=null && page.PageNumber == linkParameters.Parameters.PageNumber && page.PageSize == linkParameters.Parameters.PageSize)
+            if (page != null && page.PageNumber == linkParameters.Parameters.PageNumber && page.PageSize == linkParameters.Parameters.PageSize)
             {
                 var cachedData = _cache.GetData<List<OnNumara>>("onnumara-entities");
                 if (cachedData != null && cachedData.Count() > 0)
@@ -97,7 +97,7 @@ namespace Services.Concrete
         {
             var formatedDate = FormatDate(date);
             var cachedData = _cache.GetData<OnNumara>($"onnumara-entity-{formatedDate}");
-            if(cachedData != null)
+            if (cachedData != null)
             {
                 return _mapper.Map<OnNumaraDto>(cachedData);
             }
@@ -169,14 +169,44 @@ namespace Services.Concrete
 
         public async Task<MatchRateDto> CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync(OnNumaraDtoForCompareWithLogs onNumaraDtoForCompareWithLogs)
         {
-            var matchRate = new MatchRateDto();
+            int count = 0;
+            int limit = 0;
+            double calculatedMatchRate = 0;
+            string date = "";
+            string matchRate = "";
             var logs = await _manager.OnNumaraLogs.GetAllLogsAsync(false);
             foreach (var log in logs)
             {
-                var logNumbers = log.RandomNumbers;
-                matchRate = await MatchRate(logNumbers);
+                var entityNumbers = log.RandomNumbers;
+                for (int i = 0; i < onNumaraDtoForCompareWithLogs.Numbers.Count(); i++)
+                {
+                    for (int j = 0; j < entityNumbers.Count(); j++)
+                    {
+                        if (onNumaraDtoForCompareWithLogs.Numbers[i] == entityNumbers[j])
+                        {
+                            count++;
+                        }
+                        if (count > limit)
+                        {
+                            calculatedMatchRate = CalculateMatchRate(count);
+                            matchRate = calculatedMatchRate.ToString();
+                            limit = count;
+                            date = log.Date.ToString();
+                        }
+                    }
+                }
+                count = 0;
             }
-            return matchRate;
+            if (string.IsNullOrEmpty(calculatedMatchRate.ToString()))
+            {
+                matchRate = "No Matching";
+            }
+            var matchRateDto = new MatchRateDto()
+            {
+                MatchRate = matchRate,
+                Date = date
+            };
+            return matchRateDto;
         }
 
         private async Task<MatchRateDto> MatchRate(List<int> randomNumbers)
@@ -190,9 +220,9 @@ namespace Services.Concrete
             foreach (var entity in entities)
             {
                 var entityNumbers = entity.Numbers;
-                for(int i = 0; i<randomNumbers.Count(); i++)
+                for (int i = 0; i < randomNumbers.Count(); i++)
                 {
-                    for(int j = 0; j<entityNumbers.Count(); j++)
+                    for (int j = 0; j < entityNumbers.Count(); j++)
                     {
                         if (randomNumbers[i] == entityNumbers[j])
                         {
