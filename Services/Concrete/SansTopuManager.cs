@@ -104,6 +104,11 @@ namespace Services.Concrete
             }
             cachedData = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
 
+            if(cachedData == null)
+            {
+                throw new SansTopuNotFoundExceptions(id);
+            }
+
             SetCache<SansTopu>($"sanstopu-entity-{id}", cachedData);
 
             return _mapper.Map<SansTopuDto>(cachedData);
