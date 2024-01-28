@@ -88,6 +88,11 @@ namespace Services.Concrete
             }
             cachedData = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
 
+            if(cachedData == null)
+            {
+                throw new OnNumaraNotFoundException(id);
+            }
+
             SetCache<OnNumara>($"onnumara-entity-{id}", cachedData);
 
             return _mapper.Map<OnNumaraDto>(cachedData);
