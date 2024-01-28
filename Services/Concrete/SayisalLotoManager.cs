@@ -86,6 +86,11 @@ namespace Services.Concrete
             }
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
 
+            if(entity == null)
+            {
+                throw new SayisalLotoNotFoundException(id);
+            }
+
             SetCache<SayisalLoto>($"sayisalloto-entity-{id}", entity);
 
             return _mapper.Map<SayisalLotoDto>(entity);
