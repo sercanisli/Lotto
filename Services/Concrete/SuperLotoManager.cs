@@ -85,6 +85,12 @@ namespace Services.Concrete
                 return _mapper.Map<SuperLotoDto>(cachedData);
             }
             var entity = await GetOneNumbersArrayByIdAndCheckExists(id, trackChanges);
+
+            if(entity == null)
+            {
+                throw new SuperLotoNotFoundException(id);
+            }
+
             SetCache<SuperLoto>($"superloto-entity-{id}", entity);
             return _mapper.Map<SuperLotoDto>(entity);
         }
