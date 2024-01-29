@@ -116,6 +116,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("CompareRelasedSuperLotoNumbersWithAllSuperLotoNumbersAsync")]
+        [HttpGet(Name = "CompareRelasedSuperLotoNumbersWithAllSuperLotoNumbersAsync")]
         public async Task<IActionResult> CompareRelasedSuperLotoNumbersWithAllSuperLotoNumbersAsync([FromBody] SuperLotoDtoForCompare superLotoDtoForCompare)
         {
             var matchRate = await _manager.SuperLotoService.CompareSuperLotoNumbersAsync(superLotoDtoForCompare);
