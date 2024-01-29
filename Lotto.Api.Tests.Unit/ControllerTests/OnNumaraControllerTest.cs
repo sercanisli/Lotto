@@ -1,5 +1,8 @@
 ﻿using Entities.DataTransferObjects;
+using Entities.LinkModels;
+using Entities.RequestFeatures;
 using FluentAssertions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 using Presentation.Controllers;
@@ -11,6 +14,7 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
     {
         private readonly OnNumaraController _sut;
         private readonly IServiceManager _serviceManager = Substitute.For<IServiceManager>();
+        private readonly HttpContext _httpContext = Substitute.For<HttpContext>();
 
         List<int> numbers = new List<int> { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44 };
 
