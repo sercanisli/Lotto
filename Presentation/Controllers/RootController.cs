@@ -225,6 +225,12 @@ namespace Presentation.Controllers
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.CompareRelasedSuperLotoNumbersWithAllSuperLotoNumbersAsync), new{ }).ToLower(),
                         Relation ="superloto",
                         Method = "GET"
+                    },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.CompareSuperLotoNumbersWithSuperLotoLogsNumbersAsync), new {}).ToLower(),
+                        Relation = "superloto",
+                        Method = "GET"
                     }
                 };
 
