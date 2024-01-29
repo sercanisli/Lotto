@@ -115,15 +115,14 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
-        [HttpGet("CompareRelasedSuperLotoNumbersWithAllSuperLotoNumbersAsync")]
-        [HttpGet(Name = "CompareRelasedSuperLotoNumbersWithAllSuperLotoNumbersAsync")]
+        [HttpGet("CompareRelasedSuperLotoNumbersWithAllSuperLotoNumbersAsync", Name = "CompareRelasedSuperLotoNumbersWithAllSuperLotoNumbersAsync")]
         public async Task<IActionResult> CompareRelasedSuperLotoNumbersWithAllSuperLotoNumbersAsync([FromBody] SuperLotoDtoForCompare superLotoDtoForCompare)
         {
             var matchRate = await _manager.SuperLotoService.CompareSuperLotoNumbersAsync(superLotoDtoForCompare);
             return Ok(matchRate);
         }
 
-        [HttpGet("CompareSuperLotoNumbersWithSuperLotoLogsNumbersAsync")]
+        [HttpGet("CompareSuperLotoNumbersWithSuperLotoLogsNumbersAsync", Name = "CompareSuperLotoNumbersWithSuperLotoLogsNumbersAsync")]
         public async Task<IActionResult> CompareSuperLotoNumbersWithSuperLotoLogsNumbersAsync([FromBody] SuperLotoDtoForCompareWithLogs superLotoDtoForCompareWithLogs)
         {
             var matchRate = await _manager.SuperLotoService.CompareSuperLotoNumbersWithSuperLotoLogsNumbersAsync(superLotoDtoForCompareWithLogs);
