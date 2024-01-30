@@ -97,7 +97,7 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
-        [HttpGet("CompareReleasedSayisalLotoNumbersWithAllSayisalLotoNumbersAsync")]
+        [HttpGet("CompareReleasedSayisalLotoNumbersWithAllSayisalLotoNumbersAsync", Name = "CompareReleasedSayisalLotoNumbersWithAllSayisalLotoNumbersAsync")]
         public async Task<IActionResult> CompareReleasedSayisalLotoNumbersWithAllSayisalLotoNumbersAsync([FromBody] SayisalLotoDtoForCompare sayisalLotoDtoForCompare)
         {
             var matchRate = await _manager.SayisalLotoService.CompareSayisalLotoNumbersAsync(sayisalLotoDtoForCompare);
