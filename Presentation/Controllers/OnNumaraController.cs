@@ -97,7 +97,7 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
-        [HttpGet("CompareReleasedOnNumaraNumbersWithAllOnNumaraNumbersAsync")]
+        [HttpGet("CompareReleasedOnNumaraNumbersWithAllOnNumaraNumbersAsync", Name = "CompareReleasedOnNumaraNumbersWithAllOnNumaraNumbersAsync")]
         public async Task<IActionResult> CompareReleasedOnNumaraNumbersWithAllOnNumaraNumbersAsync([FromBody] OnNumaraDtoForCompare onNumaraDtoForCompare)
         {
             var matchRate = await _manager.OnNumaraService.CompareOnNumaraNumbersAsync(onNumaraDtoForCompare);
