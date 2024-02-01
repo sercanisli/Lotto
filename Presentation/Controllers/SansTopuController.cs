@@ -95,7 +95,7 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
-        [HttpGet("CompareReleasedSansTopuNumbersWithAllSansTopuNumbersAsync")]
+        [HttpGet("CompareReleasedSansTopuNumbersWithAllSansTopuNumbersAsync", Name = "CompareReleasedSansTopuNumbersWithAllSansTopuNumbersAsync")]
         public async Task<IActionResult> CompareReleasedSansTopuNumbersWithAllSansTopuNumbersAsync([FromBody] SansTopuDtoForCompare sansTopuDtoForCompare)
         {
             var matchRate = await _manager.SansTopuService.CompareSansTopuNumbersAsync(sansTopuDtoForCompare);
