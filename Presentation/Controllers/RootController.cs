@@ -240,6 +240,12 @@ namespace Presentation.Controllers
                     },
                     new Link()
                     {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SansTopuController.CompareReleasedSansTopuNumbersWithAllSansTopuNumbersAsync), new{}).ToLower(),
+                        Relation = "sanstopu",
+                        Method = "GET" 
+                    },
+                    new Link()
+                    {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.CompareSuperLotoNumbersWithSuperLotoLogsNumbersAsync), new {}).ToLower(),
                         Relation = "superloto",
                         Method = "GET"
