@@ -255,6 +255,12 @@ namespace Presentation.Controllers
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SayisalLotoController.CompareSayisalLotoNumbersWithSayisalLotoLogsNumbersAsync), new {}).ToLower(),
                         Relation = "sayisalloto",
                         Method = "GET"
+                    },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(OnNumaraController.CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync), new {}).ToLower(),
+                        Relation = "onnumara",
+                        Method = "GET"
                     }
                 };
 
