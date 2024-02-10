@@ -261,6 +261,12 @@ namespace Presentation.Controllers
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(OnNumaraController.CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync), new {}).ToLower(),
                         Relation = "onnumara",
                         Method = "GET"
+                    },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SansTopuController.CompareSansTopuNumbersWithSansTopuLogsNumbersAsync), new {}).ToLower(),
+                        Relation = "sanstopu",
+                        Method = "GET"
                     }
                 };
 
