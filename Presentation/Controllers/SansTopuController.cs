@@ -102,7 +102,7 @@ namespace Presentation.Controllers
             return Ok(matchRate);
         }
 
-        [HttpGet("CompareSansTopuNumbersWithSansTopuLogsNumbersAsync")]
+        [HttpGet("CompareSansTopuNumbersWithSansTopuLogsNumbersAsync", Name = "CompareSansTopuNumbersWithSansTopuLogsNumbersAsync")]
         public async Task<IActionResult> CompareSansTopuNumbersWithSansTopuLogsNumbersAsync([FromBody] SansTopuDtoForCompareWithLogs sansTopuDtoForCompareWithLogs)
         {
             var matchRate = await _manager.SansTopuService.CompareSansTopuNumbersWithSansTopuLogsNumbersAsync(sansTopuDtoForCompareWithLogs);
