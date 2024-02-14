@@ -8,6 +8,7 @@ using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
+using System.Globalization;
 
 namespace Services.Concrete
 {
@@ -129,6 +130,7 @@ namespace Services.Concrete
         public async Task<SuperLotoDtoForRandom> GetRondomNumbersAsync(string userName)
         {
             var user = await GetUser(userName);
+
             List<int> randomNumbers = new List<int>();
             int i = 0;
             do
@@ -153,7 +155,7 @@ namespace Services.Concrete
 
             var superLotoLogs = new SuperLotoLogs()
             {
-                UserName = userName,
+                UserName = user,
                 RandomNumbers = randomNumbers
             };
 
@@ -236,7 +238,7 @@ namespace Services.Concrete
                             calculatedMatchRate = CalculateMatchRate(count);
                             matchRate = calculatedMatchRate.ToString();
                             limit = count;
-                            date = entity.Date.ToString();
+                            date = entity.Date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
                         }
                     }
                 }

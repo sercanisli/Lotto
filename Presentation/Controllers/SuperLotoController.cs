@@ -42,9 +42,8 @@ namespace Presentation.Controllers
                 Ok(result.linkResponse.ShapedEntities);
         }
 
-        [Authorize(Roles = "Admin, Editor, User")]
+        //[Authorize(Roles = "Admin, Editor, User")]
         [HttpGet("GetRandomNumbersForSuperLotoAsync", Name = "GetRandomNumbersForSuperLotoAsync")]
-
         public async Task<IActionResult> GetRandomNumbersForSuperLotoAsync()
         {
             var numbers = HttpContext.User.Identity?.Name != null ?
