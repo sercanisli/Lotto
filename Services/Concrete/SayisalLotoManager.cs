@@ -8,6 +8,7 @@ using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
+using System.Globalization;
 
 namespace Services.Concrete
 {
@@ -341,7 +342,7 @@ namespace Services.Concrete
                             calculatedMatchRate = CalculateMatchRate(count);
                             matchRate = calculatedMatchRate.ToString();
                             limit = count;
-                            date = entity.Date.ToString();
+                            date = entity.Date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
                         }
                     }
                 }

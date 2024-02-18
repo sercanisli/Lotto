@@ -1,6 +1,4 @@
 ﻿using Entities.DataTransferObjects;
-using Entities.LinkModels;
-using Entities.RequestFeatures;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
