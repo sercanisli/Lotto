@@ -54,6 +54,7 @@ namespace Services.Concrete
             if(page != null && page.PageNumber == linkParameters.Parameters.PageNumber && page.PageSize == linkParameters.Parameters.PageSize)
             {
                 var cachedData = _cache.GetData<List<SayisalLoto>>("sayisalloto-entities");
+                var metadData = _cache.GetData<MetaData>("sayisal-loto-metaData");
                 if(cachedData != null && cachedData.Count() > 0)
                 {
                     var cachedDtos = _mapper.Map<IEnumerable<SayisalLotoDto>>(cachedData);
@@ -63,6 +64,7 @@ namespace Services.Concrete
                 }
             }
             var entitiesWithMetaData = await _manager.SayisalLoto.GetAllNumbersArrayAsync(linkParameters.Parameters, trackChanges);
+            var metaData = entitiesWithMetaData.MetaData;
             var sayisalLotosDto = _mapper.Map<IEnumerable<SayisalLotoDto>>(entitiesWithMetaData);
             var links = _links.TryGenerateLinks(sayisalLotosDto, linkParameters.Parameters.Fields, linkParameters.HttpContext);
 
@@ -74,6 +76,7 @@ namespace Services.Concrete
 
             SetCache<PagedList<SayisalLoto>>("sayisalloto-entities", entitiesWithMetaData);
             SetCache<LinkParametersDtoForCache>("sayisalloto-page", linkParametersDtoForCache);
+            SetCache<MetaData>("sayisal-loto-metaData", metaData);
 
             return (linkResponse:links , metaData: entitiesWithMetaData.MetaData);
         }
