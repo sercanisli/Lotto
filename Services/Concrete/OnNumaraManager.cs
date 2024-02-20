@@ -8,6 +8,7 @@ using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Identity;
 using Repositories.Cantracts;
 using Services.Contracts;
+using System.Globalization;
 
 namespace Services.Concrete
 {
@@ -53,16 +54,18 @@ namespace Services.Concrete
             if (page != null && page.PageNumber == linkParameters.Parameters.PageNumber && page.PageSize == linkParameters.Parameters.PageSize)
             {
                 var cachedData = _cache.GetData<List<OnNumara>>("onnumara-entities");
+                var metadData = _cache.GetData<MetaData>("onnumara-metaData");
                 if (cachedData != null && cachedData.Count() > 0)
                 {
                     var cachedDtos = _mapper.Map<IEnumerable<OnNumaraDto>>(cachedData);
                     var cachedLinks = _onNumaraLinks.TryGenerateLinks(cachedDtos, linkParameters.Parameters.Fields, linkParameters.HttpContext);
-                    PagedList<OnNumara> pagedList = new PagedList<OnNumara>(cachedData, cachedData.Count(), linkParameters.Parameters.PageNumber, linkParameters.Parameters.PageSize);
+                    PagedList<OnNumara> pagedList = new PagedList<OnNumara>(cachedData, metadData.TotalCount, linkParameters.Parameters.PageNumber, linkParameters.Parameters.PageSize);
                     return (linkResponse: cachedLinks, metaData: pagedList.MetaData);
                 }
             }
 
             var entitiesWithMetaData = await _manager.OnNumara.GetAllNumbersArrayAsync(linkParameters.Parameters, trackChanges);
+            var metaData = entitiesWithMetaData.MetaData;
             var dtos = _mapper.Map<IEnumerable<OnNumaraDto>>(entitiesWithMetaData);
             var links = _onNumaraLinks.TryGenerateLinks(dtos, linkParameters.Parameters.Fields, linkParameters.HttpContext);
 
@@ -74,6 +77,7 @@ namespace Services.Concrete
 
             SetCache<PagedList<OnNumara>>("onnumara-entities", entitiesWithMetaData);
             SetCache<LinkParametersDtoForCache>("onnumara-page", linkParametersDtoForCache);
+            SetCache<MetaData>("onnumara-metaData", metaData);
 
             return (linkResponse: links, metaData: entitiesWithMetaData.MetaData);
         }
@@ -238,7 +242,7 @@ namespace Services.Concrete
                             calculatedMatchRate = CalculateMatchRate(count);
                             matchRate = calculatedMatchRate.ToString();
                             limit = count;
-                            date = entity.Date.ToString();
+                            date = entity.Date.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
                         }
                     }
                 }

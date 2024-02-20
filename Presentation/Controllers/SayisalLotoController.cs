@@ -42,7 +42,7 @@ namespace Presentation.Controllers
                 Ok(result.linkResponse.ShapedEntities);
         }
 
-        [Authorize(Roles = "Admin, Editor, User")]
+        //[Authorize(Roles = "Admin, Editor, User")]
         [HttpGet("GetRandomNumbersForSayisalLotoAsync", Name = "GetRandomNumbersForSayisalLotoAsync")]
         public async Task<IActionResult> GetRandomNumbersForSayisalLotoAsync()
         {

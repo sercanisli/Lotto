@@ -59,7 +59,7 @@ namespace Services.Concrete
                 {
                     var cachedDtos = _mapper.Map<IEnumerable<SayisalLotoDto>>(cachedData);
                     var cachedLinks = _links.TryGenerateLinks(cachedDtos, linkParameters.Parameters.Fields, linkParameters.HttpContext);
-                    PagedList<SayisalLoto> pagedList = new PagedList<SayisalLoto>(cachedData, cachedData.Count(), linkParameters.Parameters.PageNumber, linkParameters.Parameters.PageSize);
+                    PagedList<SayisalLoto> pagedList = new PagedList<SayisalLoto>(cachedData, metadData.TotalCount, linkParameters.Parameters.PageNumber, linkParameters.Parameters.PageSize);
                     return (linkResponse: cachedLinks, metaData: pagedList.MetaData);
                 }
             }
@@ -154,7 +154,7 @@ namespace Services.Concrete
 
             var sayisalLotoLogs = new SayisalLotoLogs()
             {
-                UserName = userName,
+                UserName = user,
                 RandomNumbers = randomNumbers
             };
 
