@@ -43,7 +43,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("GetRandomNumbersForOnNumaraAsync", Name = "GetRandomNumbersForOnNumaraAsync")]
-        [Authorize(Roles = "Admin, Editor, User")]
+        //[Authorize(Roles = "Admin, Editor, User")]
         public async Task<IActionResult> GetRandomNumbersForOnNumaraAsync()
         {
             var numbers = HttpContext.User.Identity?.Name != null ?

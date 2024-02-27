@@ -53,15 +53,17 @@ namespace Services.Concrete
             if(page != null && page.PageNumber == linkParameters.Parameters.PageNumber && page.PageSize == linkParameters.Parameters.PageSize)
             {
                 var cachedData = _cache.GetData<List<SansTopu>>("sanstopu-entities");
-                if(cachedData != null && cachedData.Count() > 0)
+                var metadData = _cache.GetData<MetaData>("sansTopu-metaData");
+                if (cachedData != null && cachedData.Count() > 0)
                 {
                     var cachedDtos = _mapper.Map<IEnumerable<SansTopuDto>>(cachedData);
                     var cachedLinks = _sansTopuLinks.TryGenerateLinks(cachedDtos, linkParameters.Parameters.Fields, linkParameters.HttpContext);
-                    PagedList<SansTopu> pagedList = new PagedList<SansTopu>(cachedData, cachedData.Count(), linkParameters.Parameters.PageNumber, linkParameters.Parameters.PageSize);
+                    PagedList<SansTopu> pagedList = new PagedList<SansTopu>(cachedData, metadData.TotalCount, linkParameters.Parameters.PageNumber, linkParameters.Parameters.PageSize);
                     return (linkResponse: cachedLinks, metaData: pagedList.MetaData);
                 }
             }
             var entitiesWithMetaData = await _manager.SansTopu.GetAllNumbersArrayAsync(linkParameters.Parameters, trackChanges);
+            var metaData = entitiesWithMetaData.MetaData;
             var stDto = _mapper.Map<IEnumerable<SansTopuDto>>(entitiesWithMetaData);
             var links = _sansTopuLinks.TryGenerateLinks(stDto, linkParameters.Parameters.Fields, linkParameters.HttpContext);
 
@@ -73,6 +75,7 @@ namespace Services.Concrete
 
             SetCache<PagedList<SansTopu>>("sanstopu-entities", entitiesWithMetaData);
             SetCache<LinkParametersDtoForCache>("sanstopu-page", linkParametersDtoForCache);
+            SetCache<MetaData>("sansTopu-metaData", metaData);
 
             return (linkResponse: links, metaData: entitiesWithMetaData.MetaData);
         }
