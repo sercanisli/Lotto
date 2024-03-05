@@ -15,5 +15,6 @@ namespace Services.Contracts
         Task<MatchRateDto> CompareSuperLotoNumbersAsync(SuperLotoDtoForCompare superLotoDtoForCompare);
         Task<MatchRateDto> CompareSuperLotoNumbersWithSuperLotoLogsNumbersAsync(SuperLotoDtoForCompareWithLogs superLotoDtoForCompareWithLogs);
         Task<SuperLotoDtoForRandom> GetRondomNumbersAsync(string userName);
+        Task<SuperLotoDtoForLastItem> GetLastItemAsync(bool trackChanges);
     }
 }
