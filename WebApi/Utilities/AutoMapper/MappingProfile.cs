@@ -16,6 +16,7 @@ namespace WebApi.Utilities.AutoMapper
             CreateMap<SuperLoto, SuperLotoDto>().ReverseMap();
             CreateMap<SuperLotoDtoForUpdate, SuperLoto>().ReverseMap();
             CreateMap<SuperLotoDtoForInsertion, SuperLoto>().ReverseMap();
+            CreateMap<SuperLotoDto, SuperLotoDtoForLastItem>().ReverseMap();
 
             CreateMap<SayisalLoto, SayisalLotoDto>().ReverseMap();
             CreateMap<SayisalLotoDtoForUpdate, SayisalLoto>().ReverseMap();
