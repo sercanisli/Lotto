@@ -214,6 +214,14 @@ namespace Services.Concrete
             return matchRateDto;
         }
 
+        public async Task<SuperLotoDtoForLastItem> GetLastItemAsync(bool trackChanges)
+        {
+            var arrays = await GetAllNumbersArrayWithoutPaginationAsync(false);
+            var lastArray = arrays.LastOrDefault();
+            var returnedLastArray = _mapper.Map<SuperLotoDtoForLastItem>(lastArray);
+            return returnedLastArray;
+        }
+
         private async Task<MatchRateDto> MatchRate(List<int> randomNumbers)
         {
             int count = 0;
