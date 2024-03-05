@@ -128,6 +128,13 @@ namespace Presentation.Controllers
             return Ok(matchRate);
         }
 
+        [HttpGet("GetSuperLotoLastItemAsync", Name = "GetSuperLotoLastItemAsync")]
+        public async Task<IActionResult> GetSuperLotoLastItemAsync()
+        {
+            var array = _manager.SuperLotoService.GetLastItemAsync(false);
+            return Ok(array);
+        }
+
         [HttpOptions]
         [ResponseCache(CacheProfileName = "5mins")]
         public IActionResult GetSuperLotoOptions()
