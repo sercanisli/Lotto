@@ -212,6 +212,14 @@ namespace Services.Concrete
             return matchRateDto;
         }
 
+        public async Task<SayisalLotoDtoForLastItem> GetLastItemAsync(bool trackChanges)
+        {
+            var arrays = await GetAllNumbersArrayWithoutPaginationAsync(false);
+            var lastArray = arrays.LastOrDefault();
+            var returnedLastArray = _mapper.Map<SayisalLotoDtoForLastItem>(lastArray);
+            return returnedLastArray;
+        }
+
         private async Task<string> GetUser(string userName)
         {
             User user = new User();
