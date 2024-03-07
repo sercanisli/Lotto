@@ -131,7 +131,7 @@ namespace Presentation.Controllers
         [HttpGet("GetSuperLotoLastItemAsync", Name = "GetSuperLotoLastItemAsync")]
         public async Task<IActionResult> GetSuperLotoLastItemAsync()
         {
-            var array = _manager.SuperLotoService.GetLastItemAsync(false);
+            var array = await _manager.SuperLotoService.GetLastItemAsync(false);
             return Ok(array);
         }
 
