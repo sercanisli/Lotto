@@ -111,6 +111,13 @@ namespace Presentation.Controllers
             return Ok(matchRate);
         }
 
+        [HttpGet("GetSayisalLotoLastItemAsync", Name = "GetSayisalLotoLastItemAsync")]
+        public async Task<IActionResult> GetSayisalLotoLastItemAsync()
+        {
+            var array = await _manager.SayisalLotoService.GetLastItemAsync(false);
+            return Ok(array);
+        }
+
         [HttpOptions]
         [ResponseCache(CacheProfileName = "5mins")]
         public IActionResult GetSayisalLotoOptions()
