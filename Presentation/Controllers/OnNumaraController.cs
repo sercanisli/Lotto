@@ -111,6 +111,13 @@ namespace Presentation.Controllers
             return Ok(matchRate);
         }
 
+        [HttpGet("GetOnNumaraLastItemAsync", Name = "GetOnNumaraLastItemAsync")]
+        public async Task<IActionResult> GetOnNumaraLastItemAsync()
+        {
+            var array = await _manager.OnNumaraService.GetLastItemAsync(false);
+            return Ok(array);
+        }
+
         [HttpOptions]
         [ResponseCache(CacheProfileName = "5mins")]
         public IActionResult GetOnNumaraOptions()
