@@ -15,6 +15,6 @@ namespace Services.Contracts
         Task<MatchRateDto> CompareSansTopuNumbersAsync(SansTopuDtoForCompare sansTopuDtoForCompare);
         Task<MatchRateDto> CompareSansTopuNumbersWithSansTopuLogsNumbersAsync(SansTopuDtoForCompareWithLogs sansTopuDtoForCompareWithLogs);
         Task<SansTopuDtoForRandom> GetRondomNumbersAsync(string userName);
-
+        Task<SansTopuDtoForLastItem> GetLastItemAsync(bool trackChanges);
     }
 }
