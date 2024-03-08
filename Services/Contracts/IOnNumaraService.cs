@@ -16,5 +16,6 @@ namespace Services.Contracts
         Task<MatchRateDto> CompareOnNumaraNumbersAsync(OnNumaraDtoForCompare onNumaraDtoForCompare);
         Task<MatchRateDto> CompareOnNumaraNumbersWithOnNumaraLogsNumbersAsync(OnNumaraDtoForCompareWithLogs onNumaraDtoForCompareWithLogs);
         Task<OnNumaraDtoForRandom> GetRondomNumbersAsync(string userName);
+        Task<OnNumaraDtoForLastItem> GetLastItemAsync(bool trackChanges);
     }
 }
