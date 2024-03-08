@@ -220,6 +220,14 @@ namespace Services.Concrete
             return matchRateDto;
         }
 
+        public async Task<SansTopuDtoForLastItem> GetLastItemAsync(bool trackChanges)
+        {
+            var arrays = await GetAllNumbersArrayWithoutPaginationAsync(false);
+            var lastArray = arrays.LastOrDefault();
+            var returnedLastArray = _mapper.Map<SansTopuDtoForLastItem>(lastArray);
+            return returnedLastArray;
+        }
+
         private async Task<MatchRateDto> MatchRate(List<int> randomNumbers, int randomPlusNumber)
         {
             int count = 0;
