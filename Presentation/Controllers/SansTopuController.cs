@@ -109,6 +109,13 @@ namespace Presentation.Controllers
             return Ok(matchRate);
         }
 
+        [HttpGet("GetSansTopuLastItemAsync", Name = "GetSansTopuLastItemAsync")]
+        public async Task<IActionResult> GetSansTopuLastItemAsync()
+        {
+            var array = await _manager.SansTopuService.GetLastItemAsync(false);
+            return Ok(array);
+        }
+
         [HttpOptions]
         [ResponseCache(CacheProfileName = "5mins")]
         public IActionResult GetSansTopuOptions()
