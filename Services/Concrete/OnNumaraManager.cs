@@ -218,6 +218,14 @@ namespace Services.Concrete
             return matchRateDto;
         }
 
+        public async Task<OnNumaraDtoForLastItem> GetLastItemAsync(bool trackChanges)
+        {
+            var arrays = await GetAllNumbersArrayWithoutPaginationAsync(false);
+            var lastArray = arrays.LastOrDefault();
+            var returnedLastArray = _mapper.Map<OnNumaraDtoForLastItem>(lastArray);
+            return returnedLastArray;
+        }
+
         private async Task<MatchRateDto> MatchRate(List<int> randomNumbers)
         {
             int count = 0;
