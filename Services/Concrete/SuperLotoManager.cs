@@ -216,10 +216,17 @@ namespace Services.Concrete
 
         public async Task<SuperLotoDtoForLastItem> GetLastItemAsync(bool trackChanges)
         {
+            var cachedLastItem = _cache.GetData<SuperLotoDtoForLastItem>("superLoto-lastItem");
+            if(cachedLastItem != null)
+            {
+                return _mapper.Map<SuperLotoDtoForLastItem>(cachedLastItem);
+            }
+
             var arrays = await GetAllNumbersArrayWithoutPaginationAsync(false);
             var lastArray = arrays.LastOrDefault();
             var returnedLastArray = _mapper.Map<SuperLotoDtoForLastItem>(lastArray);
             SetCache<SuperLotoDtoForLastItem>("superLoto-lastItem", returnedLastArray);
+
             return returnedLastArray;
         }
 
