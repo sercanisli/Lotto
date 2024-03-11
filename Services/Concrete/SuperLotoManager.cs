@@ -219,6 +219,7 @@ namespace Services.Concrete
             var arrays = await GetAllNumbersArrayWithoutPaginationAsync(false);
             var lastArray = arrays.LastOrDefault();
             var returnedLastArray = _mapper.Map<SuperLotoDtoForLastItem>(lastArray);
+            SetCache<SuperLotoDtoForLastItem>("superLoto-lastItem", returnedLastArray);
             return returnedLastArray;
         }
 
