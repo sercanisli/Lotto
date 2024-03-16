@@ -9,6 +9,8 @@ namespace Repositories.Cantracts
         IOnNumaraRepository OnNumara { get; }
         ISansTopuRepository SansTopu { get; }
 
+        IWinningNumbersRepository WinningNumbers { get; }
+
 
         IOnNumaraLogsRepository OnNumaraLogs { get; }
         ISansTopuLogsRepository SansTopuLogs { get; }
