@@ -37,5 +37,12 @@ namespace Presentation.Controllers
             await _manager.WinningNumbersService.UpdateWinningNumbersAsync(id, winnigNumbersDto, false);
             return NoContent();
         }
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteOneWinningNumbersAsync([FromRoute(Name ="id")] int id)
+        {
+            await _manager.WinningNumbersService.DeleteWinningNumbersAsync(id, false);
+            return NoContent();
+        }
     }
 }
