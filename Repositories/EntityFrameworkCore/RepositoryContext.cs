@@ -13,6 +13,7 @@ namespace Repositories.EntityFrameworkCore
         public DbSet<OnNumara> OnNumaras { get; set; }
         public DbSet<SansTopu> SansTopus { get; set; }
         public DbSet<WinningNumbers> WinningNumbers { get; set; }
+        public DbSet<AboutUs> AboutUs { get; set; }
 
         public DbSet<OnNumaraLogs> OnNumaraLogs { get; set; }
         public DbSet<SansTopuLogs> SansTopuLogs { get; set; }
