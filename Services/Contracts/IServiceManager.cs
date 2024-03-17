@@ -7,6 +7,7 @@
         IOnNumaraService OnNumaraService { get; }
         ISansTopuService SansTopuService { get; }
         IWinningNumbersService WinningNumbersService { get; }
+        IAboutUsService AboutUsService { get; }
 
 
         IAuthenticationService AuthenticationService { get; }

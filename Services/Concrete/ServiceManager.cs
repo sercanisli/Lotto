@@ -16,6 +16,7 @@ namespace Services.Concrete
         private readonly Lazy<IOnNumaraService> _onNumaraService;
         private readonly Lazy<ISansTopuService> _sansTopuService;
         private readonly Lazy<IWinningNumbersService> _winningNumbersService;
+        private readonly Lazy<IAboutUsService> _aboutUsService;
 
         private readonly Lazy<IAuthenticationService> _authenticationService;
         public ServiceManager(IRepositoryManager repositoryManager,
@@ -35,6 +36,7 @@ namespace Services.Concrete
             _onNumaraService = new Lazy<IOnNumaraService>(() => new OnNumaraManager(repositoryManager, logger, mapper, onNumaraLinks, userManager, cache));
             _sansTopuService = new Lazy<ISansTopuService>(() => new SansTopuManager(repositoryManager, logger, mapper, sansTopuLinks, userManager, cache));
             _winningNumbersService = new Lazy<IWinningNumbersService>(() => new WinningNumbersManager(repositoryManager, mapper, logger));
+            _aboutUsService = new Lazy<IAboutUsService>(() => new AboutUsManager(repositoryManager, mapper, logger));
 
             _authenticationService = new Lazy<IAuthenticationService>(() => new AuthenticationManager(logger, mapper, userManager,configuration));
         }
@@ -44,7 +46,7 @@ namespace Services.Concrete
         public IOnNumaraService OnNumaraService => _onNumaraService.Value;
         public ISansTopuService SansTopuService => _sansTopuService.Value;
         public IWinningNumbersService WinningNumbersService => _winningNumbersService.Value;
-
+        public IAboutUsService AboutUsService => _aboutUsService.Value;
 
         public IAuthenticationService AuthenticationService => _authenticationService.Value;
 
