@@ -31,5 +31,11 @@ namespace Presentation.Controllers
             return StatusCode(201, entity);
         }
 
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> UpdateOneWinningNumbersAsync([FromRoute(Name = "id")] int id, [FromBody] WinnigNumbersDto winnigNumbersDto)
+        {
+            await _manager.WinningNumbersService.UpdateWinningNumbersAsync(id, winnigNumbersDto, false);
+            return NoContent();
+        }
     }
 }
