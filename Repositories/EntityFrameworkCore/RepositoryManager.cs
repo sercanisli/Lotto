@@ -11,6 +11,7 @@ namespace Repositories.EntityFrameworkCore
         private readonly Lazy<IOnNumaraRepository> _onNumaraRepository;
         private readonly Lazy<ISansTopuRepository> _sansTopuRepository;
         private readonly Lazy<IWinningNumbersRepository> _winningNumbersRepository;
+        private readonly Lazy<IAboutUsRepository> _aboutUsRepository;
 
         private readonly Lazy<IOnNumaraLogsRepository> _onNumaraLogsRepository;
         private readonly Lazy<ISansTopuLogsRepository> _sansTopuLogsRepository;
@@ -25,6 +26,7 @@ namespace Repositories.EntityFrameworkCore
             _onNumaraRepository = new Lazy<IOnNumaraRepository>(() => new  OnNumaraRepository(_context));
             _sansTopuRepository = new Lazy<ISansTopuRepository>(() => new SansTopuRepository(_context));
             _winningNumbersRepository = new Lazy<IWinningNumbersRepository>(() => new WinningNumbersRepository(_context));
+            _aboutUsRepository = new Lazy<IAboutUsRepository>(() => new AboutUsRepository(_context));
 
 
             _onNumaraLogsRepository = new Lazy<IOnNumaraLogsRepository>(() => new OnNumaraLogsRepository(_context));
@@ -44,6 +46,7 @@ namespace Repositories.EntityFrameworkCore
 
         public IWinningNumbersRepository WinningNumbers => _winningNumbersRepository.Value;
 
+        public IAboutUsRepository AboutUs => _aboutUsRepository.Value;
 
 
         public ISansTopuLogsRepository SansTopuLogs => _sansTopuLogsRepository.Value;

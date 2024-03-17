@@ -8,8 +8,8 @@ namespace Repositories.Cantracts
         ISayisalLotoRepository SayisalLoto { get; }
         IOnNumaraRepository OnNumara { get; }
         ISansTopuRepository SansTopu { get; }
-
         IWinningNumbersRepository WinningNumbers { get; }
+        IAboutUsRepository AboutUs { get; }
 
 
         IOnNumaraLogsRepository OnNumaraLogs { get; }
