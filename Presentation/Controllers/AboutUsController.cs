@@ -36,6 +36,11 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
-        
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteOneAboutUs([FromRoute(Name = "id")] int id)
+        {
+            await _manager.AboutUsService.DeleteAboutUsAsync(id, false);
+            return NoContent();
+        }
     }
 }
