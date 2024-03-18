@@ -20,5 +20,15 @@ namespace Presentation.Controllers
         {
             var entity = await _manager.AboutUsService.GetOneAboutUsAsync(id, false);
             return Ok(entity);
-        }    }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateOneAboutUs([FromBody] AboutUsDto aboutUsDto)
+        {
+            await _manager.AboutUsService.CreateOneAboutUsAsync(aboutUsDto);
+            return StatusCode(201, aboutUsDto);
+        }
+
+       
+    }
 }
