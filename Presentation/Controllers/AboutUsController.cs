@@ -29,6 +29,13 @@ namespace Presentation.Controllers
             return StatusCode(201, aboutUsDto);
         }
 
-       
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> UpdateOneAboutUs([FromRoute(Name = "id")] int id, [FromBody] AboutUsDto aboutUsDto)
+        {
+            await _manager.AboutUsService.UpdateAboutUsAsync(id, aboutUsDto, false);
+            return NoContent();
+        }
+
+        
     }
 }
