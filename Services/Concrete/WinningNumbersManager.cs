@@ -12,6 +12,7 @@ namespace Services.Concrete
         private readonly IRepositoryManager _manager;
         private readonly IMapper _mapper;
         private readonly ILoggerService _logger;
+        private readonly ICacheService _cache;
 
         public WinningNumbersManager(IRepositoryManager manager, IMapper mapper, ILoggerService logger)
         {
@@ -22,7 +23,6 @@ namespace Services.Concrete
 
         public async Task<WinnigNumbersDto> CreateOneWinningNumbersAsync(WinnigNumbersDto winnigNumbersDto)
         {
-            var cachedData = 
             var entity = _mapper.Map<WinningNumbers>(winnigNumbersDto);
             _manager.WinningNumbers.Create(entity);
             await _manager.SaveAsync();
@@ -45,6 +45,12 @@ namespace Services.Concrete
 
         public async Task<WinnigNumbersDto> GetOneWinningNumbersAsync(int id, bool trackchanges)
         {
+            var cachedData = _cache.GetData<WinningNumbers>($"winning-numbers-{id}");
+            if(cachedData != null)
+            {
+                return _mapper.Map<WinnigNumbersDto>(cachedData);
+            }
+
             var entity = await _manager.WinningNumbers.FindByCondition(w => w.Id == id, trackchanges).SingleOrDefaultAsync();
             if(entity == null)
             {
