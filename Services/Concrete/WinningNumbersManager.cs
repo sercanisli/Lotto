@@ -56,6 +56,7 @@ namespace Services.Concrete
             {
                 throw new Exception($"WinningNumbers with id {id} could not found.");
             }
+
             _logger.LogInfo($"Get request made to WinningNumbers with id : {id} ");
             return _mapper.Map<WinnigNumbersDto>(entity);
         }
@@ -73,5 +74,12 @@ namespace Services.Concrete
             _logger.LogInfo($"WinningNumbers with id : {id} has been updated");
             await _manager.SaveAsync();
         }
+
+        private void SetCache<T>(string key, T value)
+        {
+            var expiryTime = DateTimeOffset.Now.AddSeconds(120);
+            _cache.SetData(key, value, expiryTime);
+        }
+
     }
 }
