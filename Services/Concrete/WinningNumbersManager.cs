@@ -56,7 +56,7 @@ namespace Services.Concrete
             {
                 throw new Exception($"WinningNumbers with id {id} could not found.");
             }
-
+            SetCache<WinningNumbers>($"winning-numbers-{id}", entity);
             _logger.LogInfo($"Get request made to WinningNumbers with id : {id} ");
             return _mapper.Map<WinnigNumbersDto>(entity);
         }
