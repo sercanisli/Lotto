@@ -22,6 +22,7 @@ namespace Services.Concrete
 
         public async Task<WinnigNumbersDto> CreateOneWinningNumbersAsync(WinnigNumbersDto winnigNumbersDto)
         {
+            var cachedData = 
             var entity = _mapper.Map<WinningNumbers>(winnigNumbersDto);
             _manager.WinningNumbers.Create(entity);
             await _manager.SaveAsync();

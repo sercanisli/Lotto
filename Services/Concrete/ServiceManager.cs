@@ -35,7 +35,7 @@ namespace Services.Concrete
             _sayisalLotoService = new Lazy<ISayisalLotoService>(() => new SayisalLotoManager(repositoryManager, logger, mapper, sayisalLotoLinks, userManager, cache));
             _onNumaraService = new Lazy<IOnNumaraService>(() => new OnNumaraManager(repositoryManager, logger, mapper, onNumaraLinks, userManager, cache));
             _sansTopuService = new Lazy<ISansTopuService>(() => new SansTopuManager(repositoryManager, logger, mapper, sansTopuLinks, userManager, cache));
-            _winningNumbersService = new Lazy<IWinningNumbersService>(() => new WinningNumbersManager(repositoryManager, mapper, logger));
+            _winningNumbersService = new Lazy<IWinningNumbersService>(() => new WinningNumbersManager(repositoryManager, mapper, logger, cache));
             _aboutUsService = new Lazy<IAboutUsService>(() => new AboutUsManager(repositoryManager, mapper, logger));
 
             _authenticationService = new Lazy<IAuthenticationService>(() => new AuthenticationManager(logger, mapper, userManager,configuration));
