@@ -41,6 +41,7 @@ namespace Services.Concrete
             var mappedEntity = _mapper.Map<WinningNumbers>(entity);
             _manager.WinningNumbers.Delete(mappedEntity);
             _logger.LogInfo($"WinningNumbers with id : {id} deleted");
+            _cache.RemoveData($"winning-numbers-{id}");
             await _manager.SaveAsync();
         }
 
