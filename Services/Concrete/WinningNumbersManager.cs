@@ -75,6 +75,7 @@ namespace Services.Concrete
             var mappedEntity = _mapper.Map<WinningNumbers>(entity);
             _manager.WinningNumbers.Update(mappedEntity);
             _logger.LogInfo($"WinningNumbers with id : {id} has been updated");
+            SetCache<WinningNumbers>($"winning-numbers-{id}", mappedEntity);
             await _manager.SaveAsync();
         }
 
