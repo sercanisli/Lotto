@@ -28,6 +28,7 @@ namespace Services.Concrete
             _manager.AboutUs.Create(entity);
             await _manager.SaveAsync();
             _logger.LogInfo($"{entity.Id} - About Us Description added to DB");
+            SetCache<AboutUs>($"about-us-{entity.Id}", entity);
             return _mapper.Map<AboutUsDto>(entity);
         }
 
