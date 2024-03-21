@@ -67,5 +67,11 @@ namespace Services.Concrete
             _logger.LogInfo($"About Us with id : {id} has been updated");
             await _manager.SaveAsync();
         }
+
+        private void SetCache<T>(string key, T value)
+        {
+            var expiryTime = DateTimeOffset.Now.AddSeconds(120);
+            _cache.SetData(key, value, expiryTime);
+        }
     }
 }
