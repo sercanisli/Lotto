@@ -12,12 +12,14 @@ namespace Services.Concrete
         private readonly IRepositoryManager _manager;
         private readonly IMapper _mapper;
         private readonly ILoggerService _logger;
+        private readonly ICacheService _cache;
 
-        public AboutUsManager(IRepositoryManager manager, IMapper mapper, ILoggerService logger)
+        public AboutUsManager(IRepositoryManager manager, IMapper mapper, ILoggerService logger, ICacheService cache)
         {
             _manager = manager;
             _mapper = mapper;
             _logger = logger;
+            _cache = cache;
         }
 
         public async Task<AboutUsDto> CreateOneAboutUsAsync(AboutUsDto aboutUsDto)

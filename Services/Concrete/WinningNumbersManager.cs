@@ -14,11 +14,12 @@ namespace Services.Concrete
         private readonly ILoggerService _logger;
         private readonly ICacheService _cache;
 
-        public WinningNumbersManager(IRepositoryManager manager, IMapper mapper, ILoggerService logger)
+        public WinningNumbersManager(IRepositoryManager manager, IMapper mapper, ILoggerService logger, ICacheService cache)
         {
             _manager = manager;
             _mapper = mapper;
             _logger = logger;
+            _cache = cache;
         }
 
         public async Task<WinnigNumbersDto> CreateOneWinningNumbersAsync(WinnigNumbersDto winnigNumbersDto)
@@ -84,6 +85,5 @@ namespace Services.Concrete
             var expiryTime = DateTimeOffset.Now.AddSeconds(120);
             _cache.SetData(key, value, expiryTime);
         }
-
     }
 }
