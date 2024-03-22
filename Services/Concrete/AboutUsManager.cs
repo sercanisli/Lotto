@@ -48,11 +48,17 @@ namespace Services.Concrete
 
         public async Task<AboutUsDto> GetOneAboutUsAsync(int id, bool trackchanges)
         {
+            var cachedData = _cache.GetData<AboutUs>($"about-us-{id}");
+            if(cachedData != null)
+            {
+                return _mapper.Map<AboutUsDto>(cachedData);
+            }
             var entity = await _manager.AboutUs.FindByCondition(au => au.Id == id, trackchanges).SingleOrDefaultAsync();
             if(entity == null)
             {
                 throw new Exception($"About Us with id {id} could not found.");
             }
+            SetCache<AboutUs>($"about-us-{id}", entity);
             _logger.LogInfo($"Get request made to About Us with id : {id} ");
             return _mapper.Map<AboutUsDto>(entity);
         }
