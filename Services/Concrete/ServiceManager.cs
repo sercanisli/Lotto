@@ -49,6 +49,5 @@ namespace Services.Concrete
         public IAboutUsService AboutUsService => _aboutUsService.Value;
 
         public IAuthenticationService AuthenticationService => _authenticationService.Value;
-
     }
 }

@@ -245,7 +245,7 @@ namespace Services.Concrete
                         {
                             count++;
                         }
-                        if (count > limit)
+                        if (count >= limit)
                         {
                             calculatedMatchRate = CalculateMatchRate(count);
                             matchRate = calculatedMatchRate.ToString();

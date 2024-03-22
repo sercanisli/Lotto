@@ -42,6 +42,7 @@ namespace Services.Concrete
             var mappedEntity = _mapper.Map<AboutUs>(entity);
             _manager.AboutUs.Delete(mappedEntity);
             _logger.LogInfo($"About Us with id : {id} deleted");
+            _cache.RemoveData($"about-us-{id}");
             await _manager.SaveAsync();
         }
 
