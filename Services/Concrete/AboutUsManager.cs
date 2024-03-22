@@ -73,6 +73,7 @@ namespace Services.Concrete
             var mappedEntity = _mapper.Map<AboutUs>(entity);
             _manager.AboutUs.Update(mappedEntity);
             _logger.LogInfo($"About Us with id : {id} has been updated");
+            SetCache<AboutUs>($"about-us-{id}", mappedEntity);
             await _manager.SaveAsync();
         }
 
