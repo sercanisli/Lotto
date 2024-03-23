@@ -59,5 +59,26 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(201);
         }
+
+        [Fact]
+        public async Task UpdateOneWinningNumbersAsync_ShouldReturnNoContent()
+        {
+            //Arrange
+            int id = Arg.Any<int>();
+            var winningNumbersDto = new WinnigNumbersDto()
+            {
+                Id = id,
+                Title = "Title",
+                Description = "Description"
+            };
+
+            _serviceManager.WinningNumbersService.UpdateWinningNumbersAsync(id, winningNumbersDto, false);
+
+            //Act
+            var result = (NoContentResult)await _sut.UpdateOneWinningNumbersAsync(id, winningNumbersDto);
+
+            //Assert
+            result.StatusCode.Should().Be(204);
+        }
     }
 }
