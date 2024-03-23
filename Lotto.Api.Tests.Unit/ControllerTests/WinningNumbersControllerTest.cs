@@ -39,5 +39,25 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(200);
         }
+
+        [Fact]
+        public async Task CreateOneWinningNumbersAsync_ShouldReturnCreated()
+        {
+            //Arrange
+            var winningNumbersDto = new WinnigNumbersDto()
+            {
+                Id = 1,
+                Title = "Title",
+                Description = "Description"
+            };
+
+            _serviceManager.WinningNumbersService.CreateOneWinningNumbersAsync(winningNumbersDto).Returns(winningNumbersDto);
+
+            //Act
+            var result = (ObjectResult)await _sut.CreateOneWinningNumbersAsync(winningNumbersDto);
+
+            //Assert
+            result.StatusCode.Should().Be(201);
+        }
     }
 }
