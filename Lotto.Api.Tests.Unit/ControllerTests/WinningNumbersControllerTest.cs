@@ -1,6 +1,5 @@
 ﻿using Entities.DataTransferObjects;
 using FluentAssertions;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
 using Presentation.Controllers;
@@ -12,7 +11,6 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
     {
         private readonly WinningNumbersController _sut;
         private readonly IServiceManager _serviceManager = Substitute.For<IServiceManager>();   
-        private readonly HttpContext _httpContext = Substitute.For<HttpContext>();
 
         public WinningNumbersControllerTest()
         {
