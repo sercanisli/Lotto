@@ -80,5 +80,18 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(204);
         }
+
+        [Fact]
+        public async Task DeleteOneWinningNumbersAsync_ShouldReturnNoContent()
+        {
+            //Arrange
+            int id = Arg.Any<int>();
+
+            //Act
+            var result = (NoContentResult)await _sut.DeleteOneWinningNumbersAsync(id);
+
+            //Assert
+            result.StatusCode.Should().Be(204);
+        }
     }
 }
