@@ -40,6 +40,7 @@ namespace Presentation.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [HttpDelete(Name = "DeleteOneWinningNumbersAsync")]
         public async Task<IActionResult> DeleteOneWinningNumbersAsync([FromRoute(Name ="id")] int id)
         {
             await _manager.WinningNumbersService.DeleteWinningNumbersAsync(id, false);

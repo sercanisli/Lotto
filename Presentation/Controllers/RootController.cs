@@ -210,6 +210,12 @@ namespace Presentation.Controllers
                     },
                     new Link()
                     {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(WinningNumbersController.DeleteOneWinningNumbersAsync), new{}) + "/id",
+                        Relation = "winningnumbers",
+                        Method = "DELETE"
+                    },
+                    new Link()
+                    {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetRandomNumbersForSuperLotoAsync), new{}).ToLower(),
                         Relation = "superloto",
                         Method = "GET"
