@@ -136,7 +136,7 @@ namespace Presentation.Controllers
                         Relation = "sayisalloto",
                         Method = "POST"
                     },
-                     new Link()
+                    new Link()
                     {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(OnNumaraController.CreateOneNumbersArrayForOnNumaraAsync), new{}),
                         Relation = "onnumara",
@@ -176,6 +176,12 @@ namespace Presentation.Controllers
                     {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SansTopuController.UpdateOneNumbersArrayForSansTopuAsync), new{}) + "/id",
                         Relation = "sanstopu",
+                        Method = "PUT"
+                    },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(WinningNumbersController.UpdateOneWinningNumbersAsync), new{}) + "/id",
+                        Relation = "winningnumbers",
                         Method = "PUT"
                     },
                     new Link()

@@ -32,6 +32,7 @@ namespace Presentation.Controllers
         }
 
         [HttpPut("{id:int}")]
+        [HttpPut(Name = "UpdateOneWinningNumbersAsync")]
         public async Task<IActionResult> UpdateOneWinningNumbersAsync([FromRoute(Name = "id")] int id, [FromBody] WinnigNumbersDto winnigNumbersDto)
         {
             await _manager.WinningNumbersService.UpdateWinningNumbersAsync(id, winnigNumbersDto, false);
