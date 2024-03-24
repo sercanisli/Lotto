@@ -24,7 +24,7 @@ namespace Presentation.Controllers
             return Ok(entity);
         }
 
-        [HttpPost]
+        [HttpPost(Name = "CreateOneWinningNumbersAsync")]
         public async Task<IActionResult> CreateOneWinningNumbersAsync([FromBody] WinnigNumbersDto winnigNumbersDto)
         {
             var entity = await _manager.WinningNumbersService.CreateOneWinningNumbersAsync(winnigNumbersDto);

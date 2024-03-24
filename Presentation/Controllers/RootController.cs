@@ -150,6 +150,12 @@ namespace Presentation.Controllers
                     },
                     new Link()
                     {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(WinningNumbersController.CreateOneWinningNumbersAsync), new {}),
+                        Relation = "winningnumbers",
+                        Method = "POST"
+                    },
+                    new Link()
+                    {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.UpdateOneNumbersArrayForSuperLotoAsync), new{}) + "/id",
                         Relation = "superloto",
                         Method = "PUT"
