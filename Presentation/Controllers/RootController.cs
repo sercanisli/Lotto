@@ -192,6 +192,12 @@ namespace Presentation.Controllers
                     },
                     new Link()
                     {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(AboutUsController.UpdateOneAboutUsAsync), new{}) + "/id",
+                        Relation = "aboutus",
+                        Method = "PUT"
+                    },
+                    new Link()
+                    {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.DeleteOneNumbersArrayForSuperLotoAsync), new{}) + "/id",
                         Relation = "superloto",
                         Method = "DELETE"
