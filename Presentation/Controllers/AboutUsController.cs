@@ -16,28 +16,30 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetOneAboutUs([FromRoute(Name = "id")] int id)
+        public async Task<IActionResult> GetOneAboutUsAsync([FromRoute(Name = "id")] int id)
         {
             var entity = await _manager.AboutUsService.GetOneAboutUsAsync(id, false);
             return Ok(entity);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateOneAboutUs([FromBody] AboutUsDto aboutUsDto)
+        [HttpPost(Name = "CreateOneAboutUsAsync")]
+        public async Task<IActionResult> CreateOneAboutUsAsync([FromBody] AboutUsDto aboutUsDto)
         {
             await _manager.AboutUsService.CreateOneAboutUsAsync(aboutUsDto);
             return StatusCode(201, aboutUsDto);
         }
 
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> UpdateOneAboutUs([FromRoute(Name = "id")] int id, [FromBody] AboutUsDto aboutUsDto)
+        [HttpPut(Name = "UpdateOneAboutUsAsync")]
+        public async Task<IActionResult> UpdateOneAboutUsAsync([FromRoute(Name = "id")] int id, [FromBody] AboutUsDto aboutUsDto)
         {
             await _manager.AboutUsService.UpdateAboutUsAsync(id, aboutUsDto, false);
             return NoContent();
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<IActionResult> DeleteOneAboutUs([FromRoute(Name = "id")] int id)
+        [HttpDelete(Name = "DeleteOneAboutUsAsync")]
+        public async Task<IActionResult> DeleteOneAboutUsAsync([FromRoute(Name = "id")] int id)
         {
             await _manager.AboutUsService.DeleteAboutUsAsync(id, false);
             return NoContent();
