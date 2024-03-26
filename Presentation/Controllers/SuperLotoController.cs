@@ -55,6 +55,7 @@ namespace Presentation.Controllers
 
         
         [HttpGet("{id:int}")]
+        [HttpGet(Name = "GetOneNumbersArrayByIdForSuperLotoAsync")]
         //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSuperLotoAsync([FromRoute(Name = "id")] int id)
         {

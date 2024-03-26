@@ -94,10 +94,16 @@ namespace Presentation.Controllers
                         Relation = "onnumara",
                         Method = "GET"
                     },
-                     new Link()
+                    new Link()
                     {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SansTopuController.GetAllNumbersArrayForSansTopuAsync), new{pageNumber=1, pageSize=10, fields="id,numbers"}),
                         Relation = "sanstopu",
+                        Method = "GET"
+                    },
+                    new Link()
+                    {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetOneNumbersArrayByIdForSuperLotoAsync), new {}) + "/id",
+                        Relation = "superloto",
                         Method = "GET"
                     },
                     new Link()
