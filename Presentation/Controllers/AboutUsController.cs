@@ -16,6 +16,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [HttpGet(Name = "GetOneAboutUsAsync")]
         public async Task<IActionResult> GetOneAboutUsAsync([FromRoute(Name = "id")] int id)
         {
             var entity = await _manager.AboutUsService.GetOneAboutUsAsync(id, false);
