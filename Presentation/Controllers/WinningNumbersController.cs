@@ -18,6 +18,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [HttpGet(Name = "GetOneWinningNumbersAsync")]
         public async Task<IActionResult> GetOneWinningNumbersAsync([FromRoute(Name = "id")]int id)
         {
             var entity = await _manager.WinningNumbersService.GetOneWinningNumbersAsync(id, false);
