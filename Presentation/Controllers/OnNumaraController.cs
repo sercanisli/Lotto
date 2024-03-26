@@ -54,6 +54,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [HttpGet(Name = "GetOneNumbersArrayByIdForOnNumaraAsync")]
         //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForOnNumaraAsync([FromRoute(Name = "id")] int id)
         {

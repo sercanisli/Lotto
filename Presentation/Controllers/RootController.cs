@@ -114,6 +114,12 @@ namespace Presentation.Controllers
                     },
                     new Link()
                     {
+                        Href = _linkGenerator.GetUriByName(HttpContext, nameof(OnNumaraController.GetOneNumbersArrayByIdForOnNumaraAsync), new{}) + "/id",
+                        Relation = "onnumara",
+                        Method = "GET"
+                    },
+                    new Link()
+                    {
                         Href = _linkGenerator.GetUriByName(HttpContext, nameof(SuperLotoController.GetOneNumbersArrayByDateForSuperLotoAsync), new{date = "yyyy-mm-dd"}).ToLower(),
                         Relation = "superloto",
                         Method = "GET"
