@@ -33,6 +33,9 @@ namespace WebApi.Utilities.AutoMapper
             CreateMap<SansTopuDtoForInsertion, SansTopu>().ReverseMap();
             CreateMap<SansTopuLogs, SansTopuDtoForRandom>().ReverseMap();
             CreateMap<SansTopuDto, SansTopuDtoForLastItem>().ReverseMap();
+
+            CreateMap<AboutUs, AboutUsDto>().ReverseMap();
+            CreateMap<WinningNumbers, WinnigNumbersDto>().ReverseMap();
         }
     }
 }
