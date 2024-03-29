@@ -68,12 +68,8 @@ namespace Services.Concrete
         public async Task UpdateWinningNumbersAsync(int id, WinnigNumbersDto winnigNumbersDto, bool trackchanges)
         {
             var entity = await GetOneWinningNumbersAsync(id, trackchanges);
-            if (entity == null)
-            {
-                throw new Exception($"WinningNumbers with id : {id} could not found");
-            }
 
-            var mappedEntity = _mapper.Map<WinningNumbers>(entity);
+            var mappedEntity = _mapper.Map<WinningNumbers>(winnigNumbersDto);
             _manager.WinningNumbers.Update(mappedEntity);
             _logger.LogInfo($"WinningNumbers with id : {id} has been updated");
             SetCache<WinningNumbers>($"winning-numbers-{id}", mappedEntity);
