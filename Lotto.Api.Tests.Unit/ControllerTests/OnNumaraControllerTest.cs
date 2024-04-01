@@ -153,5 +153,24 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(200);
         }
+
+        [Fact]
+        public async Task GetOnNumaraLastItemAsync_ShouldReturnOk()
+        {
+            //Arrange
+            var onNumaraDtoForLastItem = new OnNumaraDtoForLastItem()
+            {
+                Id = 9999,
+                Numbers = numbers,
+                Date = Convert.ToDateTime("27.02.1998 00:00:00")
+            };
+            _serviceManager.OnNumaraService.GetLastItemAsync(false).Returns(onNumaraDtoForLastItem);
+
+            //Act
+            var result = (OkObjectResult)await _sut.GetOneNumbersArrayByIdForOnNumaraAsync(9999);
+
+            //Assert
+            result.StatusCode.Should().Be(200);
+        }
     }
 }
