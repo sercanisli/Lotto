@@ -23,7 +23,7 @@ namespace Presentation.Controllers
         }
 
         [HttpHead]
-        [HttpGet(Name ="GetAllNumbersArrayForSayisalLotoAsync")]
+        [HttpGet("GetAllNumbersArrayForSayisalLotoAsync", Name ="GetAllNumbersArrayForSayisalLotoAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetAllNumbersArrayForSayisalLotoAsync([FromQuery] SayisalLotoParameters sayisalLotoParameters)
@@ -54,7 +54,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
-        [HttpGet(Name = "GetOneNumbersArrayByIdForSayisalLotoAsync")]
+        [HttpGet("GetOneNumbersArrayByIdForSayisalLotoAsync", Name = "GetOneNumbersArrayByIdForSayisalLotoAsync")]
         //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSayisalLotoAsync([FromRoute(Name = "id")] int id)
         {

@@ -22,7 +22,7 @@ namespace Presentation.Controllers
         }
 
         [HttpHead]
-        [HttpGet(Name = "GetAllNumbersArrayForSuperLotoAsync")]
+        [HttpGet("GetAllNumbersArrayForSuperLotoAsync", Name = "GetAllNumbersArrayForSuperLotoAsync")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetAllNumbersArrayForSuperLotoAsync([FromQuery]SuperLotoParameters superLotoParameters)
@@ -55,7 +55,7 @@ namespace Presentation.Controllers
 
         
         [HttpGet("{id:int}")]
-        [HttpGet(Name = "GetOneNumbersArrayByIdForSuperLotoAsync")]
+        [HttpGet("GetOneNumbersArrayByIdForSuperLotoAsync", Name = "GetOneNumbersArrayByIdForSuperLotoAsync")]
         //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSuperLotoAsync([FromRoute(Name = "id")] int id)
         {

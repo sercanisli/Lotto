@@ -21,7 +21,7 @@ namespace Presentation.Controllers
         }
 
         [HttpHead]
-        [HttpGet(Name = "GetAllNumbersArrayForSansTopuAsync")]
+        [HttpGet("GetAllNumbersArrayForSansTopuAsync", Name = "GetAllNumbersArrayForSansTopuAsync")]
         //[ResponseCache(CacheProfileName = "5mins")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayForSansTopuAsync([FromQuery] SansTopuParameters sansTopuParameters)
@@ -51,7 +51,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
-        [HttpGet(Name = "GetOneNumbersArrayByIdForSansTopuAsync")]
+        [HttpGet("GetOneNumbersArrayByIdForSansTopuAsync", Name = "GetOneNumbersArrayByIdForSansTopuAsync")]
         //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForSansTopuAsync([FromRoute(Name = "id")] int id)
         {
