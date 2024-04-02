@@ -22,7 +22,7 @@ namespace Presentation.Controllers
         }
 
         [HttpHead]
-        [HttpGet(Name = "GetAllNumbersArrayForOnNumaraAsync")]
+        [HttpGet("GetAllNumbersArrayForOnNumaraAsync", Name = "GetAllNumbersArrayForOnNumaraAsync")]
         //[ResponseCache(CacheProfileName = "5mins")]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetAllNumbersArrayForOnNumaraAsync([FromQuery]OnNumaraParameters onNumaraParameters)
@@ -54,7 +54,7 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
-        [HttpGet(Name = "GetOneNumbersArrayByIdForOnNumaraAsync")]
+        [HttpGet("GetOneNumbersArrayByIdForOnNumaraAsync", Name = "GetOneNumbersArrayByIdForOnNumaraAsync")]
         //[ResponseCache(CacheProfileName = "5mins")]
         public async Task<IActionResult> GetOneNumbersArrayByIdForOnNumaraAsync([FromRoute(Name = "id")] int id)
         {
