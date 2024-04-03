@@ -167,7 +167,7 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             _serviceManager.OnNumaraService.GetLastItemAsync(false).Returns(onNumaraDtoForLastItem);
 
             //Act
-            var result = (OkObjectResult)await _sut.GetOneNumbersArrayByIdForOnNumaraAsync(9999);
+            var result = (OkObjectResult)await _sut.GetOnNumaraLastItemAsync();
 
             //Assert
             result.StatusCode.Should().Be(200);

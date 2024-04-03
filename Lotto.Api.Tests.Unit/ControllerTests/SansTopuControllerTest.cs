@@ -155,5 +155,25 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(200);
         }
+
+        [Fact]
+        public async Task GetSansTopuLastItemAsync_ShouldReturnOk()
+        {
+            //Arrange
+            var sansTopuDtoForLastItem = new SansTopuDtoForLastItem()
+            {
+                Id = 9999,
+                Numbers = new List<int> { 5, 10, 15, 20, 25 },
+                PlusNumber = 1,
+                Date = Convert.ToDateTime("27.02.1998 00:00:00")
+            };
+            _serviceManager.SansTopuService.GetLastItemAsync(false).Returns(sansTopuDtoForLastItem);
+
+            //Act
+            var result = (OkObjectResult)await _sut.GetSansTopuLastItemAsync();
+
+            //Assert
+            result.StatusCode.Should().Be(200);
+        }
     }
 }
