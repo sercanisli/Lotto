@@ -148,5 +148,24 @@ namespace Lotto.Api.Tests.Unit.ControllerTests
             //Assert
             result.StatusCode.Should().Be(200);
         }
+
+        [Fact]
+        public async Task GetSayisalLotoLastItemAsync_ShouldReturnOk()
+        {
+            //Arrange
+            var sayisalLotoDtoForLastItem = new SayisalLotoDtoForLastItem()
+            {
+                Id = 9999,
+                Numbers = new List<int> { 5, 10, 15, 20, 25, 30 },
+                Date = Convert.ToDateTime("27.02.1998 00:00:00")
+            };
+            _serviceManager.SayisalLotoService.GetLastItemAsync(false).Returns(sayisalLotoDtoForLastItem);
+
+            //Act
+            var result = (OkObjectResult)await _sut.GetSayisalLotoLastItemAsync();
+
+            //Assert
+            result.StatusCode.Should().Be(200);
+        }
     }
 }
